@@ -85,7 +85,7 @@ pub fn origin_id(index_url: &Url) -> String {
     readable_id(&directory, index_url.as_str())
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize)]
 pub struct ClaimKey {
     pub project: ProjectId,
     pub origin: String,

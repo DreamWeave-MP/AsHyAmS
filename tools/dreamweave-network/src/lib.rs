@@ -7,6 +7,7 @@ pub mod crawl;
 pub mod diff;
 pub mod discovery;
 pub mod fetch;
+pub mod network;
 pub mod policy;
 pub mod protocol;
 pub mod state;
