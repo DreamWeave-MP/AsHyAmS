@@ -112,6 +112,18 @@ impl Server {
         saved
     }
 
+    /// Every path below `prefix` hangs up: one site on a shared host is down.
+    pub fn take_down_prefix(&self, prefix: &str) -> HashMap<String, Route> {
+        let mut routes = self.routes.lock().unwrap();
+        let saved = routes.clone();
+        for (path, route) in routes.iter_mut() {
+            if path.starts_with(prefix) {
+                *route = Route::Hangup;
+            }
+        }
+        saved
+    }
+
     pub fn restore(&self, routes: HashMap<String, Route>) {
         *self.routes.lock().unwrap() = routes;
     }
