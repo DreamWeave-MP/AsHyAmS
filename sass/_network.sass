@@ -269,10 +269,6 @@
   grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr))
   margin-top: 1.4rem
 
-@media (min-width: 1180px)
-  .net-stats
-    grid-template-columns: repeat(6, minmax(0, 1fr))
-
   dd
     font-size: 1.25rem
     font-weight: 700
@@ -283,6 +279,10 @@
 
       &:hover
         color: var(--dw-accent)
+
+@media (min-width: 1180px)
+  .net-stats
+    grid-template-columns: repeat(6, minmax(0, 1fr))
 
 .net-stat--ok > dt::after, .net-stat--warn > dt::after, .net-stat--danger > dt::after
   content: " ●"
