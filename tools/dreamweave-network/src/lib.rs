@@ -4,4 +4,5 @@
 pub mod address;
 pub mod fetch;
 pub mod policy;
+pub mod protocol;
 pub mod version;
