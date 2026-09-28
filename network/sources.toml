@@ -1,0 +1,19 @@
+# Sites this index reads.
+#
+# Listing a site here means one thing: this index observes it. It does not mean the site, its
+# projects or its downloads are endorsed, safe, maintained, or any good. Those are for people and
+# their clients to decide; every page this index renders says which site published what.
+#
+# `url` is any address the DreamWeave discovery algorithm can start from: a project page, the
+# site's front page, its dreamweave.json, a manifest. Nobody needs to know where their
+# dreamweave.json lives.
+#
+# Add a site with `cargo network add <url>`, which inspects it first and appends the entry
+# below. Review the pull request like any other: the diff is one site.
+#
+# Remove a site by deleting its entry. The next refresh drops its claims; Git keeps the history.
+
+[[source]]
+url = "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/"
+added = "2026-09-28"
+note = "The Mod Template's own example projects, Candlelight and Tallow: the protocol's reference publisher."

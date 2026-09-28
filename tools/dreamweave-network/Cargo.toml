@@ -9,13 +9,16 @@ description = "Crawler, change tracker and static site generator for the DreamWe
 repository = "https://github.com/DreamWeave-MP/AsHyAmS"
 
 [dependencies]
+anyhow = "1.0.104"
 jsonschema = { version = "0.58.2", default-features = false }
 reqwest = { version = "0.13.5", default-features = false, features = ["rustls"] }
 scraper = "0.27.0"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1.0.151"
 sha2 = "0.11.0"
+time = { version = "0.3.55", features = ["formatting", "parsing", "macros"] }
 tokio = { version = "1.53.1", features = ["rt-multi-thread", "macros", "net", "time", "sync"] }
+toml = "1.1.6"
 url = "2.5.8"
 
 # The library half exists for the binary and its integration tests, not for other crates, so the

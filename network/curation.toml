@@ -1,0 +1,24 @@
+# Decisions this index makes on its own account. Everything here is shown on the site as this
+# index's decision, never as something a publisher said. Another index is free to decide
+# differently; that is the point of there being more than one.
+#
+# Nothing in this file changes what a publisher's manifest says. It changes how this index
+# presents it.
+
+# A host move this index acknowledges. The claim for `project` published by the site whose index
+# is `from` continues as the claim published at `to`, instead of the two being reported as an
+# identity conflict. The crawler recognizes a move on its own only when the enrolled source
+# redirects to the new site; anything else needs a reviewed entry here.
+#
+# [[migration]]
+# project = "4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90"
+# from = "https://old.example.org/mods/dreamweave.json"
+# to = "https://new.example.org/dreamweave.json"
+# reason = "The old site's front page links the new one, and the author confirmed it in #123."
+# reviewed = "2026-09-28"
+
+# A project this index puts on its front page. Featured is an editorial choice, labelled as one.
+#
+# [[featured]]
+# project = "4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90"
+# note = "Why this project is on the front page, in one sentence."

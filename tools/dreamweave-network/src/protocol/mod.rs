@@ -30,6 +30,18 @@ pub const STABLE_CHANNEL: &str = "stable";
 #[serde(transparent)]
 pub struct ProjectId(pub String);
 
+/// Canonical lowercase RFC 9562 form: 8-4-4-4-12 lowercase hex digits.
+pub fn is_project_id(text: &str) -> bool {
+    let groups: Vec<&str> = text.split('-').collect();
+    groups.len() == 5
+        && groups.iter().zip([8, 4, 4, 4, 12]).all(|(group, length)| {
+            group.len() == length
+                && group
+                    .bytes()
+                    .all(|byte| byte.is_ascii_digit() || (b'a'..=b'f').contains(&byte))
+        })
+}
+
 impl fmt::Display for ProjectId {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         formatter.write_str(&self.0)
