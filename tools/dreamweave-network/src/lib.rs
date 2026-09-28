@@ -8,4 +8,5 @@ pub mod discovery;
 pub mod fetch;
 pub mod policy;
 pub mod protocol;
+pub mod state;
 pub mod version;

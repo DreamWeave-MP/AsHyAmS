@@ -70,7 +70,7 @@ pub struct Site {
 
 /// A pointer and a change detector. Everything it says is repeated, authoritatively, in the
 /// manifest it points at.
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct IndexEntry {
     pub id: ProjectId,
