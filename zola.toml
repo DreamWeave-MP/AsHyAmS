@@ -1,0 +1,30 @@
+# The DreamWeave Network site. Everything under content/ is written by
+# `cargo network build` from the state; the hand-written pages live in pages/.
+
+# Where the site is served. GitHub Pages builds use this; a mirror passes its own with
+# `zola build --base-url https://mirror.example/`, and every link follows.
+base_url = "https://dreamweave-mp.github.io/AsHyAmS"
+title = "DreamWeave Network"
+description = "A map of places DreamWeave mods live: projects, releases, dependencies and changes observed on independently published sites."
+
+compile_sass = true
+# The network writes its own search data (network-data/search.json) from the protocol's
+# structured fields; Zola's full-text index would only add weight.
+build_search_index = false
+generate_feeds = false
+
+[markdown]
+highlighting = { theme = "dracula-soft" }
+insert_anchor_links = "right"
+smart_punctuation = true
+
+[slugify]
+paths = "safe"
+
+[link_checker]
+skip_prefixes = ["https://github.com/"]
+
+[extra]
+repository = "https://github.com/DreamWeave-MP/AsHyAmS"
+protocol = "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/guide/protocol/"
+mod_template = "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template"
