@@ -745,6 +745,7 @@ fn neighborhood(network: &Network, claim: &Claim) -> Option<String> {
         );
     }
     graph.render(
+        "neighborhood",
         &format!("{} and its direct relationships", claim.name()),
         "Dependents above, dependencies below. The tables on this page list the same relationships.",
     )
@@ -1339,6 +1340,7 @@ fn ecosystem_graph(network: &Network, keep: impl Fn(&network::Edge) -> bool) -> 
 
 fn dependencies(writer: &mut Writer, network: &Network) -> Result<()> {
     let overview = ecosystem_graph(network, |_| true).render(
+        "overview",
         "Current relationships between indexed projects",
         "Dependents above, dependencies below. Only relationships that resolve to an indexed claim are drawn; the table lists all of them.",
     );
@@ -1348,6 +1350,7 @@ fn dependencies(writer: &mut Writer, network: &Network) -> Result<()> {
             .any(|target| is_foundation(&network.claims[target]))
     })
     .render(
+        "foundations",
         "Libraries, frameworks and what uses them",
         "Every current relationship that lands on a library or framework.",
     );

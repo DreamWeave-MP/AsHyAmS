@@ -163,8 +163,9 @@ impl Graph {
         (width, height, position)
     }
 
-    /// The SVG, or `None` for a graph without edges, which is not worth a picture.
-    pub fn render(&self, title: &str, description: &str) -> Option<String> {
+    /// The SVG, or `None` for a graph without edges, which is not worth a picture. `id` keeps
+    /// the arrowhead markers of two graphs on one page apart.
+    pub fn render(&self, id: &str, title: &str, description: &str) -> Option<String> {
         if self.is_empty() {
             return None;
         }
@@ -190,7 +191,7 @@ impl Graph {
         for kind in &kinds {
             let _ = write!(
                 svg,
-                r#"<marker id="net-arrow-{kind}" class="net-graph__arrow net-graph__arrow--{kind}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z"/></marker>"#
+                r#"<marker id="{id}-arrow-{kind}" class="net-graph__arrow net-graph__arrow--{kind}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z"/></marker>"#
             );
         }
         svg.push_str("</defs>");
@@ -205,7 +206,7 @@ impl Graph {
             };
             let _ = write!(
                 svg,
-                r#"<path class="net-graph__edge net-graph__edge--{kind}" d="{path}" marker-end="url(#net-arrow-{kind})"><title>{from} {kind} {to}</title></path>"#,
+                r#"<path class="net-graph__edge net-graph__edge--{kind}" d="{path}" marker-end="url(#{id}-arrow-{kind})"><title>{from} {kind} {to}</title></path>"#,
                 kind = edge.kind,
                 path = edge_path(position[from], position[to]),
                 from = escape(&self.nodes[from].label),
@@ -372,7 +373,7 @@ mod tests {
         graph.add_node(node("b", "B"));
         graph.add_edge("a", "b", "requires");
         graph.add_edge("b", "a", "conflicts");
-        assert!(graph.render("Cycle", "A and B").is_some());
+        assert!(graph.render("cycle", "Cycle", "A and B").is_some());
     }
 
     #[test]
@@ -381,16 +382,16 @@ mod tests {
         graph.add_node(node("x", "<script>alert(1)</script>"));
         graph.add_node(node("y", "Tallow & friends"));
         graph.add_edge("x", "y", "requires");
-        let svg = graph.render("A \"graph\"", "d").unwrap();
+        let svg = graph.render("test", "A \"graph\"", "d").unwrap();
         assert!(!svg.contains("<script>"));
         assert!(svg.contains("Tallow &amp; friends"));
-        assert_eq!(svg, graph.render("A \"graph\"", "d").unwrap());
+        assert_eq!(svg, graph.render("test", "A \"graph\"", "d").unwrap());
     }
 
     #[test]
     fn a_graph_without_edges_is_not_drawn() {
         let mut graph = Graph::default();
         graph.add_node(node("a", "A"));
-        assert!(graph.render("Alone", "").is_none());
+        assert!(graph.render("alone", "Alone", "").is_none());
     }
 }
