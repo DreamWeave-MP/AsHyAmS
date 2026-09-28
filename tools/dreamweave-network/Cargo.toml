@@ -9,9 +9,11 @@ description = "Crawler, change tracker and static site generator for the DreamWe
 repository = "https://github.com/DreamWeave-MP/AsHyAmS"
 
 [dependencies]
+ammonia = "4.2.0"
 anyhow = "1.0.104"
 futures-util = { version = "0.3.34", default-features = false, features = ["std"] }
 jsonschema = { version = "0.58.2", default-features = false }
+pulldown-cmark = { version = "0.13.4", default-features = false, features = ["html"] }
 reqwest = { version = "0.13.5", default-features = false, features = ["rustls"] }
 scraper = "0.27.0"
 serde = { version = "1", features = ["derive"] }
