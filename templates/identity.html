@@ -24,8 +24,8 @@
         <tbody>
         {%- for claim in view.claims %}
             <tr>
-                <td>{% if claim.path %}<a href="{{ get_url(path=claim.path) | safe }}">{{ claim.name }}</a>{% else %}{{ claim.name }}{% endif %}{% if claim.superseded_by %} <span class="dw-badge dw-badge--info">moved</span>{% endif %}</td>
-                <td><a href="{{ get_url(path=claim.origin_path) | safe }}">{{ claim.origin_label }}</a></td>
+                <td>{% if claim.path %}<a href="{{ get_url(path=claim.path, trailing_slash=true) | safe }}">{{ claim.name }}</a>{% else %}{{ claim.name }}{% endif %}{% if claim.superseded_by %} <span class="dw-badge dw-badge--info">moved</span>{% endif %}</td>
+                <td><a href="{{ get_url(path=claim.origin_path, trailing_slash=true) | safe }}">{{ claim.origin_label }}</a></td>
                 <td>{{ net::health(token=claim.health, label=claim.health_label) }}</td>
                 <td class="dw-digest">{{ claim.manifest_sha256 | default(value="none accepted") }}</td>
                 <td>{{ claim.first_observed }}</td>

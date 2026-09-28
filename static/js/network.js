@@ -198,6 +198,8 @@
 
   // The catalog filter: the same query language over the cards on the page -------------------
 
+  const pathOf = url => url.pathname.replace(/\/+$/, '');
+
   const filter = document.querySelector('[data-catalog-filter]');
   const cards = [...document.querySelectorAll('.net-card')];
   if (filter && cards.length && input?.dataset.search) {
@@ -212,7 +214,7 @@
       if (byPath === null) {
         try {
           const all = await loadRecords(input.dataset.search);
-          byPath = new Map(all.map(record => [new URL(record.url, base).pathname, record]));
+          byPath = new Map(all.map(record => [pathOf(new URL(record.url, base)), record]));
         } catch {
           byPath = new Map();
         }
@@ -221,7 +223,7 @@
       let shown = 0;
       for (const card of cards) {
         const link = card.querySelector('.net-card__title a');
-        const record = link && byPath.get(new URL(link.href).pathname);
+        const record = link && byPath.get(pathOf(new URL(link.href)));
         const visible = !text || (record
           ? matches(record, query)
           : query.fields.length === 0 && query.words.every(word => card.textContent.toLocaleLowerCase().includes(word)));

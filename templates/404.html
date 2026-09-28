@@ -6,7 +6,7 @@
 <div class="dw-shell dw-article">
     <p class="dw-kicker"><span>404</span></p>
     <h1>Not on this map</h1>
-    <p>Nothing lives at this address. If you followed a link to a project, it may have been renamed or withdrawn by its site; the <a href="{{ get_url(path='projects/') | safe }}">catalog</a> lists every claim this index holds now, and the project's own site is the authority on where it went.</p>
+    <p>Nothing lives at this address. If you followed a link to a project, it may have been renamed or withdrawn by its site; the <a href="{{ get_url(path='projects/', trailing_slash=true) | safe }}">catalog</a> lists every claim this index holds now, and the project's own site is the authority on where it went.</p>
     <p><a class="dw-button" href="{{ config.base_url | safe }}/">Back to the network</a></p>
 </div>
 {%- endblock content %}

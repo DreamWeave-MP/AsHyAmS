@@ -5,7 +5,7 @@
 {%- if page %}{% set view = load_data(path=page.extra.view) %}{% set filtered = true %}{% else %}{% set view = load_data(path=section.extra.view) %}{% set filtered = false %}{% endif %}
 <header class="net-page-head">
     <div class="dw-shell">
-        <p class="dw-kicker"><span>{% if filtered %}<a href="{{ get_url(path='releases/') | safe }}">Releases</a>{% else %}Release activity{% endif %}</span><span>{{ view.rows | length }} release{{ view.rows | length | pluralize }}</span></p>
+        <p class="dw-kicker"><span>{% if filtered %}<a href="{{ get_url(path='releases/', trailing_slash=true) | safe }}">Releases</a>{% else %}Release activity{% endif %}</span><span>{{ view.rows | length }} release{{ view.rows | length | pluralize }}</span></p>
         <h1>{{ view.title }}</h1>
         <p class="net-lede">{{ view.description }}</p>
     </div>

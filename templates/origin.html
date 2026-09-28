@@ -6,7 +6,7 @@
 {%- set origin = view.origin %}
 <header class="net-page-head">
     <div class="dw-shell">
-        <p class="dw-kicker"><span><a href="{{ get_url(path='origins/') | safe }}">Sites</a></span><span>{{ net::health(token=origin.health, label=origin.health_label) }}</span></p>
+        <p class="dw-kicker"><span><a href="{{ get_url(path='origins/', trailing_slash=true) | safe }}">Sites</a></span><span>{{ net::health(token=origin.health, label=origin.health_label) }}</span></p>
         <h1>{{ origin.label }}</h1>
         <p class="net-lede"><a href="{{ origin.index_url }}">{{ origin.index_url }}</a></p>
     </div>
@@ -21,7 +21,7 @@
             {%- if view.cards | length > 0 %}{{ net::cards(items=view.cards) }}{% else %}<p class="net-empty">No listed claims.</p>{% endif %}
             {%- if view.others | length > 0 %}
             <h3 class="net-subhead">Not listed</h3>
-            <ul>{% for claim in view.others %}<li>{% if claim.path %}<a href="{{ get_url(path=claim.path) | safe }}">{{ claim.name }}</a>{% else %}{{ claim.name }}{% endif %} · {{ claim.health_label }}{% if claim.problem %} · <code>{{ claim.problem }}</code>{% endif %}</li>{% endfor %}</ul>
+            <ul>{% for claim in view.others %}<li>{% if claim.path %}<a href="{{ get_url(path=claim.path, trailing_slash=true) | safe }}">{{ claim.name }}</a>{% else %}{{ claim.name }}{% endif %} · {{ claim.health_label }}{% if claim.problem %} · <code>{{ claim.problem }}</code>{% endif %}</li>{% endfor %}</ul>
             {%- endif %}
         </section>
         {%- if view.events | length > 0 %}

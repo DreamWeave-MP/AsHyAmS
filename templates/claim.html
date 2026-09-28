@@ -16,7 +16,7 @@
             <h1 class="dw-hero__title">{{ card.name }}</h1>
             {%- if card.summary %}<p class="dw-hero__summary">{{ card.summary }}</p>{% endif %}
             <p class="net-attribution">
-                Indexed from <a href="{{ get_url(path=card.origin_path) | safe }}">{{ card.origin_label }}</a>.
+                Indexed from <a href="{{ get_url(path=card.origin_path, trailing_slash=true) | safe }}">{{ card.origin_label }}</a>.
                 Project metadata is published by the project's own site; DreamWeave Network indexes that claim.
             </p>
 
@@ -66,13 +66,13 @@
         {%- if card.conflict %}
         <aside class="dw-callout dw-callout--danger" role="note">
             <p class="dw-callout__title">Identity conflict</p>
-            <p>Another site publishes a claim for the same project id. Ids are chosen by authors, not allocated, so the id alone cannot say which site speaks for the project. This index does not decide; see <a href="{{ get_url(path='projects/' ~ card.project ~ '/') | safe }}">every claim for this id</a>.</p>
+            <p>Another site publishes a claim for the same project id. Ids are chosen by authors, not allocated, so the id alone cannot say which site speaks for the project. This index does not decide; see <a href="{{ get_url(path='projects/' ~ card.project ~ '/', trailing_slash=true) | safe }}">every claim for this id</a>.</p>
         </aside>
         {%- endif %}
         {%- if view.superseded_by %}
         <aside class="dw-callout dw-callout--note" role="note">
             <p class="dw-callout__title">Moved</p>
-            <p>This index's maintainers acknowledged that this project continues at <a href="{{ get_url(path=view.superseded_by.url) | safe }}">{{ view.superseded_by.label }}</a>. That is this index's curation, recorded in <code>network/curation.toml</code>, not a statement by either site.</p>
+            <p>This index's maintainers acknowledged that this project continues at <a href="{{ get_url(path=view.superseded_by.url, trailing_slash=true) | safe }}">{{ view.superseded_by.label }}</a>. That is this index's curation, recorded in <code>network/curation.toml</code>, not a statement by either site.</p>
         </aside>
         {%- endif %}
 
@@ -98,7 +98,7 @@
             {%- if view.reverse | length > 0 %}
             <ul class="net-reverse">
             {%- for item in view.reverse %}
-                <li><span class="dw-badge">{{ item.label }}</span> <a href="{{ get_url(path=item.path) | safe }}">{{ item.name }}</a>{% if item.constraint %} <code>{{ item.constraint }}</code>{% endif %}{% if item.satisfied == false %} <span class="dw-badge dw-badge--warn">not satisfied by the current release</span>{% endif %}{% if item.via %} <span class="net-muted">{{ item.via }}</span>{% endif %}</li>
+                <li><span class="dw-badge">{{ item.label }}</span> <a href="{{ get_url(path=item.path, trailing_slash=true) | safe }}">{{ item.name }}</a>{% if item.constraint %} <code>{{ item.constraint }}</code>{% endif %}{% if item.satisfied == false %} <span class="dw-badge dw-badge--warn">not satisfied by the current release</span>{% endif %}{% if item.via %} <span class="net-muted">{{ item.via }}</span>{% endif %}</li>
             {%- endfor %}
             </ul>
             {%- else %}
@@ -106,7 +106,7 @@
             {%- endif %}
             {%- if view.provides | length > 0 %}
             <h3 class="net-subhead">Provides</h3>
-            <ul class="net-capabilities">{% for item in view.provides %}<li><a href="{{ get_url(path=item.path) | safe }}"><code>{{ item.capability }}</code></a></li>{% endfor %}</ul>
+            <ul class="net-capabilities">{% for item in view.provides %}<li><a href="{{ get_url(path=item.path, trailing_slash=true) | safe }}"><code>{{ item.capability }}</code></a></li>{% endfor %}</ul>
             {%- endif %}
         </section>
 
@@ -221,13 +221,13 @@
         {%- if view.others | length > 0 %}
         <section class="dw-panel">
             <h2 class="dw-panel__title">Same id elsewhere</h2>
-            <div class="dw-panel__body"><ul class="dw-linklist">{% for other in view.others %}<li>{% if other.path %}<a href="{{ get_url(path=other.path) | safe }}"><span>{{ other.name }}</span><small>{{ other.origin_label }}</small></a>{% else %}<span>{{ other.name }} · {{ other.origin_label }} · {{ other.health }}</span>{% endif %}</li>{% endfor %}</ul></div>
+            <div class="dw-panel__body"><ul class="dw-linklist">{% for other in view.others %}<li>{% if other.path %}<a href="{{ get_url(path=other.path, trailing_slash=true) | safe }}"><span>{{ other.name }}</span><small>{{ other.origin_label }}</small></a>{% else %}<span>{{ other.name }} · {{ other.origin_label }} · {{ other.health }}</span>{% endif %}</li>{% endfor %}</ul></div>
         </section>
         {%- endif %}
         {%- if card.tags | length > 0 %}
         <section class="dw-panel">
             <h2 class="dw-panel__title">Tags</h2>
-            <div class="dw-panel__body"><ul class="dw-tags">{% for tag in card.tags %}<li><a href="{{ get_url(path=tag.path) | safe }}">{{ tag.label }}</a></li>{% endfor %}</ul></div>
+            <div class="dw-panel__body"><ul class="dw-tags">{% for tag in card.tags %}<li><a href="{{ get_url(path=tag.path, trailing_slash=true) | safe }}">{{ tag.label }}</a></li>{% endfor %}</ul></div>
         </section>
         {%- endif %}
     </aside>

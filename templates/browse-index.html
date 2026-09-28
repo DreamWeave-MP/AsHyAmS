@@ -12,7 +12,7 @@
 <div class="dw-shell">
     <ul class="net-browse">
     {%- for link in links %}
-        <li><a href="{{ get_url(path=link.path) | safe }}"><span>{{ link.label }}</span><small>{{ link.count }}</small></a></li>
+        <li><a href="{{ get_url(path=link.path, trailing_slash=true) | safe }}"><span>{{ link.label }}</span><small>{{ link.count }}</small></a></li>
     {%- endfor %}
     </ul>
 </div>

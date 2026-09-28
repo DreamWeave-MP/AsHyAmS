@@ -22,7 +22,7 @@
         <section class="dw-section" aria-labelledby="used-title">
             {{ net::section_head(number="01", title="Used by", note="Distinct indexed projects whose current release requires each one. A count of dependents, not a ranking.", id="used-title") }}
             {%- if view.used_by | length > 0 %}
-            <ul class="dw-linklist">{% for item in view.used_by %}<li><a href="{{ get_url(path=item.path) | safe }}"><span>{{ item.name }} <small class="net-muted">{{ item.type_label }}</small></span><small>used by {{ item.count }}</small></a></li>{% endfor %}</ul>
+            <ul class="dw-linklist">{% for item in view.used_by %}<li><a href="{{ get_url(path=item.path, trailing_slash=true) | safe }}"><span>{{ item.name }} <small class="net-muted">{{ item.type_label }}</small></span><small>used by {{ item.count }}</small></a></li>{% endfor %}</ul>
             {%- else %}
             <p class="net-empty">No indexed project requires another yet.</p>
             {%- endif %}
@@ -42,7 +42,7 @@
             <thead><tr><th scope="col">From</th><th scope="col">Kind</th><th scope="col">Target</th></tr></thead>
             <tbody>
             {%- for row in view.rows %}
-                <tr><td><a href="{{ get_url(path=row.from_path) | safe }}">{{ row.from }}</a></td><td><span class="net-kind net-kind--{{ row.kind }}">{{ row.kind }}</span></td><td><ul class="net-relationships net-relationships--inline">{{ net::relationship(item=row.item) }}</ul></td></tr>
+                <tr><td><a href="{{ get_url(path=row.from_path, trailing_slash=true) | safe }}">{{ row.from }}</a></td><td><span class="net-kind net-kind--{{ row.kind }}">{{ row.kind }}</span></td><td><ul class="net-relationships net-relationships--inline">{{ net::relationship(item=row.item) }}</ul></td></tr>
             {%- endfor %}
             </tbody>
         </table></div>

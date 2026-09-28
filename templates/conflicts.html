@@ -14,13 +14,13 @@
     <p>A conflict ends one of three ways: one site stops publishing the id; publisher keys, when the protocol has them, show continuity; or this index's maintainers acknowledge a host move in <code>network/curation.toml</code>, which is shown as their decision. Until then both claims stay visible and neither wins.</p>
     {%- for conflict in rows %}
     <section class="net-conflict" aria-labelledby="conflict-{{ loop.index }}">
-        <h2 id="conflict-{{ loop.index }}">IDENTITY CONFLICT <a class="dw-id" href="{{ get_url(path=conflict.path) | safe }}">{{ conflict.project }}</a></h2>
+        <h2 id="conflict-{{ loop.index }}">IDENTITY CONFLICT <a class="dw-id" href="{{ get_url(path=conflict.path, trailing_slash=true) | safe }}">{{ conflict.project }}</a></h2>
         <ol class="net-conflict__claims">
         {%- for claim in conflict.claims %}
             <li>
-                <p><strong>Claim {{ loop.index }}</strong> · {% if claim.path %}<a href="{{ get_url(path=claim.path) | safe }}">{{ claim.name }}</a>{% else %}{{ claim.name }}{% endif %}</p>
+                <p><strong>Claim {{ loop.index }}</strong> · {% if claim.path %}<a href="{{ get_url(path=claim.path, trailing_slash=true) | safe }}">{{ claim.name }}</a>{% else %}{{ claim.name }}{% endif %}</p>
                 <dl class="dw-record">
-                    <dt>Published by</dt><dd><a href="{{ get_url(path=claim.origin_path) | safe }}">{{ claim.origin_label }}</a></dd>
+                    <dt>Published by</dt><dd><a href="{{ get_url(path=claim.origin_path, trailing_slash=true) | safe }}">{{ claim.origin_label }}</a></dd>
                     <dt>Manifest sha256</dt><dd class="dw-digest">{{ claim.manifest_sha256 | default(value="none accepted") }}</dd>
                     <dt>First observed</dt><dd>{{ claim.first_observed }}</dd>
                     <dt>Last confirmed</dt><dd>{{ claim.last_success | default(value="never") }}</dd>

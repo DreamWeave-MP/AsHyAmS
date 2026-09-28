@@ -6,8 +6,8 @@
 {%- set row = view.row %}
 <header class="net-page-head">
     <div class="dw-shell">
-        <p class="dw-kicker"><span><a href="{{ get_url(path='updates/') | safe }}">Updates</a></span><span>{{ row.kind }}</span><span><time datetime="{{ row.observed_at }}">observed {{ row.observed_label }}</time></span></p>
-        <h1>{% if row.claim_path %}<a href="{{ get_url(path=row.claim_path) | safe }}">{{ row.name }}</a>{% else %}{{ row.name }}{% endif %} <span class="net-headline">{{ row.headline }}</span></h1>
+        <p class="dw-kicker"><span><a href="{{ get_url(path='updates/', trailing_slash=true) | safe }}">Updates</a></span><span>{{ row.kind }}</span><span><time datetime="{{ row.observed_at }}">observed {{ row.observed_label }}</time></span></p>
+        <h1>{% if row.claim_path %}<a href="{{ get_url(path=row.claim_path, trailing_slash=true) | safe }}">{{ row.name }}</a>{% else %}{{ row.name }}{% endif %} <span class="net-headline">{{ row.headline }}</span></h1>
         <p class="net-lede">Published by {{ row.origin_label }}. {% for tag in row.tags %}<span class="net-tag net-tag--{{ tag }}">{{ tag }}</span> {% endfor %}</p>
     </div>
 </header>

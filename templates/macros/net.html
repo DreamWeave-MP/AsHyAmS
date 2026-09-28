@@ -18,7 +18,7 @@
 {%- for fact in items %}
     <dt>{{ fact.label }}</dt>
     <dd{% if fact.code %} class="dw-digest"{% endif %}>
-        {%- if fact.path %}<a href="{{ get_url(path=fact.path) | safe }}">{{ fact.value }}</a>
+        {%- if fact.path %}<a href="{{ get_url(path=fact.path, trailing_slash=true) | safe }}">{{ fact.value }}</a>
         {%- elif fact.url %}<a href="{{ fact.url }}">{{ fact.value }}</a>
         {%- else %}{{ fact.value }}{% endif -%}
         {%- if fact.code and fact.value | length > 40 %} <button class="dw-copy" type="button" data-copy="{{ fact.value }}" aria-label="Copy {{ fact.label }}">Copy</button>{% endif -%}
@@ -30,13 +30,13 @@
 {% macro card(card, compact=false) -%}
 <article class="net-card{% if card.cached %} net-card--stale{% endif %}{% if card.conflict %} net-card--conflict{% endif %}{% if card.image and not compact %} net-card--media{% endif %}" data-filters="{{ card.filters }}" data-name="{{ card.name | lower }}">
     {%- if card.image and not compact %}
-    <a class="net-card__media" href="{{ get_url(path=card.path) | safe }}" tabindex="-1" aria-hidden="true">
+    <a class="net-card__media" href="{{ get_url(path=card.path, trailing_slash=true) | safe }}" tabindex="-1" aria-hidden="true">
         <img src="{{ get_url(path=card.image.src, trailing_slash=false) | safe }}" alt="" loading="lazy" decoding="async">
     </a>
     {%- endif %}
     <div class="net-card__body">
         <p class="dw-kicker"><span>{{ card.type_label }}</span><span>{{ card.status }}</span>{% if card.program %}<span>program</span>{% endif %}</p>
-        <h3 class="net-card__title"><a href="{{ get_url(path=card.path) | safe }}">{{ card.name }}</a></h3>
+        <h3 class="net-card__title"><a href="{{ get_url(path=card.path, trailing_slash=true) | safe }}">{{ card.name }}</a></h3>
         {%- if card.summary %}<p class="net-card__summary">{{ card.summary }}</p>{% endif %}
         <dl class="net-card__facts">
             {%- if card.current %}<div><dt>{{ card.current.channel }}</dt><dd>{{ card.current.version }}</dd></div>{% else %}<div><dt>release</dt><dd>none available</dd></div>{% endif %}
@@ -45,7 +45,7 @@
             <div><dt>used by</dt><dd>{{ card.used_by }}</dd></div>
         </dl>
         <p class="net-card__origin">
-            <span>at <a href="{{ get_url(path=card.origin_path) | safe }}">{{ card.origin_label }}</a></span>
+            <span>at <a href="{{ get_url(path=card.origin_path, trailing_slash=true) | safe }}">{{ card.origin_label }}</a></span>
             {%- if card.cached %} {{ net::health(token=card.health, label=card.health_label) }}{% endif %}
             {%- if card.conflict %} <span class="dw-badge dw-badge--danger">identity conflict</span>{% endif %}
             {%- if card.superseded %} <span class="dw-badge dw-badge--info">moved</span>{% endif %}
@@ -53,7 +53,7 @@
         {%- if not compact %}
         <div class="net-card__actions">
             {%- if card.page %}<a class="dw-button dw-button--small" href="{{ card.page }}">Project site <span aria-hidden="true">↗</span></a>{% endif %}
-            <a class="dw-button dw-button--small dw-button--ghost" href="{{ get_url(path=card.path) | safe }}">Network record</a>
+            <a class="dw-button dw-button--small dw-button--ghost" href="{{ get_url(path=card.path, trailing_slash=true) | safe }}">Network record</a>
         </div>
         {%- endif %}
     </div>
@@ -69,7 +69,7 @@
 {% macro relationship(item) -%}
 <li class="net-relationship net-relationship--{{ item.state }}">
     <span class="net-relationship__target">
-        {%- if item.path %}<a href="{{ get_url(path=item.path) | safe }}">{{ item.name }}</a>
+        {%- if item.path %}<a href="{{ get_url(path=item.path, trailing_slash=true) | safe }}">{{ item.name }}</a>
         {%- elif item.external %}<a href="{{ item.external }}">{{ item.name }}</a> <span class="dw-badge" title="No DreamWeave project in this index matches">outside the network</span>
         {%- else %}{{ item.name }} <span class="dw-badge" title="No id and no URL: people can read it, nothing can resolve it">name only</span>{% endif -%}
     </span>
@@ -78,7 +78,7 @@
     {%- if item.state == "conflict" %} <span class="dw-badge dw-badge--danger">identity conflict</span>{% endif %}
     {%- if item.via %}<span class="net-relationship__via">{{ item.via }}</span>{% endif %}
     {%- if item.targets | length > 0 %}
-    <ul class="net-relationship__targets">{% for target in item.targets %}<li><a href="{{ get_url(path=target.url) | safe }}">{{ target.label }}</a></li>{% endfor %}</ul>
+    <ul class="net-relationship__targets">{% for target in item.targets %}<li><a href="{{ get_url(path=target.url, trailing_slash=true) | safe }}">{{ target.label }}</a></li>{% endfor %}</ul>
     {%- endif %}
     {%- if item.reason %}<span class="net-relationship__reason">{{ item.reason }}</span>{% endif %}
 </li>
@@ -122,7 +122,7 @@
 <li class="net-change net-change--{{ line.class }}">
     <span class="net-change__mark" aria-hidden="true">{% if line.class == "added" %}+{% elif line.class == "removed" %}−{% elif line.class == "anomaly" %}!{% elif line.class == "note" %}·{% else %}~{% endif %}</span>
     <span class="dw-visually-hidden">{{ line.class }}:</span>
-    <span class="net-change__subject">{% if line.path %}<a href="{{ get_url(path=line.path) | safe }}">{{ line.subject }}</a>{% elif line.external %}<a href="{{ line.external }}">{{ line.subject }}</a>{% else %}{{ line.subject }}{% endif %}</span>
+    <span class="net-change__subject">{% if line.path %}<a href="{{ get_url(path=line.path, trailing_slash=true) | safe }}">{{ line.subject }}</a>{% elif line.external %}<a href="{{ line.external }}">{{ line.subject }}</a>{% else %}{{ line.subject }}{% endif %}</span>
     {%- if line.before or line.after %}
     <span class="net-change__values">{% if line.before %}<code>{{ line.before }}</code>{% endif %}{% if line.before and line.after %}<span class="net-change__arrow" aria-label="becomes"> → </span>{% endif %}{% if line.after %}<code>{{ line.after }}</code>{% endif %}</span>
     {%- endif %}
@@ -134,8 +134,8 @@
 <li class="net-event{% if row.anomaly %} net-event--anomaly{% endif %}">
     <time class="net-event__time" datetime="{{ row.observed_at }}">{{ row.observed_label }}</time>
     <span class="net-event__what">
-        {%- if show_name %}<strong>{% if row.claim_path %}<a href="{{ get_url(path=row.claim_path) | safe }}">{{ row.name }}</a>{% else %}{{ row.name }}{% endif %}</strong> {% endif -%}
-        <a class="net-event__headline" href="{{ get_url(path=row.path) | safe }}">{{ row.headline }}</a>
+        {%- if show_name %}<strong>{% if row.claim_path %}<a href="{{ get_url(path=row.claim_path, trailing_slash=true) | safe }}">{{ row.name }}</a>{% else %}{{ row.name }}{% endif %}</strong> {% endif -%}
+        <a class="net-event__headline" href="{{ get_url(path=row.path, trailing_slash=true) | safe }}">{{ row.headline }}</a>
     </span>
     <span class="net-event__tags">{% for tag in row.tags %}<span class="net-tag net-tag--{{ tag }}">{{ tag }}</span>{% endfor %}</span>
 </li>
@@ -153,8 +153,8 @@
     <tbody>
     {%- for row in rows %}
         <tr>
-            {%- if show_name %}<td><a href="{{ get_url(path=row.claim_path) | safe }}">{{ row.name }}</a> <small class="net-muted">{{ row.origin_label }}</small></td>{% endif %}
-            <td><a href="{{ get_url(path=row.release_path) | safe }}"><code>{{ row.version }}</code></a>{% if row.head %} <span class="dw-badge dw-badge--accent">head</span>{% endif %}{% if row.breaking %} <span class="dw-badge dw-badge--danger">breaking notes</span>{% endif %}{% if row.migration %} <span class="dw-badge dw-badge--warn">migration notes</span>{% endif %}</td>
+            {%- if show_name %}<td><a href="{{ get_url(path=row.claim_path, trailing_slash=true) | safe }}">{{ row.name }}</a> <small class="net-muted">{{ row.origin_label }}</small></td>{% endif %}
+            <td><a href="{{ get_url(path=row.claim_path, trailing_slash=true) | safe }}#{{ row.anchor }}"><code>{{ row.version }}</code></a>{% if row.head %} <span class="dw-badge dw-badge--accent">head</span>{% endif %}{% if row.breaking %} <span class="dw-badge dw-badge--danger">breaking notes</span>{% endif %}{% if row.migration %} <span class="dw-badge dw-badge--warn">migration notes</span>{% endif %}</td>
             <td>{{ row.channel }}</td>
             <td>{{ net::status(token=row.status) }}</td>
             <td>{% if row.date %}{{ row.date }}{% else %}<span class="net-muted">not given</span>{% endif %}</td>
@@ -167,9 +167,9 @@
 
 {% macro filters(items, all_path, all_label, active_all) -%}
 <nav class="net-chips" aria-label="Filters">
-    <a class="net-chip" href="{{ get_url(path=all_path) | safe }}"{% if active_all %} aria-current="page"{% endif %}>{{ all_label }}</a>
+    <a class="net-chip" href="{{ get_url(path=all_path, trailing_slash=true) | safe }}"{% if active_all %} aria-current="page"{% endif %}>{{ all_label }}</a>
     {%- for filter in items %}
-    <a class="net-chip" href="{{ get_url(path=filter.path) | safe }}" title="{{ filter.description }}"{% if filter.active %} aria-current="page"{% endif %}>{{ filter.label }} <span class="net-chip__count">{{ filter.count }}</span></a>
+    <a class="net-chip" href="{{ get_url(path=filter.path, trailing_slash=true) | safe }}" title="{{ filter.description }}"{% if filter.active %} aria-current="page"{% endif %}>{{ filter.label }} <span class="net-chip__count">{{ filter.count }}</span></a>
     {%- endfor %}
 </nav>
 {%- endmacro filters %}
@@ -177,7 +177,7 @@
 {% macro stats(items) -%}
 <dl class="dw-strip net-stats" aria-label="Network statistics">
 {%- for stat in items %}
-    <div class="net-stat{% if stat.state %} net-stat--{{ stat.state }}{% endif %}"><dt>{{ stat.label }}</dt><dd>{% if stat.path %}<a href="{{ get_url(path=stat.path) | safe }}">{{ stat.value }}</a>{% else %}{{ stat.value }}{% endif %}</dd></div>
+    <div class="net-stat{% if stat.state %} net-stat--{{ stat.state }}{% endif %}"><dt>{{ stat.label }}</dt><dd>{% if stat.path %}<a href="{{ get_url(path=stat.path, trailing_slash=true) | safe }}">{{ stat.value }}</a>{% else %}{{ stat.value }}{% endif %}</dd></div>
 {%- endfor %}
 </dl>
 {%- endmacro stats %}

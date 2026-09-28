@@ -19,16 +19,16 @@
         </form>
         <section class="dw-panel">
             <h2 class="dw-panel__title">Type</h2>
-            <div class="dw-panel__body"><ul class="dw-linklist">{% for facet in view.types %}<li><a href="{{ get_url(path=facet.path) | safe }}" data-token="{{ facet.token }}"><span>{{ facet.label }}</span><small>{{ facet.count }}</small></a></li>{% endfor %}</ul></div>
+            <div class="dw-panel__body"><ul class="dw-linklist">{% for facet in view.types %}<li><a href="{{ get_url(path=facet.path, trailing_slash=true) | safe }}" data-token="{{ facet.token }}"><span>{{ facet.label }}</span><small>{{ facet.count }}</small></a></li>{% endfor %}</ul></div>
         </section>
         <section class="dw-panel">
             <h2 class="dw-panel__title">Status</h2>
-            <div class="dw-panel__body"><ul class="dw-linklist">{% for facet in view.statuses %}<li><a href="{{ get_url(path=facet.path) | safe }}" data-token="{{ facet.token }}"><span>{{ facet.label }}</span><small>{{ facet.count }}</small></a></li>{% endfor %}</ul></div>
+            <div class="dw-panel__body"><ul class="dw-linklist">{% for facet in view.statuses %}<li><a href="{{ get_url(path=facet.path, trailing_slash=true) | safe }}" data-token="{{ facet.token }}"><span>{{ facet.label }}</span><small>{{ facet.count }}</small></a></li>{% endfor %}</ul></div>
         </section>
         {%- if view.tags | length > 0 %}
         <section class="dw-panel">
             <h2 class="dw-panel__title">Tags <small>publishers' words</small></h2>
-            <div class="dw-panel__body"><ul class="dw-tags">{% for facet in view.tags %}<li><a href="{{ get_url(path=facet.path) | safe }}" data-token="{{ facet.token }}">{{ facet.label }} <small>{{ facet.count }}</small></a></li>{% endfor %}</ul></div>
+            <div class="dw-panel__body"><ul class="dw-tags">{% for facet in view.tags %}<li><a href="{{ get_url(path=facet.path, trailing_slash=true) | safe }}" data-token="{{ facet.token }}">{{ facet.label }} <small>{{ facet.count }}</small></a></li>{% endfor %}</ul></div>
         </section>
         {%- endif %}
     </aside>
@@ -37,7 +37,7 @@
         {{ net::cards(items=view.cards) }}
         <p class="net-empty" data-catalog-empty hidden>Nothing matches. Fewer words, or a different field.</p>
         {%- else %}
-        <p class="net-empty">No project claims yet. <a href="{{ get_url(path='join/') | safe }}">Join the network.</a></p>
+        <p class="net-empty">No project claims yet. <a href="{{ get_url(path='join/', trailing_slash=true) | safe }}">Join the network.</a></p>
         {%- endif %}
     </div>
 </div>

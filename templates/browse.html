@@ -5,7 +5,7 @@
 {%- set view = load_data(path=page.extra.view) %}
 <header class="net-page-head">
     <div class="dw-shell">
-        <p class="dw-kicker"><span><a href="{{ get_url(path='browse/') | safe }}">Browse</a></span><span>{{ view.cards | length }} claim{{ view.cards | length | pluralize }}</span></p>
+        <p class="dw-kicker"><span><a href="{{ get_url(path='browse/', trailing_slash=true) | safe }}">Browse</a></span><span>{{ view.cards | length }} claim{{ view.cards | length | pluralize }}</span></p>
         <h1>{{ view.title }}</h1>
         <p class="net-lede">{{ view.description }}</p>
     </div>

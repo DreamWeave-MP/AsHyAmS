@@ -4,7 +4,7 @@
 {%- set row = load_data(path=page.extra.view) %}
 <header class="net-page-head">
     <div class="dw-shell">
-        <p class="dw-kicker"><span><a href="{{ get_url(path='capabilities/') | safe }}">Capabilities</a></span></p>
+        <p class="dw-kicker"><span><a href="{{ get_url(path='capabilities/', trailing_slash=true) | safe }}">Capabilities</a></span></p>
         <h1><code>{{ row.capability }}</code></h1>
         <p class="net-lede">A capability is a name a project's release says it provides. Any project whose current release provides it satisfies a relationship that names it. The name is the publishers' word; this index does not decide who deserves it.</p>
     </div>
@@ -13,15 +13,15 @@
     <section class="dw-section" aria-labelledby="providers-title">
         <div class="dw-section__head"><h2 id="providers-title">Provided by</h2></div>
         {%- if row.providers | length > 0 %}
-        <ul class="dw-linklist">{% for provider in row.providers %}<li><a href="{{ get_url(path=provider.url) | safe }}"><span>{{ provider.label }}</span></a></li>{% endfor %}</ul>
+        <ul class="dw-linklist">{% for provider in row.providers %}<li><a href="{{ get_url(path=provider.url, trailing_slash=true) | safe }}"><span>{{ provider.label }}</span></a></li>{% endfor %}</ul>
         {%- else %}
-        <p class="net-empty">No current release in this index provides it: every relationship naming it is a <a href="{{ get_url(path='gaps/') | safe }}">gap</a>.</p>
+        <p class="net-empty">No current release in this index provides it: every relationship naming it is a <a href="{{ get_url(path='gaps/', trailing_slash=true) | safe }}">gap</a>.</p>
         {%- endif %}
     </section>
     <section class="dw-section" aria-labelledby="references-title">
         <div class="dw-section__head"><h2 id="references-title">Required, recommended or conflicting</h2></div>
         {%- if row.references | length > 0 %}
-        <ul class="dw-linklist">{% for reference in row.references %}<li><a href="{{ get_url(path=reference.path) | safe }}"><span>{{ reference.name }}</span><small>{{ reference.kind }}</small></a></li>{% endfor %}</ul>
+        <ul class="dw-linklist">{% for reference in row.references %}<li><a href="{{ get_url(path=reference.path, trailing_slash=true) | safe }}"><span>{{ reference.name }}</span><small>{{ reference.kind }}</small></a></li>{% endfor %}</ul>
         {%- else %}
         <p class="net-empty">Nothing indexed names it in a relationship.</p>
         {%- endif %}

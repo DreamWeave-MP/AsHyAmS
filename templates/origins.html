@@ -14,7 +14,7 @@
     <ul class="net-origins">
     {%- for origin in rows %}
         <li class="net-origin">
-            <h2><a href="{{ get_url(path=origin.path) | safe }}">{{ origin.label }}</a></h2>
+            <h2><a href="{{ get_url(path=origin.path, trailing_slash=true) | safe }}">{{ origin.label }}</a></h2>
             <p class="net-muted">{{ origin.address }}</p>
             <p>{{ net::health(token=origin.health, label=origin.health_label) }} · {{ origin.projects }} claim{{ origin.projects | pluralize }} · first observed {{ origin.first_observed }}</p>
         </li>

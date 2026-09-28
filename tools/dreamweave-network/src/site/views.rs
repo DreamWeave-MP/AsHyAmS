@@ -889,7 +889,8 @@ pub fn event_notes(event: &Event) -> Vec<NotesView> {
 pub struct ReleaseRow {
     pub name: String,
     pub claim_path: String,
-    pub release_path: String,
+    /// The release's anchor on its claim's page.
+    pub anchor: String,
     pub origin_label: String,
     pub version: String,
     pub channel: String,
@@ -939,7 +940,7 @@ pub fn release_rows(network: &Network) -> Vec<ReleaseRow> {
             rows.push(ReleaseRow {
                 name: manifest.project.name.clone(),
                 claim_path: claim.path(),
-                release_path: format!("{}#{}", claim.path(), view.anchor),
+                anchor: view.anchor.clone(),
                 origin_label: origin.clone(),
                 version: release.version.clone(),
                 channel: release.channel.clone(),

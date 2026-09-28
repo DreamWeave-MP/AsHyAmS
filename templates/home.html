@@ -11,7 +11,7 @@
             <p class="dw-kicker"><span>DreamWeave Network</span><span>an index of independently published mod sites</span></p>
             <h1 class="net-hero__title">A map of places mods live.</h1>
             <p class="net-hero__summary">Every DreamWeave site this index reads, crawled on a schedule and kept as static files: projects, releases, dependencies, capabilities, and every change between one crawl and the next. The sites own their facts. This index owns its observations.</p>
-            <form class="net-finder" action="{{ get_url(path='projects/') | safe }}" role="search" data-finder>
+            <form class="net-finder" action="{{ get_url(path='projects/', trailing_slash=true) | safe }}" role="search" data-finder>
                 <label class="dw-visually-hidden" for="net-finder-input">Search projects</label>
                 <input id="net-finder-input" name="q" type="search" placeholder="lighting · type:library · provides:dreamweave:dynamic-lights · requires:tallow" autocomplete="off">
                 <button class="dw-button dw-button--primary" type="submit">Search</button>
@@ -26,12 +26,12 @@
             </dl>
             {%- if view.problems | length > 0 %}
             <ul class="net-board__problems">
-                {%- for problem in view.problems %}<li><a href="{{ get_url(path=problem.url) | safe }}">{{ problem.label }}</a></li>{% endfor %}
+                {%- for problem in view.problems %}<li><a href="{{ get_url(path=problem.url, trailing_slash=true) | safe }}">{{ problem.label }}</a></li>{% endfor %}
             </ul>
             {%- else %}
             <p class="net-board__quiet">{{ net::health(token="current", label="Every enrolled site was read and every claim is current.") }}</p>
             {%- endif %}
-            <p class="net-board__links"><a href="{{ get_url(path='health/') | safe }}">Health</a> · <a href="{{ get_url(path='join/') | safe }}">Join the network</a></p>
+            <p class="net-board__links"><a href="{{ get_url(path='health/', trailing_slash=true) | safe }}">Health</a> · <a href="{{ get_url(path='join/', trailing_slash=true) | safe }}">Join the network</a></p>
         </aside>
     </div>
 </header>
@@ -58,7 +58,7 @@
             {%- else %}
             <p class="net-empty">No releases outside the development channel yet.</p>
             {%- endif %}
-            <p class="net-more"><a href="{{ get_url(path='releases/') | safe }}">Every release →</a></p>
+            <p class="net-more"><a href="{{ get_url(path='releases/', trailing_slash=true) | safe }}">Every release →</a></p>
         </section>
         <section class="dw-section" aria-labelledby="changes-title">
             {{ net::section_head(number="02", title="Recent changes", note="What this index observed changing. Rolling development builds are on the updates page.", id="changes-title") }}
@@ -67,7 +67,7 @@
             {%- else %}
             <p class="net-empty">Nothing observed yet.</p>
             {%- endif %}
-            <p class="net-more"><a href="{{ get_url(path='updates/') | safe }}">Every change →</a> · <a href="{{ get_url(path='network-data/updates.xml', trailing_slash=false) | safe }}">Atom feed</a></p>
+            <p class="net-more"><a href="{{ get_url(path='updates/', trailing_slash=true) | safe }}">Every change →</a> · <a href="{{ get_url(path='network-data/updates.xml', trailing_slash=false) | safe }}">Atom feed</a></p>
         </section>
     </div>
 
@@ -77,7 +77,7 @@
         {%- set group_note = group.description ~ " " ~ group.count ~ " in total." %}
         {{ net::section_head(number="0" ~ group_number, title=group.title, note=group_note, id="group-" ~ loop.index ~ "-title") }}
         {{ net::cards(items=group.cards) }}
-        {%- if group.count > group.cards | length %}<p class="net-more"><a href="{{ get_url(path=group.path) | safe }}">All {{ group.count }} →</a></p>{% endif %}
+        {%- if group.count > group.cards | length %}<p class="net-more"><a href="{{ get_url(path=group.path, trailing_slash=true) | safe }}">All {{ group.count }} →</a></p>{% endif %}
     </section>
     {%- endfor %}
 
@@ -85,7 +85,7 @@
         {{ net::section_head(number="»", title="Browse", id="browse-title") }}
         <ul class="net-browse">
         {%- for link in view.browse %}
-            <li><a href="{{ get_url(path=link.path) | safe }}"><span>{{ link.label }}</span><small>{{ link.count }}</small></a></li>
+            <li><a href="{{ get_url(path=link.path, trailing_slash=true) | safe }}"><span>{{ link.label }}</span><small>{{ link.count }}</small></a></li>
         {%- endfor %}
         </ul>
     </section>

@@ -47,7 +47,7 @@
         </a>
         <nav class="dw-nav" aria-label="Network">
             {%- for item in config.extra.menu %}
-            {%- set target = get_url(path=item.path) %}
+            {%- set target = get_url(path=item.path, trailing_slash=true) %}
             <a href="{{ target | safe }}"{% if current_url and current_url is starting_with(target) %} aria-current="page"{% endif %}>{{ item.name }}</a>
             {%- endfor %}
         </nav>
@@ -71,10 +71,10 @@
         <span class="net-led net-led--{% if net.unavailable > 0 or net.stale > 0 %}warn{% elif net.conflicts > 0 %}danger{% else %}ok{% endif %}" aria-hidden="true"></span>
         <span>Network state observed <time datetime="{{ net.observed_at }}">{{ net.observed_label }}</time></span>
         <span class="net-statusline__sep" aria-hidden="true">/</span>
-        <a href="{{ get_url(path='health/') | safe }}">{% if net.unavailable > 0 %}{{ net.unavailable }} site{{ net.unavailable | pluralize }} unavailable{% else %}every site read{% endif %}{% if net.stale > 0 %}, {{ net.stale }} stale claim{{ net.stale | pluralize }}{% endif %}</a>
+        <a href="{{ get_url(path='health/', trailing_slash=true) | safe }}">{% if net.unavailable > 0 %}{{ net.unavailable }} site{{ net.unavailable | pluralize }} unavailable{% else %}every site read{% endif %}{% if net.stale > 0 %}, {{ net.stale }} stale claim{{ net.stale | pluralize }}{% endif %}</a>
         {%- if net.conflicts > 0 %}
         <span class="net-statusline__sep" aria-hidden="true">/</span>
-        <a class="net-statusline__alert" href="{{ get_url(path='conflicts/') | safe }}">{{ net.conflicts }} identity conflict{{ net.conflicts | pluralize }}</a>
+        <a class="net-statusline__alert" href="{{ get_url(path='conflicts/', trailing_slash=true) | safe }}">{{ net.conflicts }} identity conflict{{ net.conflicts | pluralize }}</a>
         {%- endif %}
         <span class="net-statusline__note">A snapshot, not live telemetry.</span>
     {%- else %}
@@ -101,8 +101,8 @@
             <a href="{{ get_url(path='network-data/catalog.json', trailing_slash=false) | safe }}">catalog.json</a>
             <a href="{{ get_url(path='network-data/events.json', trailing_slash=false) | safe }}">events.json</a>
             <a href="{{ get_url(path='network-data/updates.xml', trailing_slash=false) | safe }}">updates feed</a>
-            <a href="{{ get_url(path='origins/') | safe }}">Sites</a>
-            <a href="{{ get_url(path='about/') | safe }}">How this works</a>
+            <a href="{{ get_url(path='origins/', trailing_slash=true) | safe }}">Sites</a>
+            <a href="{{ get_url(path='about/', trailing_slash=true) | safe }}">How this works</a>
             <a href="{{ config.extra.repository | safe }}">Source</a>
             <a href="{{ config.extra.protocol | safe }}">The protocol</a>
         </nav>

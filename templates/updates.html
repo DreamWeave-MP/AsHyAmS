@@ -9,7 +9,7 @@
 {%- if page %}{% set view = load_data(path=page.extra.view) %}{% set filtered = true %}{% else %}{% set view = load_data(path=section.extra.view) %}{% set filtered = false %}{% endif %}
 <header class="net-page-head">
     <div class="dw-shell">
-        <p class="dw-kicker"><span>{% if filtered %}<a href="{{ get_url(path='updates/') | safe }}">Updates</a>{% else %}Update center{% endif %}</span><span>{{ view.rows | length }} event{{ view.rows | length | pluralize }}</span><span><a href="{{ get_url(path='network-data/updates.xml', trailing_slash=false) | safe }}">Atom feed</a></span></p>
+        <p class="dw-kicker"><span>{% if filtered %}<a href="{{ get_url(path='updates/', trailing_slash=true) | safe }}">Updates</a>{% else %}Update center{% endif %}</span><span>{{ view.rows | length }} event{{ view.rows | length | pluralize }}</span><span><a href="{{ get_url(path='network-data/updates.xml', trailing_slash=false) | safe }}">Atom feed</a></span></p>
         <h1>{{ view.title }}</h1>
         <p class="net-lede">{{ view.description }}</p>
     </div>

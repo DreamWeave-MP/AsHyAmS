@@ -20,7 +20,7 @@
             <tbody>
             {%- for source in view.sources %}
                 <tr>
-                    <td class="dw-digest"><a href="{{ source.url }}">{{ source.url }}</a>{% if source.origin_path %}<br><a href="{{ get_url(path=source.origin_path) | safe }}">site record</a>{% endif %}</td>
+                    <td class="dw-digest"><a href="{{ source.url }}">{{ source.url }}</a>{% if source.origin_path %}<br><a href="{{ get_url(path=source.origin_path, trailing_slash=true) | safe }}">site record</a>{% endif %}</td>
                     <td>{{ net::health(token=source.health, label=source.health) }}{% if source.method %}<br><small class="net-muted">{{ source.method }}</small>{% endif %}{% if source.problem %}<br><code class="net-problem">{{ source.problem }}</code>{% endif %}
                         {%- if source.trail | length > 0 %}
                         <details class="net-trail"><summary>What discovery tried</summary><ol>{% for step in source.trail %}<li><code>{{ step.value }}</code> {{ step.label }}</li>{% endfor %}</ol></details>
@@ -43,7 +43,7 @@
             <tbody>
             {%- for origin in view.origins %}
                 <tr>
-                    <td><a href="{{ get_url(path=origin.path) | safe }}">{{ origin.label }}</a><br><small class="net-muted">{{ origin.address }}</small></td>
+                    <td><a href="{{ get_url(path=origin.path, trailing_slash=true) | safe }}">{{ origin.label }}</a><br><small class="net-muted">{{ origin.address }}</small></td>
                     <td>{{ net::health(token=origin.health, label=origin.health_label) }}{% if origin.problem %}<br><code class="net-problem">{{ origin.problem }}</code>{% endif %}{% for issue in origin.issues %}<br><small>{{ issue }}</small>{% endfor %}</td>
                     <td>{{ origin.projects }}</td>
                     <td>{{ origin.generator | default(value="not stated") }}</td>
@@ -64,7 +64,7 @@
             <tbody>
             {%- for claim in view.problems %}
                 <tr>
-                    <td>{% if claim.path %}<a href="{{ get_url(path=claim.path) | safe }}">{{ claim.name }}</a>{% else %}{{ claim.name }} <small class="net-muted">never valid</small>{% endif %}</td>
+                    <td>{% if claim.path %}<a href="{{ get_url(path=claim.path, trailing_slash=true) | safe }}">{{ claim.name }}</a>{% else %}{{ claim.name }} <small class="net-muted">never valid</small>{% endif %}</td>
                     <td>{{ claim.origin_label }}</td>
                     <td>{{ net::health(token=claim.health, label=claim.health_label) }}{% if claim.problem %}<br><code class="net-problem">{{ claim.problem }}</code>{% endif %}</td>
                     <td>{{ claim.last_success | default(value="never") }}</td>

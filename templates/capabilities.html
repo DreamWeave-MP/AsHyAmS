@@ -16,9 +16,9 @@
         <tbody>
         {%- for row in rows %}
             <tr>
-                <td><a href="{{ get_url(path=row.path) | safe }}"><code>{{ row.capability }}</code></a></td>
-                <td>{% for provider in row.providers %}<a href="{{ get_url(path=provider.url) | safe }}">{{ provider.label }}</a>{% if not loop.last %}, {% endif %}{% else %}<span class="dw-badge dw-badge--warn">nothing indexed</span>{% endfor %}</td>
-                <td>{% for reference in row.references %}<a href="{{ get_url(path=reference.path) | safe }}">{{ reference.name }}</a> <small class="net-muted">{{ reference.kind }}</small>{% if not loop.last %}, {% endif %}{% else %}<span class="net-muted">nothing</span>{% endfor %}</td>
+                <td><a href="{{ get_url(path=row.path, trailing_slash=true) | safe }}"><code>{{ row.capability }}</code></a></td>
+                <td>{% for provider in row.providers %}<a href="{{ get_url(path=provider.url, trailing_slash=true) | safe }}">{{ provider.label }}</a>{% if not loop.last %}, {% endif %}{% else %}<span class="dw-badge dw-badge--warn">nothing indexed</span>{% endfor %}</td>
+                <td>{% for reference in row.references %}<a href="{{ get_url(path=reference.path, trailing_slash=true) | safe }}">{{ reference.name }}</a> <small class="net-muted">{{ reference.kind }}</small>{% if not loop.last %}, {% endif %}{% else %}<span class="net-muted">nothing</span>{% endfor %}</td>
             </tr>
         {%- endfor %}
         </tbody>
