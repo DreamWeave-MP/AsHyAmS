@@ -1,0 +1,126 @@
+name: Network
+
+# The index, as a finite batch job: crawl every enrolled site, build the site from what was
+# observed, publish it, and commit the observations to the network-state branch.
+#
+# Runs every six hours, on every push to the default branch (a new source, new code, new pages),
+# and on demand. An unreachable publisher is network state, not a failure: the run carries on and
+# the site says so. Only this repository's own bugs fail it.
+
+on:
+  schedule:
+    # Every six hours, a few minutes past the hour to stay out of the top-of-the-hour rush.
+    - cron: '17 */6 * * *'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One run at a time, and never cancel one: a cancelled run could leave observations unsaved.
+concurrency:
+  group: network
+  cancel-in-progress: false
+
+env:
+  CARGO_TERM_COLOR: always
+  ZOLA_VERSION: 0.22.1
+
+jobs:
+  refresh:
+    name: Refresh, build and publish
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write # push the network-state branch
+      pages: read
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: zola@${{ env.ZOLA_VERSION }}
+
+      - name: Find the published site's URL
+        id: pages
+        continue-on-error: true
+        uses: actions/configure-pages@v6
+
+      - name: Choose the base URL
+        id: base
+        env:
+          PAGES_URL: ${{ steps.pages.outputs.base_url }}
+        run: |
+          if [ -n "$PAGES_URL" ]; then
+            echo "url=$PAGES_URL" >> "$GITHUB_OUTPUT"
+          else
+            echo "url=$(python3 -c 'import tomllib; print(tomllib.load(open("zola.toml", "rb"))["base_url"])')" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build the crawler
+        run: cargo build --locked --release -p dreamweave-network
+
+      - name: Load the network state
+        run: scripts/network-state.sh load
+
+      - name: Crawl every enrolled site
+        run: cargo network refresh --summary "$RUNNER_TEMP/summary.txt"
+
+      - name: Check the state's invariants
+        run: cargo network check
+
+      - name: Generate the site from the state
+        env:
+          BASE_URL: ${{ steps.base.outputs.url }}
+        run: cargo network build --base-url "$BASE_URL"
+
+      - name: Render it
+        env:
+          BASE_URL: ${{ steps.base.outputs.url }}
+        run: zola build --base-url "$BASE_URL"
+
+      - name: Check its links
+        env:
+          BASE_URL: ${{ steps.base.outputs.url }}
+        run: cargo network check-site --base-url "$BASE_URL"
+
+      - uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: public
+
+      - name: Save the network state
+        if: github.ref_name == github.event.repository.default_branch
+        run: scripts/network-state.sh save "$RUNNER_TEMP/summary.txt"
+
+      - name: Summarize
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/summary.txt" ]; then
+            {
+              echo '## Network refresh'
+              echo
+              echo '```text'
+              cat "$RUNNER_TEMP/summary.txt"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+  deploy:
+    name: Deploy to GitHub Pages
+    if: github.ref_name == github.event.repository.default_branch
+    needs: refresh
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the static network
+        id: deployment
+        uses: actions/deploy-pages@v5
