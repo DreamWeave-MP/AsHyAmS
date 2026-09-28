@@ -61,6 +61,9 @@ pub struct Discovery {
     /// agreed nothing changed; the caller keeps its cached bytes.
     pub index: Response,
     pub trail: Vec<Attempt>,
+    /// Every URL that answered with a redirect on the way, page and index alike. A source that
+    /// redirects to another site is how a host move shows up.
+    pub redirects: Vec<Url>,
 }
 
 impl Discovery {
@@ -106,6 +109,7 @@ struct Walker<'a> {
     fetcher: &'a Fetcher,
     known: Option<Known<'a>>,
     trail: Vec<Attempt>,
+    redirects: Vec<Url>,
 }
 
 pub async fn discover(
@@ -117,6 +121,7 @@ pub async fn discover(
         fetcher,
         known,
         trail: Vec::new(),
+        redirects: Vec::new(),
     };
     walker.run(source).await
 }
@@ -147,10 +152,17 @@ impl Walker<'_> {
     }
 
     fn found(&mut self, method: Method, index: Response) -> Discovery {
+        let mut redirects = std::mem::take(&mut self.redirects);
+        for url in &index.redirects {
+            if !redirects.contains(url) {
+                redirects.push(url.clone());
+            }
+        }
         Discovery {
             method,
             index,
             trail: std::mem::take(&mut self.trail),
+            redirects,
         }
     }
 
@@ -182,6 +194,7 @@ impl Walker<'_> {
             self.note(&response.url, "site index unchanged (HTTP 304)");
             return Ok(self.found(Method::Direct, response));
         }
+        self.redirects.extend(response.redirects.iter().cloned());
 
         if let Some(envelope) = parse::envelope(&response.body) {
             if envelope.schema_version != SCHEMA_VERSION {

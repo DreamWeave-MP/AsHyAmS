@@ -72,7 +72,9 @@ pub struct Config {
 }
 
 impl Config {
-    pub fn load(root: &Path) -> Result<Self> {
+    /// `addresses` is the policy sources are reviewed under: always `PublicOnly`, except in a
+    /// local failure drill against loopback fixtures.
+    pub fn load(root: &Path, addresses: AddressPolicy) -> Result<Self> {
         let sources_path = root.join(SOURCES_PATH);
         let text = fs::read_to_string(&sources_path).with_context(|| {
             format!(
@@ -93,14 +95,14 @@ impl Config {
             sources: sources.source,
             curation,
         };
-        config.validate()?;
+        config.validate(addresses)?;
         Ok(config)
     }
 
-    pub fn validate(&self) -> Result<()> {
+    pub fn validate(&self, addresses: AddressPolicy) -> Result<()> {
         let mut seen = BTreeSet::new();
         for source in &self.sources {
-            let url = source_url(&source.url)
+            let url = source_url(&source.url, addresses)
                 .with_context(|| format!("{SOURCES_PATH}: source {:?}", source.url))?;
             if !seen.insert(url.to_string()) {
                 bail!("{SOURCES_PATH}: {url} is listed twice");
@@ -111,8 +113,8 @@ impl Config {
         for migration in &self.curation.migration {
             let at = format!("{CURATION_PATH}: migration of {}", migration.project);
             check_project_id(&migration.project).context(at.clone())?;
-            let from = source_url(&migration.from).context(at.clone())?;
-            let to = source_url(&migration.to).context(at.clone())?;
+            let from = source_url(&migration.from, addresses).context(at.clone())?;
+            let to = source_url(&migration.to, addresses).context(at.clone())?;
             if from == to {
                 bail!("{at}: from and to are the same site index");
             }
@@ -135,12 +137,11 @@ impl Config {
 
 /// Parses a URL a maintainer wrote and applies the crawler's URL checks to it, so a source that
 /// could never be fetched is rejected at review time rather than at 03:00 in CI.
-pub fn source_url(text: &str) -> Result<Url> {
+pub fn source_url(text: &str, addresses: AddressPolicy) -> Result<Url> {
     let url = Url::parse(text.trim()).with_context(|| format!("{text:?} is not a URL"))?;
-    fetch::check_url(&url, AddressPolicy::PublicOnly)
-        .map_err(|error| anyhow::anyhow!("{error}"))?;
+    fetch::check_url(&url, addresses).map_err(|error| anyhow::anyhow!("{error}"))?;
     // The resolver refuses these at crawl time anyway; saying so at review time is kinder.
-    if let Some(url::Host::Domain(domain)) = url.host() {
+    if let (AddressPolicy::PublicOnly, Some(url::Host::Domain(domain))) = (addresses, url.host()) {
         let local = ["localhost", "local", "internal", "lan", "home.arpa"]
             .iter()
             .any(|suffix| domain == *suffix || domain.ends_with(&format!(".{suffix}")));
@@ -195,7 +196,7 @@ mod tests {
             sources: sources.source,
             curation: toml::from_str(curation)?,
         };
-        config.validate()?;
+        config.validate(AddressPolicy::PublicOnly)?;
         Ok(config)
     }
 

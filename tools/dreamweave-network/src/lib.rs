@@ -3,6 +3,7 @@
 
 pub mod address;
 pub mod config;
+pub mod crawl;
 pub mod diff;
 pub mod discovery;
 pub mod fetch;

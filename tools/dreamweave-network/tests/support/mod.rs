@@ -4,6 +4,8 @@
 
 #![allow(dead_code)]
 
+pub mod sites;
+
 use std::{
     collections::HashMap,
     fmt::Write as _,
