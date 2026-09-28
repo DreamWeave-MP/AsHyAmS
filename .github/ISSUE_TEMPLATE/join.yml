@@ -1,0 +1,36 @@
+name: Join the network
+description: Ask for a DreamWeave site to be read by this index.
+title: "Join: "
+labels: [join]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This index reads sites; it never hosts or copies mods. Being listed means this index observes
+        your site, not that anybody vouches for it. If you have Rust, you can do this yourself with
+        `cargo network add <url>` and a pull request; see the join page.
+  - type: input
+    id: url
+    attributes:
+      label: Any URL on your site
+      description: A project page, the front page, or dreamweave.json. Discovery finds the rest.
+      placeholder: https://you.github.io/your-mod/
+    validations:
+      required: true
+  - type: input
+    id: note
+    attributes:
+      label: What it is, in one line
+      description: Goes into network/sources.toml for reviewers.
+      placeholder: Candlelight and Tallow, lighting mods for OpenMW.
+    validations:
+      required: true
+  - type: checkboxes
+    id: ready
+    attributes:
+      label: Before asking
+      options:
+        - label: The site publishes dreamweave.json with schema_version "2" (DreamWeave Mod Template V5 or later, or another implementation of the protocol).
+          required: true
+        - label: I publish this site, or I have its author's agreement to list it.
+          required: true
