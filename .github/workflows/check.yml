@@ -1,0 +1,128 @@
+name: Check
+
+# Everything that can be checked without publishing anything: the Rust gate, the workflows and
+# scripts, the fixture site rendered and link-checked, and, on a pull request that enrolls a new
+# site, a live inspection of that site. The test suite never leaves loopback; only the enrollment
+# check talks to the internet, and only to the sites being added.
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [network-state]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+  ZOLA_VERSION: 0.22.1
+
+jobs:
+  rust:
+    name: Rust, workflows and scripts
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Format
+        run: cargo fmt --all --check
+
+      - name: Lint
+        run: cargo clippy --locked --workspace --all-targets -- -D warnings
+
+      - name: Test
+        run: cargo test --locked --workspace
+
+      # actionlint is a Go tool that install-action does not carry; use the author's installer,
+      # pinned to a release, as StroggForge does.
+      - name: Workflows
+        run: |
+          bash <(curl -sSfL https://raw.githubusercontent.com/rhysd/actionlint/v1.7.12/scripts/download-actionlint.bash) 1.7.12 "$RUNNER_TEMP"
+          "$RUNNER_TEMP/actionlint" -color
+
+      - name: Scripts
+        run: shellcheck scripts/*.sh
+
+  site:
+    name: Fixture site
+    runs-on: ubuntu-24.04
+    env:
+      FIXTURE_SITE: ${{ github.workspace }}/../fixture-site
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: zola@${{ env.ZOLA_VERSION }}
+
+      - name: Validate the source list and curation
+        run: cargo network check
+
+      - name: Crawl a fixture network and generate its site
+        env:
+          DREAMWEAVE_NETWORK_FIXTURE_SITE: ${{ env.FIXTURE_SITE }}
+        run: cargo test --locked --test site
+
+      - name: Render it
+        run: zola --root "$FIXTURE_SITE" build
+
+      - name: Check its links
+        run: cargo network check-site --public "$FIXTURE_SITE/public"
+
+  sources:
+    name: Inspect newly enrolled sites
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Find the sources this pull request adds
+        id: added
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+        run: |
+          git show "origin/$BASE_REF:network/sources.toml" > "$RUNNER_TEMP/base-sources.toml" 2> /dev/null || : > "$RUNNER_TEMP/base-sources.toml"
+          python3 - "$RUNNER_TEMP/base-sources.toml" network/sources.toml > "$RUNNER_TEMP/added.txt" <<'EOF'
+          import sys, tomllib
+          def urls(path):
+              with open(path, "rb") as handle:
+                  return {source["url"] for source in tomllib.load(handle).get("source", [])}
+          for url in sorted(urls(sys.argv[2]) - urls(sys.argv[1])):
+              print(url)
+          EOF
+          echo "count=$(wc -l < "$RUNNER_TEMP/added.txt")" >> "$GITHUB_OUTPUT"
+          cat "$RUNNER_TEMP/added.txt"
+
+      - uses: dtolnay/rust-toolchain@stable
+        if: steps.added.outputs.count != '0'
+
+      - uses: Swatinem/rust-cache@v2
+        if: steps.added.outputs.count != '0'
+
+      - name: Inspect each one the way the crawler will read it
+        if: steps.added.outputs.count != '0'
+        run: |
+          status=0
+          while IFS= read -r url; do
+            echo "::group::$url"
+            cargo network inspect "$url" || status=1
+            echo "::endgroup::"
+          done < "$RUNNER_TEMP/added.txt"
+          exit "$status"
