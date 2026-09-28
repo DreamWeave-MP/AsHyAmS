@@ -152,9 +152,19 @@ fn copy_tree(source: &Path, target: &Path) -> Result<()> {
     Ok(())
 }
 
-/// Writes everything Zola needs. `state_directory` supplies the cached media.
-pub fn build(root: &Path, state_directory: &Path, network: &Network) -> Result<Built> {
-    let index = index_info(root)?;
+/// Writes everything Zola needs. `state_directory` supplies the cached media. `base_url`
+/// overrides `zola.toml`'s, for a build served somewhere else: the absolute URLs in the public
+/// catalog have to match where the site actually is.
+pub fn build(
+    root: &Path,
+    state_directory: &Path,
+    network: &Network,
+    base_url: Option<&str>,
+) -> Result<Built> {
+    let mut index = index_info(root)?;
+    if let Some(base_url) = base_url {
+        base_url.trim_end_matches('/').clone_into(&mut index.url);
+    }
     for directory in [
         CONTENT_DIRECTORY,
         VIEW_DIRECTORY,

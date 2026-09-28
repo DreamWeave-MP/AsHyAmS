@@ -74,7 +74,12 @@ enum Command {
     /// Print what the last refresh observed changing.
     Diff,
     /// Write the Zola content, view data and public JSON from the state.
-    Build,
+    Build {
+        /// The URL the site will be served at, when it is not zola.toml's. Pass the same one to
+        /// `zola build --base-url`.
+        #[arg(long)]
+        base_url: Option<String>,
+    },
     /// Validate the configuration and the state without touching the network.
     Check,
     /// Check the local links and anchors of the built site.
@@ -221,12 +226,12 @@ fn diff(arguments: &Arguments) -> Result<()> {
     Ok(())
 }
 
-fn build(arguments: &Arguments) -> Result<()> {
+fn build(arguments: &Arguments, base_url: Option<&str>) -> Result<()> {
     let config = Config::load(&arguments.root, addresses(arguments))?;
     let directory = state_directory(arguments);
     let state = State::load(&directory)?;
     let network = Network::build(&state, &config.curation)?;
-    let built = site::build(&arguments.root, &directory, &network)?;
+    let built = site::build(&arguments.root, &directory, &network, base_url)?;
     println!(
         "Wrote {} pages for {} project claims and {} events. Next: zola build",
         built.pages, built.claims, built.events
@@ -294,7 +299,7 @@ async fn main() -> ExitCode {
                 .map(|()| true)
         }
         Command::Diff => diff(&arguments).map(|()| true),
-        Command::Build => build(&arguments).map(|()| true),
+        Command::Build { base_url } => build(&arguments, base_url.as_deref()).map(|()| true),
         Command::Check => check(&arguments),
         Command::CheckSite { public, base_url } => {
             check_site(&arguments, public, base_url.as_deref())
