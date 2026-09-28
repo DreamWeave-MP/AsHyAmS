@@ -1,0 +1,14 @@
+# Rust
+/target/
+
+# Written by `dreamweave-network build`; never edit these
+/content/
+/data/network/
+/static/network-data/
+/static/network-media/
+
+# Zola output
+/public/
+
+# A checkout of the network-state branch (see docs on operating the network)
+/state/
