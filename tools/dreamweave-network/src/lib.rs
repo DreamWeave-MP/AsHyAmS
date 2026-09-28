@@ -16,5 +16,6 @@ pub mod network;
 pub mod policy;
 pub mod protocol;
 pub mod site;
+pub mod sitecheck;
 pub mod state;
 pub mod version;
