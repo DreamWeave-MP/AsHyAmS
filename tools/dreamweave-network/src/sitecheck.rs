@@ -51,6 +51,9 @@ enum Target {
     /// Not under the site's base URL: an outbound link, not checked.
     Elsewhere,
     Missing,
+    /// A directory named without its trailing slash: it works, through a redirect every host
+    /// handles differently, and scripts comparing paths get it wrong.
+    Unslashed,
     File(PathBuf),
 }
 
@@ -64,8 +67,10 @@ fn target_file(base: &Url, public: &Path, url: &Url) -> Target {
         candidate.join("index.html")
     } else if candidate.is_file() {
         candidate
+    } else if candidate.join("index.html").is_file() {
+        return Target::Unslashed;
     } else {
-        candidate.join("index.html")
+        return Target::Missing;
     };
     if found.is_file() {
         Target::File(found)
@@ -161,6 +166,14 @@ pub fn check(public: &Path, base_url: &str) -> Result<SiteReport> {
                 ));
                 continue;
             }
+            Target::Unslashed => {
+                checked += 1;
+                problems.push(format!(
+                    "{}: {reference} names a directory without its trailing slash",
+                    file.display()
+                ));
+                continue;
+            }
             Target::File(target) => target,
         };
         checked += 1;
@@ -185,4 +198,46 @@ pub fn check(public: &Path, base_url: &str) -> Result<SiteReport> {
         links: checked,
         problems,
     })
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn finds_broken_links_missing_anchors_and_unslashed_directories() {
+        let public = std::env::temp_dir().join(format!(
+            "dreamweave-network-sitecheck-{}",
+            std::process::id()
+        ));
+        fs::create_dir_all(public.join("projects")).unwrap();
+        fs::write(
+            public.join("projects/index.html"),
+            r#"<h1 id="top">Projects</h1><a href="https://example.org/mods/">outbound</a>"#,
+        )
+        .unwrap();
+        fs::write(
+            public.join("index.html"),
+            r#"<a href="https://example.org/mods/projects/">fine</a>
+               <a href="https://example.org/mods/projects/#top">fine too</a>
+               <a href="https://example.org/mods/projects">unslashed</a>
+               <a href="https://example.org/mods/nowhere/">missing</a>
+               <a href="https://example.org/mods/projects/#bottom">no such anchor</a>
+               <a href="https://elsewhere.example.org/">not ours</a>
+               <p id="twice"></p><p id="twice"></p>"#,
+        )
+        .unwrap();
+        let report = check(&public, "https://example.org/mods").unwrap();
+        fs::remove_dir_all(&public).unwrap();
+        let problems = report.problems.join("\n");
+        assert_eq!(report.problems.len(), 4, "{problems}");
+        for expected in [
+            "trailing slash",
+            "does not exist",
+            "#bottom",
+            "appears twice",
+        ] {
+            assert!(problems.contains(expected), "{expected}: {problems}");
+        }
+    }
 }
