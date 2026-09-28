@@ -94,6 +94,10 @@ impl fmt::Display for FetchError {
             ),
             Self::CredentialsInUrl => formatter
                 .write_str("refused by crawler policy: the URL carries a user name or password"),
+            Self::ForbiddenAddress { host, address } if *host == address.to_string() => write!(
+                formatter,
+                "refused by crawler policy: {address} is not a public address"
+            ),
             Self::ForbiddenAddress { host, address } => write!(
                 formatter,
                 "refused by crawler policy: {host} resolves to {address}, which is not a public address"
