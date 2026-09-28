@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% import "macros/net.html" as net %}
+
+{%- block content %}
+{%- set view = load_data(path=section.extra.view) %}
+<header class="net-page-head">
+    <div class="dw-shell">
+        <p class="dw-kicker"><span>Project id</span><span>{{ view.claims | length }} claim{{ view.claims | length | pluralize }}</span></p>
+        <h1>{{ section.title }}</h1>
+        <p class="net-lede dw-id">{{ view.project }}</p>
+    </div>
+</header>
+<div class="dw-shell dw-article">
+    {%- if view.conflict %}
+    <aside class="dw-callout dw-callout--danger" role="note">
+        <p class="dw-callout__title">Identity conflict</p>
+        <p>More than one site publishes a claim for this id. A DreamWeave id is chosen by its author, not allocated by anyone, so two unrelated sites can publish the same one. This index shows every claim and picks none. A client should ask its user; the protocol says so.</p>
+    </aside>
+    {%- else %}
+    <p>A project id is a claim, not proof of who speaks for a project: ids are chosen, not allocated. This page lists every site this index has seen publish this one.</p>
+    {%- endif %}
+    <div class="dw-table-scroll"><table class="net-table">
+        <thead><tr><th scope="col">Claim</th><th scope="col">Published by</th><th scope="col">Health</th><th scope="col">Held manifest sha256</th><th scope="col">First observed</th><th scope="col">Last confirmed</th><th scope="col">Signatures</th></tr></thead>
+        <tbody>
+        {%- for claim in view.claims %}
+            <tr>
+                <td>{% if claim.path %}<a href="{{ get_url(path=claim.path) | safe }}">{{ claim.name }}</a>{% else %}{{ claim.name }}{% endif %}{% if claim.superseded_by %} <span class="dw-badge dw-badge--info">moved</span>{% endif %}</td>
+                <td><a href="{{ get_url(path=claim.origin_path) | safe }}">{{ claim.origin_label }}</a></td>
+                <td>{{ net::health(token=claim.health, label=claim.health_label) }}</td>
+                <td class="dw-digest">{{ claim.manifest_sha256 | default(value="none accepted") }}</td>
+                <td>{{ claim.first_observed }}</td>
+                <td>{{ claim.last_success | default(value="never") }}</td>
+                <td>{% if claim.signatures > 0 %}{{ claim.signatures }} published{% else %}none{% endif %}</td>
+            </tr>
+        {%- endfor %}
+        </tbody>
+    </table></div>
+</div>
+{%- endblock content %}

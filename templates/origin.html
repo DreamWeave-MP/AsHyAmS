@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% import "macros/net.html" as net %}
+
+{%- block content %}
+{%- set view = load_data(path=page.extra.view) %}
+{%- set origin = view.origin %}
+<header class="net-page-head">
+    <div class="dw-shell">
+        <p class="dw-kicker"><span><a href="{{ get_url(path='origins/') | safe }}">Sites</a></span><span>{{ net::health(token=origin.health, label=origin.health_label) }}</span></p>
+        <h1>{{ origin.label }}</h1>
+        <p class="net-lede"><a href="{{ origin.index_url }}">{{ origin.index_url }}</a></p>
+    </div>
+</header>
+<div class="dw-shell dw-project__body">
+    <div class="dw-project__main">
+        {%- if origin.problem %}
+        <aside class="dw-callout dw-callout--warning" role="note"><p class="dw-callout__title">Last crawl</p><p><code>{{ origin.problem }}</code></p><p>Its claims keep their last good manifests until the site can be read again.</p></aside>
+        {%- endif %}
+        <section class="dw-section" aria-labelledby="published-title">
+            {{ net::section_head(number="01", title="Published here", id="published-title") }}
+            {%- if view.cards | length > 0 %}{{ net::cards(items=view.cards) }}{% else %}<p class="net-empty">No listed claims.</p>{% endif %}
+            {%- if view.others | length > 0 %}
+            <h3 class="net-subhead">Not listed</h3>
+            <ul>{% for claim in view.others %}<li>{% if claim.path %}<a href="{{ get_url(path=claim.path) | safe }}">{{ claim.name }}</a>{% else %}{{ claim.name }}{% endif %} · {{ claim.health_label }}{% if claim.problem %} · <code>{{ claim.problem }}</code>{% endif %}</li>{% endfor %}</ul>
+            {%- endif %}
+        </section>
+        {%- if view.events | length > 0 %}
+        <section class="dw-section" aria-labelledby="events-title">
+            {{ net::section_head(number="02", title="Recent changes", id="events-title") }}
+            {{ net::events(rows=view.events) }}
+        </section>
+        {%- endif %}
+    </div>
+    <aside class="dw-project__rail" aria-label="Site record">
+        <section class="dw-panel">
+            <h2 class="dw-panel__title">Site record <small>observed</small></h2>
+            <div class="dw-panel__body">
+                <dl class="dw-record">
+                    <dt>Id</dt><dd class="dw-id">{{ origin.id }}</dd>
+                    <dt>Generator</dt><dd>{{ origin.generator | default(value="not stated") }}</dd>
+                    <dt>First observed</dt><dd>{{ origin.first_observed }}</dd>
+                    <dt>Last attempt</dt><dd>{{ origin.last_attempt }}</dd>
+                    <dt>Last success</dt><dd>{{ origin.last_success | default(value="never") }}</dd>
+                    {%- for source in origin.sources %}<dt>Enrolled as</dt><dd class="dw-digest"><a href="{{ source }}">{{ source }}</a></dd>{% endfor %}
+                    {%- for redirect in origin.redirects %}<dt>Redirected from</dt><dd class="dw-digest">{{ redirect }}</dd>{% endfor %}
+                </dl>
+                {%- if origin.previous | length > 0 %}
+                <h3 class="net-subhead">Replaced</h3>
+                {{ net::facts(items=origin.previous) }}
+                {%- endif %}
+            </div>
+        </section>
+    </aside>
+</div>
+{%- endblock content %}

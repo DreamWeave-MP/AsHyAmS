@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{%- block content %}
+{%- set view = load_data(path=section.extra.view) %}
+<header class="net-page-head">
+    <div class="dw-shell">
+        <p class="dw-kicker"><span>Network gaps</span><span>{{ view.gaps | length }} target{{ view.gaps | length | pluralize }} outside</span></p>
+        <h1>{{ section.title }}</h1>
+        <p class="net-lede">{{ section.description }} Not errors: most of the modding world does not publish DreamWeave manifests, and nothing says it has to.</p>
+    </div>
+</header>
+<div class="dw-shell">
+    {%- for gap in view.gaps %}
+    <section class="net-gap net-gap--{{ gap.by }}" aria-labelledby="gap-{{ loop.index }}">
+        <h2 id="gap-{{ loop.index }}">{% if gap.by == "capability" %}<code>{{ gap.title }}</code>{% else %}{{ gap.title }}{% endif %} <small>referenced by {{ gap.references | length }} indexed project{{ gap.references | length | pluralize }}</small></h2>
+        <p class="net-muted">{{ gap.detail }}</p>
+        {%- if gap.names | length > 1 %}<p>Also called: {% for name in gap.names %}{{ name }}{% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
+        {%- if gap.urls | length > 0 %}<p>{% for url in gap.urls %}<a href="{{ url }}">{{ url }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
+        <ul class="net-gap__references">{% for reference in gap.references %}<li><a href="{{ get_url(path=reference.path) | safe }}">{{ reference.name }}</a> <small class="net-muted">{{ reference.kind }}</small></li>{% endfor %}</ul>
+    </section>
+    {%- else %}
+    <p class="net-empty">Every relationship resolves inside the network.</p>
+    {%- endfor %}
+
+    {%- if view.candidates | length > 0 %}
+    <section class="dw-section" aria-labelledby="candidates-title">
+        <div class="dw-section__head"><h2 id="candidates-title">Candidate sources</h2><p>URLs relationships name outside every enrolled site. Nothing follows them: a maintainer may inspect one and propose it.</p></div>
+        <div class="dw-table-scroll"><table class="net-table">
+            <thead><tr><th scope="col">URL</th><th scope="col">Referenced by</th><th scope="col">Check it</th></tr></thead>
+            <tbody>
+            {%- for candidate in view.candidates %}
+                <tr><td><a href="{{ candidate.url }}">{{ candidate.url }}</a></td><td>{{ candidate.references }}</td><td><code>{{ candidate.command }}</code> <button class="dw-copy" type="button" data-copy="{{ candidate.command }}">Copy</button></td></tr>
+            {%- endfor %}
+            </tbody>
+        </table></div>
+    </section>
+    {%- endif %}
+</div>
+{%- endblock content %}

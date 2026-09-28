@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% import "macros/net.html" as net %}
+
+{%- block content %}
+{%- set view = load_data(path=page.extra.view) %}
+{%- set row = view.row %}
+<header class="net-page-head">
+    <div class="dw-shell">
+        <p class="dw-kicker"><span><a href="{{ get_url(path='updates/') | safe }}">Updates</a></span><span>{{ row.kind }}</span><span><time datetime="{{ row.observed_at }}">observed {{ row.observed_label }}</time></span></p>
+        <h1>{% if row.claim_path %}<a href="{{ get_url(path=row.claim_path) | safe }}">{{ row.name }}</a>{% else %}{{ row.name }}{% endif %} <span class="net-headline">{{ row.headline }}</span></h1>
+        <p class="net-lede">Published by {{ row.origin_label }}. {% for tag in row.tags %}<span class="net-tag net-tag--{{ tag }}">{{ tag }}</span> {% endfor %}</p>
+    </div>
+</header>
+<div class="dw-shell net-event-page">
+    <div class="net-event-page__main">
+        {%- for section in view.sections %}
+        <section class="net-change-group{% if section.anomaly %} net-change-group--anomaly{% endif %}" aria-labelledby="changes-{{ loop.index }}">
+            <h2 id="changes-{{ loop.index }}">{{ section.title }}</h2>
+            <ul class="net-changes">{% for line in section.lines %}{{ net::change_line(line=line) }}{% endfor %}</ul>
+            {%- if section.anomaly %}<p class="net-fine">Unusual is not malicious. It is a fact about the publication that is worth a second look, reported without interpretation.</p>{% endif %}
+        </section>
+        {%- else %}
+        <p class="net-empty">{% if row.kind == "observed" %}The first manifest this index held for this claim. Later changes are measured against it.{% elif row.kind == "withdrawn" %}The site's index stopped listing this project. Its last manifest stays on record.{% else %}No structural difference between the two manifests.{% endif %}</p>
+        {%- endfor %}
+
+        {%- for notes in view.notes %}
+        <section class="net-change-group net-change-group--notes" aria-labelledby="notes-{{ loop.index }}">
+            <h2 id="notes-{{ loop.index }}">Publisher's notes for {{ notes.version }} <small>{{ notes.channel }}</small></h2>
+            {%- if notes.breaking %}<p><span class="dw-badge dw-badge--danger">the publisher lists breaking changes</span></p>{% endif %}
+            {%- if notes.summary %}<p class="dw-release__summary">{{ notes.summary }}</p>{% endif %}
+            {%- if notes.html %}<div class="net-publisher-notes">{{ notes.html | safe }}</div>{% endif %}
+            <p class="net-fine">Written by the publisher and shown verbatim, rendered through a sanitizer.</p>
+        </section>
+        {%- endfor %}
+    </div>
+    <aside class="net-event-page__rail" aria-label="Transition">
+        <section class="dw-panel">
+            <h2 class="dw-panel__title">Transition</h2>
+            <div class="dw-panel__body">
+                <dl class="dw-record">
+                    <dt>Event</dt><dd class="dw-id">{{ row.id }}</dd>
+                    <dt>Before</dt><dd class="dw-digest">{% if view.before %}<span title="{{ view.before }}">{{ view.before_short }}</span>{% else %}nothing held{% endif %}</dd>
+                    <dt>After</dt><dd class="dw-digest">{% if view.after %}<span title="{{ view.after }}">{{ view.after_short }}</span>{% else %}not listed{% endif %}</dd>
+                    <dt>Observed</dt><dd>{{ row.observed_label }}</dd>
+                    {%- if view.moved_from %}<dt>Moved from</dt><dd><code>{{ view.moved_from }}</code></dd>{% endif %}
+                    {%- if view.manifest_url %}<dt>Manifest</dt><dd><a href="{{ view.manifest_url }}">current</a></dd>{% endif %}
+                </dl>
+                <p class="net-fine">The id is a digest of the claim and the two manifest digests, so rerunning a crawl can never record this transition twice. The previous manifest is in the state branch's Git history.</p>
+            </div>
+        </section>
+    </aside>
+</div>
+{%- endblock content %}

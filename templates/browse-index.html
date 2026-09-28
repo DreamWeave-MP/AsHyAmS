@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{%- block content %}
+{%- set links = load_data(path=section.extra.view) %}
+<header class="net-page-head">
+    <div class="dw-shell">
+        <p class="dw-kicker"><span>Browse</span></p>
+        <h1>{{ section.title }}</h1>
+        <p class="net-lede">{{ section.description }} Types and statuses are what each manifest declares. Tags are free text chosen by publishers; this index does not keep a taxonomy.</p>
+    </div>
+</header>
+<div class="dw-shell">
+    <ul class="net-browse">
+    {%- for link in links %}
+        <li><a href="{{ get_url(path=link.path) | safe }}"><span>{{ link.label }}</span><small>{{ link.count }}</small></a></li>
+    {%- endfor %}
+    </ul>
+</div>
+{%- endblock content %}

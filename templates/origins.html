@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% import "macros/net.html" as net %}
+
+{%- block content %}
+{%- set rows = load_data(path=section.extra.view) %}
+<header class="net-page-head">
+    <div class="dw-shell">
+        <p class="dw-kicker"><span>Sites</span><span>{{ rows | length }}</span></p>
+        <h1>{{ section.title }}</h1>
+        <p class="net-lede">{{ section.description }} A site is one <code>dreamweave.json</code>: one site may publish many projects, and one host may serve many sites.</p>
+    </div>
+</header>
+<div class="dw-shell">
+    <ul class="net-origins">
+    {%- for origin in rows %}
+        <li class="net-origin">
+            <h2><a href="{{ get_url(path=origin.path) | safe }}">{{ origin.label }}</a></h2>
+            <p class="net-muted">{{ origin.address }}</p>
+            <p>{{ net::health(token=origin.health, label=origin.health_label) }} · {{ origin.projects }} claim{{ origin.projects | pluralize }} · first observed {{ origin.first_observed }}</p>
+        </li>
+    {%- else %}
+        <li>No site has been read yet.</li>
+    {%- endfor %}
+    </ul>
+</div>
+{%- endblock content %}

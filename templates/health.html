@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% import "macros/net.html" as net %}
+
+{%- block content %}
+{%- set view = load_data(path=section.extra.view) %}
+<header class="net-page-head">
+    <div class="dw-shell">
+        <p class="dw-kicker"><span>Operations</span>{% if net and net.observed_label %}<span>observed {{ net.observed_label }}</span>{% endif %}</p>
+        <h1>{{ section.title }}</h1>
+        <p class="net-lede">{{ section.description }} This is not monitoring: nothing here is live. It is what the last scheduled crawl found, and it stays true until the next one.</p>
+    </div>
+</header>
+<div class="dw-shell">
+    {{ net::stats(items=view.stats) }}
+
+    <section class="dw-section" aria-labelledby="sources-title">
+        {{ net::section_head(number="01", title="Enrolled sources", note="From network/sources.toml. A source is any URL discovery can start from.", id="sources-title") }}
+        <div class="dw-table-scroll"><table class="net-table">
+            <thead><tr><th scope="col">Source</th><th scope="col">Result</th><th scope="col">Last attempt</th><th scope="col">Last success</th></tr></thead>
+            <tbody>
+            {%- for source in view.sources %}
+                <tr>
+                    <td class="dw-digest"><a href="{{ source.url }}">{{ source.url }}</a>{% if source.origin_path %}<br><a href="{{ get_url(path=source.origin_path) | safe }}">site record</a>{% endif %}</td>
+                    <td>{{ net::health(token=source.health, label=source.health) }}{% if source.method %}<br><small class="net-muted">{{ source.method }}</small>{% endif %}{% if source.problem %}<br><code class="net-problem">{{ source.problem }}</code>{% endif %}
+                        {%- if source.trail | length > 0 %}
+                        <details class="net-trail"><summary>What discovery tried</summary><ol>{% for step in source.trail %}<li><code>{{ step.value }}</code> {{ step.label }}</li>{% endfor %}</ol></details>
+                        {%- endif %}
+                    </td>
+                    <td>{{ source.last_attempt }}</td>
+                    <td>{{ source.last_success | default(value="never") }}</td>
+                </tr>
+            {%- else %}
+                <tr><td colspan="4">No sources enrolled.</td></tr>
+            {%- endfor %}
+            </tbody>
+        </table></div>
+    </section>
+
+    <section class="dw-section" aria-labelledby="origins-title">
+        {{ net::section_head(number="02", title="Sites", note="Each distinct site index the sources lead to.", id="origins-title") }}
+        <div class="dw-table-scroll"><table class="net-table">
+            <thead><tr><th scope="col">Site</th><th scope="col">Health</th><th scope="col">Claims</th><th scope="col">Generator</th><th scope="col">Last success</th></tr></thead>
+            <tbody>
+            {%- for origin in view.origins %}
+                <tr>
+                    <td><a href="{{ get_url(path=origin.path) | safe }}">{{ origin.label }}</a><br><small class="net-muted">{{ origin.address }}</small></td>
+                    <td>{{ net::health(token=origin.health, label=origin.health_label) }}{% if origin.problem %}<br><code class="net-problem">{{ origin.problem }}</code>{% endif %}{% for issue in origin.issues %}<br><small>{{ issue }}</small>{% endfor %}</td>
+                    <td>{{ origin.projects }}</td>
+                    <td>{{ origin.generator | default(value="not stated") }}</td>
+                    <td>{{ origin.last_success | default(value="never") }}</td>
+                </tr>
+            {%- else %}
+                <tr><td colspan="5">No site has been read yet.</td></tr>
+            {%- endfor %}
+            </tbody>
+        </table></div>
+    </section>
+
+    <section class="dw-section" aria-labelledby="claims-title">
+        {{ net::section_head(number="03", title="Claims that are not current", note="Each keeps its last good manifest. Nothing is deleted because a crawl failed.", id="claims-title") }}
+        {%- if view.problems | length > 0 %}
+        <div class="dw-table-scroll"><table class="net-table">
+            <thead><tr><th scope="col">Claim</th><th scope="col">Published by</th><th scope="col">State</th><th scope="col">Last confirmed current</th></tr></thead>
+            <tbody>
+            {%- for claim in view.problems %}
+                <tr>
+                    <td>{% if claim.path %}<a href="{{ get_url(path=claim.path) | safe }}">{{ claim.name }}</a>{% else %}{{ claim.name }} <small class="net-muted">never valid</small>{% endif %}</td>
+                    <td>{{ claim.origin_label }}</td>
+                    <td>{{ net::health(token=claim.health, label=claim.health_label) }}{% if claim.problem %}<br><code class="net-problem">{{ claim.problem }}</code>{% endif %}</td>
+                    <td>{{ claim.last_success | default(value="never") }}</td>
+                </tr>
+            {%- endfor %}
+            </tbody>
+        </table></div>
+        {%- else %}
+        <p>{{ net::health(token="current", label="Every claim is current.") }}</p>
+        {%- endif %}
+    </section>
+
+    <div class="net-split">
+        <section class="dw-section" aria-labelledby="counts-title">
+            {{ net::section_head(number="04", title="Claims by state", id="counts-title") }}
+            {{ net::facts(items=view.counts) }}
+        </section>
+        <section class="dw-section" aria-labelledby="generators-title">
+            {{ net::section_head(number="05", title="Publishers' generators", note="Informational; the protocol forbids clients to change behavior on it.", id="generators-title") }}
+            {{ net::facts(items=view.generators) }}
+        </section>
+    </div>
+</div>
+{%- endblock content %}

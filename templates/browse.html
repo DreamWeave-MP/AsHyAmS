@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% import "macros/net.html" as net %}
+
+{%- block content %}
+{%- set view = load_data(path=page.extra.view) %}
+<header class="net-page-head">
+    <div class="dw-shell">
+        <p class="dw-kicker"><span><a href="{{ get_url(path='browse/') | safe }}">Browse</a></span><span>{{ view.cards | length }} claim{{ view.cards | length | pluralize }}</span></p>
+        <h1>{{ view.title }}</h1>
+        <p class="net-lede">{{ view.description }}</p>
+    </div>
+</header>
+<div class="dw-shell">
+    {%- if view.cards | length > 0 %}
+    {{ net::cards(items=view.cards) }}
+    {%- else %}
+    <p class="net-empty">Nothing here yet.</p>
+    {%- endif %}
+</div>
+{%- endblock content %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% import "macros/net.html" as net %}
+
+{%- block content %}
+{%- set view = load_data(path=section.extra.view) %}
+<header class="net-page-head">
+    <div class="dw-shell">
+        <p class="dw-kicker"><span>Catalog</span><span>{{ view.cards | length }} project claim{{ view.cards | length | pluralize }}</span></p>
+        <h1>{{ section.title }}</h1>
+        <p class="net-lede">{{ section.description }} A claim is one site's manifest for one project id. Listing here means a site publishes it, not that anyone vouches for it.</p>
+    </div>
+</header>
+<div class="dw-shell net-catalog">
+    <aside class="net-catalog__filters" aria-label="Filter projects">
+        <form class="net-filter" data-catalog-filter>
+            <label for="net-filter-text">Filter</label>
+            <input id="net-filter-text" name="q" type="search" placeholder="name, tag, or field:value" autocomplete="off">
+            <p class="net-filter__status" role="status" aria-live="polite"></p>
+        </form>
+        <section class="dw-panel">
+            <h2 class="dw-panel__title">Type</h2>
+            <div class="dw-panel__body"><ul class="dw-linklist">{% for facet in view.types %}<li><a href="{{ get_url(path=facet.path) | safe }}" data-token="{{ facet.token }}"><span>{{ facet.label }}</span><small>{{ facet.count }}</small></a></li>{% endfor %}</ul></div>
+        </section>
+        <section class="dw-panel">
+            <h2 class="dw-panel__title">Status</h2>
+            <div class="dw-panel__body"><ul class="dw-linklist">{% for facet in view.statuses %}<li><a href="{{ get_url(path=facet.path) | safe }}" data-token="{{ facet.token }}"><span>{{ facet.label }}</span><small>{{ facet.count }}</small></a></li>{% endfor %}</ul></div>
+        </section>
+        {%- if view.tags | length > 0 %}
+        <section class="dw-panel">
+            <h2 class="dw-panel__title">Tags <small>publishers' words</small></h2>
+            <div class="dw-panel__body"><ul class="dw-tags">{% for facet in view.tags %}<li><a href="{{ get_url(path=facet.path) | safe }}" data-token="{{ facet.token }}">{{ facet.label }} <small>{{ facet.count }}</small></a></li>{% endfor %}</ul></div>
+        </section>
+        {%- endif %}
+    </aside>
+    <div class="net-catalog__list">
+        {%- if view.cards | length > 0 %}
+        {{ net::cards(items=view.cards) }}
+        <p class="net-empty" data-catalog-empty hidden>Nothing matches. Fewer words, or a different field.</p>
+        {%- else %}
+        <p class="net-empty">No project claims yet. <a href="{{ get_url(path='join/') | safe }}">Join the network.</a></p>
+        {%- endif %}
+    </div>
+</div>
+{%- endblock content %}

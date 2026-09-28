@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% import "macros/net.html" as net %}
+
+{%- block body_class %}net-home{% endblock body_class %}
+
+{%- block content %}
+{%- set view = load_data(path=section.extra.view) %}
+<header class="net-hero">
+    <div class="dw-shell net-hero__grid">
+        <div>
+            <p class="dw-kicker"><span>DreamWeave Network</span><span>an index of independently published mod sites</span></p>
+            <h1 class="net-hero__title">A map of places mods live.</h1>
+            <p class="net-hero__summary">Every DreamWeave site this index reads, crawled on a schedule and kept as static files: projects, releases, dependencies, capabilities, and every change between one crawl and the next. The sites own their facts. This index owns its observations.</p>
+            <form class="net-finder" action="{{ get_url(path='projects/') | safe }}" role="search" data-finder>
+                <label class="dw-visually-hidden" for="net-finder-input">Search projects</label>
+                <input id="net-finder-input" name="q" type="search" placeholder="lighting · type:library · provides:dreamweave:dynamic-lights · requires:tallow" autocomplete="off">
+                <button class="dw-button dw-button--primary" type="submit">Search</button>
+            </form>
+            <p class="net-finder__hint">Fields: <code>type:</code> <code>status:</code> <code>tag:</code> <code>provides:</code> <code>requires:</code> <code>recommends:</code> <code>conflicts:</code> <code>runtime:</code> <code>lua:</code> <code>channel:</code> <code>license:</code> <code>maintainer:</code> <code>site:</code></p>
+        </div>
+        <aside class="net-hero__board" aria-label="Network health">
+            <p class="net-board__title">Network board</p>
+            <dl class="net-board">
+                <div><dt>Sites read</dt><dd>{{ view.healthy_origins }}<small>/{{ view.origins }}</small></dd></div>
+                <div><dt>Claims current</dt><dd>{{ view.current_claims }}<small>/{{ view.claims }}</small></dd></div>
+            </dl>
+            {%- if view.problems | length > 0 %}
+            <ul class="net-board__problems">
+                {%- for problem in view.problems %}<li><a href="{{ get_url(path=problem.url) | safe }}">{{ problem.label }}</a></li>{% endfor %}
+            </ul>
+            {%- else %}
+            <p class="net-board__quiet">{{ net::health(token="current", label="Every enrolled site was read and every claim is current.") }}</p>
+            {%- endif %}
+            <p class="net-board__links"><a href="{{ get_url(path='health/') | safe }}">Health</a> · <a href="{{ get_url(path='join/') | safe }}">Join the network</a></p>
+        </aside>
+    </div>
+</header>
+
+<div class="dw-shell">
+    {{ net::stats(items=view.stats) }}
+
+    {%- if view.featured | length > 0 %}
+    <section class="dw-section" aria-labelledby="featured-title">
+        {{ net::section_head(number="00", title="Featured", note="Chosen by this index's maintainers. An editorial decision, labelled as one.", id="featured-title") }}
+        <div class="net-featured">
+        {%- for item in view.featured %}
+            <div class="net-featured__item">{{ net::card(card=item.card) }}<p class="net-featured__note">{{ item.note }}</p></div>
+        {%- endfor %}
+        </div>
+    </section>
+    {%- endif %}
+
+    <div class="net-split">
+        <section class="dw-section" aria-labelledby="releases-title">
+            {{ net::section_head(number="01", title="Latest releases", note="By the date each publisher gives.", id="releases-title") }}
+            {%- if view.latest_releases | length > 0 %}
+            {{ net::release_table(rows=view.latest_releases) }}
+            {%- else %}
+            <p class="net-empty">No releases outside the development channel yet.</p>
+            {%- endif %}
+            <p class="net-more"><a href="{{ get_url(path='releases/') | safe }}">Every release →</a></p>
+        </section>
+        <section class="dw-section" aria-labelledby="changes-title">
+            {{ net::section_head(number="02", title="Recent changes", note="What this index observed changing. Rolling development builds are on the updates page.", id="changes-title") }}
+            {%- if view.recent_events | length > 0 %}
+            {{ net::events(rows=view.recent_events) }}
+            {%- else %}
+            <p class="net-empty">Nothing observed yet.</p>
+            {%- endif %}
+            <p class="net-more"><a href="{{ get_url(path='updates/') | safe }}">Every change →</a> · <a href="{{ get_url(path='network-data/updates.xml', trailing_slash=false) | safe }}">Atom feed</a></p>
+        </section>
+    </div>
+
+    {%- for group in view.groups %}
+    <section class="dw-section" aria-labelledby="group-{{ loop.index }}-title">
+        {%- set group_number = loop.index + 2 %}
+        {%- set group_note = group.description ~ " " ~ group.count ~ " in total." %}
+        {{ net::section_head(number="0" ~ group_number, title=group.title, note=group_note, id="group-" ~ loop.index ~ "-title") }}
+        {{ net::cards(items=group.cards) }}
+        {%- if group.count > group.cards | length %}<p class="net-more"><a href="{{ get_url(path=group.path) | safe }}">All {{ group.count }} →</a></p>{% endif %}
+    </section>
+    {%- endfor %}
+
+    <section class="dw-section" aria-labelledby="browse-title">
+        {{ net::section_head(number="»", title="Browse", id="browse-title") }}
+        <ul class="net-browse">
+        {%- for link in view.browse %}
+            <li><a href="{{ get_url(path=link.path) | safe }}"><span>{{ link.label }}</span><small>{{ link.count }}</small></a></li>
+        {%- endfor %}
+        </ul>
+    </section>
+</div>
+{%- endblock content %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{%- block content %}
+<header class="net-page-head">
+    <div class="dw-shell">
+        {%- if page.extra.kicker %}<p class="dw-kicker">{% for part in page.extra.kicker %}<span>{{ part }}</span>{% endfor %}</p>{% endif %}
+        <h1>{{ page.title }}</h1>
+        {%- if page.description %}<p class="net-lede">{{ page.description }}</p>{% endif %}
+    </div>
+</header>
+<div class="dw-shell">
+    <article class="dw-article dw-prose net-article">{{ page.content | safe }}</article>
+</div>
+{%- endblock content %}

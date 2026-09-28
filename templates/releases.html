@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import "macros/net.html" as net %}
+
+{%- block content %}
+{%- if page %}{% set view = load_data(path=page.extra.view) %}{% set filtered = true %}{% else %}{% set view = load_data(path=section.extra.view) %}{% set filtered = false %}{% endif %}
+<header class="net-page-head">
+    <div class="dw-shell">
+        <p class="dw-kicker"><span>{% if filtered %}<a href="{{ get_url(path='releases/') | safe }}">Releases</a>{% else %}Release activity{% endif %}</span><span>{{ view.rows | length }} release{{ view.rows | length | pluralize }}</span></p>
+        <h1>{{ view.title }}</h1>
+        <p class="net-lede">{{ view.description }}</p>
+    </div>
+</header>
+<div class="dw-shell">
+    {{ net::filters(items=view.filters, all_path="releases/", all_label="Every release", active_all=not filtered) }}
+    {%- if view.rows | length > 0 %}
+    {{ net::release_table(rows=view.rows) }}
+    {%- else %}
+    <p class="net-empty">No releases of this kind.</p>
+    {%- endif %}
+</div>
+{%- endblock content %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{%- block content %}
+{%- set rows = load_data(path=section.extra.view) %}
+<header class="net-page-head">
+    <div class="dw-shell">
+        <p class="dw-kicker"><span>Capability explorer</span><span>{{ rows | length }} capabilit{% if rows | length == 1 %}y{% else %}ies{% endif %}</span></p>
+        <h1>{{ section.title }}</h1>
+        <p class="net-lede">{{ section.description }}</p>
+    </div>
+</header>
+<div class="dw-shell">
+    {%- if rows | length > 0 %}
+    <div class="dw-table-scroll"><table class="net-table">
+        <thead><tr><th scope="col">Capability</th><th scope="col">Provided by</th><th scope="col">Referenced by</th></tr></thead>
+        <tbody>
+        {%- for row in rows %}
+            <tr>
+                <td><a href="{{ get_url(path=row.path) | safe }}"><code>{{ row.capability }}</code></a></td>
+                <td>{% for provider in row.providers %}<a href="{{ get_url(path=provider.url) | safe }}">{{ provider.label }}</a>{% if not loop.last %}, {% endif %}{% else %}<span class="dw-badge dw-badge--warn">nothing indexed</span>{% endfor %}</td>
+                <td>{% for reference in row.references %}<a href="{{ get_url(path=reference.path) | safe }}">{{ reference.name }}</a> <small class="net-muted">{{ reference.kind }}</small>{% if not loop.last %}, {% endif %}{% else %}<span class="net-muted">nothing</span>{% endfor %}</td>
+            </tr>
+        {%- endfor %}
+        </tbody>
+    </table></div>
+    {%- else %}
+    <p class="net-empty">No current release provides or references a capability yet.</p>
+    {%- endif %}
+</div>
+{%- endblock content %}

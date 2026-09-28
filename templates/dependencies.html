@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% import "macros/net.html" as net %}
+
+{%- block content %}
+{%- set view = load_data(path=section.extra.view) %}
+<header class="net-page-head">
+    <div class="dw-shell">
+        <p class="dw-kicker"><span>Dependency explorer</span><span>{{ view.rows | length }} relationship{{ view.rows | length | pluralize }}</span><span>{{ view.unresolved }} leading outside</span></p>
+        <h1>{{ section.title }}</h1>
+        <p class="net-lede">{{ section.description }} The current release is the head of <code>stable</code>, else the newest head of another channel, else <code>development</code>. A client resolves dependencies with its own policy; this page shows what the manifests say.</p>
+    </div>
+</header>
+<div class="dw-shell">
+    {%- if view.overview %}
+    <figure class="net-map" aria-labelledby="overview-caption">
+        <div class="net-map__canvas">{{ view.overview | safe }}</div>
+        <figcaption id="overview-caption">Every current relationship between indexed projects. Dependents above, dependencies below. <span class="net-legend"><span class="net-legend__item net-legend__item--requires">requires</span><span class="net-legend__item net-legend__item--recommends">recommends</span><span class="net-legend__item net-legend__item--conflicts">conflicts</span><span class="net-legend__item net-legend__item--compatible">compatible</span><span class="net-legend__item net-legend__item--replaces">replaces</span></span></figcaption>
+    </figure>
+    {%- endif %}
+
+    <div class="net-split">
+        <section class="dw-section" aria-labelledby="used-title">
+            {{ net::section_head(number="01", title="Used by", note="Distinct indexed projects whose current release requires each one. A count of dependents, not a ranking.", id="used-title") }}
+            {%- if view.used_by | length > 0 %}
+            <ul class="dw-linklist">{% for item in view.used_by %}<li><a href="{{ get_url(path=item.path) | safe }}"><span>{{ item.name }} <small class="net-muted">{{ item.type_label }}</small></span><small>used by {{ item.count }}</small></a></li>{% endfor %}</ul>
+            {%- else %}
+            <p class="net-empty">No indexed project requires another yet.</p>
+            {%- endif %}
+        </section>
+        {%- if view.foundations %}
+        <figure class="net-map net-map--small" aria-labelledby="foundations-caption">
+            <div class="net-map__canvas">{{ view.foundations | safe }}</div>
+            <figcaption id="foundations-caption">Libraries and frameworks, and what uses them.</figcaption>
+        </figure>
+        {%- endif %}
+    </div>
+
+    <section class="dw-section" aria-labelledby="edges-title">
+        {{ net::section_head(number="02", title="Every current relationship", id="edges-title") }}
+        {%- if view.rows | length > 0 %}
+        <div class="dw-table-scroll"><table class="net-table">
+            <thead><tr><th scope="col">From</th><th scope="col">Kind</th><th scope="col">Target</th></tr></thead>
+            <tbody>
+            {%- for row in view.rows %}
+                <tr><td><a href="{{ get_url(path=row.from_path) | safe }}">{{ row.from }}</a></td><td><span class="net-kind net-kind--{{ row.kind }}">{{ row.kind }}</span></td><td><ul class="net-relationships net-relationships--inline">{{ net::relationship(item=row.item) }}</ul></td></tr>
+            {%- endfor %}
+            </tbody>
+        </table></div>
+        {%- else %}
+        <p class="net-empty">No relationships declared yet.</p>
+        {%- endif %}
+    </section>
+</div>
+{%- endblock content %}

@@ -1,0 +1,117 @@
+{#- The shell every network page extends. `net` is what the whole site knows about the last crawl
+    (data/network/site.json, written by `cargo network build`); it is absent under a bare
+    `zola serve` of a checkout that was never built, and the shell still renders. -#}
+{%- set_global net = load_data(path="data/network/site.json", required=false) -%}
+{%- if page -%}
+  {%- set document_title = page.title ~ " · " ~ config.title -%}
+  {%- if page.description %}{% set document_description = page.description %}{% else %}{% set document_description = config.description %}{% endif -%}
+  {%- set document_url = page.permalink -%}
+{%- elif section -%}
+  {%- if section.relative_path == "_index.md" -%}{%- set document_title = config.title -%}{%- else -%}{%- set document_title = section.title ~ " · " ~ config.title -%}{%- endif -%}
+  {%- if section.description %}{% set document_description = section.description %}{% else %}{% set document_description = config.description %}{% endif -%}
+  {%- set document_url = section.permalink -%}
+{%- else -%}
+  {%- set document_title = config.title -%}
+  {%- set document_description = config.description -%}
+  {%- set document_url = config.base_url -%}
+{%- endif -%}
+<!DOCTYPE html>
+<html lang="en" data-palette="purple">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>{% block title %}{{ document_title }}{% endblock title %}</title>
+    <meta name="description" content="{{ document_description }}">
+    <meta property="og:title" content="{{ document_title }}">
+    <meta property="og:description" content="{{ document_description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ document_url | safe }}">
+    <meta property="og:image" content="{{ get_url(path='img/network-512.png', trailing_slash=false) | safe }}">
+    <link rel="icon" href="{{ get_url(path='img/network.svg', trailing_slash=false) | safe }}" type="image/svg+xml">
+    <link rel="icon" href="{{ get_url(path='img/network-32.png', trailing_slash=false) | safe }}" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="{{ get_url(path='img/apple-touch-icon.png', trailing_slash=false) | safe }}">
+    <link rel="stylesheet" href="{{ get_url(path='site.css', trailing_slash=false) | safe }}">
+    {%- block extra_head %}{% endblock extra_head %}
+    <link rel="alternate" type="application/atom+xml" title="DreamWeave Network updates" href="{{ get_url(path='network-data/updates.xml', trailing_slash=false) | safe }}">
+    <link rel="alternate" type="application/json" title="DreamWeave Network Catalog v1" href="{{ get_url(path='network-data/catalog.json', trailing_slash=false) | safe }}">
+</head>
+<body class="net {% block body_class %}{% endblock body_class %}">
+<a class="dw-skip-link" href="#main">Skip to content</a>
+{%- block header %}
+<header class="dw-header net-header">
+    <div class="dw-shell dw-header__inner">
+        <a class="dw-brand net-brand" href="{{ config.base_url | safe }}/">
+            <img src="{{ get_url(path='img/network.svg', trailing_slash=false) | safe }}" width="30" height="30" alt="">
+            <span>DreamWeave <em>Network</em></span>
+        </a>
+        <nav class="dw-nav" aria-label="Network">
+            {%- for item in config.extra.menu %}
+            {%- set target = get_url(path=item.path) %}
+            <a href="{{ target | safe }}"{% if current_url and current_url is starting_with(target) %} aria-current="page"{% endif %}>{{ item.name }}</a>
+            {%- endfor %}
+        </nav>
+        {%- block search %}
+        <div class="dw-search net-search" role="search">
+            <label class="dw-visually-hidden" for="net-search-input">Search the network</label>
+            <input id="net-search-input" type="search" placeholder="Search projects, capabilities…  /" autocomplete="off" aria-controls="net-search-results" data-search="{{ get_url(path='network-data/search.json', trailing_slash=false) | safe }}" data-base="{{ config.base_url | safe }}/" data-scope="{% block search_scope %}{% endblock search_scope %}">
+            <div class="dw-search__results" id="net-search-results" hidden>
+                <p class="dw-search__status" role="status" aria-live="polite"></p>
+                <ul class="dw-search__list"></ul>
+            </div>
+        </div>
+        {%- endblock search %}
+    </div>
+</header>
+{%- endblock header %}
+{%- block statusline %}
+<div class="net-statusline" role="note" aria-label="Network state">
+    <div class="dw-shell net-statusline__inner">
+    {%- if net and net.observed_label %}
+        <span class="net-led net-led--{% if net.unavailable > 0 or net.stale > 0 %}warn{% elif net.conflicts > 0 %}danger{% else %}ok{% endif %}" aria-hidden="true"></span>
+        <span>Network state observed <time datetime="{{ net.observed_at }}">{{ net.observed_label }}</time></span>
+        <span class="net-statusline__sep" aria-hidden="true">/</span>
+        <a href="{{ get_url(path='health/') | safe }}">{% if net.unavailable > 0 %}{{ net.unavailable }} site{{ net.unavailable | pluralize }} unavailable{% else %}every site read{% endif %}{% if net.stale > 0 %}, {{ net.stale }} stale claim{{ net.stale | pluralize }}{% endif %}</a>
+        {%- if net.conflicts > 0 %}
+        <span class="net-statusline__sep" aria-hidden="true">/</span>
+        <a class="net-statusline__alert" href="{{ get_url(path='conflicts/') | safe }}">{{ net.conflicts }} identity conflict{{ net.conflicts | pluralize }}</a>
+        {%- endif %}
+        <span class="net-statusline__note">A snapshot, not live telemetry.</span>
+    {%- else %}
+        <span class="net-led net-led--info" aria-hidden="true"></span>
+        <span>No network state has been built into this copy. Run <code>cargo network refresh</code> and <code>cargo network build</code>.</span>
+    {%- endif %}
+    </div>
+</div>
+{%- endblock statusline %}
+<main class="dw-main net-main" id="main" tabindex="-1">
+{%- block content %}{% endblock content %}
+</main>
+{%- block footer %}
+<footer class="dw-footer net-footer">
+    <div class="dw-shell net-footer__inner">
+        <ul class="net-principles" aria-label="Principles">
+            <li>The network is not a place mods live. It is a map of places mods live.</li>
+            <li>Publisher sites own facts. The index owns observations.</li>
+            <li>A failed crawl produces stale data, not a dead ecosystem.</li>
+            <li>Git is the operations database. Static files are the deployment.</li>
+            <li>If this index disappears, DreamWeave distribution continues.</li>
+        </ul>
+        <nav class="dw-footer__links" aria-label="Footer">
+            <a href="{{ get_url(path='network-data/catalog.json', trailing_slash=false) | safe }}">catalog.json</a>
+            <a href="{{ get_url(path='network-data/events.json', trailing_slash=false) | safe }}">events.json</a>
+            <a href="{{ get_url(path='network-data/updates.xml', trailing_slash=false) | safe }}">updates feed</a>
+            <a href="{{ get_url(path='origins/') | safe }}">Sites</a>
+            <a href="{{ get_url(path='about/') | safe }}">How this works</a>
+            <a href="{{ config.extra.repository | safe }}">Source</a>
+            <a href="{{ config.extra.protocol | safe }}">The protocol</a>
+        </nav>
+        <p class="net-footer__fine">One index of DreamWeave sites, not the registry. Anyone can run another from the same public protocol. No analytics, no accounts, no server.</p>
+    </div>
+</footer>
+{%- endblock footer %}
+{%- block extra_body %}
+<script src="{{ get_url(path='js/network.js', trailing_slash=false) | safe }}" defer></script>
+{%- endblock extra_body %}
+</body>
+</html>

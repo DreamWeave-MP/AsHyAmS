@@ -1,0 +1,235 @@
+{% extends "base.html" %}
+{% import "macros/net.html" as net %}
+
+{%- block content %}
+{%- set view = load_data(path=page.extra.view) %}
+{%- set card = view.card %}
+<header class="dw-hero net-claim-hero">
+    <div class="dw-shell dw-hero__grid">
+        <div>
+            <p class="dw-kicker">
+                <span>{{ card.type_label }}</span>
+                <span>{{ view.game }}</span>
+                <span>{{ net::status(token=card.status) }}</span>
+                <span>{{ net::health(token=card.health, label=card.health_label) }}</span>
+            </p>
+            <h1 class="dw-hero__title">{{ card.name }}</h1>
+            {%- if card.summary %}<p class="dw-hero__summary">{{ card.summary }}</p>{% endif %}
+            <p class="net-attribution">
+                Indexed from <a href="{{ get_url(path=card.origin_path) | safe }}">{{ card.origin_label }}</a>.
+                Project metadata is published by the project's own site; DreamWeave Network indexes that claim.
+            </p>
+
+            <dl class="dw-strip" aria-label="Current state">
+                {%- for head in card.heads %}
+                <div><dt>{{ head.channel }}{% if head.current %} · current{% endif %}</dt><dd>{{ head.version }}{% if head.date %} <small>{{ head.date }}</small>{% endif %}</dd></div>
+                {%- else %}
+                <div><dt>Releases</dt><dd>none available</dd></div>
+                {%- endfor %}
+                {%- for fact in card.compatibility %}
+                <div><dt>Runs on</dt><dd>{{ fact }}</dd></div>
+                {%- endfor %}
+                {%- if view.license %}<div><dt>License</dt><dd>{{ view.license }}</dd></div>{% endif %}
+                <div><dt>Versioning</dt><dd>{{ view.versioning }}</dd></div>
+            </dl>
+
+            <div class="dw-actions">
+                {%- if card.page %}<a class="dw-button dw-button--primary" href="{{ card.page }}">Visit the project <span aria-hidden="true">↗</span></a>{% endif %}
+                {%- for link in view.links %}{% if link.url != card.page %}<a class="dw-button{% if loop.index > 3 %} dw-button--ghost{% endif %}" href="{{ link.url }}">{{ link.label }}</a>{% endif %}{% endfor %}
+                <a class="dw-button dw-button--ghost" href="{{ view.manifest_url }}">Manifest JSON</a>
+            </div>
+        </div>
+        {%- if card.image %}
+        <figure class="dw-hero__figure">
+            <img src="{{ get_url(path=card.image.src, trailing_slash=false) | safe }}" alt="{{ card.image.alt }}" decoding="async">
+            <figcaption>Cached by this index from <a href="{{ card.image.original }}">the publisher's image</a>.</figcaption>
+        </figure>
+        {%- endif %}
+    </div>
+</header>
+
+<div class="dw-shell dw-project__body">
+    <div class="dw-project__main">
+        {%- if view.notice %}
+        <aside class="dw-callout dw-callout--warning" role="note">
+            <p class="dw-callout__title">Cached data</p>
+            <p>{{ view.notice }}</p>
+            {%- if view.problem %}<p class="net-problem"><code>{{ view.problem }}</code></p>{% endif %}
+        </aside>
+        {%- endif %}
+        {%- if view.withdrawn %}
+        <aside class="dw-callout dw-callout--note" role="note">
+            <p class="dw-callout__title">Withdrawn</p>
+            <p>The site no longer lists this project in its index. This record keeps the last manifest it published; it is not in the catalog.</p>
+        </aside>
+        {%- endif %}
+        {%- if card.conflict %}
+        <aside class="dw-callout dw-callout--danger" role="note">
+            <p class="dw-callout__title">Identity conflict</p>
+            <p>Another site publishes a claim for the same project id. Ids are chosen by authors, not allocated, so the id alone cannot say which site speaks for the project. This index does not decide; see <a href="{{ get_url(path='projects/' ~ card.project ~ '/') | safe }}">every claim for this id</a>.</p>
+        </aside>
+        {%- endif %}
+        {%- if view.superseded_by %}
+        <aside class="dw-callout dw-callout--note" role="note">
+            <p class="dw-callout__title">Moved</p>
+            <p>This index's maintainers acknowledged that this project continues at <a href="{{ get_url(path=view.superseded_by.url) | safe }}">{{ view.superseded_by.label }}</a>. That is this index's curation, recorded in <code>network/curation.toml</code>, not a statement by either site.</p>
+        </aside>
+        {%- endif %}
+
+        <section class="dw-section" id="dependencies" aria-labelledby="dependencies-title">
+            {%- if card.current %}{% set dependency_note = "From the current release, " ~ card.current.channel ~ " " ~ card.current.version ~ "." %}{% else %}{% set dependency_note = "There is no current release." %}{% endif %}
+            {{ net::section_head(number="01", title="Dependencies", note=dependency_note, id="dependencies-title") }}
+            {%- if view.relationships | length > 0 %}
+            <div class="dw-matrix">
+            {%- for group in view.relationships %}
+                <div class="dw-matrix__cell dw-matrix__cell--{{ group.kind }}">
+                    <h3>{{ group.label }}</h3>
+                    <ul class="net-relationships">{% for item in group.items %}{{ net::relationship(item=item) }}{% endfor %}</ul>
+                </div>
+            {%- endfor %}
+            </div>
+            {%- else %}
+            <p class="net-empty">The current release declares no relationships.</p>
+            {%- endif %}
+        </section>
+
+        <section class="dw-section" id="used-by" aria-labelledby="used-by-title">
+            {{ net::section_head(number="02", title="Used by", note="Current releases of indexed projects that point here, by id or through a capability.", id="used-by-title") }}
+            {%- if view.reverse | length > 0 %}
+            <ul class="net-reverse">
+            {%- for item in view.reverse %}
+                <li><span class="dw-badge">{{ item.label }}</span> <a href="{{ get_url(path=item.path) | safe }}">{{ item.name }}</a>{% if item.constraint %} <code>{{ item.constraint }}</code>{% endif %}{% if item.satisfied == false %} <span class="dw-badge dw-badge--warn">not satisfied by the current release</span>{% endif %}{% if item.via %} <span class="net-muted">{{ item.via }}</span>{% endif %}</li>
+            {%- endfor %}
+            </ul>
+            {%- else %}
+            <p class="net-empty">Nothing indexed points here.</p>
+            {%- endif %}
+            {%- if view.provides | length > 0 %}
+            <h3 class="net-subhead">Provides</h3>
+            <ul class="net-capabilities">{% for item in view.provides %}<li><a href="{{ get_url(path=item.path) | safe }}"><code>{{ item.capability }}</code></a></li>{% endfor %}</ul>
+            {%- endif %}
+        </section>
+
+        {%- if view.graph %}
+        <figure class="net-map" aria-labelledby="neighborhood-caption">
+            <div class="net-map__canvas">{{ view.graph | safe }}</div>
+            <figcaption id="neighborhood-caption">Direct relationships. Dependents above, dependencies below; the lists above are the same facts.</figcaption>
+        </figure>
+        {%- endif %}
+
+        {%- if view.compatibility | length > 0 %}
+        <section class="dw-section" id="compatibility" aria-labelledby="compatibility-title">
+            {{ net::section_head(number="03", title="Compatibility", note="As the publisher declares it for the current release. This index claims nothing further.", id="compatibility-title") }}
+            {{ net::facts(items=view.compatibility) }}
+        </section>
+        {%- endif %}
+
+        <section class="dw-section" id="releases" aria-labelledby="releases-title">
+            {{ net::section_head(number="04", title="Releases", note=view.release_summary ~ ", newest first. Yanked and deprecated releases stay listed.", id="releases-title") }}
+            <ol class="dw-releases">
+            {%- for release in view.releases %}
+                <li class="dw-release{% if release.status == 'yanked' %} dw-release--yanked{% elif release.status == 'deprecated' %} dw-release--deprecated{% elif release.channel == 'development' %} dw-release--development{% endif %}" id="{{ release.anchor }}">
+                    <h3>
+                        <span>{{ release.version }}</span>
+                        <span class="dw-badge{% if release.channel == 'stable' %} dw-badge--ok{% else %} dw-badge--info{% endif %}">{{ release.channel }}</span>
+                        {%- if release.current %}<span class="dw-badge dw-badge--accent">current</span>{% elif release.head %}<span class="dw-badge">head</span>{% endif %}
+                        {%- if release.status != "available" %}<span class="dw-badge dw-badge--warn">{{ release.status }}</span>{% endif %}
+                        {%- if release.breaking %}<span class="dw-badge dw-badge--danger">breaking notes</span>{% endif %}
+                        {%- if release.migration %}<span class="dw-badge dw-badge--warn">migration notes</span>{% endif %}
+                        <span class="dw-release__meta">{% if release.date %}{{ release.date }}{% else %}undated{% endif %}</span>
+                    </h3>
+                    {%- if release.notice %}<p class="dw-release__notice{% if release.status == 'deprecated' %} dw-release__notice--deprecated{% endif %}">{{ release.notice }}</p>{% endif %}
+                    {%- if release.summary %}<p class="dw-release__summary">{{ release.summary }}</p>{% endif %}
+                    {%- if release.notes_html %}
+                    <details class="net-notes-block"{% if loop.first or release.breaking or release.migration %} open{% endif %}>
+                        <summary>Publisher's notes</summary>
+                        <div class="net-publisher-notes">{{ release.notes_html | safe }}</div>
+                    </details>
+                    {%- endif %}
+                    <p class="net-release-facts">
+                        {%- for fact in release.compatibility %}<span>{{ fact }}</span>{% endfor %}
+                        {%- if release.relationships > 0 %}<span>{{ release.relationships }} relationship{{ release.relationships | pluralize }}</span>{% endif %}
+                        {%- for capability in release.provides %}<span>provides <code>{{ capability }}</code></span>{% endfor %}
+                        {%- for extension in release.critical_extensions %}<span>needs <code>{{ extension }}</code> support</span>{% endfor %}
+                        <span>source {% if release.source.revision_url %}<a href="{{ release.source.revision_url }}"><code>{{ release.source.revision | truncate(length=12, end="") }}</code></a>{% elif release.source.revision %}<code>{{ release.source.revision | truncate(length=12, end="") }}</code>{% else %}<a href="{{ release.source.repository }}">repository</a>{% endif %}{% if release.source.tag %} · tag <code>{{ release.source.tag }}</code>{% endif %}</span>
+                    </p>
+                    {%- for artifact in release.artifacts %}{{ net::artifact(artifact=artifact, release=release, primary=release.current) }}{% endfor %}
+                </li>
+            {%- endfor %}
+            </ol>
+        </section>
+
+        {%- if view.components | length > 1 %}
+        <section class="dw-section" id="components" aria-labelledby="components-title">
+            {{ net::section_head(number="05", title="Components", note="Of the current release. A client chooses among them; this index does not install anything.", id="components-title") }}
+            <div class="dw-table-scroll"><table class="net-table">
+                <thead><tr><th scope="col">Component</th><th scope="col">Selected</th><th scope="col">Group</th><th scope="col">What</th></tr></thead>
+                <tbody>
+                {%- for component in view.components %}
+                    <tr><td><code>{{ component.id }}</code> {{ component.name }}</td><td>{% if component.required %}required{% elif component.default %}by default{% else %}optional{% endif %}</td><td>{{ component.group | default(value="") }}</td><td>{{ component.description | default(value="") }}</td></tr>
+                {%- endfor %}
+                </tbody>
+            </table></div>
+        </section>
+        {%- endif %}
+
+        {%- if view.media | length > 0 %}
+        <section class="dw-section" id="media" aria-labelledby="media-title">
+            {{ net::section_head(number="06", title="Media", note="Published by the project. Linked, not embedded: viewing them loads the publisher's host.", id="media-title") }}
+            <ul class="net-media">
+            {%- for item in view.media %}
+                <li><a href="{{ item.url }}">{% if item.caption %}{{ item.caption }}{% else %}{{ item.alt }}{% endif %}</a> <span class="net-muted">{{ item.kind }}{% if item.category %} · {{ item.category }}{% endif %}{% if item.featured %} · featured{% endif %}</span></li>
+            {%- endfor %}
+            </ul>
+        </section>
+        {%- endif %}
+
+        {%- if view.events | length > 0 %}
+        <section class="dw-section" id="changes" aria-labelledby="changes-title">
+            {{ net::section_head(number="07", title="Observed changes", note="What this index saw change in this claim's manifest.", id="changes-title") }}
+            {{ net::events(rows=view.events, show_name=false) }}
+        </section>
+        {%- endif %}
+
+        {%- if view.maintainers | length > 0 or view.credits | length > 0 %}
+        <section class="dw-section" id="people" aria-labelledby="people-title">
+            {{ net::section_head(number="08", title="People", id="people-title") }}
+            <ul class="dw-credits">
+            {%- for person in view.maintainers %}<li><small>maintainer</small>{% if person.url %}<a href="{{ person.url }}">{{ person.name }}</a>{% else %}{{ person.name }}{% endif %}</li>{% endfor %}
+            {%- for person in view.credits %}<li><small>{{ person.role | default(value="credit") }}</small>{% if person.url %}<a href="{{ person.url }}">{{ person.name }}</a>{% else %}{{ person.name }}{% endif %}</li>{% endfor %}
+            </ul>
+        </section>
+        {%- endif %}
+    </div>
+
+    <aside class="dw-project__rail" aria-label="Network record">
+        <section class="dw-panel net-record">
+            <h2 class="dw-panel__title">Network record <small>observed by this index</small></h2>
+            <div class="dw-panel__body">{{ net::facts(items=view.record) }}</div>
+        </section>
+        {%- if card.current %}
+        {%- for release in view.releases %}{% if release.current %}
+        <section class="dw-panel">
+            <h2 class="dw-panel__title">Downloads <small>{{ release.version }}</small></h2>
+            <div class="dw-panel__body">
+                {%- for artifact in release.artifacts %}{{ net::artifact(artifact=artifact, release=release, primary=true) }}{% endfor %}
+                <p class="net-fine">Downloads go straight to the publisher's listed sources. This index never proxies or counts them.</p>
+            </div>
+        </section>
+        {%- endif %}{% endfor %}
+        {%- endif %}
+        {%- if view.others | length > 0 %}
+        <section class="dw-panel">
+            <h2 class="dw-panel__title">Same id elsewhere</h2>
+            <div class="dw-panel__body"><ul class="dw-linklist">{% for other in view.others %}<li>{% if other.path %}<a href="{{ get_url(path=other.path) | safe }}"><span>{{ other.name }}</span><small>{{ other.origin_label }}</small></a>{% else %}<span>{{ other.name }} · {{ other.origin_label }} · {{ other.health }}</span>{% endif %}</li>{% endfor %}</ul></div>
+        </section>
+        {%- endif %}
+        {%- if card.tags | length > 0 %}
+        <section class="dw-panel">
+            <h2 class="dw-panel__title">Tags</h2>
+            <div class="dw-panel__body"><ul class="dw-tags">{% for tag in card.tags %}<li><a href="{{ get_url(path=tag.path) | safe }}">{{ tag.label }}</a></li>{% endfor %}</ul></div>
+        </section>
+        {%- endif %}
+    </aside>
+</div>
+{%- endblock content %}

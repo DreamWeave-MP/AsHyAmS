@@ -28,3 +28,15 @@ skip_prefixes = ["https://github.com/"]
 repository = "https://github.com/DreamWeave-MP/AsHyAmS"
 protocol = "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/guide/protocol/"
 mod_template = "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template"
+
+# The header's navigation, in order.
+menu = [
+    { name = "Projects", path = "projects/" },
+    { name = "Updates", path = "updates/" },
+    { name = "Releases", path = "releases/" },
+    { name = "Dependencies", path = "dependencies/" },
+    { name = "Capabilities", path = "capabilities/" },
+    { name = "Health", path = "health/" },
+    { name = "Join", path = "join/" },
+    { name = "About", path = "about/" },
+]
