@@ -14,5 +14,6 @@ pub mod markdown;
 pub mod network;
 pub mod policy;
 pub mod protocol;
+pub mod site;
 pub mod state;
 pub mod version;
