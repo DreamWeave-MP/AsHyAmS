@@ -524,6 +524,80 @@ impl State {
     pub fn manifest_bytes(&self, key: &ClaimKey) -> Option<&[u8]> {
         self.manifests.get(key).map(Vec::as_slice)
     }
+
+    /// The invariants a state directory has to hold, as a list of what is broken. Anything here
+    /// is a bug in the crawler or a hand edit, never a publisher's doing.
+    pub fn verify(&self, directory: &Path) -> Vec<String> {
+        let mut problems = Vec::new();
+        for (key, claim) in &self.claims {
+            let at = format!("claim {} at {}", key.project, key.origin);
+            if !self.origins.contains_key(&key.origin) {
+                problems.push(format!("{at}: its origin has no record"));
+            }
+            match (&claim.ingested_sha256, self.manifests.get(key)) {
+                (Some(expected), Some(bytes)) => {
+                    let actual = sha256_hex(bytes);
+                    if &actual != expected {
+                        problems.push(format!(
+                            "{at}: manifest.json hashes to {actual}, the record says {expected}"
+                        ));
+                    }
+                    match serde_json::from_slice::<crate::protocol::Manifest>(bytes) {
+                        Ok(manifest) if manifest.project.id != key.project => problems.push(
+                            format!("{at}: manifest.json describes {}", manifest.project.id),
+                        ),
+                        Ok(_) => {}
+                        Err(error) => {
+                            problems.push(format!("{at}: manifest.json does not parse: {error}"));
+                        }
+                    }
+                }
+                (Some(_), None) => problems.push(format!(
+                    "{at}: the record names a manifest the directory does not hold"
+                )),
+                (None, Some(_)) => problems.push(format!(
+                    "{at}: a manifest is held without a digest on record"
+                )),
+                (None, None) => {}
+            }
+            if let Some(file) = claim.media.as_ref().and_then(|media| media.file.as_ref())
+                && !directory.join(file).is_file()
+                && !self.new_media.contains_key(file)
+            {
+                problems.push(format!("{at}: cached image {file} is missing"));
+            }
+        }
+        for (id, origin) in &self.origins {
+            if let (Some(expected), Some(bytes)) = (&origin.index_sha256, self.indexes.get(id)) {
+                let actual = sha256_hex(bytes);
+                if &actual != expected {
+                    problems.push(format!("origin {id}: dreamweave.json hashes to {actual}, the record says {expected}"));
+                }
+            }
+        }
+        for (id, source) in &self.sources {
+            if let Some(origin) = &source.origin
+                && !self.origins.contains_key(origin)
+            {
+                problems.push(format!(
+                    "source {id}: leads to origin {origin}, which has no record"
+                ));
+            }
+        }
+        for (id, event) in &self.events {
+            let expected = event_id(
+                event.kind,
+                &event.project,
+                &event.origin,
+                event.before.as_deref(),
+                event.after.as_deref(),
+            );
+            if &expected != id {
+                problems.push(format!("event {id}: its facts give the id {expected}"));
+            }
+        }
+        problems
+    }
 }
 
 fn prune(root: &Path, directory: &Path, keep: &BTreeMap<PathBuf, Vec<u8>>) -> Result<()> {
