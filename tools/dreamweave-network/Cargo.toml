@@ -9,8 +9,10 @@ description = "Crawler, change tracker and static site generator for the DreamWe
 repository = "https://github.com/DreamWeave-MP/AsHyAmS"
 
 [dependencies]
-reqwest = { version = "0.13.5", default-features = false }
+reqwest = { version = "0.13.5", default-features = false, features = ["rustls"] }
 serde = { version = "1", features = ["derive"] }
+tokio = { version = "1.53.1", features = ["rt-multi-thread", "macros", "net", "time", "sync"] }
+url = "2.5.8"
 
 # The library half exists for the binary and its integration tests, not for other crates, so the
 # lints about documenting a public API's errors and panics would only add ceremony.
