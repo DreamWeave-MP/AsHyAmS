@@ -1,0 +1,1130 @@
+// The network's own skin, loaded after the Mod Template's presentation. Same tokens, same
+// vocabulary; this file adds what an index needs that a mod page does not: the status line,
+// health lights, cards, change lines, maps and dense operations tables.
+
+:root
+  --net-grid-line: color-mix(in oklab, var(--dw-accent) 7%, transparent)
+  --net-glow: color-mix(in oklab, var(--dw-accent) 22%, transparent)
+  --net-added: var(--dw-ok)
+  --net-removed: var(--dw-danger)
+  --net-changed: var(--dw-accent)
+  --net-anomaly: var(--dw-warn)
+
+// Shell ---------------------------------------------------------------------------------------
+
+.net-brand
+  gap: .55em
+
+  img
+    width: 30px
+    height: 30px
+
+  em
+    color: var(--dw-accent)
+    font-style: normal
+
+@media (min-width: 861px)
+  .net-header .dw-header__inner
+    grid-template-columns: auto minmax(0, 1fr) minmax(12rem, 20rem)
+
+.net-statusline
+  border-bottom: 1px solid var(--dw-line)
+  background: linear-gradient(90deg, var(--net-grid-line) 1px, transparent 1px) 0 0 / 24px 100%, var(--dw-bg-0)
+  color: var(--dw-text-faint)
+  font-family: var(--dw-font-mono)
+  font-size: .74rem
+
+  a
+    color: var(--dw-text-muted)
+
+    &:hover
+      color: var(--dw-accent)
+
+.net-statusline__inner
+  display: flex
+  flex-wrap: wrap
+  gap: .2rem .7rem
+  align-items: center
+  padding-block: .35rem
+
+.net-statusline__sep
+  color: var(--dw-line-strong)
+
+.net-statusline__alert
+  color: var(--dw-danger) !important
+
+.net-statusline__note
+  margin-left: auto
+  opacity: .8
+
+.net-footer__inner
+  display: grid
+  gap: 1rem
+  padding-block: 1.6rem
+
+.net-principles
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr))
+  gap: .35rem 1.5rem
+  margin: 0
+  padding: 0
+  list-style: none
+  color: var(--dw-text-muted)
+  font-family: var(--dw-font-mono)
+  font-size: .78rem
+
+  li
+    position: relative
+    padding-left: 1.2em
+
+    &::before
+      content: "›"
+      position: absolute
+      left: 0
+      color: var(--dw-accent)
+
+.net-footer__fine
+  margin: 0
+  color: var(--dw-text-faint)
+  font-size: .78rem
+
+// Health lights: a colour and always a word, never a colour alone -----------------------------
+
+.net-led
+  display: inline-block
+  flex: none
+  width: .6em
+  height: .6em
+  border-radius: 50%
+  background: var(--dw-neutral)
+  vertical-align: .05em
+
+.net-led--ok, .net-led--current, .net-led--healthy, .net-led--resolved
+  background: var(--dw-ok)
+  box-shadow: 0 0 .55em color-mix(in oklab, var(--dw-ok) 70%, transparent)
+  animation: net-pulse 3.2s ease-in-out infinite
+
+.net-led--warn, .net-led--origin-unavailable, .net-led--manifest-unreachable, .net-led--inconsistent, .net-led--unreachable, .net-led--no-index, .net-led--broken-link
+  background: var(--dw-warn)
+  box-shadow: 0 0 .5em color-mix(in oklab, var(--dw-warn) 55%, transparent)
+
+.net-led--danger, .net-led--invalid, .net-led--invalid-index, .net-led--refused
+  background: var(--dw-danger)
+  box-shadow: 0 0 .5em color-mix(in oklab, var(--dw-danger) 55%, transparent)
+
+.net-led--info, .net-led--withdrawn, .net-led--unsupported-version
+  background: var(--dw-info)
+
+@keyframes net-pulse
+  50%
+    box-shadow: 0 0 .15em color-mix(in oklab, var(--dw-ok) 40%, transparent)
+
+.net-health
+  display: inline-flex
+  gap: .45em
+  align-items: center
+  font-family: var(--dw-font-mono)
+  font-size: .8em
+
+// Page heads and the home hero -------------------------------------------------------------------
+
+.net-page-head
+  border-bottom: 1px solid var(--dw-line)
+  padding: 1.5rem 0 1.1rem
+  background: linear-gradient(180deg, var(--dw-bg-1), var(--dw-bg-0))
+
+  h1
+    margin: 0 0 .35rem
+
+.net-lede
+  max-width: 78ch
+  margin: 0
+  color: var(--dw-text-muted)
+
+.net-headline
+  color: var(--dw-accent)
+  font-size: .7em
+  font-weight: 600
+
+.net-hero
+  position: relative
+  border-bottom: 1px solid var(--dw-line)
+  padding: 2rem 0 1.6rem
+  background: radial-gradient(ellipse 60% 90% at 85% 0%, var(--net-glow), transparent 70%), linear-gradient(var(--net-grid-line) 1px, transparent 1px) 0 0 / 28px 28px, linear-gradient(90deg, var(--net-grid-line) 1px, transparent 1px) 0 0 / 28px 28px, var(--dw-bg-1)
+
+.net-hero__grid
+  display: grid
+  grid-template-columns: minmax(0, 1fr) minmax(0, 21rem)
+  gap: 1.5rem 2.5rem
+  align-items: start
+
+.net-hero__title
+  margin: .1rem 0 .6rem
+  font-size: clamp(2rem, 4.4vw, 3.3rem)
+  letter-spacing: -.035em
+  line-height: 1.02
+
+.net-hero__summary
+  max-width: 64ch
+  margin: 0 0 1.2rem
+  color: var(--dw-text-muted)
+  font-size: 1.05rem
+
+.net-finder
+  display: flex
+  gap: .5rem
+  max-width: 50rem
+
+  input
+    flex: 1
+    min-width: 0
+    border: 1px solid var(--dw-accent-line)
+    border-radius: var(--dw-radius)
+    padding: .7em .9em
+    background: var(--dw-bg-0)
+    font-family: var(--dw-font-mono)
+    font-size: .92rem
+    box-shadow: inset 0 0 0 1px transparent, 0 0 0 0 var(--net-glow)
+    transition: box-shadow .2s
+
+    &:focus
+      outline: none
+      box-shadow: inset 0 0 0 1px var(--dw-accent-line), 0 0 1.2rem var(--net-glow)
+
+.net-finder__hint
+  margin: .5rem 0 0
+  color: var(--dw-text-faint)
+  font-size: .78rem
+
+  code
+    font-size: .92em
+
+.net-hero__board
+  border: 1px solid var(--dw-line)
+  border-left: 3px solid var(--dw-accent)
+  border-radius: var(--dw-radius)
+  padding: .8rem 1rem
+  background: color-mix(in oklab, var(--dw-bg-0) 80%, transparent)
+
+.net-board__title
+  margin: 0 0 .5rem
+  color: var(--dw-text-faint)
+  font-family: var(--dw-font-mono)
+  font-size: .7rem
+  letter-spacing: .14em
+  text-transform: uppercase
+
+.net-board
+  display: grid
+  grid-template-columns: 1fr 1fr
+  gap: .5rem
+
+  dt
+    color: var(--dw-text-faint)
+    font-family: var(--dw-font-mono)
+    font-size: .68rem
+    letter-spacing: .08em
+    text-transform: uppercase
+
+  dd
+    font-family: var(--dw-font-mono)
+    font-size: 1.6rem
+    font-weight: 700
+    line-height: 1.1
+
+    small
+      color: var(--dw-text-faint)
+      font-size: .55em
+      font-weight: 400
+
+.net-board__problems
+  margin: .7rem 0 0
+  padding: 0
+  list-style: none
+  font-size: .82rem
+
+  li
+    border-top: 1px dashed var(--dw-line)
+    padding: .3em 0
+
+    a
+      color: var(--dw-warn)
+
+.net-board__quiet
+  margin: .7rem 0 0
+  font-size: .82rem
+
+.net-board__links
+  margin: .7rem 0 0
+  font-family: var(--dw-font-mono)
+  font-size: .78rem
+
+@media (max-width: 1000px)
+  .net-hero__grid
+    grid-template-columns: minmax(0, 1fr)
+
+// Statistics strip ----------------------------------------------------------------------------
+
+.net-stats
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr))
+  margin-top: 1.4rem
+
+@media (min-width: 1180px)
+  .net-stats
+    grid-template-columns: repeat(6, minmax(0, 1fr))
+
+  dd
+    font-size: 1.25rem
+    font-weight: 700
+
+    a
+      color: var(--dw-text)
+      text-decoration: none
+
+      &:hover
+        color: var(--dw-accent)
+
+.net-stat--ok > dt::after, .net-stat--warn > dt::after, .net-stat--danger > dt::after
+  content: " ●"
+
+.net-stat--ok
+  border-left-color: var(--dw-ok) !important
+
+  > dt::after
+    color: var(--dw-ok)
+
+.net-stat--warn
+  border-left-color: var(--dw-warn) !important
+
+  > dt::after
+    color: var(--dw-warn)
+
+.net-stat--danger
+  border-left-color: var(--dw-danger) !important
+
+  > dt::after
+    color: var(--dw-danger)
+
+// Layout helpers ------------------------------------------------------------------------------
+
+.net-split
+  display: grid
+  grid-template-columns: repeat(2, minmax(0, 1fr))
+  gap: 0 2.25rem
+
+@media (max-width: 1100px)
+  .net-split
+    grid-template-columns: minmax(0, 1fr)
+
+.net-more
+  margin: .8rem 0 0
+  font-family: var(--dw-font-mono)
+  font-size: .82rem
+
+.net-empty
+  border: 1px dashed var(--dw-line-strong)
+  border-radius: var(--dw-radius)
+  padding: .8em 1em
+  color: var(--dw-text-muted)
+
+.net-muted
+  color: var(--dw-text-faint)
+
+.net-fine
+  max-width: 80ch
+  color: var(--dw-text-faint)
+  font-size: .8rem
+
+.net-subhead
+  margin: 1.2rem 0 .5rem
+  color: var(--dw-text-muted)
+  font-size: .72rem
+  letter-spacing: .12em
+  text-transform: uppercase
+
+.net-attribution
+  max-width: 70ch
+  margin: 0 0 .4rem
+  border-left: 2px solid var(--dw-accent-line)
+  padding-left: .7em
+  color: var(--dw-text-muted)
+  font-size: .88rem
+
+.net-problem
+  display: inline-block
+  margin-top: .3em
+  color: var(--dw-warn)
+  white-space: normal
+  overflow-wrap: anywhere
+
+// Project cards -------------------------------------------------------------------------------
+
+.net-cards
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20.5rem), 1fr))
+  gap: .8rem
+
+.net-card
+  display: flex
+  flex-direction: column
+  min-width: 0
+  border: 1px solid var(--dw-line)
+  border-top: 2px solid var(--dw-accent-strong)
+  border-radius: var(--dw-radius)
+  background: var(--dw-bg-1)
+  transition: border-color .15s, transform .15s
+
+  &:hover, &:focus-within
+    border-color: var(--dw-accent-line)
+
+.net-card--stale
+  border-top-color: var(--dw-warn)
+  border-top-style: dashed
+
+.net-card--conflict
+  border-top-color: var(--dw-danger)
+
+.net-card__media
+  display: block
+  aspect-ratio: 16 / 7
+  overflow: hidden
+  border-bottom: 1px solid var(--dw-line)
+  background: var(--dw-bg-2)
+
+  img
+    display: block
+    width: 100%
+    height: 100%
+    object-fit: cover
+
+.net-card__body
+  display: flex
+  flex: 1
+  flex-direction: column
+  gap: .45rem
+  padding: .75rem .9rem .8rem
+
+  .dw-kicker
+    margin: 0
+    font-size: .66rem
+
+.net-card__title
+  margin: 0
+  font-size: 1.08rem
+
+  a
+    color: var(--dw-text)
+    text-decoration: none
+
+    &:hover
+      color: var(--dw-accent)
+
+.net-card__summary
+  margin: 0
+  color: var(--dw-text-muted)
+  font-size: .88rem
+
+.net-card__facts
+  display: flex
+  flex-wrap: wrap
+  gap: .25rem
+  margin: .1rem 0 0
+
+  > div
+    display: inline-flex
+    gap: .35em
+    border: 1px solid var(--dw-line)
+    border-radius: var(--dw-radius)
+    padding: .05em .45em
+    background: var(--dw-bg-0)
+    font-family: var(--dw-font-mono)
+    font-size: .72rem
+
+  dt
+    color: var(--dw-text-faint)
+
+  dd
+    color: var(--dw-text)
+
+.net-card__origin
+  display: flex
+  flex-wrap: wrap
+  gap: .3rem .5rem
+  align-items: center
+  margin: auto 0 0
+  padding-top: .2rem
+  color: var(--dw-text-faint)
+  font-size: .78rem
+
+.net-card__actions
+  display: flex
+  flex-wrap: wrap
+  gap: .4rem
+
+.net-featured
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 24rem), 1fr))
+  gap: .8rem
+
+.net-featured__note
+  margin: .4rem 0 0
+  color: var(--dw-text-muted)
+  font-size: .85rem
+  font-style: italic
+
+// The catalog ---------------------------------------------------------------------------------
+
+.net-catalog
+  display: grid
+  grid-template-columns: 16rem minmax(0, 1fr)
+  gap: 1.5rem
+  margin-top: 1.4rem
+  align-items: start
+
+.net-catalog__filters
+  position: sticky
+  top: 1rem
+  display: grid
+  gap: .8rem
+
+.net-filter
+  display: grid
+  gap: .35rem
+
+  label
+    color: var(--dw-text-faint)
+    font-family: var(--dw-font-mono)
+    font-size: .7rem
+    letter-spacing: .12em
+    text-transform: uppercase
+
+  input
+    border: 1px solid var(--dw-accent-line)
+    border-radius: var(--dw-radius)
+    padding: .5em .7em
+    background: var(--dw-bg-0)
+    font-family: var(--dw-font-mono)
+    font-size: .84rem
+
+.net-filter__status
+  margin: 0
+  color: var(--dw-text-faint)
+  font-family: var(--dw-font-mono)
+  font-size: .72rem
+
+@media (max-width: 900px)
+  .net-catalog
+    grid-template-columns: minmax(0, 1fr)
+
+  .net-catalog__filters
+    position: static
+
+.net-browse
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr))
+  gap: 1px
+  margin: 1rem 0 0
+  border: 1px solid var(--dw-line)
+  padding: 0
+  background: var(--dw-line)
+  list-style: none
+
+  a
+    display: flex
+    justify-content: space-between
+    gap: .5rem
+    padding: .6em .85em
+    background: var(--dw-bg-1)
+    color: var(--dw-text)
+    text-decoration: none
+
+    &:hover
+      background: var(--dw-bg-2)
+      color: var(--dw-accent)
+
+  small
+    color: var(--dw-text-faint)
+    font-family: var(--dw-font-mono)
+
+// Tables and chips ----------------------------------------------------------------------------
+
+.net-table
+  font-size: .84rem
+
+  td
+    vertical-align: top
+
+  small
+    font-size: .8em
+
+.net-chips
+  display: flex
+  flex-wrap: wrap
+  gap: .35rem
+  margin: 1.2rem 0 .6rem
+
+.net-chip
+  display: inline-flex
+  gap: .45em
+  align-items: baseline
+  border: 1px solid var(--dw-line-strong)
+  border-radius: 999px
+  padding: .2em .75em
+  color: var(--dw-text-muted)
+  font-family: var(--dw-font-mono)
+  font-size: .76rem
+  text-decoration: none
+
+  &:hover
+    border-color: var(--dw-accent-line)
+    color: var(--dw-text)
+
+  &[aria-current="page"]
+    border-color: var(--dw-accent)
+    background: var(--dw-accent-soft)
+    color: var(--dw-accent)
+
+.net-chip__count
+  color: var(--dw-text-faint)
+
+// Events and change lines ---------------------------------------------------------------------
+
+.net-events
+  margin: 0
+  padding: 0
+  list-style: none
+  border: 1px solid var(--dw-line)
+  border-radius: var(--dw-radius)
+  background: var(--dw-bg-1)
+
+.net-event
+  display: grid
+  grid-template-columns: 10.5rem minmax(0, 1fr) auto
+  gap: .2rem 1rem
+  align-items: baseline
+  border-left: 3px solid transparent
+  padding: .5rem .8rem
+
+  + .net-event
+    border-top: 1px solid var(--dw-line)
+
+.net-event--anomaly
+  border-left-color: var(--dw-warn)
+
+.net-event__time
+  color: var(--dw-text-faint)
+  font-family: var(--dw-font-mono)
+  font-size: .76rem
+
+.net-event__what
+  min-width: 0
+  font-size: .9rem
+
+  strong a
+    color: var(--dw-text)
+
+.net-event__headline
+  font-family: var(--dw-font-mono)
+  font-size: .84rem
+
+.net-event__tags
+  display: flex
+  flex-wrap: wrap
+  gap: .25rem
+  justify-content: flex-end
+
+@media (max-width: 760px)
+  .net-event
+    grid-template-columns: minmax(0, 1fr)
+
+  .net-event__tags
+    justify-content: flex-start
+
+.net-tag
+  display: inline-block
+  border: 1px solid var(--dw-line-strong)
+  border-radius: var(--dw-radius)
+  padding: 0 .4em
+  color: var(--dw-text-muted)
+  font-family: var(--dw-font-mono)
+  font-size: .66rem
+  letter-spacing: .03em
+
+.net-tag--release, .net-tag--observed
+  border-color: color-mix(in oklab, var(--dw-ok) 45%, var(--dw-line))
+  color: var(--dw-ok)
+
+.net-tag--breaking, .net-tag--anomaly
+  border-color: color-mix(in oklab, var(--dw-danger) 45%, var(--dw-line))
+  color: var(--dw-danger)
+
+.net-tag--migration, .net-tag--status, .net-tag--listing
+  border-color: color-mix(in oklab, var(--dw-warn) 45%, var(--dw-line))
+  color: var(--dw-warn)
+
+.net-tag--dependencies, .net-tag--runtime, .net-tag--capabilities, .net-tag--moved
+  border-color: color-mix(in oklab, var(--dw-info) 45%, var(--dw-line))
+  color: var(--dw-info)
+
+.net-tag--artifacts, .net-tag--components
+  border-color: var(--dw-accent-line)
+  color: var(--dw-accent)
+
+.net-event-page
+  display: grid
+  grid-template-columns: minmax(0, 1fr) var(--dw-width-rail)
+  gap: 2rem
+  align-items: start
+  margin-top: 1.5rem
+
+@media (max-width: 1100px)
+  .net-event-page
+    grid-template-columns: minmax(0, 1fr)
+
+.net-change-group
+  margin: 0 0 1.4rem
+  border: 1px solid var(--dw-line)
+  border-left: 3px solid var(--dw-accent-strong)
+  border-radius: var(--dw-radius)
+  background: var(--dw-bg-1)
+
+  h2
+    margin: 0
+    border-bottom: 1px solid var(--dw-line)
+    padding: .45rem .85rem
+    color: var(--dw-text-muted)
+    font-size: .74rem
+    letter-spacing: .12em
+    text-transform: uppercase
+
+  > p, > div
+    margin: .6rem .85rem
+
+.net-change-group--anomaly
+  border-left-color: var(--dw-warn)
+  background: color-mix(in oklab, var(--dw-warn) 4%, var(--dw-bg-1))
+
+.net-change-group--notes
+  border-left-color: var(--dw-info)
+
+.net-changes
+  margin: 0
+  padding: .35rem 0
+  list-style: none
+  font-size: .9rem
+
+.net-change
+  display: grid
+  grid-template-columns: 1.6rem minmax(0, auto) minmax(0, 1fr)
+  gap: .1rem .6rem
+  align-items: baseline
+  padding: .25rem .85rem
+
+.net-change__mark
+  color: var(--net-changed)
+  font-family: var(--dw-font-mono)
+  font-weight: 700
+  text-align: center
+
+.net-change--added .net-change__mark
+  color: var(--net-added)
+
+.net-change--removed .net-change__mark
+  color: var(--net-removed)
+
+.net-change--anomaly .net-change__mark
+  color: var(--net-anomaly)
+
+.net-change--anomaly
+  background: color-mix(in oklab, var(--dw-warn) 6%, transparent)
+
+.net-change__subject
+  font-family: var(--dw-font-mono)
+  font-size: .86rem
+
+.net-change__values
+  overflow-wrap: anywhere
+
+  code
+    font-size: .82rem
+
+.net-change--removed .net-change__values code
+  text-decoration: line-through
+  text-decoration-color: color-mix(in oklab, var(--dw-danger) 60%, transparent)
+
+.net-change__arrow
+  color: var(--dw-text-faint)
+
+.net-change__detail
+  grid-column: 2 / -1
+  color: var(--dw-text-muted)
+  font-size: .82rem
+  overflow-wrap: anywhere
+
+.net-publisher-notes
+  font-size: .9rem
+
+  h4
+    margin: .9em 0 .3em
+    color: var(--dw-text-muted)
+    font-size: .72rem
+    letter-spacing: .12em
+    text-transform: uppercase
+
+.net-notes--breaking li::marker
+  color: var(--dw-danger)
+
+.net-notes--fixed li::marker
+  color: var(--dw-ok)
+
+.net-notes--added li::marker
+  color: var(--dw-accent)
+
+.net-notes-block > summary
+  color: var(--dw-text-faint)
+  font-family: var(--dw-font-mono)
+  font-size: .76rem
+
+// Relationships, releases, records ------------------------------------------------------------
+
+.net-relationships
+  margin: 0
+  padding: 0
+  list-style: none
+
+.net-relationships--inline .net-relationship
+  padding: 0
+  border: 0
+
+.net-relationship
+  display: flex
+  flex-wrap: wrap
+  gap: .25rem .5rem
+  align-items: baseline
+  padding: .3em 0
+  font-size: .9rem
+
+  + .net-relationship
+    border-top: 1px dashed var(--dw-line)
+
+.net-relationship__constraint
+  font-size: .8rem
+
+.net-relationship__via, .net-relationship__reason
+  flex-basis: 100%
+  color: var(--dw-text-faint)
+  font-size: .8rem
+
+.net-relationship__targets
+  flex-basis: 100%
+  margin: 0
+  padding-left: 1.1em
+  font-size: .82rem
+
+.net-reverse, .net-capabilities, .net-media
+  margin: 0
+  padding: 0
+  list-style: none
+
+  li
+    padding: .3em 0
+
+    + li
+      border-top: 1px dashed var(--dw-line)
+
+.net-capabilities
+  display: flex
+  flex-wrap: wrap
+  gap: .4rem
+
+  li
+    padding: 0
+
+    + li
+      border: 0
+
+.net-release-facts
+  display: flex
+  flex-wrap: wrap
+  gap: .25rem .9rem
+  margin: .4rem 0 .6rem
+  color: var(--dw-text-faint)
+  font-family: var(--dw-font-mono)
+  font-size: .74rem
+
+.net-artifact
+  margin-top: .5rem
+
+.net-record
+  border-top: 2px solid var(--dw-accent)
+
+  .dw-panel__title small
+    color: var(--dw-text-faint)
+    font-size: .9em
+    letter-spacing: .06em
+    text-transform: none
+
+.net-facts
+  font-size: .84rem
+
+.net-kind
+  font-family: var(--dw-font-mono)
+  font-size: .8rem
+
+.net-kind--requires
+  color: var(--dw-accent)
+
+.net-kind--recommends
+  color: var(--dw-info)
+
+.net-kind--conflicts
+  color: var(--dw-danger)
+
+.net-kind--compatible
+  color: var(--dw-ok)
+
+.net-kind--replaces
+  color: var(--dw-warn)
+
+// Sites, gaps, conflicts ----------------------------------------------------------------------
+
+.net-origins
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr))
+  gap: .8rem
+  margin: 1.2rem 0 0
+  padding: 0
+  list-style: none
+
+.net-origin
+  border: 1px solid var(--dw-line)
+  border-left: 3px solid var(--dw-accent-strong)
+  border-radius: var(--dw-radius)
+  padding: .7rem .9rem
+  background: var(--dw-bg-1)
+
+  h2
+    margin: 0
+    font-size: 1.05rem
+
+  p
+    margin: .2rem 0 0
+    font-size: .84rem
+
+.net-gap
+  margin: 1.2rem 0 0
+  border: 1px solid var(--dw-line)
+  border-left: 3px dashed var(--dw-line-strong)
+  border-radius: var(--dw-radius)
+  padding: .7rem .9rem
+  background: var(--dw-bg-1)
+
+  h2
+    margin: 0 0 .2rem
+    font-size: 1.02rem
+
+    small
+      color: var(--dw-text-faint)
+      font-family: var(--dw-font-mono)
+      font-size: .72rem
+      font-weight: 400
+
+  p
+    margin: .2rem 0
+    font-size: .86rem
+    overflow-wrap: anywhere
+
+.net-gap--project, .net-gap--capability
+  border-left-style: solid
+  border-left-color: var(--dw-info)
+
+.net-gap__references
+  display: flex
+  flex-wrap: wrap
+  gap: .2rem 1rem
+  margin: .3rem 0 0
+  padding: 0
+  list-style: none
+  font-size: .84rem
+
+.net-conflict
+  margin: 1.5rem 0 0
+  border: 1px solid color-mix(in oklab, var(--dw-danger) 40%, var(--dw-line))
+  border-radius: var(--dw-radius)
+  padding: .8rem 1rem
+  background: color-mix(in oklab, var(--dw-danger) 4%, var(--dw-bg-1))
+
+  h2
+    margin: 0 0 .6rem
+    color: var(--dw-danger)
+    font-size: .9rem
+    letter-spacing: .1em
+
+    a
+      margin-left: .5em
+      letter-spacing: 0
+
+.net-conflict__claims
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr))
+  gap: .8rem
+  margin: 0
+  padding: 0
+  list-style: none
+
+  > li
+    border: 1px solid var(--dw-line)
+    border-radius: var(--dw-radius)
+    padding: .6rem .8rem
+    background: var(--dw-bg-1)
+
+  p
+    margin: 0 0 .4rem
+
+.net-trail
+  margin-top: .3rem
+  font-size: .78rem
+
+  ol
+    margin: .3rem 0 0
+    padding-left: 1.3em
+
+// Maps ----------------------------------------------------------------------------------------
+
+.net-map
+  margin: 1.6rem 0 0
+  border: 1px solid var(--dw-line)
+  border-radius: var(--dw-radius)
+  padding: .8rem
+  background: linear-gradient(var(--net-grid-line) 1px, transparent 1px) 0 0 / 24px 24px, linear-gradient(90deg, var(--net-grid-line) 1px, transparent 1px) 0 0 / 24px 24px, var(--dw-bg-0)
+
+  figcaption
+    margin-top: .6rem
+    color: var(--dw-text-faint)
+    font-size: .78rem
+
+.net-map__canvas
+  overflow-x: auto
+  text-align: center
+
+.net-map--small
+  align-self: start
+
+.net-graph
+  max-width: 100%
+  height: auto
+
+.net-graph__node rect
+  fill: var(--dw-bg-2)
+  stroke: var(--dw-line-strong)
+  stroke-width: 1.2
+
+.net-graph__node--focus rect
+  fill: var(--dw-accent-soft)
+  stroke: var(--dw-accent)
+  stroke-width: 2
+
+.net-graph__node--foundation rect
+  stroke: var(--dw-info)
+
+.net-graph__node--external rect
+  fill: transparent
+  stroke-dasharray: 4 3
+
+.net-graph__node--capability rect
+  stroke: var(--dw-ok)
+  stroke-dasharray: 2 2
+
+.net-graph a:hover rect, .net-graph a:focus rect
+  stroke: var(--dw-accent-hover)
+  fill: var(--dw-bg-3)
+
+.net-graph__label
+  fill: var(--dw-text)
+  font-family: var(--dw-font-mono)
+  font-size: 12.5px
+  font-weight: 700
+
+.net-graph__detail
+  fill: var(--dw-text-faint)
+  font-family: var(--dw-font-mono)
+  font-size: 10.5px
+
+.net-graph__edge
+  fill: none
+  stroke: var(--dw-accent)
+  stroke-width: 1.7
+
+.net-graph__edge--recommends
+  stroke: var(--dw-info)
+  stroke-dasharray: 6 4
+
+.net-graph__edge--conflicts
+  stroke: var(--dw-danger)
+  stroke-dasharray: 2 3
+
+.net-graph__edge--compatible
+  stroke: var(--dw-ok)
+  stroke-dasharray: 1 3
+  stroke-linecap: round
+
+.net-graph__edge--replaces
+  stroke: var(--dw-warn)
+
+.net-graph__arrow path
+  fill: var(--dw-accent)
+
+.net-graph__arrow--recommends path
+  fill: var(--dw-info)
+
+.net-graph__arrow--conflicts path
+  fill: var(--dw-danger)
+
+.net-graph__arrow--compatible path
+  fill: var(--dw-ok)
+
+.net-graph__arrow--replaces path
+  fill: var(--dw-warn)
+
+.net-legend
+  display: inline-flex
+  flex-wrap: wrap
+  gap: .3rem .9rem
+  margin-left: .6rem
+
+.net-legend__item
+  font-family: var(--dw-font-mono)
+
+  &::before
+    content: ""
+    display: inline-block
+    width: 1.6em
+    margin-right: .35em
+    border-top: 2px solid var(--dw-accent)
+    vertical-align: middle
+
+.net-legend__item--recommends::before
+  border-top: 2px dashed var(--dw-info)
+
+.net-legend__item--conflicts::before
+  border-top: 2px dotted var(--dw-danger)
+
+.net-legend__item--compatible::before
+  border-top: 2px dotted var(--dw-ok)
+
+.net-legend__item--replaces::before
+  border-top-color: var(--dw-warn)
+
+// Search results: the network's search shows what kind of thing each result is ---------------
+
+.net-search .dw-search__list small
+  display: inline-block
+  margin-left: .5em
+  color: var(--dw-text-faint)
+  font-family: var(--dw-font-mono)
+  font-size: .7rem
+  font-weight: 400
+
+@media (prefers-reduced-motion: reduce)
+  .net-led
+    animation: none
