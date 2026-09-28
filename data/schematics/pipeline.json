@@ -1,0 +1,17 @@
+{
+  "id": "pipeline",
+  "title": "Three commands, each a finite batch job",
+  "description": "Only refresh touches the network. Build and render are pure functions of files.",
+  "mode": "flow",
+  "direction": "horizontal",
+  "heading_level": 3,
+  "nodes": [
+    { "id": "refresh", "kind": "service", "title": "cargo network refresh", "detail": "Reads sources.toml and the publisher sites. Writes state/." },
+    { "id": "build", "kind": "service", "title": "cargo network build", "detail": "Reads state/, curation.toml and pages/. Writes Zola content, view data and network-data/." },
+    { "id": "render", "kind": "result", "title": "zola build", "detail": "Renders public/: static files for any host." }
+  ],
+  "edges": [
+    { "from": "refresh", "to": "build", "label": "state/" },
+    { "from": "build", "to": "render", "label": "content/" }
+  ]
+}

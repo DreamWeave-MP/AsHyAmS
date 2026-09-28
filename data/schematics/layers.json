@@ -1,0 +1,26 @@
+{
+  "id": "layers",
+  "title": "Facts at the origin, observations in Git, files on any host",
+  "description": "Each layer survives without the one below it. Sites work without the index; the index rebuilds without the site; the site is served without anything running.",
+  "mode": "flow",
+  "direction": "vertical",
+  "nodes": [
+    { "id": "publishers", "kind": "source", "title": "Publisher sites", "detail": "Each project's own site: dreamweave.json, one manifest per project, archives and mirrors. The only authority for identity and releases." },
+    { "id": "crawler", "kind": "service", "title": "Crawler", "detail": "cargo network refresh, every six hours in CI or by hand. Discovers, validates, compares digests, fetches only what changed." },
+    { "id": "state", "kind": "cache", "title": "network-state branch", "detail": "Last good manifests byte for byte, per-site and per-claim records, one file per change event. Git is the history." },
+    { "id": "build", "kind": "service", "title": "Build", "detail": "cargo network build, then zola build. A pure function of the state: no clock, no network." },
+    { "id": "site", "kind": "result", "title": "Static site", "detail": "Pages, catalog.json, events.json, search.json, the updates feed. Any static host, any mirror." },
+    { "id": "sources", "kind": "source", "role": "support", "title": "network/sources.toml", "detail": "The reviewed list of sites to read. Changed by pull request." },
+    { "id": "curation", "kind": "source", "role": "support", "title": "network/curation.toml", "detail": "This index's own decisions: acknowledged moves, featured projects. Labelled as the index's." },
+    { "id": "clients", "kind": "service", "role": "support", "title": "Clients", "detail": "CHIMERA or anything else. Reads publisher sites directly; may use this index to find them." }
+  ],
+  "edges": [
+    { "from": "publishers", "to": "crawler", "label": "read on a schedule" },
+    { "from": "crawler", "to": "state", "label": "observations" },
+    { "from": "state", "to": "build" },
+    { "from": "build", "to": "site" },
+    { "from": "sources", "to": "crawler", "kind": "support", "label": "which sites" },
+    { "from": "curation", "to": "build", "kind": "support", "label": "this index's decisions" },
+    { "from": "clients", "to": "publishers", "kind": "support", "label": "manifests and archives" }
+  ]
+}
