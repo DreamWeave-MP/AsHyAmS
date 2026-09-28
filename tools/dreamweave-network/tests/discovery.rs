@@ -11,7 +11,7 @@ const INDEX: &str = include_str!("fixtures/mod-template/dreamweave.json");
 const CANDLELIGHT: &str = include_str!("fixtures/mod-template/candlelight.json");
 
 fn fetcher() -> Fetcher {
-    Fetcher::new(AddressPolicy::AllowLoopback).unwrap()
+    Fetcher::new(AddressPolicy::LoopbackOnly).unwrap()
 }
 
 fn page(head: &str) -> String {

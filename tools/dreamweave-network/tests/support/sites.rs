@@ -16,6 +16,8 @@ use super::Server;
 
 pub const CANDLELIGHT: &str = include_str!("../fixtures/mod-template/candlelight.json");
 pub const TALLOW: &str = include_str!("../fixtures/mod-template/tallow.json");
+pub const PROGRAM: &str = include_str!("../fixtures/programs/lantern-forge.json");
+pub const THUMBNAIL: &[u8] = include_bytes!("../fixtures/thumbnail.png");
 pub const CANDLELIGHT_ID: &str = "4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90";
 pub const TALLOW_ID: &str = "9b7e3f21-6c4d-4a8b-b1e2-3f5a7c9d0e14";
 
@@ -25,6 +27,10 @@ pub fn candlelight() -> Value {
 
 pub fn tallow() -> Value {
     serde_json::from_str(TALLOW).unwrap()
+}
+
+pub fn program() -> Value {
+    serde_json::from_str(PROGRAM).unwrap()
 }
 
 pub fn pretty(value: &Value) -> Vec<u8> {
@@ -85,10 +91,30 @@ impl<'a> Site<'a> {
         })
     }
 
+    /// Points every media URL at this server, which serves a small PNG there, so no test ever
+    /// fetches a publisher's real image.
+    pub fn localized(&self, manifest: &Value) -> Value {
+        let mut manifest = manifest.clone();
+        let id = manifest["project"]["id"].as_str().unwrap().to_owned();
+        if let Some(items) = manifest["project"]["media"].as_array_mut() {
+            for (position, item) in items.iter_mut().enumerate() {
+                for field in ["url", "thumbnail"] {
+                    if item.get(field).is_some() {
+                        let path = format!("{}media/{id}-{position}-{field}.png", self.base);
+                        self.server.serve(&path, "image/png", THUMBNAIL.to_vec());
+                        item[field] = self.server.url(&path).to_string().into();
+                    }
+                }
+            }
+        }
+        manifest
+    }
+
     /// Serves every manifest and an index that lists them all, plus a front page linking it.
     pub fn publish(&self, manifests: &[Value]) {
         let mut entries = Vec::new();
         for manifest in manifests {
+            let manifest = &self.localized(manifest);
             let bytes = pretty(manifest);
             let id = manifest["project"]["id"].as_str().unwrap();
             self.server
@@ -127,7 +153,7 @@ pub fn config(sources: &[String]) -> Config {
 }
 
 pub fn crawler() -> Crawler {
-    let mut crawler = Crawler::new(Fetcher::new(AddressPolicy::AllowLoopback).unwrap());
+    let mut crawler = Crawler::new(Fetcher::new(AddressPolicy::LoopbackOnly).unwrap());
     crawler.retry_delays = vec![std::time::Duration::ZERO; 2];
     crawler
 }

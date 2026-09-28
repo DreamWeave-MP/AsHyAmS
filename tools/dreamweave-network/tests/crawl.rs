@@ -4,6 +4,7 @@
 mod support;
 
 use dreamweave_network::{
+    diff::Change,
     protocol::ProjectId,
     state::{ClaimHealth, ClaimKey, EventKind, OriginHealth, SourceHealth, State, sha256_hex},
 };
@@ -64,9 +65,13 @@ async fn the_first_crawl_observes_every_claim() {
     let held = state.manifest_bytes(&key(&state, CANDLELIGHT_ID)).unwrap();
     assert_eq!(
         held,
-        pretty(&candlelight()).as_slice(),
+        pretty(&site.localized(&candlelight())).as_slice(),
         "manifests are kept as served"
     );
+    let image = claim.media.as_ref().unwrap();
+    let file = image.file.as_ref().unwrap();
+    assert!(file.starts_with("media/"), "{image:?}");
+    assert!(state.new_media.contains_key(file));
     assert_eq!(
         claim.ingested_sha256.as_deref(),
         Some(sha256_hex(held).as_str())
@@ -235,12 +240,13 @@ async fn a_half_finished_deployment_is_inconsistent_not_malicious() {
         .to_vec();
 
     // The new index is live, the CDN still serves the old manifest.
-    let mut updated = candlelight();
+    let mut updated = site.localized(&candlelight());
     updated["project"]["summary"] = "Lights that know what time it is, now in 4K.".into();
     let new_bytes = pretty(&updated);
+    let tallow = site.localized(&tallow());
     site.serve_index(&site.index(&[
         site.entry(&updated, &new_bytes),
-        site.entry(&tallow(), &pretty(&tallow())),
+        site.entry(&tallow, &pretty(&tallow)),
     ]));
 
     server.forget_requests();
@@ -279,7 +285,7 @@ async fn a_half_finished_deployment_is_inconsistent_not_malicious() {
 async fn a_manifest_for_another_project_is_refused() {
     let server = Server::start();
     let site = Site::new(&server, "/mods/");
-    let mut impostor = tallow();
+    let mut impostor = site.localized(&tallow());
     impostor["project"]["id"] = CANDLELIGHT_ID.into();
     let bytes = pretty(&impostor);
     server.serve_json(&site.manifest_path(TALLOW_ID), bytes.clone());
@@ -417,8 +423,11 @@ async fn a_moved_site_continues_its_claims_without_a_conflict() {
     assert_eq!(event.kind, EventKind::Observed);
     assert_eq!(event.moved_from.as_deref(), Some(old_origin.as_str()));
     assert!(
-        event.changes.is_empty(),
-        "the same manifest at a new address: {:?}",
+        event
+            .changes
+            .iter()
+            .all(|change| matches!(change, Change::Media { .. })),
+        "the same manifest at a new address, its images with it: {:?}",
         event.changes
     );
 }

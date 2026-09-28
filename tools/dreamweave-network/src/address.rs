@@ -12,17 +12,21 @@ use std::net::{IpAddr, Ipv4Addr, Ipv6Addr};
 pub enum AddressPolicy {
     /// What every real crawl uses.
     PublicOnly,
-    /// Public addresses plus loopback, for fixture servers in tests and local failure drills.
+    /// Public addresses plus loopback, for local failure drills against fixture servers.
     /// Private, link-local and metadata ranges stay refused even here.
     AllowLoopback,
+    /// Loopback and nothing else. The test suite runs under this, so no test can reach the
+    /// internet, however a fixture happens to be written.
+    LoopbackOnly,
 }
 
 impl AddressPolicy {
     pub fn permits(self, address: IpAddr) -> bool {
-        if is_public(address) {
-            return true;
+        match self {
+            Self::PublicOnly => is_public(address),
+            Self::AllowLoopback => is_public(address) || address.is_loopback(),
+            Self::LoopbackOnly => address.is_loopback(),
         }
-        self == Self::AllowLoopback && address.is_loopback()
     }
 }
 
@@ -169,5 +173,13 @@ mod tests {
         assert!(!policy.permits("10.0.0.1".parse().unwrap()));
         assert!(!policy.permits("169.254.169.254".parse().unwrap()));
         assert!(!AddressPolicy::PublicOnly.permits("127.0.0.1".parse().unwrap()));
+    }
+
+    #[test]
+    fn tests_can_reach_loopback_and_nothing_else() {
+        let policy = AddressPolicy::LoopbackOnly;
+        assert!(policy.permits("127.0.0.1".parse().unwrap()));
+        assert!(!policy.permits("185.199.108.153".parse().unwrap()));
+        assert!(!policy.permits("10.0.0.1".parse().unwrap()));
     }
 }

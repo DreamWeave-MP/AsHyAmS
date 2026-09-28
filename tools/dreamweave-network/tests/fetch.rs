@@ -9,7 +9,7 @@ use support::{Route, Server};
 use url::Url;
 
 fn drill_fetcher() -> Fetcher {
-    Fetcher::new(AddressPolicy::AllowLoopback).unwrap()
+    Fetcher::new(AddressPolicy::LoopbackOnly).unwrap()
 }
 
 fn real_fetcher() -> Fetcher {
