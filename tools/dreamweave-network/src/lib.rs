@@ -2,6 +2,7 @@
 //! (`schema_version` "2"), remembers what they said, and renders it as a static site.
 
 pub mod address;
+pub mod catalog;
 pub mod config;
 pub mod crawl;
 pub mod diff;

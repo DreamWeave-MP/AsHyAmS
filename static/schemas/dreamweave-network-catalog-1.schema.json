@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dreamweave-mp.github.io/AsHyAmS/schemas/dreamweave-network-catalog-1.schema.json",
+  "title": "DreamWeave Network Catalog, format version 1",
+  "description": "What one DreamWeave Network index observed: sites, the project claims they publish, relationships, capabilities and change events. A cache format, not the DreamWeave protocol. Every claim names the manifest URL that remains the authority for it.",
+  "oneOf": [
+    { "$ref": "#/$defs/catalog" },
+    { "$ref": "#/$defs/events" }
+  ],
+  "$defs": {
+    "uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "time": {
+      "description": "UTC, second precision: when this index observed something. Never a publisher's date.",
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "optional_time": {
+      "oneOf": [{ "$ref": "#/$defs/time" }, { "type": "null" }]
+    },
+    "optional_string": {
+      "type": ["string", "null"]
+    },
+    "url": {
+      "type": "string",
+      "pattern": "^https?://"
+    },
+    "origin_id": {
+      "description": "This index's name for a site: readable host and path plus eight hex digits of the site index URL's SHA-256.",
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "claim_ref": {
+      "type": "object",
+      "required": ["project", "origin"],
+      "additionalProperties": false,
+      "properties": {
+        "project": { "$ref": "#/$defs/uuid" },
+        "origin": { "$ref": "#/$defs/origin_id" }
+      }
+    },
+    "relationship_kind": {
+      "enum": ["requires", "recommends", "conflicts", "compatible", "replaces"]
+    },
+    "origin_health": {
+      "enum": ["healthy", "unreachable", "refused", "no-index", "invalid-index", "unsupported-version"]
+    },
+    "claim_health": {
+      "description": "current: the held manifest is the advertised one. Anything else: the held manifest is the last good one, and the value says why it is not current.",
+      "enum": ["current", "origin-unavailable", "manifest-unreachable", "invalid", "inconsistent", "refused", "withdrawn"]
+    },
+    "index": {
+      "type": "object",
+      "required": ["name", "url", "repository"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "$ref": "#/$defs/url" },
+        "repository": { "$ref": "#/$defs/url" }
+      }
+    },
+    "origin": {
+      "type": "object",
+      "required": ["id", "index_url", "site_name", "site_url", "sources", "health", "problem", "first_observed", "last_attempt", "last_success", "projects"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/origin_id" },
+        "index_url": { "$ref": "#/$defs/url" },
+        "site_name": { "$ref": "#/$defs/optional_string" },
+        "site_url": { "$ref": "#/$defs/optional_string" },
+        "sources": { "type": "array", "items": { "$ref": "#/$defs/url" } },
+        "health": { "$ref": "#/$defs/origin_health" },
+        "problem": { "$ref": "#/$defs/optional_string" },
+        "first_observed": { "$ref": "#/$defs/time" },
+        "last_attempt": { "$ref": "#/$defs/time" },
+        "last_success": { "$ref": "#/$defs/optional_time" },
+        "projects": { "type": "array", "items": { "$ref": "#/$defs/uuid" } }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "required": ["project", "origin", "name", "summary", "type", "status", "versioning", "game", "license", "tags", "page", "manifest_url", "manifest_sha256", "advertised_sha256", "health", "cached", "problem", "first_observed", "last_changed", "last_attempt", "last_success", "channels", "current", "runtimes", "lua_api", "provides", "conflict", "superseded_by", "network_page"],
+      "additionalProperties": false,
+      "properties": {
+        "project": { "$ref": "#/$defs/uuid" },
+        "origin": { "$ref": "#/$defs/origin_id" },
+        "name": { "type": "string" },
+        "summary": { "$ref": "#/$defs/optional_string" },
+        "type": { "enum": ["mod", "library", "framework", "tool", "assets", "total-conversion", "documentation"] },
+        "status": { "enum": ["active", "maintenance", "experimental", "deprecated", "archived"] },
+        "versioning": { "enum": ["numeric", "decimal"] },
+        "game": { "type": "string" },
+        "license": { "$ref": "#/$defs/optional_string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "page": { "type": "string" },
+        "manifest_url": { "$ref": "#/$defs/url" },
+        "manifest_sha256": { "$ref": "#/$defs/sha256" },
+        "advertised_sha256": { "$ref": "#/$defs/sha256" },
+        "health": { "$ref": "#/$defs/claim_health" },
+        "cached": { "type": "boolean" },
+        "problem": { "$ref": "#/$defs/optional_string" },
+        "first_observed": { "$ref": "#/$defs/time" },
+        "last_changed": { "$ref": "#/$defs/optional_time" },
+        "last_attempt": { "$ref": "#/$defs/time" },
+        "last_success": { "$ref": "#/$defs/optional_time" },
+        "channels": { "type": "object", "additionalProperties": { "type": "string" } },
+        "current": {
+          "description": "The release this index treats as current: stable's head, else the newest head of another channel other than development, else development's head.",
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["channel", "version"],
+              "additionalProperties": false,
+              "properties": { "channel": { "type": "string" }, "version": { "type": "string" } }
+            },
+            { "type": "null" }
+          ]
+        },
+        "runtimes": { "type": "object", "additionalProperties": { "type": "string" } },
+        "lua_api": { "$ref": "#/$defs/optional_string" },
+        "provides": { "type": "array", "items": { "type": "string" } },
+        "conflict": { "type": "boolean" },
+        "superseded_by": { "oneOf": [{ "$ref": "#/$defs/claim_ref" }, { "type": "null" }] },
+        "network_page": { "$ref": "#/$defs/url" }
+      }
+    },
+    "catalog": {
+      "type": "object",
+      "required": ["format", "format_version", "notice", "index", "observed_at", "crawler", "origins", "claims", "conflicts", "relationships", "capabilities"],
+      "additionalProperties": false,
+      "properties": {
+        "format": { "const": "dreamweave-network-catalog" },
+        "format_version": { "const": 1 },
+        "notice": { "type": "string" },
+        "index": { "$ref": "#/$defs/index" },
+        "observed_at": { "$ref": "#/$defs/optional_time" },
+        "crawler": { "$ref": "#/$defs/optional_string" },
+        "origins": { "type": "array", "items": { "$ref": "#/$defs/origin" } },
+        "claims": { "type": "array", "items": { "$ref": "#/$defs/claim" } },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["project", "claims"],
+            "additionalProperties": false,
+            "properties": {
+              "project": { "$ref": "#/$defs/uuid" },
+              "claims": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/claim_ref" } }
+            }
+          }
+        },
+        "relationships": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["from", "release", "kind", "project", "capability", "name", "url", "version", "resolved", "satisfied"],
+            "additionalProperties": false,
+            "properties": {
+              "from": { "$ref": "#/$defs/claim_ref" },
+              "release": { "type": "string" },
+              "kind": { "$ref": "#/$defs/relationship_kind" },
+              "project": { "oneOf": [{ "$ref": "#/$defs/uuid" }, { "type": "null" }] },
+              "capability": { "$ref": "#/$defs/optional_string" },
+              "name": { "$ref": "#/$defs/optional_string" },
+              "url": { "$ref": "#/$defs/optional_string" },
+              "version": { "$ref": "#/$defs/optional_string" },
+              "resolved": { "type": "array", "items": { "$ref": "#/$defs/claim_ref" } },
+              "satisfied": { "type": ["boolean", "null"] }
+            }
+          }
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["capability", "providers", "referenced_by"],
+            "additionalProperties": false,
+            "properties": {
+              "capability": { "type": "string" },
+              "providers": { "type": "array", "items": { "$ref": "#/$defs/claim_ref" } },
+              "referenced_by": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["from", "kind"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "from": { "$ref": "#/$defs/claim_ref" },
+                    "kind": { "$ref": "#/$defs/relationship_kind" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "required": ["id", "kind", "project", "origin", "name", "observed_at", "before", "after", "changes", "tags", "headline"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[0-9a-f]{20}$" },
+        "kind": { "enum": ["observed", "changed", "withdrawn", "restored"] },
+        "project": { "$ref": "#/$defs/uuid" },
+        "origin": { "$ref": "#/$defs/origin_id" },
+        "name": { "type": "string" },
+        "observed_at": { "$ref": "#/$defs/time" },
+        "before": { "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }] },
+        "after": { "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }] },
+        "moved_from": { "$ref": "#/$defs/origin_id" },
+        "changes": {
+          "description": "Typed differences between the manifests `before` and `after`, each tagged by `change`. The vocabulary is documented on the index's site under About → Updates.",
+          "type": "array",
+          "items": { "type": "object", "required": ["change"], "properties": { "change": { "type": "string" } } }
+        },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "headline": { "type": "string" }
+      }
+    },
+    "events": {
+      "type": "object",
+      "required": ["format", "format_version", "notice", "index", "observed_at", "events"],
+      "additionalProperties": false,
+      "properties": {
+        "format": { "const": "dreamweave-network-events" },
+        "format_version": { "const": 1 },
+        "notice": { "type": "string" },
+        "index": { "$ref": "#/$defs/index" },
+        "observed_at": { "$ref": "#/$defs/optional_time" },
+        "events": { "type": "array", "items": { "$ref": "#/$defs/event" } }
+      }
+    }
+  }
+}
