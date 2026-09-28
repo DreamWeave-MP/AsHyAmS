@@ -559,10 +559,12 @@ fn apply(state: &mut State, outcomes: &[(Url, SourceOutcome)], now: &str, report
             .and_then(|record| record.origin.clone());
         match outcome {
             SourceOutcome::Failed(failure) => {
-                apply
-                    .report
-                    .unreachable_sources
-                    .push(format!("{url}: {failure}"));
+                let line = if failure.detail.contains(url.as_str()) {
+                    failure.detail.clone()
+                } else {
+                    format!("{url}: {failure}")
+                };
+                apply.report.unreachable_sources.push(line);
                 apply.failure(url, previous_origin.as_deref(), failure);
             }
             SourceOutcome::Resolved(resolved) => {
