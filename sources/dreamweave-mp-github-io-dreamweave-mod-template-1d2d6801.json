@@ -1,0 +1,19 @@
+{
+  "url": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/",
+  "origin": "dreamweave-mp-github-io-dreamweave-mod-template-439f8bc8",
+  "health": "resolved",
+  "problem": null,
+  "method": "found by walking up the path",
+  "trail": [
+    {
+      "url": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/",
+      "outcome": "an HTML page with no DreamWeave <link>"
+    },
+    {
+      "url": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave.json",
+      "outcome": "a DreamWeave site index"
+    }
+  ],
+  "last_attempt": "2026-09-28T23:19:01Z",
+  "last_success": "2026-09-28T23:19:01Z"
+}

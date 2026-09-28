@@ -1,0 +1,41 @@
+{
+  "schema_version": "2",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "site": {
+    "name": "DreamWeave Mod Template",
+    "url": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/"
+  },
+  "projects": [
+    {
+      "id": "4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90",
+      "name": "Candlelight",
+      "summary": "Lights that know what time it is. Candles gutter, lanterns dim in storms, and every flame in Vvardenfell follows the hour.",
+      "type": "mod",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/home/",
+      "manifest": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave/projects/4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90.json",
+      "manifest_sha256": "b9b68684d62f16de2c87f0e62df40bfd2c701dde15225e481a9c328180b0bc1c",
+      "updated": "2026-09-28",
+      "channels": {
+        "development": "1.1.1-dev.0",
+        "stable": "1.1.0"
+      }
+    },
+    {
+      "id": "9b7e3f21-6c4d-4a8b-b1e2-3f5a7c9d0e14",
+      "name": "Tallow",
+      "summary": "A tiny OpenMW Lua library that wakes your script at dusk, at dawn, or on the hour.",
+      "type": "library",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/simplified/",
+      "manifest": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave/projects/9b7e3f21-6c4d-4a8b-b1e2-3f5a7c9d0e14.json",
+      "manifest_sha256": "d5b1f69067560317e6d23d3e6c6ea86654a8b262c22781e7274a7c7aa37c03f7",
+      "updated": "2026-09-28",
+      "channels": {
+        "development": "1.0.1-dev.0",
+        "stable": "1.0.0"
+      }
+    }
+  ]
+}
