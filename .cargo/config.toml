@@ -1,0 +1,3 @@
+# `cargo network <command>` runs the index tool from the repository root.
+[alias]
+network = "run --locked --release -p dreamweave-network --"

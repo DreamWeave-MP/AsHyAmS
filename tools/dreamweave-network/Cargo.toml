@@ -1,0 +1,20 @@
+[package]
+name = "dreamweave-network"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+publish = false
+license = "AGPL-3.0-or-later"
+description = "Crawler, change tracker and static site generator for the DreamWeave Network index"
+repository = "https://github.com/DreamWeave-MP/AsHyAmS"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+
+# The library half exists for the binary and its integration tests, not for other crates, so the
+# lints about documenting a public API's errors and panics would only add ceremony.
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+missing_errors_doc = "allow"
+missing_panics_doc = "allow"
+must_use_candidate = "allow"
