@@ -490,6 +490,8 @@ pub struct Group {
     pub select: String,
 }
 
+/// `format` is `flat`, `bain` or `fomod` for game data, laid out for installation, or `binary`
+/// for a program built for one platform. A `binary` artifact is never installed into a game.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct Artifact {
@@ -499,10 +501,21 @@ pub struct Artifact {
     pub media_type: String,
     pub size: u64,
     pub digests: Digests,
+    /// The one platform a `binary` artifact runs on. Required for `binary`, absent otherwise.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub platform: Option<Platform>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub layout: Option<Layout>,
     pub sources: Vec<ArtifactSource>,
     pub signatures: Vec<Signature>,
+}
+
+pub const BINARY_FORMAT: &str = "binary";
+
+impl Artifact {
+    pub fn is_program(&self) -> bool {
+        self.format == BINARY_FORMAT
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]

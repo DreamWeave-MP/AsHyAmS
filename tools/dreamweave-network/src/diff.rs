@@ -829,6 +829,19 @@ fn artifact_changes(
         if previous.format != artifact.format {
             details.push(format!("format: {} → {}", previous.format, artifact.format));
         }
+        if previous.platform != artifact.platform {
+            let label = |platform: &Option<crate::protocol::Platform>| {
+                platform.as_ref().map_or_else(
+                    || "none".to_owned(),
+                    |platform| format!("{}/{}", platform.os, platform.arch),
+                )
+            };
+            details.push(format!(
+                "platform: {} → {}",
+                label(&previous.platform),
+                label(&artifact.platform)
+            ));
+        }
         if same_release && previous.filename != artifact.filename {
             details.push(format!(
                 "file name: {} → {}",
@@ -1179,6 +1192,29 @@ mod tests {
         );
         assert!(
             matches!(&found[2], Change::ReleaseRemoved { version, channel } if version == "1.1.1-dev.0" && channel == "development")
+        );
+    }
+
+    #[test]
+    fn a_program_artifact_changing_platform_is_reported() {
+        let program: Value = serde_json::from_str(include_str!(
+            "../tests/fixtures/programs/lantern-forge.json"
+        ))
+        .unwrap();
+        let mut moved = program.clone();
+        moved["releases"][1]["artifacts"][1]["platform"] =
+            json!({ "os": "windows", "arch": "aarch64" });
+        moved["releases"][1]["platforms"][1] = json!({ "os": "windows", "arch": "aarch64" });
+        let found = diff(&manifest(&program), &manifest(&moved));
+        let Change::ReleaseAmended { changes, .. } = &found[0] else {
+            panic!("{found:?}")
+        };
+        assert!(changes.iter().any(|change| matches!(change,
+            ReleaseChange::ArtifactFile { details, .. } if details[0] == "platform: windows/x86_64 → windows/aarch64")));
+        assert!(
+            changes
+                .iter()
+                .any(|change| matches!(change, ReleaseChange::Platforms { .. }))
         );
     }
 

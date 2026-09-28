@@ -1,0 +1,246 @@
+{
+  "schema_version": "2",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "project": {
+    "id": "7c1e4b2a-9d3f-4e8a-b6c5-2f1a0d9e8b73",
+    "name": "Lantern Forge",
+    "summary": "A command-line program that bakes light schedules into plugin records. A fixture: this project does not exist.",
+    "type": "tool",
+    "status": "experimental",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "license": "GPL-3.0-or-later",
+    "tags": [
+      "Lighting",
+      "Tools"
+    ],
+    "maintainers": [
+      {
+        "name": "Example Lanterns"
+      }
+    ],
+    "links": {
+      "page": "https://example-lanterns.github.io/lantern-forge/",
+      "source": "https://github.com/example-lanterns/lantern-forge",
+      "issues": "https://github.com/example-lanterns/lantern-forge/issues"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.4.1-dev.2"
+    },
+    "stable": {
+      "version": "0.4.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.4.1-dev.2",
+      "channel": "development",
+      "date": "2026-09-28",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/example-lanterns/lantern-forge",
+        "revision": "1111111111111111111111111111111111111111",
+        "release": "development"
+      },
+      "runtimes": {},
+      "platforms": [
+        {
+          "os": "linux",
+          "arch": "x86_64"
+        },
+        {
+          "os": "windows",
+          "arch": "x86_64"
+        }
+      ],
+      "provides": [
+        "dreamweave:light-baking"
+      ],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "project": "4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90",
+          "name": "Candlelight",
+          "reason": "Bakes Candlelight's schedules into static light records for engines without Lua."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "Lantern Forge",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "linux-x64",
+          "format": "binary",
+          "filename": "lantern-forge-Linux-X64.zip",
+          "media_type": "application/zip",
+          "size": 3411262,
+          "digests": {
+            "sha256": "eff4fffb03a0bc14224df795031e1027ff02d7febb799b1057f830d9d487f3be"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/example-lanterns/lantern-forge/releases/download/development/lantern-forge-Linux-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "windows-x64",
+          "format": "binary",
+          "filename": "lantern-forge-Windows-X64.zip",
+          "media_type": "application/zip",
+          "size": 3902117,
+          "digests": {
+            "sha256": "eee2cb104dc33b2f7b4772c337b9568c2cdd78bb9980f4a17e8ce9c81a26bdf8"
+          },
+          "platform": {
+            "os": "windows",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/example-lanterns/lantern-forge/releases/download/development/lantern-forge-Windows-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.4.0",
+      "channel": "stable",
+      "date": "2026-09-20",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/example-lanterns/lantern-forge",
+        "revision": "2222222222222222222222222222222222222222",
+        "tag": "lantern_forge-0.4.0"
+      },
+      "runtimes": {},
+      "platforms": [
+        {
+          "os": "linux",
+          "arch": "x86_64"
+        },
+        {
+          "os": "windows",
+          "arch": "x86_64"
+        }
+      ],
+      "provides": [
+        "dreamweave:light-baking"
+      ],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "project": "4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90",
+          "name": "Candlelight",
+          "reason": "Bakes Candlelight's schedules into static light records for engines without Lua."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "Lantern Forge",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "linux-x64",
+          "format": "binary",
+          "filename": "lantern-forge-Linux-X64.zip",
+          "media_type": "application/zip",
+          "size": 3411262,
+          "digests": {
+            "sha256": "68341ce1be55e3c673db46b6b45eab879e23b51e46067e98affc52b0a7e69dff"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/example-lanterns/lantern-forge/releases/download/lantern_forge-0.4.0/lantern-forge-Linux-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": [
+            {
+              "format": "sigstore-bundle",
+              "url": "https://github.com/example-lanterns/lantern-forge/releases/download/lantern_forge-0.4.0/lantern-forge-Linux-X64.zip.sigstore.json",
+              "issuer": "https://token.actions.githubusercontent.com",
+              "identity": "https://github.com/example-lanterns/lantern-forge/.github/workflows/build_site.yml@refs/tags/lantern_forge-0.4.0"
+            }
+          ]
+        },
+        {
+          "id": "windows-x64",
+          "format": "binary",
+          "filename": "lantern-forge-Windows-X64.zip",
+          "media_type": "application/zip",
+          "size": 3902117,
+          "digests": {
+            "sha256": "c7203d7c54d3202e345dce6c02e2c1d03a9d48fb1d333efcbaaf496613ca87a5"
+          },
+          "platform": {
+            "os": "windows",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/example-lanterns/lantern-forge/releases/download/lantern_forge-0.4.0/lantern-forge-Windows-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": [
+            {
+              "format": "sigstore-bundle",
+              "url": "https://github.com/example-lanterns/lantern-forge/releases/download/lantern_forge-0.4.0/lantern-forge-Windows-X64.zip.sigstore.json",
+              "issuer": "https://token.actions.githubusercontent.com",
+              "identity": "https://github.com/example-lanterns/lantern-forge/.github/workflows/build_site.yml@refs/tags/lantern_forge-0.4.0"
+            }
+          ]
+        }
+      ],
+      "notes": {
+        "summary": "First release with Windows builds.",
+        "added": [
+          "Windows x86_64 builds, signed by the release workflow."
+        ]
+      }
+    }
+  ]
+}

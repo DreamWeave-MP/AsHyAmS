@@ -1,7 +1,7 @@
 {
   "schema_version": "2",
   "document": "project",
-  "generator": "DreamWeave Mod Template 4.0.0",
+  "generator": "DreamWeave Mod Template 5.0.0",
   "project": {
     "id": "4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90",
     "name": "Candlelight",
@@ -95,7 +95,7 @@
       "source": {
         "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
         "release": "dev-build",
-        "revision": "ce9eaf49ce6443342b206d17bb68778b236586d0"
+        "revision": "ef5d5bf9c5c5cb99a799e130bc9773ca546c10a4"
       },
       "runtimes": {
         "openmw": ">=0.49"
@@ -260,9 +260,9 @@
           "format": "fomod",
           "filename": "candlelight.zip",
           "media_type": "application/zip",
-          "size": 253070,
+          "size": 254799,
           "digests": {
-            "sha256": "ed635ef83ede6d9f5efc16af38689efe8ff0446a1a0460ac105db770e95b909c"
+            "sha256": "a5d66220756706ae984602ebd3f54fee29e6f3a5a1bea7d8d1e35778acfdd8aa"
           },
           "layout": {
             "release_document": "dreamweave.release.json",

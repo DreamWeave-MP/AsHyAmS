@@ -1,7 +1,7 @@
 {
   "schema_version": "2",
   "document": "project",
-  "generator": "DreamWeave Mod Template 4.0.0",
+  "generator": "DreamWeave Mod Template 5.0.0",
   "project": {
     "id": "9b7e3f21-6c4d-4a8b-b1e2-3f5a7c9d0e14",
     "name": "Tallow",
@@ -42,7 +42,7 @@
       "source": {
         "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
         "release": "dev-build",
-        "revision": "ce9eaf49ce6443342b206d17bb68778b236586d0"
+        "revision": "ef5d5bf9c5c5cb99a799e130bc9773ca546c10a4"
       },
       "runtimes": {
         "openmw": ">=0.49"
@@ -93,9 +93,9 @@
           "format": "flat",
           "filename": "tallow.zip",
           "media_type": "application/zip",
-          "size": 70390,
+          "size": 72119,
           "digests": {
-            "sha256": "ad7ff3f7e9a05de14c9a17f6f76f246cb7b4ca15c39ba96899a36f4a769ba6df"
+            "sha256": "93351385304ef00dade11a74755e4971d6b8e6bc1d601ee57784fc13f657d434"
           },
           "layout": {
             "release_document": "dreamweave.release.json",

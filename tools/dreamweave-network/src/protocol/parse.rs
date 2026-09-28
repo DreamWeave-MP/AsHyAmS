@@ -502,9 +502,26 @@ fn component_rules(release: &super::Release, at: &str, problems: &mut Vec<String
     }
 
     let mut artifact_ids = BTreeSet::new();
+    let mut program_platforms = BTreeSet::new();
     for artifact in &release.artifacts {
         if !artifact_ids.insert(artifact.id.as_str()) {
             problems.push(format!("{at}: artifact {} is listed twice", artifact.id));
+        }
+        // A program release has one binary artifact per platform, and its `platforms` lists
+        // every one of them.
+        if let (true, Some(platform)) = (artifact.is_program(), &artifact.platform) {
+            let label = format!("{}/{}", platform.os, platform.arch);
+            if !program_platforms.insert(label.clone()) {
+                problems.push(format!(
+                    "{at}: two binary artifacts are built for {label}; a release has one per platform"
+                ));
+            }
+            if !release.platforms.contains(platform) {
+                problems.push(format!(
+                    "{at}: binary artifact {} is built for {label}, which the release's platforms do not list",
+                    artifact.id
+                ));
+            }
         }
     }
 
@@ -759,6 +776,50 @@ mod tests {
             problems
                 .iter()
                 .any(|problem| problem.contains("no-such-component"))
+        );
+    }
+
+    const PROGRAM: &str = include_str!("../../tests/fixtures/programs/lantern-forge.json");
+
+    #[test]
+    fn programs_are_one_binary_artifact_per_listed_platform() {
+        let program = parse_manifest(PROGRAM.as_bytes()).unwrap();
+        let artifacts = &program.releases[1].artifacts;
+        assert!(artifacts.iter().all(crate::protocol::Artifact::is_program));
+        assert_eq!(artifacts[0].platform.as_ref().unwrap().os, "linux");
+
+        let mut missing = value(PROGRAM);
+        missing["releases"][1]["artifacts"][0]
+            .as_object_mut()
+            .unwrap()
+            .remove("platform");
+        assert!(matches!(
+            parse_manifest(&bytes(&missing)).unwrap_err(),
+            Problem::Schema(_)
+        ));
+
+        let mut unlisted = value(PROGRAM);
+        unlisted["releases"][1]["platforms"]
+            .as_array_mut()
+            .unwrap()
+            .remove(1);
+        let problems = protocol_problems(&unlisted);
+        assert!(
+            problems
+                .iter()
+                .any(|problem| problem.contains("do not list")),
+            "{problems:?}"
+        );
+
+        let mut twice = value(PROGRAM);
+        twice["releases"][1]["artifacts"][1]["platform"] =
+            serde_json::json!({ "os": "linux", "arch": "x86_64" });
+        let problems = protocol_problems(&twice);
+        assert!(
+            problems
+                .iter()
+                .any(|problem| problem.contains("one per platform")),
+            "{problems:?}"
         );
     }
 
