@@ -99,6 +99,8 @@ pub struct TagLink {
 }
 
 /// A project claim in a list.
+// A view model: every flag is a separate fact the card shows.
+#[allow(clippy::struct_excessive_bools)]
 #[derive(Debug, Clone, Serialize)]
 pub struct Card {
     pub path: String,
@@ -116,6 +118,8 @@ pub struct Card {
     pub cached: bool,
     pub conflict: bool,
     pub superseded: bool,
+    /// The current release ships programs, one archive per platform, rather than game data.
+    pub program: bool,
     pub current: Option<Head>,
     pub heads: Vec<Head>,
     pub compatibility: Vec<String>,
@@ -229,6 +233,10 @@ pub fn card(network: &Network, claim: &Claim) -> Card {
             .keys()
             .map(|channel| format!("channel:{channel}")),
     );
+    let program = release.is_some_and(|release| release.artifacts.iter().any(Artifact::is_program));
+    if program {
+        filters.push("format:program".to_owned());
+    }
     if let Some(release) = release {
         filters.extend(
             release
@@ -253,6 +261,7 @@ pub fn card(network: &Network, claim: &Claim) -> Card {
         cached: claim.record.health != ClaimHealth::Current,
         conflict: claim.conflict,
         superseded: claim.superseded_by.is_some(),
+        program,
         current,
         heads,
         compatibility,
@@ -507,6 +516,9 @@ pub struct ArtifactView {
     pub media_type: String,
     pub size: u64,
     pub size_label: String,
+    /// The one platform a program archive is built for.
+    pub platform: Option<String>,
+    pub program: bool,
     pub sha256: String,
     pub short_sha256: String,
     pub download: Option<String>,
@@ -549,6 +561,11 @@ pub fn artifact_view(artifact: &Artifact) -> ArtifactView {
         media_type: artifact.media_type.clone(),
         size: artifact.size,
         size_label: size_label(artifact.size),
+        platform: artifact
+            .platform
+            .as_ref()
+            .map(|platform| platform_label(&platform.os, &platform.arch)),
+        program: artifact.is_program(),
         sha256: artifact.digests.sha256.clone(),
         short_sha256: short_digest(&artifact.digests.sha256),
         // The publisher's own source first when there is one; the order in the manifest

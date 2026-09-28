@@ -75,6 +75,7 @@ pub fn format_label(format: &str) -> String {
         "flat" => "single directory".to_owned(),
         "bain" => "BAIN".to_owned(),
         "fomod" => "FOMOD + BAIN".to_owned(),
+        "binary" => "program".to_owned(),
         other => other.to_owned(),
     }
 }
