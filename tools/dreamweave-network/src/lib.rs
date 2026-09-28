@@ -8,6 +8,7 @@ pub mod diff;
 pub mod discovery;
 pub mod events;
 pub mod fetch;
+pub mod graph;
 pub mod markdown;
 pub mod network;
 pub mod policy;
