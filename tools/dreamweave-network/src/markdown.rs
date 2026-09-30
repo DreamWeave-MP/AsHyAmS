@@ -43,6 +43,10 @@ static CLEANER: LazyLock<ammonia::Builder<'static>> = LazyLock::new(|| {
             HashSet::from(["href"]),
         )]))
         .url_schemes(HashSet::from(["http", "https", "mailto"]))
+        // A relative link in a publisher's note points into the publisher's own site (or, like
+        // Zola's `@/page.md`, into its sources), never into this one: the text stays, the target
+        // goes.
+        .url_relative(ammonia::UrlRelative::Deny)
         .link_rel(Some("nofollow noopener noreferrer"))
         .clean_content_tags(HashSet::from([
             "script", "style", "iframe", "object", "noscript", "template",
@@ -131,6 +135,17 @@ mod tests {
             cleaned.contains("rel=\"nofollow noopener noreferrer\""),
             "{cleaned}"
         );
+    }
+
+    #[test]
+    fn relative_links_keep_their_text_and_lose_their_target() {
+        let html = inline(
+            "See [the Luau hosts](@/docs/luau-hosts.md), [the guide](guide/) and [crates.io](https://crates.io/).",
+        );
+        assert!(!html.contains("@/docs"), "{html}");
+        assert!(!html.contains("href=\"guide/\""), "{html}");
+        assert!(html.contains("the Luau hosts"), "{html}");
+        assert!(html.contains("href=\"https://crates.io/\""), "{html}");
     }
 
     #[test]
