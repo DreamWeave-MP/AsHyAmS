@@ -667,7 +667,7 @@ fn claim_compatibility(claim: &Claim) -> Vec<Fact> {
             release
                 .platforms
                 .iter()
-                .map(|platform| super::format::platform_label(&platform.os, &platform.arch))
+                .map(super::format::platform_label)
                 .collect::<Vec<_>>()
                 .join(", ")
         },

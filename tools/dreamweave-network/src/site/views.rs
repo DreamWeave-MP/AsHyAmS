@@ -182,12 +182,7 @@ pub fn compatibility(release: Option<&Release>) -> Vec<String> {
             facts.push("any platform".to_owned());
         }
     } else {
-        facts.extend(
-            release
-                .platforms
-                .iter()
-                .map(|platform| platform_label(&platform.os, &platform.arch)),
-        );
+        facts.extend(release.platforms.iter().map(platform_label));
     }
     facts
 }
@@ -236,6 +231,9 @@ pub fn card(network: &Network, claim: &Claim) -> Card {
     let program = release.is_some_and(|release| release.artifacts.iter().any(Artifact::is_program));
     if program {
         filters.push("format:program".to_owned());
+    }
+    if release.is_some_and(|release| release.artifacts.iter().any(Artifact::is_crate)) {
+        filters.push("format:crate".to_owned());
     }
     if let Some(release) = release {
         filters.extend(
@@ -561,10 +559,7 @@ pub fn artifact_view(artifact: &Artifact) -> ArtifactView {
         media_type: artifact.media_type.clone(),
         size: artifact.size,
         size_label: size_label(artifact.size),
-        platform: artifact
-            .platform
-            .as_ref()
-            .map(|platform| platform_label(&platform.os, &platform.arch)),
+        platform: artifact.platform.as_ref().map(platform_label),
         program: artifact.is_program(),
         sha256: artifact.digests.sha256.clone(),
         short_sha256: short_digest(&artifact.digests.sha256),

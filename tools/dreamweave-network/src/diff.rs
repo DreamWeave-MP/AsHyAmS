@@ -577,7 +577,7 @@ pub fn compare_releases(old: &Release, new: &Release, same_release: bool) -> Vec
         release
             .platforms
             .iter()
-            .map(|platform| format!("{}/{}", platform.os, platform.arch))
+            .map(crate::protocol::Platform::key)
             .collect()
     };
     let (added, removed) = set_difference(&platforms(old), &platforms(new));
@@ -831,10 +831,9 @@ fn artifact_changes(
         }
         if previous.platform != artifact.platform {
             let label = |platform: &Option<crate::protocol::Platform>| {
-                platform.as_ref().map_or_else(
-                    || "none".to_owned(),
-                    |platform| format!("{}/{}", platform.os, platform.arch),
-                )
+                platform
+                    .as_ref()
+                    .map_or_else(|| "none".to_owned(), crate::protocol::Platform::key)
             };
             details.push(format!(
                 "platform: {} → {}",

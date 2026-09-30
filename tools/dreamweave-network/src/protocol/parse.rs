@@ -507,16 +507,16 @@ fn component_rules(release: &super::Release, at: &str, problems: &mut Vec<String
         if !artifact_ids.insert(artifact.id.as_str()) {
             problems.push(format!("{at}: artifact {} is listed twice", artifact.id));
         }
-        // A program release has one binary artifact per platform, and its `platforms` lists
-        // every one of them.
+        // A program release has one binary artifact per platform and variant, and its
+        // `platforms` lists every desktop one. Android and handheld builds are only on artifacts.
         if let (true, Some(platform)) = (artifact.is_program(), &artifact.platform) {
-            let label = format!("{}/{}", platform.os, platform.arch);
+            let label = platform.key();
             if !program_platforms.insert(label.clone()) {
                 problems.push(format!(
                     "{at}: two binary artifacts are built for {label}; a release has one per platform"
                 ));
             }
-            if !release.platforms.contains(platform) {
+            if platform.is_desktop() && !release.platforms.contains(platform) {
                 problems.push(format!(
                     "{at}: binary artifact {} is built for {label}, which the release's platforms do not list",
                     artifact.id
@@ -821,6 +821,69 @@ mod tests {
                 .any(|problem| problem.contains("one per platform")),
             "{problems:?}"
         );
+    }
+
+    #[test]
+    fn handheld_and_android_builds_are_listed_only_on_their_artifacts() {
+        let mut program = value(PROGRAM);
+        let artifacts = program["releases"][1]["artifacts"].as_array_mut().unwrap();
+        let mut android = artifacts[0].clone();
+        android["id"] = "android-arm64".into();
+        android["platform"] = serde_json::json!({ "os": "android", "arch": "aarch64" });
+        let mut portmaster = artifacts[0].clone();
+        portmaster["id"] = "linux-arm64-portmaster".into();
+        portmaster["platform"] =
+            serde_json::json!({ "os": "linux", "arch": "aarch64", "variant": "portmaster" });
+        let mut muos = portmaster.clone();
+        muos["id"] = "linux-arm64-muos".into();
+        muos["platform"]["variant"] = "muos".into();
+        artifacts.extend([android, portmaster, muos]);
+        let parsed = parse_manifest(&bytes(&program)).unwrap();
+        let keys: Vec<String> = parsed.releases[1]
+            .artifacts
+            .iter()
+            .filter_map(|artifact| {
+                artifact
+                    .platform
+                    .as_ref()
+                    .map(crate::protocol::Platform::key)
+            })
+            .collect();
+        assert!(
+            keys.contains(&"linux/aarch64+portmaster".to_owned()),
+            "{keys:?}"
+        );
+        assert!(keys.contains(&"linux/x86_64".to_owned()), "{keys:?}");
+
+        let mut twice = program.clone();
+        twice["releases"][1]["artifacts"][4]["platform"]["variant"] = "portmaster".into();
+        let problems = protocol_problems(&twice);
+        assert!(
+            problems
+                .iter()
+                .any(|problem| problem.contains("one per platform")),
+            "{problems:?}"
+        );
+    }
+
+    #[test]
+    fn a_library_release_is_one_crate_artifact() {
+        let mut library = value(PROGRAM);
+        let release = &mut library["releases"][1];
+        release["platforms"] = serde_json::json!([]);
+        release["artifacts"] = serde_json::json!([{
+            "id": "crate",
+            "format": "crate",
+            "filename": "lantern-forge-1.0.0.crate",
+            "media_type": "application/gzip",
+            "size": 1024,
+            "digests": { "sha256": "0".repeat(64) },
+            "sources": [{ "url": "https://static.crates.io/crates/lantern-forge/lantern-forge-1.0.0.crate", "kind": "publisher" }],
+            "signatures": []
+        }]);
+        let parsed = parse_manifest(&bytes(&library)).unwrap();
+        let artifact = &parsed.releases[1].artifacts[0];
+        assert!(artifact.is_crate() && !artifact.is_program());
     }
 
     #[test]

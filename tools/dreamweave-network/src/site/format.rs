@@ -60,14 +60,20 @@ pub fn constraint_label(constraint: &str) -> String {
     }
 }
 
-pub fn platform_label(os: &str, arch: &str) -> String {
-    let os = match os {
+pub fn platform_label(platform: &crate::protocol::Platform) -> String {
+    let os = match platform.os.as_str() {
         "windows" => "Windows",
         "macos" => "macOS",
         "linux" => "Linux",
+        "android" => "Android",
         other => other,
     };
-    format!("{os} {arch}")
+    match platform.variant.as_deref() {
+        Some("portmaster") => format!("PortMaster {}", platform.arch),
+        Some("muos") => format!("muOS {}", platform.arch),
+        Some(other) => format!("{os} {} ({other})", platform.arch),
+        None => format!("{os} {}", platform.arch),
+    }
 }
 
 pub fn format_label(format: &str) -> String {
@@ -76,6 +82,7 @@ pub fn format_label(format: &str) -> String {
         "bain" => "BAIN".to_owned(),
         "fomod" => "FOMOD + BAIN".to_owned(),
         "binary" => "program".to_owned(),
+        "crate" => "Rust crate".to_owned(),
         other => other.to_owned(),
     }
 }
@@ -166,5 +173,31 @@ mod tests {
             site_address("https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave.json"),
             "dreamweave-mp.github.io/DreamWeave-Mod-Template/"
         );
+    }
+
+    #[test]
+    fn platforms_and_formats_name_handhelds_and_crates() {
+        let platform = |os: &str, arch: &str, variant: Option<&str>| crate::protocol::Platform {
+            os: os.to_owned(),
+            arch: arch.to_owned(),
+            variant: variant.map(str::to_owned),
+        };
+        assert_eq!(
+            platform_label(&platform("macos", "aarch64", None)),
+            "macOS aarch64"
+        );
+        assert_eq!(
+            platform_label(&platform("android", "aarch64", None)),
+            "Android aarch64"
+        );
+        assert_eq!(
+            platform_label(&platform("linux", "aarch64", Some("portmaster"))),
+            "PortMaster aarch64"
+        );
+        assert_eq!(
+            platform_label(&platform("linux", "aarch64", Some("muos"))),
+            "muOS aarch64"
+        );
+        assert_eq!(format_label("crate"), "Rust crate");
     }
 }

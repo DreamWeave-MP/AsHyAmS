@@ -386,6 +386,29 @@ pub struct Notes {
 pub struct Platform {
     pub os: String,
     pub arch: String,
+    /// A build for one handheld environment of the platform (`portmaster`, `muos`), on binary
+    /// artifacts only. A release's own `platforms` lists desktop builds, which have none.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub variant: Option<String>,
+}
+
+/// The systems a release's `platforms` may list. Android and handheld builds appear only on
+/// their artifacts.
+pub const DESKTOP_SYSTEMS: [&str; 3] = ["windows", "macos", "linux"];
+
+impl Platform {
+    /// `os/arch`, with `+variant` when there is one: the identity of a build within a release.
+    pub fn key(&self) -> String {
+        match &self.variant {
+            Some(variant) => format!("{}/{}+{variant}", self.os, self.arch),
+            None => format!("{}/{}", self.os, self.arch),
+        }
+    }
+
+    /// Whether a release's `platforms` lists this build: a desktop system without a variant.
+    pub fn is_desktop(&self) -> bool {
+        self.variant.is_none() && DESKTOP_SYSTEMS.contains(&self.os.as_str())
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
@@ -490,8 +513,9 @@ pub struct Group {
     pub select: String,
 }
 
-/// `format` is `flat`, `bain` or `fomod` for game data, laid out for installation, or `binary`
-/// for a program built for one platform. A `binary` artifact is never installed into a game.
+/// `format` is `flat`, `bain` or `fomod` for game data, laid out for installation, `binary`
+/// for a program built for one platform, or `crate` for a Rust library as crates.io serves it.
+/// Neither a `binary` nor a `crate` artifact is ever installed into a game.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct Artifact {
@@ -511,10 +535,15 @@ pub struct Artifact {
 }
 
 pub const BINARY_FORMAT: &str = "binary";
+pub const CRATE_FORMAT: &str = "crate";
 
 impl Artifact {
     pub fn is_program(&self) -> bool {
         self.format == BINARY_FORMAT
+    }
+
+    pub fn is_crate(&self) -> bool {
+        self.format == CRATE_FORMAT
     }
 }
 
