@@ -17,3 +17,68 @@
 url = "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/"
 added = "2026-09-28"
 note = "The Mod Template's own example projects, Candlelight and Tallow: the protocol's reference publisher."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/"
+added = "2026-09-30"
+note = "S3ctor's S3cret St4sh: 31 OpenMW mods, Lua libraries and tools from one author, on one site."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/Starwind-R3mastered/"
+added = "2026-09-30"
+note = "Starwind R3mastered: the OpenMW reconstruction and continuation of Starwind, with its game guide."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/greenmote/"
+added = "2026-09-30"
+note = "Greenmote: a program that turns placed grass into OpenMW groundcover; desktop, Android and handheld builds."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/Morrobroom/"
+added = "2026-09-30"
+note = "Morrobroom: a TrenchBroom level compiler, lightmapper and NIF importer for OpenMW, published per platform."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/dream-net/"
+added = "2026-09-30"
+note = "dream-net: DreamWeave's networking crate, recorded from crates.io."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/dream-soft-render/"
+added = "2026-09-30"
+note = "dream-soft-render: a CPU rasterizer crate for egui frames, recorded from crates.io."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/S3LightFixes/"
+added = "2026-09-30"
+note = "S3LightFixes: a program that retunes every light in an OpenMW load order."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/dream-ini/"
+added = "2026-09-30"
+note = "dream-ini: imports Morrowind.ini into openmw.cfg, as a program and a Rust and Luau library."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/Openmw_Config/"
+added = "2026-09-30"
+note = "openmw-config: a Rust and Lua library for openmw.cfg chains."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/l3i/"
+added = "2026-09-30"
+note = "l3i: the Luau runtime for DreamWeave, a Rust crate."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/dream_archive/"
+added = "2026-09-30"
+note = "dream_archive: a Rust library for Bethesda BSA and BA2 archives."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/dream_archivetool/"
+added = "2026-09-30"
+note = "dream_archivetool: a command line and library for Bethesda BSA and BA2 archives."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/dream_path/"
+added = "2026-09-30"
+note = "dream-path: normalized virtual resource paths for DreamWeave and OpenMW tools, a Rust crate."
