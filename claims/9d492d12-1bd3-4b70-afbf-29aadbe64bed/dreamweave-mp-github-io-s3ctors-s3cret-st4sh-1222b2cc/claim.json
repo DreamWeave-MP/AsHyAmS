@@ -9,20 +9,20 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/fargoth_assassins/",
     "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/9d492d12-1bd3-4b70-afbf-29aadbe64bed.json",
-    "manifest_sha256": "faffc0dfce3e8d0ed4d49bbf375bc996eea06703b1519d0d26286a183d292603",
-    "updated": "2026-09-29",
+    "manifest_sha256": "659b9751f69a93fc8729e5738be09bd1dcf7e7cc72366e3b2f12b0884a7a7e94",
+    "updated": "2026-09-30",
     "channels": {
       "development": "0.6-dev.5"
     }
   },
-  "advertised_sha256": "faffc0dfce3e8d0ed4d49bbf375bc996eea06703b1519d0d26286a183d292603",
-  "ingested_sha256": "faffc0dfce3e8d0ed4d49bbf375bc996eea06703b1519d0d26286a183d292603",
+  "advertised_sha256": "659b9751f69a93fc8729e5738be09bd1dcf7e7cc72366e3b2f12b0884a7a7e94",
+  "ingested_sha256": "659b9751f69a93fc8729e5738be09bd1dcf7e7cc72366e3b2f12b0884a7a7e94",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-09-30T01:45:06Z",
-  "last_changed": "2026-09-30T01:45:06Z",
-  "last_attempt": "2026-09-30T01:45:06Z",
-  "last_success": "2026-09-30T01:45:06Z"
+  "last_changed": "2026-09-30T02:19:32Z",
+  "last_attempt": "2026-09-30T02:19:32Z",
+  "last_success": "2026-09-30T02:19:32Z"
 }

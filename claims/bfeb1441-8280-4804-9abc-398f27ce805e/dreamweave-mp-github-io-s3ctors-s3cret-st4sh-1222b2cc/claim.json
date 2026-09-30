@@ -9,20 +9,20 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/luamics/",
     "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/bfeb1441-8280-4804-9abc-398f27ce805e.json",
-    "manifest_sha256": "d56fea181a09d7ca2b05eda05d11fe5981f34296e28e152ab8b0b129955561e0",
-    "updated": "2026-09-29",
+    "manifest_sha256": "a400a76cd78191808e4835516948e24e83a0cab0c1d4085b5ad7c0986d273334",
+    "updated": "2026-09-30",
     "channels": {
       "development": "0.2-dev.4"
     }
   },
-  "advertised_sha256": "d56fea181a09d7ca2b05eda05d11fe5981f34296e28e152ab8b0b129955561e0",
-  "ingested_sha256": "d56fea181a09d7ca2b05eda05d11fe5981f34296e28e152ab8b0b129955561e0",
+  "advertised_sha256": "a400a76cd78191808e4835516948e24e83a0cab0c1d4085b5ad7c0986d273334",
+  "ingested_sha256": "a400a76cd78191808e4835516948e24e83a0cab0c1d4085b5ad7c0986d273334",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-09-30T01:45:06Z",
-  "last_changed": "2026-09-30T01:45:06Z",
-  "last_attempt": "2026-09-30T01:45:06Z",
-  "last_success": "2026-09-30T01:45:06Z"
+  "last_changed": "2026-09-30T02:19:32Z",
+  "last_attempt": "2026-09-30T02:19:32Z",
+  "last_success": "2026-09-30T02:19:32Z"
 }

@@ -1,0 +1,31 @@
+{
+  "id": "14bc0f797dd369861fcf",
+  "kind": "changed",
+  "project": "d870dfb4-f434-4dd9-91e8-1a71c0e541bb",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Visual Soul Gems",
+  "observed_at": "2026-09-30T02:19:32Z",
+  "before": "117f2f5844747fa06f8f35eed1619c432b0436c0db3fbf9149114b6ef571425b",
+  "after": "0b16d98820b9b860dea711dbd51eb212cc84d483278c722acfa1cde6dbddc92c",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "1.2-dev.5",
+      "before": "2026-09-29",
+      "after": "2026-09-30"
+    },
+    {
+      "change": "release-amended",
+      "version": "1.2-dev.5",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "5facba41fb9f6f5e05e238da4bbf026259b25045",
+          "after": "412c90c15c10363a6ec019015eec736104801d4a"
+        }
+      ]
+    }
+  ]
+}

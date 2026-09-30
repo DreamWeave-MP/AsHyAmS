@@ -9,20 +9,20 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/visual_soulgems/",
     "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/d870dfb4-f434-4dd9-91e8-1a71c0e541bb.json",
-    "manifest_sha256": "117f2f5844747fa06f8f35eed1619c432b0436c0db3fbf9149114b6ef571425b",
-    "updated": "2026-09-29",
+    "manifest_sha256": "0b16d98820b9b860dea711dbd51eb212cc84d483278c722acfa1cde6dbddc92c",
+    "updated": "2026-09-30",
     "channels": {
       "development": "1.2-dev.5"
     }
   },
-  "advertised_sha256": "117f2f5844747fa06f8f35eed1619c432b0436c0db3fbf9149114b6ef571425b",
-  "ingested_sha256": "117f2f5844747fa06f8f35eed1619c432b0436c0db3fbf9149114b6ef571425b",
+  "advertised_sha256": "0b16d98820b9b860dea711dbd51eb212cc84d483278c722acfa1cde6dbddc92c",
+  "ingested_sha256": "0b16d98820b9b860dea711dbd51eb212cc84d483278c722acfa1cde6dbddc92c",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-09-30T01:45:06Z",
-  "last_changed": "2026-09-30T01:45:06Z",
-  "last_attempt": "2026-09-30T01:45:06Z",
-  "last_success": "2026-09-30T01:45:06Z"
+  "last_changed": "2026-09-30T02:19:32Z",
+  "last_attempt": "2026-09-30T02:19:32Z",
+  "last_success": "2026-09-30T02:19:32Z"
 }

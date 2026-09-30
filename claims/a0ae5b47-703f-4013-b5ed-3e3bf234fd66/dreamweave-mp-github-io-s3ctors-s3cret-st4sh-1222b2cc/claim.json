@@ -9,20 +9,20 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/starwind_pvp/",
     "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/a0ae5b47-703f-4013-b5ed-3e3bf234fd66.json",
-    "manifest_sha256": "af21ea57a689bf7b0b7c2dfc13bc6f86ebe08652dfc496704e1ce6f9a6ebd4c5",
-    "updated": "2026-09-29",
+    "manifest_sha256": "e5a931440cf0538383dd12a74dc51a522f340e03035646d158daf0396fd79116",
+    "updated": "2026-09-30",
     "channels": {
       "development": "0.2-dev.4"
     }
   },
-  "advertised_sha256": "af21ea57a689bf7b0b7c2dfc13bc6f86ebe08652dfc496704e1ce6f9a6ebd4c5",
-  "ingested_sha256": "af21ea57a689bf7b0b7c2dfc13bc6f86ebe08652dfc496704e1ce6f9a6ebd4c5",
+  "advertised_sha256": "e5a931440cf0538383dd12a74dc51a522f340e03035646d158daf0396fd79116",
+  "ingested_sha256": "e5a931440cf0538383dd12a74dc51a522f340e03035646d158daf0396fd79116",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-09-30T01:45:06Z",
-  "last_changed": "2026-09-30T01:45:06Z",
-  "last_attempt": "2026-09-30T01:45:06Z",
-  "last_success": "2026-09-30T01:45:06Z"
+  "last_changed": "2026-09-30T02:19:32Z",
+  "last_attempt": "2026-09-30T02:19:32Z",
+  "last_success": "2026-09-30T02:19:32Z"
 }

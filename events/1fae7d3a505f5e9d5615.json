@@ -1,0 +1,31 @@
+{
+  "id": "1fae7d3a505f5e9d5615",
+  "kind": "changed",
+  "project": "0e93a788-e6a0-4bb2-b0f4-d803622bf642",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Horiz0n",
+  "observed_at": "2026-09-30T02:19:32Z",
+  "before": "a3aac7188a93db28fa8e28edb7d2ba74113bb1ed86e2a397d817f4564adf988e",
+  "after": "91cba593e487a6c06f9aba74baf3ec8240e09d77f37d1dfbd5af5b3735630c55",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "1.3-dev.12",
+      "before": "2026-09-29",
+      "after": "2026-09-30"
+    },
+    {
+      "change": "release-amended",
+      "version": "1.3-dev.12",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "5facba41fb9f6f5e05e238da4bbf026259b25045",
+          "after": "412c90c15c10363a6ec019015eec736104801d4a"
+        }
+      ]
+    }
+  ]
+}

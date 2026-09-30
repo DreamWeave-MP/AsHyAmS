@@ -9,20 +9,20 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/starwind_map_expansion/",
     "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/4d0348b2-0622-44d4-a4ef-114380d8912b.json",
-    "manifest_sha256": "7a4dfe40daed66dbf2ed840e44a25e2f02a87670482b1af0d090113a4dd0213a",
-    "updated": "2026-09-29",
+    "manifest_sha256": "72bd2425a80557bacc2bed39fd93c8004efefc198a7c4bc37b42f2632dbbb6e9",
+    "updated": "2026-09-30",
     "channels": {
       "development": "0.0.1-dev.3"
     }
   },
-  "advertised_sha256": "7a4dfe40daed66dbf2ed840e44a25e2f02a87670482b1af0d090113a4dd0213a",
-  "ingested_sha256": "7a4dfe40daed66dbf2ed840e44a25e2f02a87670482b1af0d090113a4dd0213a",
+  "advertised_sha256": "72bd2425a80557bacc2bed39fd93c8004efefc198a7c4bc37b42f2632dbbb6e9",
+  "ingested_sha256": "72bd2425a80557bacc2bed39fd93c8004efefc198a7c4bc37b42f2632dbbb6e9",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-09-30T01:45:06Z",
-  "last_changed": "2026-09-30T01:45:06Z",
-  "last_attempt": "2026-09-30T01:45:06Z",
-  "last_success": "2026-09-30T01:45:06Z"
+  "last_changed": "2026-09-30T02:19:32Z",
+  "last_attempt": "2026-09-30T02:19:32Z",
+  "last_success": "2026-09-30T02:19:32Z"
 }
