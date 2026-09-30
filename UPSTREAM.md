@@ -6,7 +6,7 @@ time, so a clean checkout always has everything.
 
 ## From DreamWeave-Mod-Template
 
-Imported at `ef5d5bf9c5c5cb99a799e130bc9773ca546c10a4` (branch `V5`) from
+Imported at `b62bfb1ecc33c44380e5cf51a9b78c4a2f6757ff` (branch `V5`) from
 <https://github.com/DreamWeave-MP/DreamWeave-Mod-Template>, licensed AGPL-3.0 like this
 repository. Attribution stays with the Mod Template's contributors.
 
@@ -20,6 +20,12 @@ Local changes:
 
 - `templates/docs/base.html`: the giscus comments include is removed. The network has no
   comments, and a template naming a file that does not exist is a build error waiting to happen.
+
+At this revision the design tokens moved onto one OKLCH lightness ladder for every palette, the
+docs shell folds its navigation and contents into drawers on narrow screens (`docs.js` marks the
+shell ready), and schematics size themselves by their own width. The template's umber palette,
+which this repository once added locally, is upstream now. The template's hero-title wrapping is
+reimplemented as `net::breakable` in `templates/macros/net.html`, without `| safe`.
 
 Everything network-specific lives in `sass/network.sass`, which loads last, and in the templates
 that are not listed above. Do not edit the imported files to restyle them; override in
