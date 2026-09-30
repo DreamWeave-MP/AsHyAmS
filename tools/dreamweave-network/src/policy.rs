@@ -12,7 +12,7 @@
 use std::time::Duration;
 
 pub const USER_AGENT: &str = concat!(
-    "DreamWeave-Network/",
+    "AsHyAmS/",
     env!("CARGO_PKG_VERSION"),
     " (+https://github.com/DreamWeave-MP/AsHyAmS)"
 );

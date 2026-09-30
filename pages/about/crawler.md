@@ -59,7 +59,7 @@ state directory that contradicts itself, a generated catalog that breaks its own
 Every request identifies itself:
 
 ```text
-DreamWeave-Network/0.1.0 (+https://github.com/DreamWeave-MP/AsHyAmS)
+AsHyAmS/0.1.0 (+https://github.com/DreamWeave-MP/AsHyAmS)
 ```
 
 At most eight sources are read at once, and at most two requests are in flight to any one site.

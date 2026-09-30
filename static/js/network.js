@@ -1,4 +1,4 @@
-// DreamWeave Network: progressive enhancement. Every page works without this file; it adds
+// AsHyAmS: progressive enhancement. Every page works without this file; it adds
 // search, the catalog filter and copy buttons. It reads only files shipped with the site
 // (network-data/search.json) and never talks to a project's origin or anything else.
 (() => {

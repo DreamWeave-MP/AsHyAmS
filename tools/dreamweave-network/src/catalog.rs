@@ -1,4 +1,4 @@
-//! DreamWeave Network Catalog, format version 1: this index's observations as JSON for other
+//! DreamWeave Network Catalog, format version 1: AsHyAmS's observations as JSON for other
 //! readers.
 //!
 //! It is a cache format, not a protocol. Every claim in it names the site that published it and

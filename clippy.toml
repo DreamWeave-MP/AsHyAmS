@@ -1,2 +1,2 @@
 # Proper nouns that pedantic doc_markdown would otherwise demand backticks around.
-doc-valid-idents = ["DreamWeave", "GitHub", "OpenMW", "CommonMark", "SemVer", "Sigstore", "StroggForge", "JavaScript", ".."]
+doc-valid-idents = ["AsHyAmS", "DreamWeave", "GitHub", "OpenMW", "CommonMark", "SemVer", "Sigstore", "StroggForge", "JavaScript", ".."]

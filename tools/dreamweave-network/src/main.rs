@@ -1,4 +1,4 @@
-//! `dreamweave-network`: the DreamWeave Network index, as a batch job.
+//! `dreamweave-network`: AsHyAmS, the index of the DreamWeave network, as a batch job.
 //!
 //! There is no daemon. Each command runs, writes files, and exits. CI runs the same commands a
 //! maintainer runs locally; nothing here knows or cares which one it is.
@@ -28,7 +28,7 @@ use url::Url;
 #[command(
     name = "dreamweave-network",
     version,
-    about = "Crawl DreamWeave sites, keep what they said, and build the network's static site."
+    about = "AsHyAmS: crawl DreamWeave sites, keep what they said, and build the index's static site."
 )]
 struct Arguments {
     /// The repository root: where `network/`, `pages/` and `zola.toml` live.

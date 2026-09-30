@@ -5,7 +5,7 @@ edition = "2024"
 rust-version = "1.88"
 publish = false
 license = "AGPL-3.0-or-later"
-description = "Crawler, change tracker and static site generator for the DreamWeave Network index"
+description = "AsHyAmS: crawler, change tracker and static site generator for an index of the DreamWeave network"
 repository = "https://github.com/DreamWeave-MP/AsHyAmS"
 
 [dependencies]
