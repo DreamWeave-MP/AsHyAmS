@@ -51,7 +51,7 @@ save() {
         -c user.name='github-actions[bot]' \
         -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
         commit --quiet --file=- <<EOF
-OBSERVE: Network state at $observed
+OBSERVE: AsHyAmS state at $observed
 
 $(cat "$summary")
 EOF

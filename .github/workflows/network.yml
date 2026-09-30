@@ -1,4 +1,4 @@
-name: Network
+name: Refresh AsHyAmS
 
 # The index, as a finite batch job: crawl every enrolled site, build the site from what was
 # observed, publish it, and commit the observations to the network-state branch.
@@ -101,7 +101,7 @@ jobs:
         run: |
           if [ -f "$RUNNER_TEMP/summary.txt" ]; then
             {
-              echo '## Network refresh'
+              echo '## AsHyAmS refresh'
               echo
               echo '```text'
               cat "$RUNNER_TEMP/summary.txt"

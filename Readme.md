@@ -1,20 +1,21 @@
-# DreamWeave Network
+# AsHyAmS
 
-An index of DreamWeave mod sites: every project, release, dependency, capability and change it
-has observed on independently published sites, rebuilt every six hours as a static website.
+An index of the DreamWeave network: every project, release, dependency, capability and change it
+has observed on independently published mod sites, rebuilt every six hours as a static website.
 
 <https://dreamweave-mp.github.io/AsHyAmS/>
 
 There is no DreamWeave server in the middle. Each project's own site, built with the
 [DreamWeave Mod Template](https://github.com/DreamWeave-MP/DreamWeave-Mod-Template) or anything
 else that speaks [the protocol](https://dreamweave-mp.github.io/DreamWeave-Mod-Template/guide/protocol/),
-publishes `dreamweave.json` and a manifest per project. This index reads those sites, keeps what
-they said in Git, notices what changes, and renders all of it as files any static host can serve.
+publishes `dreamweave.json` and a manifest per project. Those sites are the DreamWeave network.
+AsHyAmS is one index of them: it reads the sites, keeps what they said in Git, notices what
+changes, and renders all of it as files any static host can serve.
 
 - **Not a registry.** Project ids are chosen by authors, not allocated here. When two sites publish
   the same id, both claims are shown and neither wins.
 - **Not a host.** Downloads go to publishers' own sources. Nothing is proxied or counted.
-- **Not required.** If this index disappears, every mod stays discoverable, installable and
+- **Not required.** If AsHyAmS disappears, every mod stays discoverable, installable and
   verifiable from its own site.
 - **Not the only one.** Anyone can run another index over the same sites.
 

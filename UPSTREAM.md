@@ -1,7 +1,7 @@
 # Imported DreamWeave site components
 
-The network's presentation is built on the DreamWeave Mod Template's, so a project page and its
-network record look like the same ecosystem. The files below are copied in, not fetched at build
+AsHyAmS's presentation is built on the DreamWeave Mod Template's, so a project page and its index
+record look like the same ecosystem. The files below are copied in, not fetched at build
 time, so a clean checkout always has everything.
 
 ## From DreamWeave-Mod-Template

@@ -1,4 +1,4 @@
-# DreamWeave Network: implementation plan
+# AsHyAmS: implementation plan
 
 The index that reads sites published with the DreamWeave Mod Template (V5 and later, protocol
 `schema_version` "2") and renders what it observed as a static site. This file is the plan the
