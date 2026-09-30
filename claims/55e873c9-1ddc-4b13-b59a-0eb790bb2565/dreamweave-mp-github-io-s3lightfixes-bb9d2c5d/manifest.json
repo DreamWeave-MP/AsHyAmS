@@ -68,12 +68,12 @@
     {
       "version": "0.4.61-dev.3",
       "channel": "development",
-      "date": "2026-09-29",
+      "date": "2026-09-30",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/S3LightFixes",
         "release": "development",
-        "revision": "4839112b0e435a2bc287a0e07a0b6b9b0f8b66f7"
+        "revision": "3f5926fbd68bc9604227420c4596de22b8153f91"
       },
       "runtimes": {},
       "platforms": [
@@ -117,9 +117,9 @@
           "format": "binary",
           "filename": "s3lightfixes-Windows-X64.zip",
           "media_type": "application/zip",
-          "size": 1584491,
+          "size": 1584638,
           "digests": {
-            "sha256": "4e78a6c71753932fcaefbca457e1af994c5f99f118b49eb03e9884814659f08a"
+            "sha256": "5418e53bae4e8c3512fdd2dcc1ba7ce5747965d52c5ac67a612eef18ab4a762d"
           },
           "platform": {
             "os": "windows",
@@ -138,9 +138,9 @@
           "format": "binary",
           "filename": "s3lightfixes-macOS-ARM64.zip",
           "media_type": "application/zip",
-          "size": 1733615,
+          "size": 1733581,
           "digests": {
-            "sha256": "8985dab4cf9fbaf63219d6d042ae45aaf9fb2099a947e9d357efde2d19b1a443"
+            "sha256": "3a0ceb591c1cac563eb964950a8499aabc6116499b5ccd3ab03afedae91c9cd6"
           },
           "platform": {
             "os": "macos",
@@ -159,9 +159,9 @@
           "format": "binary",
           "filename": "s3lightfixes-macOS-X64.zip",
           "media_type": "application/zip",
-          "size": 1824761,
+          "size": 1824721,
           "digests": {
-            "sha256": "02369b52cc6d9a01be7f9f546ecb63bedbbb426ed6b2368f5eb70bdc7e6a02d0"
+            "sha256": "52ed35762aa2f438a9cbc8260a95a9288d3be491d10fc81cb31b50845831f3a1"
           },
           "platform": {
             "os": "macos",
@@ -180,9 +180,9 @@
           "format": "binary",
           "filename": "s3lightfixes-Linux-X64.zip",
           "media_type": "application/zip",
-          "size": 1968119,
+          "size": 1968162,
           "digests": {
-            "sha256": "6650c2e199e2399df32b892bf6cc7e00cd1ea55113a6ff8e4de803eb38ed0736"
+            "sha256": "86dd713b48bc34de8426b67aa0f4ae0b03611cd11d6239a49090cbdad90c6f58"
           },
           "platform": {
             "os": "linux",
@@ -201,9 +201,9 @@
           "format": "binary",
           "filename": "s3lightfixes-Android-ARM64.zip",
           "media_type": "application/zip",
-          "size": 1875591,
+          "size": 1875614,
           "digests": {
-            "sha256": "d4cd07224ba705365d9f16d180dcc17b5a6063de04212cb229ad1393701c7c95"
+            "sha256": "2d13ece22f32ee679c4de81cc3d99bebf54c2a9f0125a9909411679976487ebf"
           },
           "platform": {
             "os": "android",
@@ -222,9 +222,9 @@
           "format": "binary",
           "filename": "s3lightfixes-Portmaster-ARM64.zip",
           "media_type": "application/zip",
-          "size": 1909373,
+          "size": 1909557,
           "digests": {
-            "sha256": "e8c65cc62d0bf79c06382a366bd01202e95fa88f70f4eeab6db227b1ab58e30f"
+            "sha256": "c6c13e2568d167bc2312e439870caa4e57eda90ab1c2bd3375d1a37e7a0244c6"
           },
           "platform": {
             "os": "linux",

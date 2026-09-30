@@ -1,0 +1,103 @@
+{
+  "id": "7f4afd9313ae6fb2330a",
+  "kind": "changed",
+  "project": "55e873c9-1ddc-4b13-b59a-0eb790bb2565",
+  "origin": "dreamweave-mp-github-io-s3lightfixes-bb9d2c5d",
+  "name": "S3LightFixes",
+  "observed_at": "2026-09-30T12:38:57Z",
+  "before": "4693fa765a69e994264e3e9a3e6b46b51f6d9927c343b644630d45286a7e699e",
+  "after": "e57c1f2c5a22a13f7ace2e4ff256d1c7313829dbb21afeb956b0efdc667f4a96",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "0.4.61-dev.3",
+      "before": "2026-09-29",
+      "after": "2026-09-30"
+    },
+    {
+      "change": "release-amended",
+      "version": "0.4.61-dev.3",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "artifact-digest",
+          "artifact": "windows-x64",
+          "before": "4e78a6c71753932fcaefbca457e1af994c5f99f118b49eb03e9884814659f08a",
+          "after": "5418e53bae4e8c3512fdd2dcc1ba7ce5747965d52c5ac67a612eef18ab4a762d"
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "windows-x64",
+          "before": 1584491,
+          "after": 1584638
+        },
+        {
+          "change": "artifact-digest",
+          "artifact": "macos-arm64",
+          "before": "8985dab4cf9fbaf63219d6d042ae45aaf9fb2099a947e9d357efde2d19b1a443",
+          "after": "3a0ceb591c1cac563eb964950a8499aabc6116499b5ccd3ab03afedae91c9cd6"
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-arm64",
+          "before": 1733615,
+          "after": 1733581
+        },
+        {
+          "change": "artifact-digest",
+          "artifact": "macos-x64",
+          "before": "02369b52cc6d9a01be7f9f546ecb63bedbbb426ed6b2368f5eb70bdc7e6a02d0",
+          "after": "52ed35762aa2f438a9cbc8260a95a9288d3be491d10fc81cb31b50845831f3a1"
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-x64",
+          "before": 1824761,
+          "after": 1824721
+        },
+        {
+          "change": "artifact-digest",
+          "artifact": "linux-x64",
+          "before": "6650c2e199e2399df32b892bf6cc7e00cd1ea55113a6ff8e4de803eb38ed0736",
+          "after": "86dd713b48bc34de8426b67aa0f4ae0b03611cd11d6239a49090cbdad90c6f58"
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-x64",
+          "before": 1968119,
+          "after": 1968162
+        },
+        {
+          "change": "artifact-digest",
+          "artifact": "android-arm64",
+          "before": "d4cd07224ba705365d9f16d180dcc17b5a6063de04212cb229ad1393701c7c95",
+          "after": "2d13ece22f32ee679c4de81cc3d99bebf54c2a9f0125a9909411679976487ebf"
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "android-arm64",
+          "before": 1875591,
+          "after": 1875614
+        },
+        {
+          "change": "artifact-digest",
+          "artifact": "linux-arm64-portmaster",
+          "before": "e8c65cc62d0bf79c06382a366bd01202e95fa88f70f4eeab6db227b1ab58e30f",
+          "after": "c6c13e2568d167bc2312e439870caa4e57eda90ab1c2bd3375d1a37e7a0244c6"
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-arm64-portmaster",
+          "before": 1909373,
+          "after": 1909557
+        },
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "4839112b0e435a2bc287a0e07a0b6b9b0f8b66f7",
+          "after": "3f5926fbd68bc9604227420c4596de22b8153f91"
+        }
+      ]
+    }
+  ]
+}

@@ -11,9 +11,9 @@
     },
     {
       "url": "https://dreamweave-mp.github.io/S3LightFixes/dreamweave.json",
-      "outcome": "site index unchanged (HTTP 304)"
+      "outcome": "a DreamWeave site index"
     }
   ],
-  "last_attempt": "2026-09-30T02:35:24Z",
-  "last_success": "2026-09-30T02:35:24Z"
+  "last_attempt": "2026-09-30T12:38:57Z",
+  "last_success": "2026-09-30T12:38:57Z"
 }
