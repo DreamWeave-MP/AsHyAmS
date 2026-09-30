@@ -13,7 +13,7 @@
                 <span>{{ net::status(token=card.status) }}</span>
                 <span>{{ net::health(token=card.health, label=card.health_label) }}</span>
             </p>
-            <h1 class="dw-hero__title">{{ card.name }}</h1>
+            <h1 class="dw-hero__title">{{ net::breakable(text=card.name) }}</h1>
             {%- if card.summary %}<p class="dw-hero__summary">{{ card.summary }}</p>{% endif %}
             <p class="net-attribution">
                 Indexed from <a href="{{ get_url(path=card.origin_path, trailing_slash=true) | safe }}">{{ card.origin_label }}</a>.

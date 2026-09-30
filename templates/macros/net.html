@@ -5,6 +5,12 @@
     URLs from get_url, on SVG the build drew with escaped labels, and on notes the build already
     ran through the sanitizer. -#}
 
+{#- A heading that may also break after an underscore, so a long project name such as a crate's
+    wraps whole on a phone instead of mid-word. Each piece is escaped as usual; no `| safe`. -#}
+{% macro breakable(text) -%}
+{%- for piece in text | split(pat="_") %}{{ piece }}{% if not loop.last %}_<wbr>{% endif %}{% endfor -%}
+{%- endmacro breakable %}
+
 {% macro health(token, label) -%}
 <span class="net-health net-health--{{ token }}"><span class="net-led net-led--{{ token }}" aria-hidden="true"></span>{{ label }}</span>
 {%- endmacro health %}
