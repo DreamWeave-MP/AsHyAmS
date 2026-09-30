@@ -59,7 +59,7 @@
         {%- if not compact %}
         <div class="net-card__actions">
             {%- if card.page %}<a class="dw-button dw-button--small" href="{{ card.page }}">Project site <span aria-hidden="true">↗</span></a>{% endif %}
-            <a class="dw-button dw-button--small dw-button--ghost" href="{{ get_url(path=card.path, trailing_slash=true) | safe }}">Network record</a>
+            <a class="dw-button dw-button--small dw-button--ghost" href="{{ get_url(path=card.path, trailing_slash=true) | safe }}">Index record</a>
         </div>
         {%- endif %}
     </div>

@@ -274,8 +274,8 @@ fn home(writer: &mut Writer, network: &Network) -> Result<()> {
     writer.page(
         "_index.md",
         &Front {
-            title: "DreamWeave Network",
-            description: "A map of places DreamWeave mods live: every project, release, dependency and change this index has observed on independently published sites.",
+            title: "AsHyAmS",
+            description: "A map of places DreamWeave mods live: every project, release, dependency and change AsHyAmS has observed on independently published sites.",
             template: "home.html",
             view: Some(&path),
         },

@@ -17,7 +17,7 @@
             {%- if card.summary %}<p class="dw-hero__summary">{{ card.summary }}</p>{% endif %}
             <p class="net-attribution">
                 Indexed from <a href="{{ get_url(path=card.origin_path, trailing_slash=true) | safe }}">{{ card.origin_label }}</a>.
-                Project metadata is published by the project's own site; DreamWeave Network indexes that claim.
+                Project metadata is published by the project's own site; AsHyAmS indexes that claim.
             </p>
 
             <dl class="dw-strip" aria-label="Current state">
@@ -202,9 +202,9 @@
         {%- endif %}
     </div>
 
-    <aside class="dw-project__rail" aria-label="Network record">
+    <aside class="dw-project__rail" aria-label="Index record">
         <section class="dw-panel net-record">
-            <h2 class="dw-panel__title">Network record <small>observed by this index</small></h2>
+            <h2 class="dw-panel__title">Index record <small>observed by AsHyAmS</small></h2>
             <div class="dw-panel__body">{{ net::facts(items=view.record) }}</div>
         </section>
         {%- if card.current %}

@@ -15,7 +15,7 @@ use support::{
 
 fn index() -> IndexInfo {
     IndexInfo {
-        name: "DreamWeave Network".to_owned(),
+        name: "AsHyAmS".to_owned(),
         url: "https://dreamweave-mp.github.io/AsHyAmS".to_owned(),
         repository: "https://github.com/DreamWeave-MP/AsHyAmS".to_owned(),
     }

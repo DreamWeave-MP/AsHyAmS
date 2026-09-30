@@ -8,7 +8,7 @@ sort_by = "weight"
 [extra]
 kind = "field manual"
 docs_root = true
-docs_project_name = "DreamWeave Network"
+docs_project_name = "AsHyAmS"
 docs_sidebar_label = "How it works"
 docs_repository_url = "https://github.com/DreamWeave-MP/AsHyAmS"
 +++

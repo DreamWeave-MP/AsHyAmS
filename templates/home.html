@@ -8,7 +8,7 @@
 <header class="net-hero">
     <div class="dw-shell net-hero__grid">
         <div>
-            <p class="dw-kicker"><span>DreamWeave Network</span><span>an index of independently published mod sites</span></p>
+            <p class="dw-kicker"><span>AsHyAmS</span><span>an index of the DreamWeave network</span></p>
             <h1 class="net-hero__title">A map of places mods live.</h1>
             <p class="net-hero__summary">Every DreamWeave site this index reads, crawled on a schedule and kept as static files: projects, releases, dependencies, capabilities, and every change between one crawl and the next. The sites own their facts. This index owns its observations.</p>
             <form class="net-finder" action="{{ get_url(path='projects/', trailing_slash=true) | safe }}" role="search" data-finder>
@@ -31,7 +31,7 @@
             {%- else %}
             <p class="net-board__quiet">{{ net::health(token="current", label="Every enrolled site was read and every claim is current.") }}</p>
             {%- endif %}
-            <p class="net-board__links"><a href="{{ get_url(path='health/', trailing_slash=true) | safe }}">Health</a> · <a href="{{ get_url(path='join/', trailing_slash=true) | safe }}">Join the network</a></p>
+            <p class="net-board__links"><a href="{{ get_url(path='health/', trailing_slash=true) | safe }}">Health</a> · <a href="{{ get_url(path='join/', trailing_slash=true) | safe }}">Get your site indexed</a></p>
         </aside>
     </div>
 </header>

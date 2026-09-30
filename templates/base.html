@@ -1,4 +1,4 @@
-{#- The shell every network page extends. `net` is what the whole site knows about the last crawl
+{#- The shell every AsHyAmS page extends. `net` is what the whole site knows about the last crawl
     (data/network/site.json, written by `cargo network build`); it is absent under a bare
     `zola serve` of a checkout that was never built, and the shell still renders. -#}
 {%- set_global net = load_data(path="data/network/site.json", required=false) -%}
@@ -33,19 +33,19 @@
     <link rel="apple-touch-icon" href="{{ get_url(path='img/apple-touch-icon.png', trailing_slash=false) | safe }}">
     <link rel="stylesheet" href="{{ get_url(path='site.css', trailing_slash=false) | safe }}">
     {%- block extra_head %}{% endblock extra_head %}
-    <link rel="alternate" type="application/atom+xml" title="DreamWeave Network updates" href="{{ get_url(path='network-data/updates.xml', trailing_slash=false) | safe }}">
-    <link rel="alternate" type="application/json" title="DreamWeave Network Catalog v1" href="{{ get_url(path='network-data/catalog.json', trailing_slash=false) | safe }}">
+    <link rel="alternate" type="application/atom+xml" title="AsHyAmS updates" href="{{ get_url(path='network-data/updates.xml', trailing_slash=false) | safe }}">
+    <link rel="alternate" type="application/json" title="AsHyAmS catalog (DreamWeave Network Catalog v1)" href="{{ get_url(path='network-data/catalog.json', trailing_slash=false) | safe }}">
 </head>
 <body class="net {% block body_class %}{% endblock body_class %}">
 <a class="dw-skip-link" href="#main">Skip to content</a>
 {%- block header %}
 <header class="dw-header net-header">
     <div class="dw-shell dw-header__inner">
-        <a class="dw-brand net-brand" href="{{ config.base_url | safe }}/">
+        <a class="dw-brand net-brand" href="{{ config.base_url | safe }}/" aria-label="AsHyAmS">
             <img src="{{ get_url(path='img/network.svg', trailing_slash=false) | safe }}" width="30" height="30" alt="">
-            <span>DreamWeave <em>Network</em></span>
+            <span><em>A</em>s<em>H</em>y<em>A</em>m<em>S</em></span>
         </a>
-        <nav class="dw-nav" aria-label="Network">
+        <nav class="dw-nav" aria-label="Site">
             {%- for item in config.extra.menu %}
             {%- set target = get_url(path=item.path, trailing_slash=true) %}
             <a href="{{ target | safe }}"{% if current_url and current_url is starting_with(target) %} aria-current="page"{% endif %}>{{ item.name }}</a>
@@ -91,7 +91,7 @@
 <footer class="dw-footer net-footer">
     <div class="dw-shell net-footer__inner">
         <ul class="net-principles" aria-label="Principles">
-            <li>The network is not a place mods live. It is a map of places mods live.</li>
+            <li>AsHyAmS is not a place mods live. It is a map of places mods live.</li>
             <li>Publisher sites own facts. The index owns observations.</li>
             <li>A failed crawl produces stale data, not a dead ecosystem.</li>
             <li>Git is the operations database. Static files are the deployment.</li>
