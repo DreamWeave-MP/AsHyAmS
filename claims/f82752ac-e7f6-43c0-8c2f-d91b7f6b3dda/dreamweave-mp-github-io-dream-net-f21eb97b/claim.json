@@ -1,0 +1,28 @@
+{
+  "project": "f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda",
+  "origin": "dreamweave-mp-github-io-dream-net-f21eb97b",
+  "entry": {
+    "id": "f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda",
+    "name": "dream-net",
+    "summary": "DreamWeave's networking substrate: secure UDP between authenticated peers, with reliable-ordered and unreliable event channels and a schema handshake.",
+    "type": "library",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/dream-net/home/",
+    "manifest": "https://dreamweave-mp.github.io/dream-net/dreamweave/projects/f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda.json",
+    "manifest_sha256": "c4bbfb0850c96f56aabc6dcc1ddffe97a5550eb02e8ba797ec2d3f7c59618d40",
+    "updated": "2026-09-29",
+    "channels": {
+      "stable": "1.1.0"
+    }
+  },
+  "advertised_sha256": "c4bbfb0850c96f56aabc6dcc1ddffe97a5550eb02e8ba797ec2d3f7c59618d40",
+  "ingested_sha256": "c4bbfb0850c96f56aabc6dcc1ddffe97a5550eb02e8ba797ec2d3f7c59618d40",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

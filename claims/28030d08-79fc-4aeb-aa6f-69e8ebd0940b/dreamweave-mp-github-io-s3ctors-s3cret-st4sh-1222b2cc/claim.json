@@ -1,0 +1,28 @@
+{
+  "project": "28030d08-79fc-4aeb-aa6f-69e8ebd0940b",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "entry": {
+    "id": "28030d08-79fc-4aeb-aa6f-69e8ebd0940b",
+    "name": "S3maphore",
+    "summary": "Modern music management for OpenMW, inspired by MUSE and Dynamic Music.",
+    "type": "mod",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/s3maphore/",
+    "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/28030d08-79fc-4aeb-aa6f-69e8ebd0940b.json",
+    "manifest_sha256": "56fe45a16bfdcebf24bf70974b5d7d4480c460626d3b54abcd5dff1dd73842c3",
+    "updated": "2026-09-29",
+    "channels": {
+      "development": "0.9631-dev.30"
+    }
+  },
+  "advertised_sha256": "56fe45a16bfdcebf24bf70974b5d7d4480c460626d3b54abcd5dff1dd73842c3",
+  "ingested_sha256": "56fe45a16bfdcebf24bf70974b5d7d4480c460626d3b54abcd5dff1dd73842c3",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

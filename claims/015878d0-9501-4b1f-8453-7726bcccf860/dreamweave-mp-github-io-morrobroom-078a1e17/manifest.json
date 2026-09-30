@@ -1,0 +1,334 @@
+{
+  "schema_version": "2",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "project": {
+    "id": "015878d0-9501-4b1f-8453-7726bcccf860",
+    "name": "Morrobroom",
+    "summary": "Build Morrowind levels in TrenchBroom: a brush compiler, lightmapper and NIF-to-TrenchBroom importer for OpenMW.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "license": "AGPL-3.0",
+    "tags": [
+      "Morrowind",
+      "OpenMW",
+      "TrenchBroom",
+      "Rust"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "documentation": "https://dreamweave-mp.github.io/Morrobroom/docs/",
+      "issues": "https://github.com/DreamWeave-MP/Morrobroom/issues",
+      "page": "https://dreamweave-mp.github.io/Morrobroom/home/",
+      "source": "https://github.com/DreamWeave-MP/Morrobroom",
+      "support": "https://github.com/DreamWeave-MP/Morrobroom/discussions"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": [
+      {
+        "name": "Kurpulio",
+        "role": "VFX Meshbank, the source of the VFX catalog's editor previews",
+        "url": "https://www.nexusmods.com/morrowind/mods/49695"
+      }
+    ]
+  },
+  "channels": {
+    "development": {
+      "version": "1.0.1-dev.0"
+    },
+    "stable": {
+      "version": "1.0.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "1.0.1-dev.0",
+      "channel": "development",
+      "date": "2026-09-29",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Morrobroom",
+        "release": "development",
+        "revision": "d89dd4c654756e8f3a8de9edc99fe12290de5a97"
+      },
+      "runtimes": {},
+      "platforms": [
+        {
+          "os": "windows",
+          "arch": "x86_64"
+        },
+        {
+          "os": "macos",
+          "arch": "aarch64"
+        },
+        {
+          "os": "macos",
+          "arch": "x86_64"
+        },
+        {
+          "os": "linux",
+          "arch": "x86_64"
+        }
+      ],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "Morrobroom",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "windows-x64",
+          "format": "binary",
+          "filename": "morrobroom-Windows-X64.zip",
+          "media_type": "application/zip",
+          "size": 10645790,
+          "digests": {
+            "sha256": "c7842a44d2acf748d335b014c2d75955c1d8938f652e82ca0fa954c42d49c894"
+          },
+          "platform": {
+            "os": "windows",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/Morrobroom/releases/download/development/morrobroom-Windows-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-arm64",
+          "format": "binary",
+          "filename": "morrobroom-macOS-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 10756209,
+          "digests": {
+            "sha256": "2c296d23d423687e18a230bd1eba41cbc0500a752dcb3818f3ff26a0708c1d6f"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/Morrobroom/releases/download/development/morrobroom-macOS-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-x64",
+          "format": "binary",
+          "filename": "morrobroom-macOS-X64.zip",
+          "media_type": "application/zip",
+          "size": 10904325,
+          "digests": {
+            "sha256": "8355d4888ec743664fd2cc8dbad0fad4062e32abc2506d15456210c6e5694680"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/Morrobroom/releases/download/development/morrobroom-macOS-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-x64",
+          "format": "binary",
+          "filename": "morrobroom-Linux-X64.zip",
+          "media_type": "application/zip",
+          "size": 11034353,
+          "digests": {
+            "sha256": "d422eb9df4217fec8dee95736b6f5f35866cbb2ecfb649e1be2267de47766b55"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/Morrobroom/releases/download/development/morrobroom-Linux-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "channel": "stable",
+      "date": "2026-09-29",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Morrobroom",
+        "tag": "1.0.0",
+        "revision": "18276268c2ec5209ad63a5ade5b2c8ed310ac2f6"
+      },
+      "notes": {
+        "summary": "First release: compile TrenchBroom maps into Morrowind content for OpenMW.",
+        "added": [
+          "Compile Valve 220 maps into NIF meshes and a TES3 plugin, with brush-built statics, activators, containers, items, armor, clothing, lights and leveled lists.",
+          "Bake static lighting into lightmaps that OpenMW loads without an engine patch.",
+          "Author NIF materials, alpha, texturing, scrolling and oscillating UVs, billboards in all four Morrowind modes, sort nodes and collision roots from TrenchBroom.",
+          "Smooth-shade faces with the Smooth Shading surface flag, in groups set by each face's Value.",
+          "Generate a TrenchBroom entity catalog from an OpenMW load order, sized in map units, and place its records as references.",
+          "Reverse-compile visual NIF geometry into editable maps with nif2map, billboard modes included."
+        ],
+        "known_issues": [
+          "`nif_fx_fire` and the VFX catalog are editor previews: placing one builds nothing yet.",
+          "nif2map does not read oscillating UV animation back: it reports the controller and imports the geometry without it."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [
+        {
+          "os": "windows",
+          "arch": "x86_64"
+        },
+        {
+          "os": "macos",
+          "arch": "aarch64"
+        },
+        {
+          "os": "macos",
+          "arch": "x86_64"
+        },
+        {
+          "os": "linux",
+          "arch": "x86_64"
+        }
+      ],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "Morrobroom",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "windows-x64",
+          "format": "binary",
+          "filename": "morrobroom-Windows-X64.zip",
+          "media_type": "application/zip",
+          "size": 10646329,
+          "digests": {
+            "sha256": "b4c1afdf7d7dd6cceedb7005ce5cd5c54e40e16fb21c4a3e71f97ebdceb6b9bb"
+          },
+          "platform": {
+            "os": "windows",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/Morrobroom/releases/download/1.0.0/morrobroom-Windows-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-arm64",
+          "format": "binary",
+          "filename": "morrobroom-macOS-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 10754355,
+          "digests": {
+            "sha256": "878ebb63aed71756820f2a2b7d9632951221b8e3472e95f250caf503f6e1dd9f"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/Morrobroom/releases/download/1.0.0/morrobroom-macOS-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-x64",
+          "format": "binary",
+          "filename": "morrobroom-macOS-X64.zip",
+          "media_type": "application/zip",
+          "size": 10901639,
+          "digests": {
+            "sha256": "5b38a748bf70454b6afb86ae4d751ce262d2b8052696bc14d17851919a062e92"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/Morrobroom/releases/download/1.0.0/morrobroom-macOS-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-x64",
+          "format": "binary",
+          "filename": "morrobroom-Linux-X64.zip",
+          "media_type": "application/zip",
+          "size": 11032973,
+          "digests": {
+            "sha256": "4f2977afb2b668660b5601011c70c853a144cf98c22621452cee58aa39ae28ae"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/Morrobroom/releases/download/1.0.0/morrobroom-Linux-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

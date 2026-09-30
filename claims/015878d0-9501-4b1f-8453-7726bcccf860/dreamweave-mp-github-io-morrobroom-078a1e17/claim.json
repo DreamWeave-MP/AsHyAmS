@@ -1,0 +1,29 @@
+{
+  "project": "015878d0-9501-4b1f-8453-7726bcccf860",
+  "origin": "dreamweave-mp-github-io-morrobroom-078a1e17",
+  "entry": {
+    "id": "015878d0-9501-4b1f-8453-7726bcccf860",
+    "name": "Morrobroom",
+    "summary": "Build Morrowind levels in TrenchBroom: a brush compiler, lightmapper and NIF-to-TrenchBroom importer for OpenMW.",
+    "type": "tool",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/Morrobroom/home/",
+    "manifest": "https://dreamweave-mp.github.io/Morrobroom/dreamweave/projects/015878d0-9501-4b1f-8453-7726bcccf860.json",
+    "manifest_sha256": "10098c8398f082fe58bae47e86d4597ef9b23ef3a2e463ec55f72e66d029b767",
+    "updated": "2026-09-29",
+    "channels": {
+      "development": "1.0.1-dev.0",
+      "stable": "1.0.0"
+    }
+  },
+  "advertised_sha256": "10098c8398f082fe58bae47e86d4597ef9b23ef3a2e463ec55f72e66d029b767",
+  "ingested_sha256": "10098c8398f082fe58bae47e86d4597ef9b23ef3a2e463ec55f72e66d029b767",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

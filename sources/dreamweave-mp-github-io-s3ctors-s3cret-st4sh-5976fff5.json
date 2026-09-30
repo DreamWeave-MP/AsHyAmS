@@ -1,0 +1,19 @@
+{
+  "url": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "health": "resolved",
+  "problem": null,
+  "method": "the page links the site index",
+  "trail": [
+    {
+      "url": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/",
+      "outcome": "links the site index at https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave.json"
+    },
+    {
+      "url": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave.json",
+      "outcome": "a DreamWeave site index"
+    }
+  ],
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

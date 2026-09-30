@@ -1,0 +1,172 @@
+{
+  "schema_version": "2",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "project": {
+    "id": "f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda",
+    "name": "dream-net",
+    "summary": "DreamWeave's networking substrate: secure UDP between authenticated peers, with reliable-ordered and unreliable event channels and a schema handshake.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "license": "MIT OR Apache-2.0",
+    "tags": [
+      "Rust",
+      "Networking",
+      "UDP",
+      "Multiplayer"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "crate": "https://crates.io/crates/dream-net",
+      "documentation": "https://dreamweave-mp.github.io/dream-net/docs/",
+      "donate": "https://ko-fi.com/magicaldave",
+      "issues": "https://github.com/DreamWeave-MP/dream-net/issues",
+      "page": "https://dreamweave-mp.github.io/dream-net/home/",
+      "source": "https://github.com/DreamWeave-MP/dream-net"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": [
+      {
+        "name": "Más Bandwidth LLC",
+        "role": "netcode, reliable and serialize, the crates dream-net is built on",
+        "url": "https://mas-bandwidth.com"
+      }
+    ]
+  },
+  "channels": {
+    "stable": {
+      "version": "1.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "1.1.0",
+      "channel": "stable",
+      "date": "2026-09-29",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream-net",
+        "tag": "1.1.0",
+        "revision": "d0dbbb4f1bcf651693403cd0fb4e80d07b2de9d4"
+      },
+      "notes": {
+        "summary": "A peer is announced before its first event, captures without payloads keep their lengths, and the codec's decode errors are standard Rust errors.",
+        "added": [
+          "`wire::DecodeError` and `wire::Malformed` implement `std::error::Error`, and `DecodeError` implements `Display`, like the crate's other errors: a malformed packet prints its reason, which is also its `source()`, and a mismatch prints the foreign hello."
+        ],
+        "fixed": [
+          "`Server` and `Client` queued `Connected` after the events of the packet that completed the handshake, so a host could poll a peer's `Message` before its `Connected`. `Connected` now comes first.",
+          "`CaptureWriter` without payloads wrote each event's length from its payload, so a capture read back and written again recorded every event as zero bytes. It now writes the record's `len`."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream-net",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "dream-net-1.1.0.crate",
+          "media_type": "application/gzip",
+          "size": 102580,
+          "digests": {
+            "sha256": "2df0cb5ee602184918adad25df359efd364166568947e03e73c747144ba4d51d"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/dream-net/dream-net-1.1.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "channel": "stable",
+      "date": "2026-09-27",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream-net",
+        "tag": "1.0.0",
+        "revision": "83cbdf9d7fa60b365203e04920c170511c2ffeac"
+      },
+      "notes": {
+        "summary": "First release: secure UDP between authenticated peers, reliable-ordered and unreliable event channels, and a schema handshake, over the Más Bandwidth netcode, reliable and serialize crates.",
+        "added": [
+          "A frozen `Schema` of channels and events: event ids from sorted names, never registration order, and a 128-bit fingerprint (truncated SHA-256) peers compare before any event is accepted.",
+          "Reliable-ordered channels, delivered exactly once in send order and resent until acknowledged, and unreliable-unordered channels with a choice of overflow policy.",
+          "Many events aggregated into each packet, and events larger than a datagram fragmented by reliable.",
+          "`Server` and `Client` over netcode: connect tokens, encryption, generation-checked `PeerId` handles, and polled lifecycle events, including schema and protocol mismatches reported with both fingerprints on both ends.",
+          "Bounded memory on every queue: pending, parked and pooled bytes, with at most `max_pending_bytes + 2 * max_parked_bytes` held per connection on receive.",
+          "Protocol captures at the host boundary, in a versioned binary format that carries the schema's names.",
+          "`Connection` independent of sockets, and a deterministic link simulator for tests and benchmarks.",
+          "Wire format 2, pinned by golden bytes; warm send and receive paths that allocate nothing; fuzz harnesses, a soak test and Criterion benchmarks."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream-net",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "dream-net-1.0.0.crate",
+          "media_type": "application/gzip",
+          "size": 100369,
+          "digests": {
+            "sha256": "fe667f5bd1256bcebe4fef2143ad2a09e84ed73301405437856ea17e5fd03c87"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/dream-net/dream-net-1.0.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

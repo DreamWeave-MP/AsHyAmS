@@ -1,0 +1,94 @@
+{
+  "schema_version": "2",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "project": {
+    "id": "77a5e247-6e75-4507-a97a-7d849744446d",
+    "name": "Cod3x",
+    "summary": "OpenMW Lua tooling, context-aware annotations, and the OpenMW-Lua engineering field manual.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "OpenMW-Lua",
+      "Tools",
+      "Documentation"
+    ],
+    "maintainers": [],
+    "links": {
+      "documentation": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/cod3x/docs/",
+      "issues": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh/issues",
+      "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/cod3x/",
+      "source": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh"
+    },
+    "integrations": {
+      "nexusmods": {
+        "game": "morrowind",
+        "mod_id": 59122
+      }
+    },
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "1.1-dev.8"
+    }
+  },
+  "releases": [
+    {
+      "version": "1.1-dev.8",
+      "channel": "development",
+      "date": "2026-09-29",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh",
+        "release": "development",
+        "revision": "5facba41fb9f6f5e05e238da4bbf026259b25045"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "Cod3x",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "flat",
+          "format": "flat",
+          "filename": "cod3x.zip",
+          "media_type": "application/zip",
+          "size": 5062508,
+          "digests": {
+            "sha256": "8ac1cff19cecd0185cf98f53f5c82b7295e36fc55ec34ab0694f86f9337fa167"
+          },
+          "layout": {
+            "release_document": "dreamweave.release.json",
+            "documentation": "cod3x-Documentation/index.html"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh/releases/download/development/cod3x.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

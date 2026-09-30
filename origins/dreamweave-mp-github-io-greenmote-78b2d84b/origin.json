@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-greenmote-78b2d84b",
+  "index_url": "https://dreamweave-mp.github.io/greenmote/dreamweave.json",
+  "site_name": "Greenmote",
+  "site_url": "https://dreamweave-mp.github.io/greenmote/",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/greenmote/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6abc4a18-38f\"",
+    "last_modified": "Tue, 29 Sep 2026 23:30:32 GMT"
+  },
+  "index_sha256": "3f47e707b86e09cb83afc6e0ef4173ce3f92cbbe52fbd80436a939d9cea0558a",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

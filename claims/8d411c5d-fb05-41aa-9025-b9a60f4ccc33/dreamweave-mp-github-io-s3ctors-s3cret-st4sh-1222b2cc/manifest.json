@@ -1,0 +1,112 @@
+{
+  "schema_version": "2",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "project": {
+    "id": "8d411c5d-fb05-41aa-9025-b9a60f4ccc33",
+    "name": "DR1P",
+    "summary": "Visual rings, amulets, belts, and other miscellaneous effect items for OpenMW.",
+    "type": "mod",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "OpenMW-Lua",
+      "Frameworks",
+      "VFX"
+    ],
+    "maintainers": [],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh/issues",
+      "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dr1p/",
+      "source": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.0.1-dev.47"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.0.1-dev.47",
+      "channel": "development",
+      "date": "2026-09-29",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh",
+        "release": "development",
+        "revision": "5facba41fb9f6f5e05e238da4bbf026259b25045"
+      },
+      "runtimes": {
+        "openmw": "*"
+      },
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DR1P",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {
+        "openmw": {
+          "components": {
+            "main": {
+              "data_directories": [
+                "."
+              ],
+              "content_files": [
+                "dr1p.omwscripts"
+              ],
+              "groundcover_files": [],
+              "fallback_archives": [],
+              "fallback_entries": {},
+              "config": false,
+              "requires_content": []
+            }
+          },
+          "requires_content": [],
+          "settings": []
+        }
+      },
+      "critical_extensions": [
+        "openmw"
+      ],
+      "artifacts": [
+        {
+          "id": "flat",
+          "format": "flat",
+          "filename": "dr1p.zip",
+          "media_type": "application/zip",
+          "size": 768251,
+          "digests": {
+            "sha256": "a630741fd5ef21035269c3c480558f0d6f69fdb19ea5c6817517dc7f8ae95c6f"
+          },
+          "layout": {
+            "release_document": "dreamweave.release.json",
+            "documentation": "dr1p-Documentation/index.html"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh/releases/download/development/dr1p.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

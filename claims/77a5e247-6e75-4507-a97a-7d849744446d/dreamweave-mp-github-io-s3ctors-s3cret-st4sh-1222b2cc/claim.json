@@ -1,0 +1,28 @@
+{
+  "project": "77a5e247-6e75-4507-a97a-7d849744446d",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "entry": {
+    "id": "77a5e247-6e75-4507-a97a-7d849744446d",
+    "name": "Cod3x",
+    "summary": "OpenMW Lua tooling, context-aware annotations, and the OpenMW-Lua engineering field manual.",
+    "type": "tool",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/cod3x/",
+    "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/77a5e247-6e75-4507-a97a-7d849744446d.json",
+    "manifest_sha256": "7a14d01062d29ee6fe636184a71021ef919ce0d8458a5a8f0905e98b1c805082",
+    "updated": "2026-09-29",
+    "channels": {
+      "development": "1.1-dev.8"
+    }
+  },
+  "advertised_sha256": "7a14d01062d29ee6fe636184a71021ef919ce0d8458a5a8f0905e98b1c805082",
+  "ingested_sha256": "7a14d01062d29ee6fe636184a71021ef919ce0d8458a5a8f0905e98b1c805082",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

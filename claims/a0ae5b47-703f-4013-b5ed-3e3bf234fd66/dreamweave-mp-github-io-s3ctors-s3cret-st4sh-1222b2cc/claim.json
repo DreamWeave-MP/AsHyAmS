@@ -1,0 +1,28 @@
+{
+  "project": "a0ae5b47-703f-4013-b5ed-3e3bf234fd66",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "entry": {
+    "id": "a0ae5b47-703f-4013-b5ed-3e3bf234fd66",
+    "name": "Starwind PVP",
+    "summary": "Assets for Starwind PVP mode inspired by testman's old tes3mp deathmatch script.",
+    "type": "mod",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/starwind_pvp/",
+    "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/a0ae5b47-703f-4013-b5ed-3e3bf234fd66.json",
+    "manifest_sha256": "af21ea57a689bf7b0b7c2dfc13bc6f86ebe08652dfc496704e1ce6f9a6ebd4c5",
+    "updated": "2026-09-29",
+    "channels": {
+      "development": "0.2-dev.4"
+    }
+  },
+  "advertised_sha256": "af21ea57a689bf7b0b7c2dfc13bc6f86ebe08652dfc496704e1ce6f9a6ebd4c5",
+  "ingested_sha256": "af21ea57a689bf7b0b7c2dfc13bc6f86ebe08652dfc496704e1ce6f9a6ebd4c5",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

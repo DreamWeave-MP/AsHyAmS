@@ -1,0 +1,26 @@
+{
+  "schema_version": "2",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "site": {
+    "name": "Morrobroom",
+    "url": "https://dreamweave-mp.github.io/Morrobroom/"
+  },
+  "projects": [
+    {
+      "id": "015878d0-9501-4b1f-8453-7726bcccf860",
+      "name": "Morrobroom",
+      "summary": "Build Morrowind levels in TrenchBroom: a brush compiler, lightmapper and NIF-to-TrenchBroom importer for OpenMW.",
+      "type": "tool",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/Morrobroom/home/",
+      "manifest": "https://dreamweave-mp.github.io/Morrobroom/dreamweave/projects/015878d0-9501-4b1f-8453-7726bcccf860.json",
+      "manifest_sha256": "10098c8398f082fe58bae47e86d4597ef9b23ef3a2e463ec55f72e66d029b767",
+      "updated": "2026-09-29",
+      "channels": {
+        "development": "1.0.1-dev.0",
+        "stable": "1.0.0"
+      }
+    }
+  ]
+}

@@ -90,12 +90,12 @@
     {
       "version": "1.1.1-dev.0",
       "channel": "development",
-      "date": "2026-09-28",
+      "date": "2026-09-29",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
         "release": "dev-build",
-        "revision": "384cddbf2a3bc233e1c6f7e0d59886eaba5fffff"
+        "revision": "b62bfb1ecc33c44380e5cf51a9b78c4a2f6757ff"
       },
       "runtimes": {
         "openmw": ">=0.49"
@@ -260,13 +260,13 @@
           "format": "fomod",
           "filename": "candlelight.zip",
           "media_type": "application/zip",
-          "size": 255261,
+          "size": 300180,
           "digests": {
-            "sha256": "fb946e0097ee5f4590cecf92edf263ab0fb35ab73a1713dde95e3408de104951"
+            "sha256": "5d2b2112c0eb8baca6ebe39f063b60d8f08e69a0fe688c8ae30cde8548319716"
           },
           "layout": {
             "release_document": "dreamweave.release.json",
-            "documentation": "Documentation/index.html",
+            "documentation": "candlelight-Documentation/index.html",
             "installer": "fomod/ModuleConfig.xml"
           },
           "sources": [

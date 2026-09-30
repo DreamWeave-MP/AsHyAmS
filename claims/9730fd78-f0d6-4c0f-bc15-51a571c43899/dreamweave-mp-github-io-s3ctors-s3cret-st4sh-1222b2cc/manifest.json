@@ -1,0 +1,112 @@
+{
+  "schema_version": "2",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "project": {
+    "id": "9730fd78-f0d6-4c0f-bc15-51a571c43899",
+    "name": "I Am Basket",
+    "summary": "Ridiculous playable baskets mod for OpenMW. Implements a whole basket-focused character controller with gravity and friction.",
+    "type": "mod",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Gameplay",
+      "OpenMW-Lua"
+    ],
+    "maintainers": [],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh/issues",
+      "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/i_am_basket/",
+      "source": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.0.1-dev.3"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.0.1-dev.3",
+      "channel": "development",
+      "date": "2026-09-29",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh",
+        "release": "development",
+        "revision": "5facba41fb9f6f5e05e238da4bbf026259b25045"
+      },
+      "runtimes": {
+        "openmw": "*"
+      },
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "I Am Basket",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {
+        "openmw": {
+          "components": {
+            "main": {
+              "data_directories": [
+                "."
+              ],
+              "content_files": [
+                "I Am Basket.omwaddon",
+                "I Am Basket.omwscripts"
+              ],
+              "groundcover_files": [],
+              "fallback_archives": [],
+              "fallback_entries": {},
+              "config": false,
+              "requires_content": []
+            }
+          },
+          "requires_content": [],
+          "settings": []
+        }
+      },
+      "critical_extensions": [
+        "openmw"
+      ],
+      "artifacts": [
+        {
+          "id": "flat",
+          "format": "flat",
+          "filename": "i_am_basket.zip",
+          "media_type": "application/zip",
+          "size": 172364,
+          "digests": {
+            "sha256": "afa39593c68b6fe56b3978f1d410e3946c1f5ed0883f64da7f7ad7dba12358e5"
+          },
+          "layout": {
+            "release_document": "dreamweave.release.json",
+            "documentation": "i_am_basket-Documentation/index.html"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh/releases/download/development/i_am_basket.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

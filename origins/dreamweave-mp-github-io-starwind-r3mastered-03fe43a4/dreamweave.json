@@ -1,0 +1,23 @@
+{
+  "schema_version": "2",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "site": {
+    "name": "Starwind R3mastered",
+    "url": "https://dreamweave-mp.github.io/Starwind-R3mastered/"
+  },
+  "projects": [
+    {
+      "id": "0e7eb278-83f7-48e6-b938-25d306e84c41",
+      "name": "Starwind: R3mastered",
+      "summary": "A modern, auditable OpenMW reconstruction and continuation of Starwind.",
+      "type": "total-conversion",
+      "status": "experimental",
+      "page": "https://dreamweave-mp.github.io/Starwind-R3mastered/home/",
+      "manifest": "https://dreamweave-mp.github.io/Starwind-R3mastered/dreamweave/projects/0e7eb278-83f7-48e6-b938-25d306e84c41.json",
+      "manifest_sha256": "ca6926a1d984c330d1ba6042c85fbc47254e020b58afbab2b3e4773fcdd52014",
+      "updated": null,
+      "channels": {}
+    }
+  ]
+}

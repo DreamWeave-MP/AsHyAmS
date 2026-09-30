@@ -1,0 +1,1477 @@
+{
+  "schema_version": "2",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "project": {
+    "id": "3aaf4fe0-616f-41a3-b520-306eda9347b0",
+    "name": "openmw-config",
+    "summary": "Read, compose and write OpenMW's openmw.cfg chains from Rust, or from Lua embedded in a Rust host.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "license": "MIT OR Apache-2.0",
+    "tags": [
+      "OpenMW",
+      "Rust",
+      "Lua",
+      "Configuration"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "crate": "https://crates.io/crates/openmw-config",
+      "documentation": "https://dreamweave-mp.github.io/Openmw_Config/docs/",
+      "donate": "https://ko-fi.com/magicaldave",
+      "issues": "https://github.com/DreamWeave-MP/Openmw_Config/issues",
+      "page": "https://dreamweave-mp.github.io/Openmw_Config/home/",
+      "source": "https://github.com/DreamWeave-MP/Openmw_Config",
+      "support": "https://github.com/DreamWeave-MP/Openmw_Config/discussions"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": [
+      {
+        "name": "Benjamin Winger",
+        "role": "Made the encoding value public",
+        "url": "https://github.com/benjaminwinger"
+      }
+    ]
+  },
+  "channels": {
+    "stable": {
+      "version": "3.0.1"
+    }
+  },
+  "releases": [
+    {
+      "version": "3.0.1",
+      "channel": "stable",
+      "date": "2026-09-29",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "3.0.1",
+        "revision": "b6d79ee6b08b22d47c819736473ec6e5ca7e07f5"
+      },
+      "notes": {
+        "summary": "The Luau bindings are an l3i extension with live views and typed rows, the loader reads config= chains exactly as OpenMW's engine does, and the site is built with the DreamWeave Mod Template.",
+        "added": [
+          "Typed game setting values and setting metadata, `SettingValue` exported so predicates can name what they are given, and the `meta()` and typed accessors every setting type has.",
+          "The views declare their element types, so strict scripts read them directly; items are pushed by value.",
+          "A Criterion benchmark for the Luau boundary."
+        ],
+        "changed": [
+          "List positions are indexed, game settings iterate without cloning, settings are no longer formatted on load, and the lookup indexes hash with FxHash.",
+          "l3i 1.0.0 comes from crates.io."
+        ],
+        "fixed": [
+          "`save_user`, `save_subconfig` and `Display` keep `replace=` lines; list replacements and removals persist through `replace=` lines in the user config, and a parent's entries stay in the parent's file when the user config replaces a list.",
+          "The injected `resources/vfs` data directory is no longer written back as a `data=` line on every save; the directories `resources=` and `data-local=` add stay in step with them.",
+          "Windows and macOS fall back to the user config; the `io::Error` behind `ConfigError::Io` is reachable through `source()`.",
+          "`add_archive_file` returns `CannotAddArchiveFile` on a duplicate; `replace=fallback-archive` is read and written under the option name OpenMW uses.",
+          "`set_game_setting` writes its comments as comment lines, and the comments and blank lines that end a config file survive the settings added after them.",
+          "The setting indexes are rebuilt when singleton settings change and after data directories are injected; a parent's relative data directory is written resolved when the user config copies it; a parent's `resources=`, `user-data=`, `data-local=` or `encoding=` stays in place when the user sets one.",
+          "The live-view generation counter advances without wrapping, so a stale row can never read as current again."
+        ],
+        "breaking": [
+          "The `luau` feature makes the crate an l3i extension, `openmw_config::luau::extension()`, providing the module `@dream/openmw-config`, with live views over the loaded configuration and typed rows. `create_lua_module`, the `mlua` types and the `standalone-lua` feature are gone.",
+          "Building with the `luau` feature needs l3i's toolchain: clang, lld and cross-language thin LTO. Rust 1.92.",
+          "The loader matches OpenMW's engine: `config=` entries load depth first, each `config=` directory is read once, a `config=` directory without an `openmw.cfg` stays in the chain, the user config directory is created on load, `replace=` applies per config over the configs loaded before it, `replace=config` keeps the root and the `config=` entries still to load, `replace=replace` discards the `replace=` lines of earlier configs, `replace=` values match option names exactly, and `resources=`, `user-data=`, `data-local=` and `encoding=` are left alone by `replace=`.",
+          "The crate's internal macros are no longer exported.",
+          "Built, released and documented with the DreamWeave Mod Template; the site replaces the rustdoc pages."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-3.0.1.crate",
+          "media_type": "application/gzip",
+          "size": 107355,
+          "digests": {
+            "sha256": "f0fe76e8e1e03e0651bad34b5989d61a6524e3b36372eb77da89f1363bda9562"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-3.0.1.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "2.0.1",
+      "channel": "stable",
+      "date": "2026-09-27",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "2.0.1",
+        "revision": "e3be59d64d23767ddd0016577069101af694e97c"
+      },
+      "notes": {
+        "changed": [
+          "Relicensed under MIT OR Apache-2.0."
+        ],
+        "known_issues": [
+          "`save_user`, `save_subconfig` and `Display` drop `replace=` lines, so a saved user config merges its parents' entries back in on the next load. Fixed on the default branch.",
+          "A config with `resources=` writes the injected `resources/vfs` directory back as a `data=` line, and each save and reload adds another copy. Fixed on the default branch."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-2.0.1.crate",
+          "media_type": "application/gzip",
+          "size": 86762,
+          "digests": {
+            "sha256": "b0413b8898c3277e267c033b95d5b343d9c1ebb692d17f99a4af25232bee2f33"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-2.0.1.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "2.0.0",
+      "channel": "stable",
+      "date": "2026-09-26",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "2.0.0",
+        "revision": "5174a11b245b78a347c296eb798ab484e0125457"
+      },
+      "notes": {
+        "summary": "The Lua bindings run on Luau.",
+        "migration": "Add `mlua` to your own dependencies with the runtime you embed, and keep `features = [\"lua\"]` on\nthis crate:\n\n```toml\nopenmw-config = { version = \"2\", features = [\"lua\"] }\nmlua = { version = \"0.12\", default-features = false, features = [\"luau\"] }\n```\n",
+        "breaking": [
+          "The bindings build against `mlua` 0.12 and the `lua` feature no longer selects a Lua runtime: the host application picks one through its own `mlua` dependency. `standalone-lua` selects Luau for this crate's tests and docs. The Lua API itself is unchanged."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-2.0.0.crate",
+          "media_type": "application/gzip",
+          "size": 94464,
+          "digests": {
+            "sha256": "1a51b248273e07a85c592dd370b74e6449f0c36fb338e1e0d01e4f614f4ace08"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-2.0.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "1.1.0",
+      "channel": "stable",
+      "date": "2026-06-04",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "1.1.0",
+        "revision": "d71116c60e9a8125c83a832a5b447b672109b8ac"
+      },
+      "notes": {
+        "summary": "Discovery for external tools.",
+        "added": [
+          "`from_env_or_user_config`: OpenMW's root discovery, then the user config when there is no root config. `fromEnvOrUserConfig` in Lua.",
+          "`try_default_root_or_user_config_path` and `default_user_config_file`."
+        ],
+        "fixed": [
+          "A config loaded through a symlink keeps the path it was loaded from."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-1.1.0.crate",
+          "media_type": "application/gzip",
+          "size": 95679,
+          "digests": {
+            "sha256": "016350068cba3d4d4f93c85448c1ad9d1d34934a56c11bd2813dcb57f88dd849"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.1.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "1.0.5",
+      "channel": "stable",
+      "date": "2026-05-07",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "1.0.5",
+        "revision": "69e5390afd54cf239de6d96cd4f08f8524bc72a4"
+      },
+      "notes": {
+        "summary": "APIs for importers: start empty, load if present, export flattened.",
+        "added": [
+          "`new_empty` and `load_optional`, which start from an empty configuration without inventing an `openmw.cfg`.",
+          "`to_resolved_string` and `save_resolved_to_path`: a flattened export with resolved paths and no `config=` or `replace=` entries.",
+          "The same four in Lua: `newEmpty`, `loadOptional`, `toResolvedString`, `saveResolvedToPath`."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-1.0.5.crate",
+          "media_type": "application/gzip",
+          "size": 92621,
+          "digests": {
+            "sha256": "ba29c2402a093283f70200f571ef4d485a91a133ef5372469ef8464e62f53bf7"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.5.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "1.0.4",
+      "channel": "stable",
+      "date": "2026-05-04",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "1.0.4",
+        "revision": "9c01c85295265fea52cc4d96551018dd7c414fc8"
+      },
+      "notes": {
+        "added": [
+          "The root config helpers `try_default_root_config_path` and `try_default_global_config_path`, and `OPENMW_GLOBAL_CONFIG_PATH`."
+        ],
+        "changed": [
+          "`from_env` uses OpenMW's own root discovery: `OPENMW_CONFIG`, `OPENMW_CONFIG_DIR`, then an `openmw.cfg` beside the executable, then the global config. It no longer falls back to the user config."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-1.0.4.crate",
+          "media_type": "application/gzip",
+          "size": 88968,
+          "digests": {
+            "sha256": "45a9c9a4cb5226802c1bfa1a3417c3efea795ae7bf91b38b4514d2c00a63141d"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.4.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "1.0.3",
+      "channel": "stable",
+      "date": "2026-05-01",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "1.0.3",
+        "revision": "977bf593ba3754ee9fe334484b4621df08a9a5d4"
+      },
+      "notes": {
+        "fixed": [
+          "Saving no longer writes the injected `data-local` directory back as a `data=` line.",
+          "`encoding=` no longer gains a blank line on every save."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-1.0.3.crate",
+          "media_type": "application/gzip",
+          "size": 85918,
+          "digests": {
+            "sha256": "6b22195131785a261ccbb11699e594fc35e1b5d46edaacde3878ecb566df9fbb"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.3.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "1.0.2",
+      "channel": "stable",
+      "date": "2026-04-24",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "1.0.2",
+        "revision": "098dc4059a3e06f4015d37877f194d4544698331"
+      },
+      "notes": {
+        "added": [
+          "`set_generic_settings`, `add_generic_setting` and `save_to_path`.",
+          "In Lua: `genericSettings`, `setGenericSettings`, `addGenericSetting` and `saveToPath`. Setting rows carry `source` and `comment`."
+        ],
+        "fixed": [
+          "Saving over a read-only file on Windows.",
+          "`save_to_path` checks that the destination directory is writable."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-1.0.2.crate",
+          "media_type": "application/gzip",
+          "size": 84906,
+          "digests": {
+            "sha256": "8f83558df90a23207feb3d4b9cb19438ef2d98a1a04809d119127d9c72a1e955"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.2.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "1.0.1",
+      "channel": "stable",
+      "date": "2026-04-19",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "1.0.1",
+        "revision": "0927f5b6b3611cc179024c3ee1c16e49c0627666"
+      },
+      "notes": {
+        "summary": "First stable release: parsing that matches OpenMW's, Lua bindings, and Flatpak paths.",
+        "highlights": "openmw-config 1.0 reads a config chain the way OpenMW does: `config=` entries level by level,\n`replace=` applied as it is read, and line numbers in every parse error. It adds embedded Lua\nbindings with a camelCase API and resolves tokens correctly inside Flatpak.\n",
+        "added": [
+          "Lua bindings through `mlua`, behind the `lua` feature: `create_lua_module` and a camelCase API.",
+          "Flatpak-aware `?userconfig?` and `?userdata?`, and `OPENMW_FLATPAK_ID`.",
+          "`default_local_path` and `default_global_path`, for `?local?` and `?global?`, with fallible `try_` variants.",
+          "`user_config_ref`, which leaves the configuration in place, and `&str` views of setting values.",
+          "`config_chain`, the parser-order record of loaded and skipped configs.",
+          "Parse errors carry the line they came from."
+        ],
+        "changed": [
+          "Relicensed under GPL-3.0-or-later.",
+          "`dirs` and `shellexpand` are replaced by the standard library. On Windows, the Documents folder comes from the Known Folder API.",
+          "Queries on content files, archives, data directories and game settings are indexed."
+        ],
+        "fixed": [
+          "`config=` entries load level by level, siblings before their children, as OpenMW loads them.",
+          "`replace=config` discards earlier settings and queued `config=` entries.",
+          "`fallback=` values keep their exact spelling through a round trip.",
+          "Game settings are deduplicated by key.",
+          "Path comparisons normalize separators."
+        ],
+        "breaking": [
+          "Methods that built a `Vec` are gone; collect the iterators instead."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-1.0.1.crate",
+          "media_type": "application/gzip",
+          "size": 83027,
+          "digests": {
+            "sha256": "6d1de5672309e01372dd9c68234c8672995688daf035711f21445e38d38e8da3"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.1.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "channel": "stable",
+      "date": "2026-04-19",
+      "yanked": {
+        "reason": "Yanked on crates.io.",
+        "replacement": "1.0.1"
+      },
+      "status": "yanked",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "1.0.0"
+      },
+      "notes": {
+        "summary": "The 1.0 release, published under MIT OR Apache-2.0."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-1.0.0.crate",
+          "media_type": "application/gzip",
+          "size": 75263,
+          "digests": {
+            "sha256": "adda9e405739d0d273ba3884332b88d7213919fce0c697b2dae67e053aa1099b"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.93",
+      "channel": "stable",
+      "date": "2026-04-06",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "0.1.93",
+        "revision": "1994d84a490201e57a96153971a6bd2386ed55de"
+      },
+      "notes": {
+        "added": [
+          "`EncodingSetting::value` returns the encoding."
+        ],
+        "fixed": [
+          "Relative config paths are made absolute, and empty ones are refused, including from the environment.",
+          "Config paths are validated through symlinks.",
+          "Paths keep their `.` and `..` components instead of losing parts of the path."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-0.1.93.crate",
+          "media_type": "application/gzip",
+          "size": 21003,
+          "digests": {
+            "sha256": "28d5864a0c7959014015231f01c702e6c08e3bfda747c34926c071956431a5e9"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.93.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.92",
+      "channel": "stable",
+      "date": "2025-10-03",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "0.1.92",
+        "revision": "79abc964481650125f01689cbc08d4e004bf689e"
+      },
+      "notes": {
+        "fixed": [
+          "`?userconfig?` resolves correctly.",
+          "`resources=` no longer adds `vfs-mw`: the local or global config lists it itself."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-0.1.92.crate",
+          "media_type": "application/gzip",
+          "size": 20045,
+          "digests": {
+            "sha256": "8de9c067ddaff3a71a77f26ff8fa5e120d2dc3e0feed10fbeb65a789a217dd54"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.92.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.91",
+      "channel": "stable",
+      "date": "2025-09-04",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "0.1.91",
+        "revision": "a5f323483a2ce74a246b8036a94ee9fcb47489af"
+      },
+      "notes": {
+        "fixed": [
+          "Android paths, again."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-0.1.91.crate",
+          "media_type": "application/gzip",
+          "size": 20071,
+          "digests": {
+            "sha256": "4648a14e4425ca329558c85efb73f61bea54cde65ae09260734b28125b30a970"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.91.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.9",
+      "channel": "stable",
+      "date": "2025-09-02",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "0.1.9",
+        "revision": "7faa483017cbbf6d06c258b708636b012c7b2791"
+      },
+      "notes": {
+        "fixed": [
+          "Android paths."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-0.1.9.crate",
+          "media_type": "application/gzip",
+          "size": 20067,
+          "digests": {
+            "sha256": "cda8d6691d1a8597aa5cd38bdaab3d24718583a2493197c7dc19f45690070f64"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.9.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.8",
+      "channel": "stable",
+      "date": "2025-09-02",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "0.1.8",
+        "revision": "2fa2fd5b69f9d827882c8b84514499d0497b4c48"
+      },
+      "notes": {
+        "added": [
+          "Android's config and userdata directories."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-0.1.8.crate",
+          "media_type": "application/gzip",
+          "size": 20086,
+          "digests": {
+            "sha256": "e73fee1c56170c13c175af35a2390b3df503815f7f4980771aef34cbed59df17"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.8.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.7",
+      "channel": "stable",
+      "date": "2025-07-18",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "0.1.7"
+      },
+      "notes": {
+        "changed": [
+          "New repository URL, and the license stated explicitly."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-0.1.7.crate",
+          "media_type": "application/gzip",
+          "size": 19958,
+          "digests": {
+            "sha256": "6155ad321e929da5708b61ff719fca69401124528ce14b305528ec068f4a0029"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.7.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.5",
+      "channel": "stable",
+      "date": "2025-07-03",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "0.1.5"
+      },
+      "notes": {
+        "fixed": [
+          "Serializing a configuration wrote it onto a single line."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-0.1.5.crate",
+          "media_type": "application/gzip",
+          "size": 19268,
+          "digests": {
+            "sha256": "f086d63f455fcbc01cc95ded51b3ce11841e510a4819f1c427771c5428068dae"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.5.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.4",
+      "channel": "stable",
+      "date": "2025-07-02",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "0.1.4"
+      },
+      "notes": {
+        "changed": [
+          "The setting types are public.",
+          "`resources=` and `data-local=` add their directories to the data directories."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-0.1.4.crate",
+          "media_type": "application/gzip",
+          "size": 19261,
+          "digests": {
+            "sha256": "6e28de3d112e0c343cf476dbf5677b1dd017ce739447cb1bda86eb9642076e26"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.4.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.3",
+      "channel": "stable",
+      "date": "2025-06-24",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "0.1.3",
+        "revision": "63d568b5d7ffefee83d98946face3a411e65c5e1"
+      },
+      "notes": {
+        "added": [
+          "`OPENMW_CONFIG` and `OPENMW_CONFIG_DIR` choose the root config."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-0.1.3.crate",
+          "media_type": "application/gzip",
+          "size": 19145,
+          "digests": {
+            "sha256": "a9df34491dbc6ca4d7e0152674a12b85399e449b567868effd6564c14a794d9d"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.3.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.2",
+      "channel": "stable",
+      "date": "2025-06-17",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "0.1.2",
+        "revision": "8ae8253f7373eae012c26e27faf887f24a1f5326"
+      },
+      "notes": {
+        "fixed": [
+          "The Windows user config is `Documents/My Games/openmw`.",
+          "Data directories and `config=` entries no longer keep `openmw.cfg` in their paths."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-0.1.2.crate",
+          "media_type": "application/gzip",
+          "size": 18894,
+          "digests": {
+            "sha256": "dcf0230b1f44e975283a24835e30732b0433a7aa58de921cd86c875199f9bb7d"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.2.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.1",
+      "channel": "stable",
+      "date": "2025-06-17",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "0.1.1",
+        "revision": "67558979890f9760efd7b3e89ae580cc461b5532"
+      },
+      "notes": {
+        "summary": "Comments, unknown keys and groundcover survive a round trip.",
+        "added": [
+          "`groundcover=` entries.",
+          "Unknown `key=value` lines are kept as generic settings and written back.",
+          "Comments are kept with the setting that follows them and written back.",
+          "Typed `fallback=` settings, with `set_game_setting` taking the line's text.",
+          "`root_config_file`, `root_config_dir` and `user_config`, and presence helpers for content files and archives.",
+          "`ConfigError`, one error type for the whole crate."
+        ],
+        "fixed": [
+          "The key is `user-data`, not `userdata`.",
+          "Content files added at runtime are attributed to the user's `openmw.cfg`, not its directory.",
+          "Singleton settings read their last definition.",
+          "Symlinked configs no longer fail to load."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-0.1.1.crate",
+          "media_type": "application/gzip",
+          "size": 18800,
+          "digests": {
+            "sha256": "b6884cc1a49423e0990cd5034d29af2aa35cffb9e94f6167bf0ac831cc08ac3e"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.1.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2025-06-17",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "0.1.0"
+      },
+      "notes": {
+        "summary": "First release: read an openmw.cfg chain into one configuration."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "recommends",
+          "name": "vfstool_lib",
+          "url": "https://crates.io/crates/vfstool_lib",
+          "reason": "Builds OpenMW's virtual file system from the data directories this crate resolves."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "openmw-config-0.1.0.crate",
+          "media_type": "application/gzip",
+          "size": 18802,
+          "digests": {
+            "sha256": "f35029ee5377add4ffd8b94234af55e1471c541966f3e5bd9b0af689a588e27a"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

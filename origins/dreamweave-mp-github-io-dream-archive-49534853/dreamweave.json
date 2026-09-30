@@ -1,0 +1,25 @@
+{
+  "schema_version": "2",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "site": {
+    "name": "dream_archive",
+    "url": "https://dreamweave-mp.github.io/dream_archive/"
+  },
+  "projects": [
+    {
+      "id": "a8ec99fb-1938-42cc-8b9f-87994e046594",
+      "name": "dream_archive",
+      "summary": "Read, extract and write Bethesda BSA and BA2 archives in pure Rust, from Morrowind to Starfield, with a Luau module for scripts.",
+      "type": "library",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/dream_archive/home/",
+      "manifest": "https://dreamweave-mp.github.io/dream_archive/dreamweave/projects/a8ec99fb-1938-42cc-8b9f-87994e046594.json",
+      "manifest_sha256": "84df3a873021320707ba0e37661a82c08675a66da1ce66d4a82be8d4edc7f142",
+      "updated": "2026-09-29",
+      "channels": {
+        "stable": "1.0.0"
+      }
+    }
+  ]
+}

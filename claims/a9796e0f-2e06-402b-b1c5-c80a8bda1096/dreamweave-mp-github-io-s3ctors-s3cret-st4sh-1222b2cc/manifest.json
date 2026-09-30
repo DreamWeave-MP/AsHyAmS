@@ -1,0 +1,111 @@
+{
+  "schema_version": "2",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "project": {
+    "id": "a9796e0f-2e06-402b-b1c5-c80a8bda1096",
+    "name": "Sh4des",
+    "summary": "Collection of shaders developed by S3ctor for OpenMW.",
+    "type": "mod",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Shaders",
+      "Graphics",
+      "Postprocessing",
+      "Retro"
+    ],
+    "maintainers": [],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh/issues",
+      "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/sh4des/",
+      "source": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.0.1-dev.12"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.0.1-dev.12",
+      "channel": "development",
+      "date": "2026-09-29",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh",
+        "release": "development",
+        "revision": "5facba41fb9f6f5e05e238da4bbf026259b25045"
+      },
+      "runtimes": {
+        "openmw": "*"
+      },
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "Sh4des",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {
+        "openmw": {
+          "components": {
+            "main": {
+              "data_directories": [
+                "."
+              ],
+              "content_files": [],
+              "groundcover_files": [],
+              "fallback_archives": [],
+              "fallback_entries": {},
+              "config": false,
+              "requires_content": []
+            }
+          },
+          "requires_content": [],
+          "settings": []
+        }
+      },
+      "critical_extensions": [
+        "openmw"
+      ],
+      "artifacts": [
+        {
+          "id": "flat",
+          "format": "flat",
+          "filename": "sh4des.zip",
+          "media_type": "application/zip",
+          "size": 236373,
+          "digests": {
+            "sha256": "b0be1f4114a5654fe6c13e64e2be2cc0c4be900749eefbbfeb66ca556851f462"
+          },
+          "layout": {
+            "release_document": "dreamweave.release.json",
+            "documentation": "sh4des-Documentation/index.html"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh/releases/download/development/sh4des.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

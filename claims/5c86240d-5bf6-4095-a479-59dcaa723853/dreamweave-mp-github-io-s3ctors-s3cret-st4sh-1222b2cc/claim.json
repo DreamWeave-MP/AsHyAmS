@@ -1,0 +1,28 @@
+{
+  "project": "5c86240d-5bf6-4095-a479-59dcaa723853",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "entry": {
+    "id": "5c86240d-5bf6-4095-a479-59dcaa723853",
+    "name": "Starwind Merged Plugin Project",
+    "summary": "Reproducible Definitive Starwind builds with recursive master decoupling, audited dialogue behavior, and a validated Star_Data/Starwind split.",
+    "type": "mod",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/sw_merged/",
+    "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/5c86240d-5bf6-4095-a479-59dcaa723853.json",
+    "manifest_sha256": "cd95c8c57f95011b973b8920f6aef0a49a52c833af90df58814e9a4f757e812c",
+    "updated": "2026-09-29",
+    "channels": {
+      "development": "1.01-dev.6"
+    }
+  },
+  "advertised_sha256": "cd95c8c57f95011b973b8920f6aef0a49a52c833af90df58814e9a4f757e812c",
+  "ingested_sha256": "cd95c8c57f95011b973b8920f6aef0a49a52c833af90df58814e9a4f757e812c",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "2",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "site": {
+    "name": "dream-ini",
+    "url": "https://dreamweave-mp.github.io/dream-ini/"
+  },
+  "projects": [
+    {
+      "id": "b3efde19-438b-4325-bf94-fae56bf1d458",
+      "name": "dream-ini",
+      "summary": "Import Morrowind.ini into openmw.cfg: a command line, a desktop and handheld GUI, and a Rust and Luau library.",
+      "type": "tool",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/dream-ini/home/",
+      "manifest": "https://dreamweave-mp.github.io/dream-ini/dreamweave/projects/b3efde19-438b-4325-bf94-fae56bf1d458.json",
+      "manifest_sha256": "e99422674acb75a9a38ddfe15e0cf26c418c395766baa29291cb1136f5c5b65d",
+      "updated": "2026-09-30",
+      "channels": {
+        "development": "1.0.1-dev.0",
+        "stable": "1.0.0"
+      }
+    }
+  ]
+}

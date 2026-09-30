@@ -1,0 +1,25 @@
+{
+  "schema_version": "2",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "site": {
+    "name": "dream-soft-render",
+    "url": "https://dreamweave-mp.github.io/dream-soft-render/"
+  },
+  "projects": [
+    {
+      "id": "f7b9633b-b7cb-4db9-a19f-63556586a81d",
+      "name": "dream-soft-render",
+      "summary": "A CPU rasterizer for 2D triangle meshes and egui frames. It writes premultiplied RGBA8 into a buffer you own, and the same draw calls give the same bytes on every platform.",
+      "type": "library",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/dream-soft-render/home/",
+      "manifest": "https://dreamweave-mp.github.io/dream-soft-render/dreamweave/projects/f7b9633b-b7cb-4db9-a19f-63556586a81d.json",
+      "manifest_sha256": "54b90683db3caa284dbf191c40b90839dd7c0099f1b5d8a6f75c026f2fabc25b",
+      "updated": "2026-09-28",
+      "channels": {
+        "stable": "1.0.0"
+      }
+    }
+  ]
+}

@@ -37,12 +37,12 @@
     {
       "version": "1.0.1-dev.0",
       "channel": "development",
-      "date": "2026-09-28",
+      "date": "2026-09-29",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
         "release": "dev-build",
-        "revision": "384cddbf2a3bc233e1c6f7e0d59886eaba5fffff"
+        "revision": "b62bfb1ecc33c44380e5cf51a9b78c4a2f6757ff"
       },
       "runtimes": {
         "openmw": ">=0.49"
@@ -93,13 +93,13 @@
           "format": "flat",
           "filename": "tallow.zip",
           "media_type": "application/zip",
-          "size": 72402,
+          "size": 107457,
           "digests": {
-            "sha256": "486f78367bd18a47b08d8ae9660650117a333c90be4c9565789c6caf9bdc2cea"
+            "sha256": "99e6fd9307a43da0734c20f50e52bc21e4661beb34dcf731248d53546a2ef51e"
           },
           "layout": {
             "release_document": "dreamweave.release.json",
-            "documentation": "Documentation/index.html"
+            "documentation": "tallow-Documentation/index.html"
           },
           "sources": [
             {

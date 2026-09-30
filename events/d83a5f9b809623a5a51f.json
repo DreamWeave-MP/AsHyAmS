@@ -1,0 +1,43 @@
+{
+  "id": "d83a5f9b809623a5a51f",
+  "kind": "changed",
+  "project": "4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90",
+  "origin": "dreamweave-mp-github-io-dreamweave-mod-template-439f8bc8",
+  "name": "Candlelight",
+  "observed_at": "2026-09-30T01:45:06Z",
+  "before": "b9b68684d62f16de2c87f0e62df40bfd2c701dde15225e481a9c328180b0bc1c",
+  "after": "e4d888989e07f73a5e44c04692cf473b4201f85036b90111e2b13f580fee39b6",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "1.1.1-dev.0",
+      "before": "2026-09-28",
+      "after": "2026-09-29"
+    },
+    {
+      "change": "release-amended",
+      "version": "1.1.1-dev.0",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "artifact-digest",
+          "artifact": "fomod",
+          "before": "fb946e0097ee5f4590cecf92edf263ab0fb35ab73a1713dde95e3408de104951",
+          "after": "5d2b2112c0eb8baca6ebe39f063b60d8f08e69a0fe688c8ae30cde8548319716"
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "fomod",
+          "before": 255261,
+          "after": 300180
+        },
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "384cddbf2a3bc233e1c6f7e0d59886eaba5fffff",
+          "after": "b62bfb1ecc33c44380e5cf51a9b78c4a2f6757ff"
+        }
+      ]
+    }
+  ]
+}

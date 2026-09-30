@@ -1,0 +1,28 @@
+{
+  "project": "ed77443e-a232-4eee-839d-427c515a358b",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "entry": {
+    "id": "ed77443e-a232-4eee-839d-427c515a358b",
+    "name": "FlexTag",
+    "summary": "A community tagging standard for Morrowind records and cells. Tags dungeons, items, NPCs, ingredients, civic spaces, and more. Built as a dependency for mods like Static Switching System.",
+    "type": "mod",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/flextag/",
+    "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/ed77443e-a232-4eee-839d-427c515a358b.json",
+    "manifest_sha256": "94c4387d1154042edab775e5c0d6bbd9ec5c247d25c7a6c6b567c5bfaed99f58",
+    "updated": "2026-09-29",
+    "channels": {
+      "development": "1.0.2-dev.3"
+    }
+  },
+  "advertised_sha256": "94c4387d1154042edab775e5c0d6bbd9ec5c247d25c7a6c6b567c5bfaed99f58",
+  "ingested_sha256": "94c4387d1154042edab775e5c0d6bbd9ec5c247d25c7a6c6b567c5bfaed99f58",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

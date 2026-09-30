@@ -1,0 +1,112 @@
+{
+  "schema_version": "2",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "project": {
+    "id": "4d0348b2-0622-44d4-a4ef-114380d8912b",
+    "name": "Starwind Map Expansion",
+    "summary": "Replacement map for StarWind supporting either base OpenMW 0.51 or [Stanislaw's paper map mod](https://www.nexusmods.com/morrowind/mods/58059).",
+    "type": "mod",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "User Interface",
+      "Starwind",
+      "OpenMW 0.51"
+    ],
+    "maintainers": [],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh/issues",
+      "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/starwind_map_expansion/",
+      "source": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.0.1-dev.3"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.0.1-dev.3",
+      "channel": "development",
+      "date": "2026-09-29",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh",
+        "release": "development",
+        "revision": "5facba41fb9f6f5e05e238da4bbf026259b25045"
+      },
+      "runtimes": {
+        "openmw": "*"
+      },
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "Starwind Map Expansion",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {
+        "openmw": {
+          "components": {
+            "main": {
+              "data_directories": [
+                "00 Core"
+              ],
+              "content_files": [
+                "Starwind Map Expansion.esp"
+              ],
+              "groundcover_files": [],
+              "fallback_archives": [],
+              "fallback_entries": {},
+              "config": false,
+              "requires_content": []
+            }
+          },
+          "requires_content": [],
+          "settings": []
+        }
+      },
+      "critical_extensions": [
+        "openmw"
+      ],
+      "artifacts": [
+        {
+          "id": "flat",
+          "format": "flat",
+          "filename": "starwind_map_expansion.zip",
+          "media_type": "application/zip",
+          "size": 79645819,
+          "digests": {
+            "sha256": "c9a4601f93838212e060fcdf6fb79c93906855bb22da652daeee0d99e81969e0"
+          },
+          "layout": {
+            "release_document": "dreamweave.release.json",
+            "documentation": "starwind_map_expansion-Documentation/index.html"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh/releases/download/development/starwind_map_expansion.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

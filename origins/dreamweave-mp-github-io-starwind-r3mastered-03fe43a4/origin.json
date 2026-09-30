@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-starwind-r3mastered-03fe43a4",
+  "index_url": "https://dreamweave-mp.github.io/Starwind-R3mastered/dreamweave.json",
+  "site_name": "Starwind R3mastered",
+  "site_url": "https://dreamweave-mp.github.io/Starwind-R3mastered/",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/Starwind-R3mastered/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6abc22b1-34d\"",
+    "last_modified": "Tue, 29 Sep 2026 20:42:25 GMT"
+  },
+  "index_sha256": "2daaccd6eddb21a22947a00a7e46b0a737d809ad0ae46d1d2ed60d5f60c6b76d",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

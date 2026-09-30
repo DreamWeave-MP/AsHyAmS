@@ -1,0 +1,1107 @@
+{
+  "schema_version": "2",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "project": {
+    "id": "b3efde19-438b-4325-bf94-fae56bf1d458",
+    "name": "dream-ini",
+    "summary": "Import Morrowind.ini into openmw.cfg: a command line, a desktop and handheld GUI, and a Rust and Luau library.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "license": "MIT OR Apache-2.0",
+    "tags": [
+      "OpenMW",
+      "Morrowind",
+      "Rust",
+      "Luau",
+      "PortMaster"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "crate": "https://crates.io/crates/dream-ini",
+      "documentation": "https://dreamweave-mp.github.io/dream-ini/docs/",
+      "donate": "https://ko-fi.com/magicaldave",
+      "issues": "https://github.com/DreamWeave-MP/dream-ini/issues",
+      "page": "https://dreamweave-mp.github.io/dream-ini/home/",
+      "source": "https://github.com/DreamWeave-MP/dream-ini"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": [
+      {
+        "name": "OpenMW",
+        "role": "mwiniimporter, the C++ importer dream-ini reimplements",
+        "url": "https://openmw.org"
+      },
+      {
+        "name": "Greatness7",
+        "role": "Morrowind.exe's rules for GameFile order, gaps and missing files, which dream-ini follows",
+        "url": "https://github.com/Greatness7"
+      }
+    ]
+  },
+  "channels": {
+    "development": {
+      "version": "1.0.1-dev.0"
+    },
+    "stable": {
+      "version": "1.0.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "1.0.1-dev.0",
+      "channel": "development",
+      "date": "2026-09-30",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream-ini",
+        "release": "development",
+        "revision": "516da94437536cbde01458acbb80a5dd5b83affc"
+      },
+      "runtimes": {},
+      "platforms": [
+        {
+          "os": "windows",
+          "arch": "x86_64"
+        },
+        {
+          "os": "macos",
+          "arch": "aarch64"
+        },
+        {
+          "os": "macos",
+          "arch": "x86_64"
+        },
+        {
+          "os": "linux",
+          "arch": "x86_64"
+        }
+      ],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream-ini",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "windows-x64",
+          "format": "binary",
+          "filename": "dream-ini-Windows-X64.zip",
+          "media_type": "application/zip",
+          "size": 3750271,
+          "digests": {
+            "sha256": "c7db0f200fc9efdf97eb5d29291ff946ba9bfe80433e7250a0611f96d0022701"
+          },
+          "platform": {
+            "os": "windows",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/development/dream-ini-Windows-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-arm64",
+          "format": "binary",
+          "filename": "dream-ini-macOS-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 3953181,
+          "digests": {
+            "sha256": "21c67e04cf8d27d1c5ac704d024089e82db47a9633df11bc30381bff384f15a3"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/development/dream-ini-macOS-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-x64",
+          "format": "binary",
+          "filename": "dream-ini-macOS-X64.zip",
+          "media_type": "application/zip",
+          "size": 4135815,
+          "digests": {
+            "sha256": "2a84ade0f97731586d20e4ee76228afe5b6dfd770d5745760001b89a4af5eb77"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/development/dream-ini-macOS-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-x64",
+          "format": "binary",
+          "filename": "dream-ini-Linux-X64.zip",
+          "media_type": "application/zip",
+          "size": 5406335,
+          "digests": {
+            "sha256": "3c6a9991753e86aff1e22e95715307a7c18e34785fdc73e228089a6302398221"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/development/dream-ini-Linux-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "android-arm64",
+          "format": "binary",
+          "filename": "dream-ini-Android-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 832325,
+          "digests": {
+            "sha256": "1eb047ea622cd75d7e36581a8854e535a7fa93f569890bec84d36eb1e91f02e3"
+          },
+          "platform": {
+            "os": "android",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/development/dream-ini-Android-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-arm64-portmaster",
+          "format": "binary",
+          "filename": "dream-ini-Portmaster-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 3222263,
+          "digests": {
+            "sha256": "6abd12f94657b31c9b3dee4beae1e5715ebb6ad1b98e18b29182a75ae088133e"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "aarch64",
+            "variant": "portmaster"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/development/dream-ini-Portmaster-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-arm64-muos",
+          "format": "binary",
+          "filename": "dream-ini-Portmaster-ARM64.muxapp",
+          "media_type": "application/zip",
+          "size": 3296846,
+          "digests": {
+            "sha256": "5010a1bf9f14e12bd1defbd55cd473c3b90e89ea52e1db1098b8319fee6577bf"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "aarch64",
+            "variant": "muos"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/development/dream-ini-Portmaster-ARM64.muxapp",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "channel": "stable",
+      "date": "2026-09-29",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream-ini",
+        "tag": "1.0.0",
+        "revision": "cd24b42bfe878e47ee9f44714e2b89517a4e848b"
+      },
+      "notes": {
+        "summary": "First stable release: the Luau API is an l3i extension providing @dream/ini, a large import takes milliseconds instead of a fifth of a second, and the Rust and Luau APIs are under semver.",
+        "migration": "Compose `dream_ini::luau::IniExtension` into the host's l3i `RuntimePlan`. A host that still wants\nthe `dreamIni` global adds `RuntimePolicy::compat_global(\"@dream/ini\", \"dreamIni\")`. Scripts that\npass numbers in multimaps must pass strings. [Embedding Luau](@/docs/luau-hosts.md) has the setup.\n",
+        "added": [
+          "`parseIni` accepts a Luau `buffer`, and an unknown option's error names the function and lists the known keys.",
+          "Every `@dream/ini` function has a Luau type, part of the plan's generated definitions; the definitions check and the strict script build behind the test-only `luau-analysis` feature."
+        ],
+        "changed": [
+          "Only search paths that are directories are probed, and the cfg's `data=` directories are resolved once per import: the benchmark install imports in 4.9 ms instead of 206 ms.",
+          "`dataDirs` and every multimap argument are walked in place through l3i's table option reader and array visitor, one element on the stack at a time and nothing pinned, and the `game` and `encoding` options are inspected without a copy. A `dataDirs` element that is not a string is reported as `ini.importMaps.dataDirs[2]: expected a string, got number`, and a `dataDirs` that is not a table as `ini.importMaps.dataDirs: expected an array of strings, got string`.",
+          "The PortMaster GUI renders through dream-soft-render without shape anti-aliasing, and skips drawing frames that did not change.",
+          "Release builds use thin LTO on every platform.",
+          "l3i 1.0.0 comes from crates.io."
+        ],
+        "fixed": [
+          "An update of a cfg that sets `resources=` no longer adds a `data=` line for `resources/vfs`, one more on every import.",
+          "Each INI line loses exactly one trailing carriage return, as in the C++ importer.",
+          "`importMaps`, and `import_maps` in Rust, write `encoding=` as a path import does, so the Luau `encoding` option is no longer ignored."
+        ],
+        "breaking": [
+          "The `luau` feature (`lua` still works) makes the crate an l3i extension, `luau::IniExtension`, providing the module `@dream/ini`. `lua::create_module` and `lua::register` are gone with `mlua`.",
+          "Multimap values from Luau must be strings; numbers are no longer converted.",
+          "Building with the `luau` feature needs l3i's toolchain: clang, lld and cross-language thin LTO.",
+          "Rust 1.92."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [
+        {
+          "os": "windows",
+          "arch": "x86_64"
+        },
+        {
+          "os": "macos",
+          "arch": "aarch64"
+        },
+        {
+          "os": "macos",
+          "arch": "x86_64"
+        },
+        {
+          "os": "linux",
+          "arch": "x86_64"
+        }
+      ],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream-ini",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "windows-x64",
+          "format": "binary",
+          "filename": "dream-ini-Windows-X64.zip",
+          "media_type": "application/zip",
+          "size": 3750216,
+          "digests": {
+            "sha256": "fb775320d3bd2d3fda03de26e0fb655d7ae2fc78468f849697f24e0325e19773"
+          },
+          "platform": {
+            "os": "windows",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/1.0.0/dream-ini-Windows-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-arm64",
+          "format": "binary",
+          "filename": "dream-ini-macOS-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 3953081,
+          "digests": {
+            "sha256": "d980b53c483a68aa7f37407c6beb20c829b15f1de0b4051ca32cfee260454496"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/1.0.0/dream-ini-macOS-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-x64",
+          "format": "binary",
+          "filename": "dream-ini-macOS-X64.zip",
+          "media_type": "application/zip",
+          "size": 4135847,
+          "digests": {
+            "sha256": "5956f93173561fc112fe52139160a584f77f3c4b83f8dd9017a531c1819c53ec"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/1.0.0/dream-ini-macOS-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-x64",
+          "format": "binary",
+          "filename": "dream-ini-Linux-X64.zip",
+          "media_type": "application/zip",
+          "size": 5406331,
+          "digests": {
+            "sha256": "a4ac97ee62eaeed2a3f0181d03aa8b2dae139837b78befd53398eceef29c40f7"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/1.0.0/dream-ini-Linux-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "android-arm64",
+          "format": "binary",
+          "filename": "dream-ini-Android-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 832255,
+          "digests": {
+            "sha256": "a9682f2779e2dc78beb445325629a3d4c43f728f0a26e051de46877ed193740a"
+          },
+          "platform": {
+            "os": "android",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/1.0.0/dream-ini-Android-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-arm64-portmaster",
+          "format": "binary",
+          "filename": "dream-ini-Portmaster-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 3222341,
+          "digests": {
+            "sha256": "072eb3199478a44a062790bfc49f98105e231785b021c2974fde7de979d8e7e5"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "aarch64",
+            "variant": "portmaster"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/1.0.0/dream-ini-Portmaster-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-arm64-muos",
+          "format": "binary",
+          "filename": "dream-ini-Portmaster-ARM64.muxapp",
+          "media_type": "application/zip",
+          "size": 3296919,
+          "digests": {
+            "sha256": "b4c1566b519d12c45b8b85895c60e781a00366b6b174e675025c6bc1bc759fbb"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "aarch64",
+            "variant": "muos"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/1.0.0/dream-ini-Portmaster-ARM64.muxapp",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.3.1",
+      "channel": "stable",
+      "date": "2026-09-27",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream-ini",
+        "tag": "0.3.1",
+        "revision": "390483d142c533767b2754c8f7a754735f927fea"
+      },
+      "notes": {
+        "summary": "The Lua API runs on Luau with camelCase names, and dream-ini is MIT OR Apache-2.0.",
+        "changed": [
+          "dream-ini is licensed MIT OR Apache-2.0, at your option, instead of GPL-3.0-only."
+        ],
+        "fixed": [
+          "Updating a cfg keeps its existing settings when openmw-config records the file's path in another spelling, as on Windows.",
+          "Dependencies updated past the crossbeam-epoch, quick-xml and webbrowser security advisories."
+        ],
+        "breaking": [
+          "The Lua API targets Luau through `mlua` 0.12, with `standalone-lua` building a vendored Luau, and every Lua name is camelCase: `importPaths`, `gameFiles`, `dataDirs`. Unknown options are errors."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [
+        {
+          "os": "windows",
+          "arch": "x86_64"
+        },
+        {
+          "os": "macos",
+          "arch": "aarch64"
+        },
+        {
+          "os": "macos",
+          "arch": "x86_64"
+        },
+        {
+          "os": "linux",
+          "arch": "x86_64"
+        }
+      ],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream-ini",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "windows-x64",
+          "format": "binary",
+          "filename": "dream-ini-Windows-X64.zip",
+          "media_type": "application/zip",
+          "size": 3862436,
+          "digests": {
+            "sha256": "8d59d3a21b0daa2ac7f0cddea2c8a1523d073046daa3ace70c84bddf69525cfd"
+          },
+          "platform": {
+            "os": "windows",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.3.1/dream-ini-Windows-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-arm64",
+          "format": "binary",
+          "filename": "dream-ini-macOS-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 3790205,
+          "digests": {
+            "sha256": "2a926c34fff6233b9192742067180bf4d64dfa9352e86df2a6e4da2cbf1fd988"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.3.1/dream-ini-macOS-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-x64",
+          "format": "binary",
+          "filename": "dream-ini-macOS-X64.zip",
+          "media_type": "application/zip",
+          "size": 3948600,
+          "digests": {
+            "sha256": "1aa68cc03f103cb16bd6b87f067b2a6378fae869e7884cc4f5473f8c112d09b1"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.3.1/dream-ini-macOS-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-x64",
+          "format": "binary",
+          "filename": "dream-ini-Linux-X64.zip",
+          "media_type": "application/zip",
+          "size": 5349341,
+          "digests": {
+            "sha256": "d07a09238fa3c74d301150e5baa6c0b580565ce4195a536f8135d68df20ee328"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.3.1/dream-ini-Linux-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "android-arm64",
+          "format": "binary",
+          "filename": "dream-ini-Android-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 830254,
+          "digests": {
+            "sha256": "01136d67e0178927c42957eb729c4bce40d900de567651f74f5fc3f0b5a6efda"
+          },
+          "platform": {
+            "os": "android",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.3.1/dream-ini-Android-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-arm64-portmaster",
+          "format": "binary",
+          "filename": "dream-ini-Portmaster-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 3120055,
+          "digests": {
+            "sha256": "2b8c9f795b40517618a7475fb8742609340dac8ea9067c9bee291fc1162e7955"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "aarch64",
+            "variant": "portmaster"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.3.1/dream-ini-Portmaster-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-arm64-muos",
+          "format": "binary",
+          "filename": "dream-ini-Portmaster-ARM64.muxapp",
+          "media_type": "application/zip",
+          "size": 3198280,
+          "digests": {
+            "sha256": "54b96d85a32c13dc9fb9061f11208a42734c18e0c5110d9f5c1c781c7466c6e4"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "aarch64",
+            "variant": "muos"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.3.1/dream-ini-Portmaster-ARM64.muxapp",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "channel": "stable",
+      "date": "2026-05-29",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream-ini",
+        "tag": "0.2.0",
+        "revision": "83c20b6bfc725dd974b3e92f0a658a3303bf764d"
+      },
+      "notes": {
+        "summary": "Content files load in the order Morrowind.exe gives them.",
+        "changed": [
+          "Master files come first, then plugins, each group oldest first by modification time, as in Morrowind.exe. Plugin headers are no longer read to sort by dependency.",
+          "The GameFile list ends at the first missing number, and GameFile and Archive keys match whatever their case.",
+          "A GameFile that is not found stops the list with a warning, as Morrowind.exe does, instead of failing the import."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [
+        {
+          "os": "windows",
+          "arch": "x86_64"
+        },
+        {
+          "os": "macos",
+          "arch": "aarch64"
+        },
+        {
+          "os": "macos",
+          "arch": "x86_64"
+        },
+        {
+          "os": "linux",
+          "arch": "x86_64"
+        }
+      ],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream-ini",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "windows-x64",
+          "format": "binary",
+          "filename": "dream-ini-Windows-X64.zip",
+          "media_type": "application/zip",
+          "size": 3865335,
+          "digests": {
+            "sha256": "f580cf3e66873f10b4290bd55cd06158aa32144ed74c65afd738d574e0a0a4cc"
+          },
+          "platform": {
+            "os": "windows",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.2.0/dream-ini-Windows-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-arm64",
+          "format": "binary",
+          "filename": "dream-ini-macOS-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 3860193,
+          "digests": {
+            "sha256": "852072c5eae577ccc70c0973cf87fdd5ccfea3f1a894d737069e2d61c4e16772"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.2.0/dream-ini-macOS-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-x64",
+          "format": "binary",
+          "filename": "dream-ini-macOS-X64.zip",
+          "media_type": "application/zip",
+          "size": 4028606,
+          "digests": {
+            "sha256": "e76061b1ef3e53aed5237a52801f6bb23bed9837df1ea4064430d9c6e0232f7c"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.2.0/dream-ini-macOS-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-x64",
+          "format": "binary",
+          "filename": "dream-ini-Linux-X64.zip",
+          "media_type": "application/zip",
+          "size": 5377537,
+          "digests": {
+            "sha256": "be1b5a11bb5ca6b585c947718b38d914176ddb20e79ddc5b3bfbfee29d00393f"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.2.0/dream-ini-Linux-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "android-arm64",
+          "format": "binary",
+          "filename": "dream-ini-Android-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 837289,
+          "digests": {
+            "sha256": "0123e4d26152e52728aa64d751b4d9bb337f763ae8f81691deafdc9e656fce24"
+          },
+          "platform": {
+            "os": "android",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.2.0/dream-ini-Android-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-arm64-portmaster",
+          "format": "binary",
+          "filename": "dream-ini-Portmaster-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 3133387,
+          "digests": {
+            "sha256": "7f0f1615f2c8692192fc913f7e73a6558fd99ef954c7b576135242650305d640"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "aarch64",
+            "variant": "portmaster"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.2.0/dream-ini-Portmaster-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-arm64-muos",
+          "format": "binary",
+          "filename": "dream-ini-Portmaster-ARM64.muxapp",
+          "media_type": "application/zip",
+          "size": 3216714,
+          "digests": {
+            "sha256": "fe983aa089aad0d634e91bf203da479972d507b09bada0ce55d769079e7f120f"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "aarch64",
+            "variant": "muos"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.2.0/dream-ini-Portmaster-ARM64.muxapp",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-05-28",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream-ini",
+        "tag": "0.1.0",
+        "revision": "18d8261b4c0096b4de45e804b366fe85ddd47042"
+      },
+      "notes": {
+        "summary": "First release: import Morrowind.ini into openmw.cfg from the command line, a desktop GUI or a handheld.",
+        "added": [
+          "The importer: fallback settings, `no-sound`, archives and, with `--game-files`, content files, from `--ini` into a new cfg, a copy of `--cfg`, or `--cfg` updated in place.",
+          "A desktop GUI with controller navigation, opened by running `dream-ini` with no arguments.",
+          "A framebuffer GUI for PortMaster handhelds, a muOS app, and a command-line build for Android.",
+          "`install-launcher`, shell completions and a manual page.",
+          "The importer as a Rust library, and Lua bindings through `mlua` and LuaJIT behind the `lua` feature."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [
+        {
+          "os": "windows",
+          "arch": "x86_64"
+        },
+        {
+          "os": "macos",
+          "arch": "aarch64"
+        },
+        {
+          "os": "macos",
+          "arch": "x86_64"
+        },
+        {
+          "os": "linux",
+          "arch": "x86_64"
+        }
+      ],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream-ini",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "windows-x64",
+          "format": "binary",
+          "filename": "dream-ini-Windows-X64.zip",
+          "media_type": "application/zip",
+          "size": 3874490,
+          "digests": {
+            "sha256": "11bb22262593b51f647c7fa0a508f744dbe1bc7f26f2a050ad60f2f150d3ea62"
+          },
+          "platform": {
+            "os": "windows",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.1.0/dream-ini-Windows-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-arm64",
+          "format": "binary",
+          "filename": "dream-ini-macOS-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 3867424,
+          "digests": {
+            "sha256": "9cfe3c06fd55679d3de84ad064a8482092044b049530a75e6e2e9bf08a393e86"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.1.0/dream-ini-macOS-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-x64",
+          "format": "binary",
+          "filename": "dream-ini-macOS-X64.zip",
+          "media_type": "application/zip",
+          "size": 4036259,
+          "digests": {
+            "sha256": "39a56af1fc98d2758b0ee9d911f2cc74742ca144700943e97e29a97ef8de6258"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.1.0/dream-ini-macOS-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-x64",
+          "format": "binary",
+          "filename": "dream-ini-Linux-X64.zip",
+          "media_type": "application/zip",
+          "size": 5383669,
+          "digests": {
+            "sha256": "ca31c619c10797383d5b57661e6bbf50fd3c6f9c6e18b6032392069fc703deb2"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.1.0/dream-ini-Linux-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "android-arm64",
+          "format": "binary",
+          "filename": "dream-ini-Android-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 844146,
+          "digests": {
+            "sha256": "f35c4d8c90bab7124eef9d1f15b6685fb359c3cae953073468766153a222c32e"
+          },
+          "platform": {
+            "os": "android",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.1.0/dream-ini-Android-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-arm64-portmaster",
+          "format": "binary",
+          "filename": "dream-ini-Portmaster-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 3137143,
+          "digests": {
+            "sha256": "c23028bc7339900e056f2558c3528ea7f63f0ffa949bae813ec453db69323251"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "aarch64",
+            "variant": "portmaster"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.1.0/dream-ini-Portmaster-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-arm64-muos",
+          "format": "binary",
+          "filename": "dream-ini-Portmaster-ARM64.muxapp",
+          "media_type": "application/zip",
+          "size": 3221312,
+          "digests": {
+            "sha256": "2ea1044e76723550f5c469268149587d4ee0ae6e0b2220e28acc41df47b9a0d4"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "aarch64",
+            "variant": "muos"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/0.1.0/dream-ini-Portmaster-ARM64.muxapp",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "url": "https://dreamweave-mp.github.io/dream-net/",
+  "origin": "dreamweave-mp-github-io-dream-net-f21eb97b",
+  "health": "resolved",
+  "problem": null,
+  "method": "found by walking up the path",
+  "trail": [
+    {
+      "url": "https://dreamweave-mp.github.io/dream-net/",
+      "outcome": "an HTML page with no DreamWeave <link>"
+    },
+    {
+      "url": "https://dreamweave-mp.github.io/dream-net/dreamweave.json",
+      "outcome": "a DreamWeave site index"
+    }
+  ],
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

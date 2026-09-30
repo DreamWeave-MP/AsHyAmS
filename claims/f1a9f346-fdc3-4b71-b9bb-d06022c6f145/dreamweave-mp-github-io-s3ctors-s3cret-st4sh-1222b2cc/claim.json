@@ -1,0 +1,28 @@
+{
+  "project": "f1a9f346-fdc3-4b71-b9bb-d06022c6f145",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "entry": {
+    "id": "f1a9f346-fdc3-4b71-b9bb-d06022c6f145",
+    "name": "Transmog Menu",
+    "summary": "OpenMW reimplementation of MWSE's Cosmetic Overrides.",
+    "type": "mod",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/transmog/",
+    "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/f1a9f346-fdc3-4b71-b9bb-d06022c6f145.json",
+    "manifest_sha256": "9c846c4f304f5440178276c84dc1d548e1ad280f427f333700dfd89f0ce6c031",
+    "updated": "2026-09-29",
+    "channels": {
+      "development": "0.7-dev.11"
+    }
+  },
+  "advertised_sha256": "9c846c4f304f5440178276c84dc1d548e1ad280f427f333700dfd89f0ce6c031",
+  "ingested_sha256": "9c846c4f304f5440178276c84dc1d548e1ad280f427f333700dfd89f0ce6c031",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

@@ -1,0 +1,28 @@
+{
+  "project": "185c3128-dbeb-46e2-8aec-05438a497124",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "entry": {
+    "id": "185c3128-dbeb-46e2-8aec-05438a497124",
+    "name": "S3ui",
+    "summary": "Replacement OpenMW UI experiment with a prototype player inventory window.",
+    "type": "mod",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/s3ui/",
+    "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/185c3128-dbeb-46e2-8aec-05438a497124.json",
+    "manifest_sha256": "41821460c79cb0534593051c814433936e07ea4c5c933859aaef0eb153cefbc6",
+    "updated": "2026-09-29",
+    "channels": {
+      "development": "0.0.1-dev.138"
+    }
+  },
+  "advertised_sha256": "41821460c79cb0534593051c814433936e07ea4c5c933859aaef0eb153cefbc6",
+  "ingested_sha256": "41821460c79cb0534593051c814433936e07ea4c5c933859aaef0eb153cefbc6",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

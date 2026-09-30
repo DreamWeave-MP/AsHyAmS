@@ -1,0 +1,28 @@
+{
+  "project": "4d0348b2-0622-44d4-a4ef-114380d8912b",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "entry": {
+    "id": "4d0348b2-0622-44d4-a4ef-114380d8912b",
+    "name": "Starwind Map Expansion",
+    "summary": "Replacement map for StarWind supporting either base OpenMW 0.51 or [Stanislaw's paper map mod](https://www.nexusmods.com/morrowind/mods/58059).",
+    "type": "mod",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/starwind_map_expansion/",
+    "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/4d0348b2-0622-44d4-a4ef-114380d8912b.json",
+    "manifest_sha256": "7a4dfe40daed66dbf2ed840e44a25e2f02a87670482b1af0d090113a4dd0213a",
+    "updated": "2026-09-29",
+    "channels": {
+      "development": "0.0.1-dev.3"
+    }
+  },
+  "advertised_sha256": "7a4dfe40daed66dbf2ed840e44a25e2f02a87670482b1af0d090113a4dd0213a",
+  "ingested_sha256": "7a4dfe40daed66dbf2ed840e44a25e2f02a87670482b1af0d090113a4dd0213a",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

@@ -1,0 +1,28 @@
+{
+  "project": "d5424da4-bc27-4833-8758-4a1c14ffff03",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "entry": {
+    "id": "d5424da4-bc27-4833-8758-4a1c14ffff03",
+    "name": "Baldurwind",
+    "summary": "Turn-based Combat For Morrowind!",
+    "type": "mod",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/baldurwind/",
+    "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/d5424da4-bc27-4833-8758-4a1c14ffff03.json",
+    "manifest_sha256": "41487ac5d5ce8679d20d23b262171686785405ef0bbcfb940f3c8b11c58c3b27",
+    "updated": "2026-09-29",
+    "channels": {
+      "development": "0.1.2-dev.4"
+    }
+  },
+  "advertised_sha256": "41487ac5d5ce8679d20d23b262171686785405ef0bbcfb940f3c8b11c58c3b27",
+  "ingested_sha256": "41487ac5d5ce8679d20d23b262171686785405ef0bbcfb940f3c8b11c58c3b27",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

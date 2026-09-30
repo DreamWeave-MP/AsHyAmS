@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-dream-net-f21eb97b",
+  "index_url": "https://dreamweave-mp.github.io/dream-net/dreamweave.json",
+  "site_name": "dream-net",
+  "site_url": "https://dreamweave-mp.github.io/dream-net/",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/dream-net/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6abc4c74-383\"",
+    "last_modified": "Tue, 29 Sep 2026 23:40:36 GMT"
+  },
+  "index_sha256": "ca8a7408765c380566ab50e1337ea17f860bbb615f095940387a88597ebbeb52",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

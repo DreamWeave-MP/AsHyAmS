@@ -1,0 +1,698 @@
+{
+  "schema_version": "2",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "project": {
+    "id": "a8ec99fb-1938-42cc-8b9f-87994e046594",
+    "name": "dream_archive",
+    "summary": "Read, extract and write Bethesda BSA and BA2 archives in pure Rust, from Morrowind to Starfield, with a Luau module for scripts.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "license": "GPL-3.0-only",
+    "tags": [
+      "Rust",
+      "Luau",
+      "BSA",
+      "BA2",
+      "Morrowind",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "crate": "https://crates.io/crates/dream_archive",
+      "documentation": "https://dreamweave-mp.github.io/dream_archive/docs/",
+      "donate": "https://ko-fi.com/magicaldave",
+      "issues": "https://github.com/DreamWeave-MP/dream_archive/issues",
+      "page": "https://dreamweave-mp.github.io/dream_archive/home/",
+      "source": "https://github.com/DreamWeave-MP/dream_archive"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "stable": {
+      "version": "1.0.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "1.0.0",
+      "channel": "stable",
+      "date": "2026-09-29",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archive",
+        "tag": "1.0.0",
+        "revision": "94f37c74ce288470e3b99b7885937bdd778b8fa8"
+      },
+      "notes": {
+        "summary": "First stable release: the Luau binding is an l3i extension providing @dream/archive, every archive family looks entries up by hash, and lookups and zlib reads allocate less.",
+        "migration": "Compose `dream_archive::luau::ArchiveExtension` into the host's l3i `RuntimePlan`. A host that\nstill wants the `dreamArchive` global adds\n`RuntimePolicy::compat_global(\"@dream/archive\", \"dreamArchive\")`.\n[Embedding Luau](https://dreamweave-mp.github.io/dream_archive/docs/luau-hosts/#from-0-2) lists\nwhat scripts must change.\n",
+        "added": [
+          "`get_by_hash`, `get_id_by_hash` and `contains_hash` on every archive family, `get_id` by path, and `HashFields::from_numeric`.",
+          "`archive:readInto(entry, buffer, offset)` in Luau decodes a member straight into a `buffer`, and `archive:getByHash` and `archive:containsHash` take the family's hash shape.",
+          "Luau type definitions for the whole module, checked by Luau's own type checker in the tests behind the `luau-analysis` feature.",
+          "`toBuffer()` on every Luau builder; only `ba2.Builder` had it.",
+          "`dream_archive::flate2`, the re-exported `flate2` whose `Compression` `set_zlib_level` takes, so naming a zlib level needs no `flate2` dependency of your own."
+        ],
+        "changed": [
+          "Path lookups normalize into a stack buffer instead of allocating: `contains` over 4096 distinct paths takes 0.39 ms instead of 1.03 ms (TES3) and 1.43 ms (TES4).",
+          "zlib members inflate from the archive through one inflater per thread: a 64 KiB TES4 member reads in 18 µs instead of 68 µs.",
+          "Walking entries from Luau is 5 to 23 times faster than with `mlua`, and small calls such as `contains` and `readEntry` take about half as long: 4096 TES3 entries take 0.73 ms instead of 6.15 ms.",
+          "dream-path 1.0 and l3i 1.0.0 come from crates.io; Rust 1.92."
+        ],
+        "fixed": [
+          "`Dx10Builder::add_dds_bytes` and `add_dds_file` take DDS files whose depth field is 1, as many tools write for ordinary textures. A DDS file is a volume texture only when its flags have `DDSD_DEPTH` or its caps have `DDSCAPS2_VOLUME`.",
+          "A cubemap's extended `DX10` DDS header has an array size of 1, one cube, as the DDS format and DirectXTex count it: extraction wrote 6, which DirectXTex-based tools read as six cubes, and `add_dds_bytes` and `add_dds_file` refused cubemaps saved by texconv. Cubemaps extracted by earlier versions, which say 6 over one cube's data, are still accepted.",
+          "Every family matches a lookup path the same way, with dream-path's normalization. BA2 lookups kept repeated separators and dropped a trailing one, so `meshes//door.nif` missed and `meshes/door.nif/` found a member a BSA answered the other way round; hash-only TES4 lookups missed `a//b/c.nif`. Archives without names now hash the normalized path.",
+          "Luau `entry.name` is the part of the path after its last separator in every family. For a BA2 entry it was the whole stored path, the same as `entry.path`.",
+          "Luau `entry.folder` is `\"\"` for an entry at the root of a TES3 archive or a BA2, as it was for TES4, instead of `nil`; `nil` means the archive stores no names.",
+          "The crate builds with only the `ba2` feature: it now enables the `lz4_flex` feature its compressor needs, which only `bsa-tes4` turned on before. Builds with one BSA family alone no longer carry dead code."
+        ],
+        "breaking": [
+          "The `luau` feature (`lua` is the old name of the same feature) binds the crate as an l3i extension, `luau::ArchiveExtension`, providing `@dream/archive`. `dream_archive::lua`, the `mlua` types and the `standalone-lua` feature are gone.",
+          "Building with the `luau` feature needs l3i's toolchain: clang, lld and cross-language thin LTO.",
+          "Every `open*` in Luau returns the one `Archive` type; `archive:entries()` is a view of entry handles, not a table of tables.",
+          "Luau entry hashes are integers: `entry.hash` and `entry.folderHash` replace the old tables and fields, with `hashHex` and `folderHashHex` for the hex spelling. BA2 hashes are `directoryHash`, `fileHash` and `extensionHash`; sizes and offsets are `size`, `storedSize` and `offset` on every format.",
+          "Luau integer arguments must be exact: `readEntry(1.5)` is an error instead of a rounded read.",
+          "`bsa::Error::InvalidFileRecordFlags` is gone. Nothing returned it: both flag bits of a TES4 file record are read as the format defines them."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_archive",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "dream_archive-1.0.0.crate",
+          "media_type": "application/gzip",
+          "size": 7408572,
+          "digests": {
+            "sha256": "fe94718bdde6117e633510a184a036c88bad99d0a745c0d18de21301743d2225"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/dream_archive/dream_archive-1.0.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.2.3",
+      "channel": "stable",
+      "date": "2026-09-27",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archive",
+        "tag": "0.2.3",
+        "revision": "3eaa4d22a03a4869a1a77f6c6d81aa4ba93c122b"
+      },
+      "notes": {
+        "fixed": [
+          "TES3 entry hashes are read low half first, so `Entry::hash` equals `hash_file(path).0.numeric()` for the same path."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_archive",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "dream_archive-0.2.3.crate",
+          "media_type": "application/gzip",
+          "size": 6689282,
+          "digests": {
+            "sha256": "25b1eed987e0302b243cc795cbce18bfc3a1d02db92877edf6bb3784984a149d"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.2.3.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.2.2",
+      "channel": "stable",
+      "date": "2026-09-26",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archive",
+        "tag": "0.2.2",
+        "revision": "335dd75d1459cf183cf70a1e66a222c0b77a2cb8"
+      },
+      "notes": {
+        "changed": [
+          "Rust 1.88, as `mlua` 0.12 requires."
+        ],
+        "fixed": [
+          "Fallout 3's voice archives open: their file name block is padded with NUL bytes after the last name."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_archive",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "dream_archive-0.2.2.crate",
+          "media_type": "application/gzip",
+          "size": 6688798,
+          "digests": {
+            "sha256": "5e7837eaef7dd893694b275e94f3e46559514adecdfe503d630332d951ff7a73"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.2.2.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "channel": "stable",
+      "date": "2026-09-26",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archive",
+        "tag": "0.2.0",
+        "revision": "891a4dbde55644a1e4a5dbda8759c4c89fd04b3e"
+      },
+      "notes": {
+        "summary": "The Lua API runs on Luau, with camelCase names, and Oblivion's archives open.",
+        "fixed": [
+          "Oblivion's BSAs open. Their version 103 headers set the bit that means XMem compression from version 104 on; it is now ignored for 103, as OpenMW ignores it."
+        ],
+        "breaking": [
+          "The Lua bindings build against `mlua` 0.12; `standalone-lua` selects Luau instead of LuaJIT.",
+          "Lua names are camelCase (`dreamArchive.openPath`, `archive:readFileRequired`), and so are enum values (`\"bsaTes4\"`, `\"skyrimSe\"`); constants are UPPER_SNAKE.",
+          "`dream_path` 0.2 and `lz4_flex` 0.14."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_archive",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "dream_archive-0.2.0.crate",
+          "media_type": "application/gzip",
+          "size": 6688544,
+          "digests": {
+            "sha256": "9b8153b18ab32ccc5447f2fb412c2e91c7259374accc12b0d43349139414ae51"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.2.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.6",
+      "channel": "stable",
+      "date": "2026-04-28",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archive",
+        "tag": "0.1.6",
+        "revision": "49ec1cf1cb2be0ce0485c8e2fbc56d17e51a1a97"
+      },
+      "notes": {
+        "added": [
+          "`open_file`, `open_file_required` and `open_entry`: a member as a `std::io::Read`, borrowed straight from the archive when it is stored uncompressed."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_archive",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "dream_archive-0.1.6.crate",
+          "media_type": "application/gzip",
+          "size": 6686453,
+          "digests": {
+            "sha256": "b430d6bfd34d48ba33ac26ea6d78099e205fbb1b04b54a916bed8bb3905fa08f"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.6.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.5",
+      "channel": "stable",
+      "date": "2026-04-28",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archive",
+        "tag": "0.1.5",
+        "revision": "275004ee08097937f1e0fffe143f6a4937da904f"
+      },
+      "notes": {
+        "added": [
+          "`Dx10Builder::add_archive_entry` copies a DX10 texture's header, chunk records and stored bytes unchanged, instead of rebuilding them."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_archive",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "dream_archive-0.1.5.crate",
+          "media_type": "application/gzip",
+          "size": 6684011,
+          "digests": {
+            "sha256": "a2fb1512b3bd0cce7a79d5b5c8fa2d34dc2b559ca6e0d7232fda651c892f46b8"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.5.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.4",
+      "channel": "stable",
+      "date": "2026-04-27",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archive",
+        "tag": "0.1.4",
+        "revision": "f62c6b2bd38cf6529176e5fb5b6e35185d2ba7d8"
+      },
+      "notes": {
+        "added": [
+          "A host can add its own Lua methods to the archive userdata: `lua::LuaArchive` with `archive()` and `path()`, `create_module_with_archive_methods`, `register_archive_methods` and `add_archive_methods`."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_archive",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "dream_archive-0.1.4.crate",
+          "media_type": "application/gzip",
+          "size": 6681682,
+          "digests": {
+            "sha256": "26a6ca990278ecde7e8ec853ab35b3ef6cc3c250063c92b68263cac0c04e539f"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.4.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.3",
+      "channel": "stable",
+      "date": "2026-04-27",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archive",
+        "tag": "0.1.3",
+        "revision": "31b8a298bd652c5f3edb6db6c7d0d52e05176216"
+      },
+      "notes": {
+        "changed": [
+          "`bstr` comes through `dream_path` and is re-exported as `dream_archive::bstr`; the crate no longer depends on it directly."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_archive",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "dream_archive-0.1.3.crate",
+          "media_type": "application/gzip",
+          "size": 6680385,
+          "digests": {
+            "sha256": "84720935c8390aeac858dd0e6db8c48b2446531aabaafd7a8653907eaa44aafa"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.3.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.2",
+      "channel": "stable",
+      "date": "2026-04-27",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archive",
+        "tag": "0.1.2",
+        "revision": "c07c7f65e0ff3af347aaa1d02a7409f49e23692a"
+      },
+      "notes": {
+        "added": [
+          "`dream_path` is re-exported."
+        ],
+        "changed": [
+          "The `lua` feature no longer picks a Lua runtime: the host chooses one through its own `mlua`. `standalone-lua` selects vendored LuaJIT.",
+          "Rust 1.87."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_archive",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "dream_archive-0.1.2.crate",
+          "media_type": "application/gzip",
+          "size": 6680411,
+          "digests": {
+            "sha256": "2a92a79eb58028ad30921937e59b419b6026773c4e8c228559bf73dfcf345987"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.2.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.1",
+      "channel": "stable",
+      "date": "2026-04-27",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archive",
+        "tag": "0.1.1",
+        "revision": "fe966096a85ffcdcef91da53158b58b73a1abb57"
+      },
+      "notes": {
+        "summary": "Builders read files when they write, and can copy entries from an opened archive.",
+        "added": [
+          "`add_archive_entry` on every builder, and `add_archive_entry_with_compression` on the BA2 and TES4 builders: an entry of an opened archive of the same family, copied when the archive is written.",
+          "Stable entry ids: `entries_with_ids`, `entry_by_id`, `entry_by_id_required` and `extract_entry_by_id`; `extracted_len` and `extracted_len_by_id` for BA2 and TES4."
+        ],
+        "changed": [
+          "`add_file` and `add_dir` record each source's path and size and read it when the archive is written. A source that changed size in between fails the write."
+        ],
+        "breaking": [
+          "Builders write with `write_seek`, to any `Write + Seek`; `write_to` is gone."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_archive",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "dream_archive-0.1.1.crate",
+          "media_type": "application/gzip",
+          "size": 6679730,
+          "digests": {
+            "sha256": "5213b694d2b11b6325208dba49f0ae94a37de11331e4ff71149ee933a30c7bce"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.1.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-04-27",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archive",
+        "tag": "0.1.0",
+        "revision": "0ee5dcba6cdf732d629f3f1bbd1890470375eb58"
+      },
+      "notes": {
+        "summary": "First release: read, extract and write BA2, TES3 BSA and TES4 BSA archives in pure Rust.",
+        "added": [
+          "`Archive`, which detects the family of any supported archive and lists, reads and extracts it.",
+          "BA2 GNRL and DX10 reading and extraction; DX10 textures come out as DDS files with headers rebuilt from the archive's metadata. GNMF archives are identified, not extracted.",
+          "TES3 BSA reading, extraction and writing.",
+          "TES4 BSA reading, extraction and writing for versions 103, 104 and 105: zlib and LZ4 frames, string tables, embedded names, and hash-only archives through `extract_to_with_paths`.",
+          "BA2 GNRL writing, and DX10 writing from DDS files or from texture metadata and raw payloads.",
+          "Legacy filename code pages: `encode_filename`, `decode_filename_lossy` and `extract_to_with_encoding`.",
+          "Parallel extraction behind the `parallel` feature.",
+          "Lua bindings through `mlua` and vendored LuaJIT, behind the `lua` feature."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_archive",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "dream_archive-0.1.0.crate",
+          "media_type": "application/gzip",
+          "size": 6674592,
+          "digests": {
+            "sha256": "345dd3d128d5a2bc571f2977e8ca740861618a8ef737b7cc9c18003941ab7323"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

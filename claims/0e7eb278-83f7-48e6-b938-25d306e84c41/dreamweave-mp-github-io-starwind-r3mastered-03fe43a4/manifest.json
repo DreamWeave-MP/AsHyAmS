@@ -1,0 +1,46 @@
+{
+  "schema_version": "2",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "project": {
+    "id": "0e7eb278-83f7-48e6-b938-25d306e84c41",
+    "name": "Starwind: R3mastered",
+    "summary": "A modern, auditable OpenMW reconstruction and continuation of Starwind.",
+    "type": "total-conversion",
+    "status": "experimental",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Starwind",
+      "OpenMW",
+      "Total Conversion"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "documentation": "https://dreamweave-mp.github.io/Starwind-R3mastered/docs/",
+      "issues": "https://github.com/DreamWeave-MP/Starwind-R3mastered/issues",
+      "page": "https://dreamweave-mp.github.io/Starwind-R3mastered/home/",
+      "source": "https://github.com/DreamWeave-MP/Starwind-R3mastered",
+      "support": "https://github.com/DreamWeave-MP/Starwind-R3mastered/discussions"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": [
+      {
+        "name": "DreamWeave and TSI contributors",
+        "role": "R3mastered"
+      },
+      {
+        "name": "The TSI community",
+        "role": "Years of support"
+      }
+    ]
+  },
+  "channels": {},
+  "releases": []
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": "2",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "project": {
+    "id": "f7b9633b-b7cb-4db9-a19f-63556586a81d",
+    "name": "dream-soft-render",
+    "summary": "A CPU rasterizer for 2D triangle meshes and egui frames. It writes premultiplied RGBA8 into a buffer you own, and the same draw calls give the same bytes on every platform.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "license": "MIT OR Apache-2.0",
+    "tags": [
+      "Rust",
+      "Rasterizer",
+      "egui",
+      "PortMaster"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "crate": "https://crates.io/crates/dream-soft-render",
+      "documentation": "https://dreamweave-mp.github.io/dream-soft-render/docs/",
+      "donate": "https://ko-fi.com/magicaldave",
+      "issues": "https://github.com/DreamWeave-MP/dream-soft-render/issues",
+      "page": "https://dreamweave-mp.github.io/dream-soft-render/home/",
+      "source": "https://github.com/DreamWeave-MP/dream-soft-render"
+    },
+    "integrations": {},
+    "media": [
+      {
+        "kind": "image",
+        "alt": "A dark egui settings form for importing Morrowind.ini, with a floating window titled Choose encoding over it: radio buttons, a slider, a progress bar at 42 percent, and a soft shadow.",
+        "url": "https://dreamweave-mp.github.io/dream-soft-render/home/media/window.png",
+        "caption": "The window golden scene: 640x480, drawn by dream-soft-render.",
+        "featured": true
+      },
+      {
+        "kind": "image",
+        "alt": "A monospace preview of openmw.cfg lines, data, content and fallback entries, in a scrolling panel with Copy and Close buttons.",
+        "url": "https://dreamweave-mp.github.io/dream-soft-render/home/media/preview.png",
+        "caption": "The preview golden scene: a page of monospace glyph quads."
+      }
+    ],
+    "credits": []
+  },
+  "channels": {
+    "stable": {
+      "version": "1.0.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "1.0.0",
+      "channel": "stable",
+      "date": "2026-09-28",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream-soft-render",
+        "tag": "1.0.0",
+        "revision": "f558caa19026460e81a5895a30e59ab74ae76e32"
+      },
+      "notes": {
+        "summary": "First release: the software rasterizer from dream-ini's PortMaster build, with a drawing API of its own and egui as an option.",
+        "added": [
+          "`SoftwareRenderer` and `Frame`: clear, `fill_rect`, `textured_rect` and `mesh`, rasterized immediately into a premultiplied RGBA8 surface.",
+          "`create_texture`, `update_texture` and `free_texture`, with handles issued process-wide and never reused.",
+          "`Color`, `Vertex`, `Rect`, `ClipRect` and `TextureId`, and one `Error` type for every rejected call.",
+          "The `egui` feature: `render_egui`, `RenderFrame`, `RenderOutcome`, and skipping frames whose output did not change.",
+          "NEON kernels on AArch64 for translucent spans, textured and glyph rows, gradient rows and coverage scans, held byte for byte to the portable code.",
+          "The `draw` and `frame` benchmarks, and golden hashes of four whole frames."
+        ],
+        "known_issues": [
+          "A surface wider or taller than 65535 pixels is accepted and draws wrong past pixel 65535. Refused on the default branch.",
+          "A texture wider or taller than 65536 texels is accepted and samples the wrong texels. Refused on the default branch.",
+          "In `render_egui`, a frame after one whose texture uploads failed part way can be skipped as unchanged and keep the old texels. Fixed on the default branch.",
+          "In `render_egui`, textures egui releases in a frame that fails stay in the store and count against the budget. Fixed on the default branch.",
+          "In `render_egui`, a mesh with an index past its vertices, or a trailing partial triangle, is skipped instead of failing the frame. Fixed on the default branch."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream-soft-render",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "dream-soft-render-1.0.0.crate",
+          "media_type": "application/gzip",
+          "size": 136806,
+          "digests": {
+            "sha256": "77cfb5e928da15f9baaea82bd581e2ff20a4ba8f6aee2baaaee5ae4bd5147326"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/dream-soft-render/dream-soft-render-1.0.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

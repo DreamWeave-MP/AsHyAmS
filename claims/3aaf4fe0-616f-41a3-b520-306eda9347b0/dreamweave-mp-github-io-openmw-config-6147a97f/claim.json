@@ -1,0 +1,28 @@
+{
+  "project": "3aaf4fe0-616f-41a3-b520-306eda9347b0",
+  "origin": "dreamweave-mp-github-io-openmw-config-6147a97f",
+  "entry": {
+    "id": "3aaf4fe0-616f-41a3-b520-306eda9347b0",
+    "name": "openmw-config",
+    "summary": "Read, compose and write OpenMW's openmw.cfg chains from Rust, or from Lua embedded in a Rust host.",
+    "type": "library",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/Openmw_Config/home/",
+    "manifest": "https://dreamweave-mp.github.io/Openmw_Config/dreamweave/projects/3aaf4fe0-616f-41a3-b520-306eda9347b0.json",
+    "manifest_sha256": "b0204227be6cf430b6907befe518da269c1e42b2f100d422e4abd1c4bce56aa0",
+    "updated": "2026-09-29",
+    "channels": {
+      "stable": "3.0.1"
+    }
+  },
+  "advertised_sha256": "b0204227be6cf430b6907befe518da269c1e42b2f100d422e4abd1c4bce56aa0",
+  "ingested_sha256": "b0204227be6cf430b6907befe518da269c1e42b2f100d422e4abd1c4bce56aa0",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

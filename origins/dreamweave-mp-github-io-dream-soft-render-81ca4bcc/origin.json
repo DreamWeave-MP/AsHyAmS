@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-dream-soft-render-81ca4bcc",
+  "index_url": "https://dreamweave-mp.github.io/dream-soft-render/dreamweave.json",
+  "site_name": "dream-soft-render",
+  "site_url": "https://dreamweave-mp.github.io/dream-soft-render/",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/dream-soft-render/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6abc4ae1-3c1\"",
+    "last_modified": "Tue, 29 Sep 2026 23:33:53 GMT"
+  },
+  "index_sha256": "c159e4df64198d78859f14c079b5650dd1096d9dfef08f059b8fc008b9de5d65",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

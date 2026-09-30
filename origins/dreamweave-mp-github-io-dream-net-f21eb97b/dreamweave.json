@@ -1,0 +1,25 @@
+{
+  "schema_version": "2",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "site": {
+    "name": "dream-net",
+    "url": "https://dreamweave-mp.github.io/dream-net/"
+  },
+  "projects": [
+    {
+      "id": "f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda",
+      "name": "dream-net",
+      "summary": "DreamWeave's networking substrate: secure UDP between authenticated peers, with reliable-ordered and unreliable event channels and a schema handshake.",
+      "type": "library",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/dream-net/home/",
+      "manifest": "https://dreamweave-mp.github.io/dream-net/dreamweave/projects/f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda.json",
+      "manifest_sha256": "c4bbfb0850c96f56aabc6dcc1ddffe97a5550eb02e8ba797ec2d3f7c59618d40",
+      "updated": "2026-09-29",
+      "channels": {
+        "stable": "1.1.0"
+      }
+    }
+  ]
+}

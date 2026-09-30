@@ -1,0 +1,26 @@
+{
+  "project": "0e7eb278-83f7-48e6-b938-25d306e84c41",
+  "origin": "dreamweave-mp-github-io-starwind-r3mastered-03fe43a4",
+  "entry": {
+    "id": "0e7eb278-83f7-48e6-b938-25d306e84c41",
+    "name": "Starwind: R3mastered",
+    "summary": "A modern, auditable OpenMW reconstruction and continuation of Starwind.",
+    "type": "total-conversion",
+    "status": "experimental",
+    "page": "https://dreamweave-mp.github.io/Starwind-R3mastered/home/",
+    "manifest": "https://dreamweave-mp.github.io/Starwind-R3mastered/dreamweave/projects/0e7eb278-83f7-48e6-b938-25d306e84c41.json",
+    "manifest_sha256": "ca6926a1d984c330d1ba6042c85fbc47254e020b58afbab2b3e4773fcdd52014",
+    "updated": null,
+    "channels": {}
+  },
+  "advertised_sha256": "ca6926a1d984c330d1ba6042c85fbc47254e020b58afbab2b3e4773fcdd52014",
+  "ingested_sha256": "ca6926a1d984c330d1ba6042c85fbc47254e020b58afbab2b3e4773fcdd52014",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

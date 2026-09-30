@@ -1,0 +1,33 @@
+{
+  "project": "f7b9633b-b7cb-4db9-a19f-63556586a81d",
+  "origin": "dreamweave-mp-github-io-dream-soft-render-81ca4bcc",
+  "entry": {
+    "id": "f7b9633b-b7cb-4db9-a19f-63556586a81d",
+    "name": "dream-soft-render",
+    "summary": "A CPU rasterizer for 2D triangle meshes and egui frames. It writes premultiplied RGBA8 into a buffer you own, and the same draw calls give the same bytes on every platform.",
+    "type": "library",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/dream-soft-render/home/",
+    "manifest": "https://dreamweave-mp.github.io/dream-soft-render/dreamweave/projects/f7b9633b-b7cb-4db9-a19f-63556586a81d.json",
+    "manifest_sha256": "54b90683db3caa284dbf191c40b90839dd7c0099f1b5d8a6f75c026f2fabc25b",
+    "updated": "2026-09-28",
+    "channels": {
+      "stable": "1.0.0"
+    }
+  },
+  "advertised_sha256": "54b90683db3caa284dbf191c40b90839dd7c0099f1b5d8a6f75c026f2fabc25b",
+  "ingested_sha256": "54b90683db3caa284dbf191c40b90839dd7c0099f1b5d8a6f75c026f2fabc25b",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": {
+    "url": "https://dreamweave-mp.github.io/dream-soft-render/home/media/window.png",
+    "alt": "A dark egui settings form for importing Morrowind.ini, with a floating window titled Choose encoding over it: radio buttons, a slider, a progress bar at 42 percent, and a soft shadow.",
+    "file": "media/0dc863c0bd37ac7d2771de5eed7f324bd2a547971ab008bd451b8003f8bd9d33.png",
+    "problem": null
+  },
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

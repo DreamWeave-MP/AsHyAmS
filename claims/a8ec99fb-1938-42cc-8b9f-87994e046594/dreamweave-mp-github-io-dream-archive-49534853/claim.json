@@ -1,0 +1,28 @@
+{
+  "project": "a8ec99fb-1938-42cc-8b9f-87994e046594",
+  "origin": "dreamweave-mp-github-io-dream-archive-49534853",
+  "entry": {
+    "id": "a8ec99fb-1938-42cc-8b9f-87994e046594",
+    "name": "dream_archive",
+    "summary": "Read, extract and write Bethesda BSA and BA2 archives in pure Rust, from Morrowind to Starfield, with a Luau module for scripts.",
+    "type": "library",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/dream_archive/home/",
+    "manifest": "https://dreamweave-mp.github.io/dream_archive/dreamweave/projects/a8ec99fb-1938-42cc-8b9f-87994e046594.json",
+    "manifest_sha256": "84df3a873021320707ba0e37661a82c08675a66da1ce66d4a82be8d4edc7f142",
+    "updated": "2026-09-29",
+    "channels": {
+      "stable": "1.0.0"
+    }
+  },
+  "advertised_sha256": "84df3a873021320707ba0e37661a82c08675a66da1ce66d4a82be8d4edc7f142",
+  "ingested_sha256": "84df3a873021320707ba0e37661a82c08675a66da1ce66d4a82be8d4edc7f142",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

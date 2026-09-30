@@ -1,0 +1,111 @@
+{
+  "schema_version": "2",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "project": {
+    "id": "5c86240d-5bf6-4095-a479-59dcaa723853",
+    "name": "Starwind Merged Plugin Project",
+    "summary": "Reproducible Definitive Starwind builds with recursive master decoupling, audited dialogue behavior, and a validated Star_Data/Starwind split.",
+    "type": "mod",
+    "status": "active",
+    "versioning": "decimal",
+    "game": "morrowind",
+    "tags": [
+      "Starwind",
+      "Patches",
+      "OpenMW"
+    ],
+    "maintainers": [],
+    "links": {
+      "documentation": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/sw_merged/api/",
+      "issues": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh/issues",
+      "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/sw_merged/",
+      "source": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "1.01-dev.6"
+    }
+  },
+  "releases": [
+    {
+      "version": "1.01-dev.6",
+      "channel": "development",
+      "date": "2026-09-29",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh",
+        "release": "development",
+        "revision": "5facba41fb9f6f5e05e238da4bbf026259b25045"
+      },
+      "runtimes": {
+        "openmw": "*"
+      },
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "Starwind Merged Plugin Project",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {
+        "openmw": {
+          "components": {
+            "main": {
+              "data_directories": [
+                "."
+              ],
+              "content_files": [],
+              "groundcover_files": [],
+              "fallback_archives": [],
+              "fallback_entries": {},
+              "config": false,
+              "requires_content": []
+            }
+          },
+          "requires_content": [],
+          "settings": []
+        }
+      },
+      "critical_extensions": [
+        "openmw"
+      ],
+      "artifacts": [
+        {
+          "id": "flat",
+          "format": "flat",
+          "filename": "starwind_merged_plugin_project.zip",
+          "media_type": "application/zip",
+          "size": 587379,
+          "digests": {
+            "sha256": "53984fb8e43f74a7178b4d4e66dc40b25b1350dcad2b24aa6d2da6dc0bdd6b1a"
+          },
+          "layout": {
+            "release_document": "dreamweave.release.json",
+            "documentation": "starwind_merged_plugin_project-Documentation/index.html"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh/releases/download/development/starwind_merged_plugin_project.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

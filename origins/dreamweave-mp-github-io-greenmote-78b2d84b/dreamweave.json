@@ -1,0 +1,26 @@
+{
+  "schema_version": "2",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "site": {
+    "name": "Greenmote",
+    "url": "https://dreamweave-mp.github.io/greenmote/"
+  },
+  "projects": [
+    {
+      "id": "57ec3325-acb3-4307-9c0f-2031ab3354ef",
+      "name": "Greenmote",
+      "summary": "Turn placed grass into OpenMW groundcover, and fix groundcover that floats, sinks, sits on roads or water, or clips into rocks.",
+      "type": "tool",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/greenmote/home/",
+      "manifest": "https://dreamweave-mp.github.io/greenmote/dreamweave/projects/57ec3325-acb3-4307-9c0f-2031ab3354ef.json",
+      "manifest_sha256": "9575d89cefb9bf4a000ecacc0da9ee784451df66f9e22ce99b8ec93c11ca436d",
+      "updated": "2026-09-29",
+      "channels": {
+        "development": "0.3.1-dev.1",
+        "stable": "0.3.0"
+      }
+    }
+  ]
+}

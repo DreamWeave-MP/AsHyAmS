@@ -1,0 +1,28 @@
+{
+  "project": "a9796e0f-2e06-402b-b1c5-c80a8bda1096",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "entry": {
+    "id": "a9796e0f-2e06-402b-b1c5-c80a8bda1096",
+    "name": "Sh4des",
+    "summary": "Collection of shaders developed by S3ctor for OpenMW.",
+    "type": "mod",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/sh4des/",
+    "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/a9796e0f-2e06-402b-b1c5-c80a8bda1096.json",
+    "manifest_sha256": "0a852ae234bf651102add790e6ab1e23ed0e7aea074f93bb5823bb29fd3032ce",
+    "updated": "2026-09-29",
+    "channels": {
+      "development": "0.0.1-dev.12"
+    }
+  },
+  "advertised_sha256": "0a852ae234bf651102add790e6ab1e23ed0e7aea074f93bb5823bb29fd3032ce",
+  "ingested_sha256": "0a852ae234bf651102add790e6ab1e23ed0e7aea074f93bb5823bb29fd3032ce",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "2",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "site": {
+    "name": "dream-path",
+    "url": "https://dreamweave-mp.github.io/dream_path/"
+  },
+  "projects": [
+    {
+      "id": "75bc8ccd-a1ce-4618-98d8-a757e8862304",
+      "name": "dream-path",
+      "summary": "Byte-first normalized virtual resource paths: one spelling for every asset lookup in DreamWeave and OpenMW-style tools.",
+      "type": "library",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/dream_path/home/",
+      "manifest": "https://dreamweave-mp.github.io/dream_path/dreamweave/projects/75bc8ccd-a1ce-4618-98d8-a757e8862304.json",
+      "manifest_sha256": "8c5c2ff01bdf63d55419231d11dd24311716b6995a19121a6e55be311011caa8",
+      "updated": "2026-09-29",
+      "channels": {
+        "stable": "1.0.0"
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "project": "cfebb85d-0200-43aa-91f4-843b0c50cb44",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "entry": {
+    "id": "cfebb85d-0200-43aa-91f4-843b0c50cb44",
+    "name": "Beta Icons Restored and Reimagined",
+    "summary": "Replacement icons for skills, spells, and stats inspired by Bethesda's original art style.",
+    "type": "mod",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/birr/",
+    "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/cfebb85d-0200-43aa-91f4-843b0c50cb44.json",
+    "manifest_sha256": "e0773af75d659abd4c8f43ddac5f4f3b1073b37bf8c354bdf390df4e20286f2c",
+    "updated": "2026-09-29",
+    "channels": {
+      "development": "0.821-dev.6"
+    }
+  },
+  "advertised_sha256": "e0773af75d659abd4c8f43ddac5f4f3b1073b37bf8c354bdf390df4e20286f2c",
+  "ingested_sha256": "e0773af75d659abd4c8f43ddac5f4f3b1073b37bf8c354bdf390df4e20286f2c",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-09-30T01:45:06Z",
+  "last_changed": "2026-09-30T01:45:06Z",
+  "last_attempt": "2026-09-30T01:45:06Z",
+  "last_success": "2026-09-30T01:45:06Z"
+}
