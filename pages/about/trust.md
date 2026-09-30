@@ -48,7 +48,7 @@ pull request, and its claims leave the site on the next refresh.
 ## Nothing is counted
 
 There are no analytics, no download counters, no view counts, no stars, no endorsements, no
-trending, no top-ten. The network has no telemetry, so any popularity number would be invented
+trending, no top-ten. AsHyAmS has no telemetry, so any popularity number would be invented
 from proxies, and invented numbers end up ranking things. Every download link goes straight to the
 publisher's own sources or its declared mirrors, never through this domain.
 

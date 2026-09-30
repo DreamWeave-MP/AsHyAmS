@@ -1,6 +1,6 @@
 +++
-title = "Join the network"
-description = "Put a DreamWeave site on this index: publish it, check it, propose it. One pull request, reviewed like any other."
+title = "Get your site indexed"
+description = "Put a DreamWeave site on AsHyAmS: publish it, check it, propose it. One pull request, reviewed like any other."
 template = "page.html"
 
 [extra]
@@ -8,7 +8,7 @@ kicker = ["Join", "one pull request"]
 +++
 
 Joining costs you one line in a file and a review. It does not cost you an account, an upload, an
-API key or a copy of your mod on anybody else's server, because none of those exist. This index
+API key or a copy of your mod on anybody else's server, because none of those exist. AsHyAmS
 reads your site on a schedule. Your site stays where it is and stays the authority on everything it
 says.
 

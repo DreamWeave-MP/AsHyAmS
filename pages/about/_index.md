@@ -1,5 +1,5 @@
 +++
-title = "How the network works"
+title = "How AsHyAmS works"
 description = "What this index is, what it is not, and every moving part, for readers, publishers and whoever maintains it next."
 template = "docs/section.html"
 page_template = "docs/page.html"
@@ -13,14 +13,16 @@ docs_sidebar_label = "How it works"
 docs_repository_url = "https://github.com/DreamWeave-MP/AsHyAmS"
 +++
 
-There is no DreamWeave server in the middle. Every project on this site is published by its own
-site, in a format any program can read, and this index is one such program: it reads the sites it
-has been told about, remembers what they said, notices when they say something new, and writes all
-of that down as static files.
+There is no DreamWeave server in the middle. The DreamWeave network is every site that publishes
+the protocol: each describes its own projects, in documents any program can read, and nothing sits
+above them. AsHyAmS is one such program. It reads the sites it has been told about, remembers what
+they said, notices when they say something new, and writes all of that down as static files.
 
-If this index disappears, nothing about any mod changes. Its page still describes it, its manifest
+The network is the sites. AsHyAmS is one index of them, and anyone can run another.
+
+If AsHyAmS disappears, nothing about any mod changes. Its page still describes it, its manifest
 still lists its releases, its archives still download and verify. A client that never heard of
-this index installs it exactly as before. Somebody who wants the index back clones this repository
+AsHyAmS installs it exactly as before. Somebody who wants the index back clones this repository
 and runs three commands.
 
 That is the design. The rest of this manual explains the machinery.
@@ -71,7 +73,7 @@ Every one of them carries its publisher's SHA-256, labelled as the publisher's.
 
 ## Five sentences to keep in mind
 
-> The network is not a place mods live. It is a map of places mods live.
+> AsHyAmS is not a place mods live. It is a map of places mods live.
 >
 > Publisher sites own facts. The index owns observations.
 >

@@ -15,7 +15,7 @@ cron table, a database password or somebody's memory.
 Rust (stable), [Zola](https://www.getzola.org/) 0.22.1, and Git. `cargo network` is an alias for
 `cargo run --locked --release -p dreamweave-network --`.
 
-## Rebuild the network locally
+## Rebuild AsHyAmS locally
 
 ```sh
 git clone https://github.com/DreamWeave-MP/AsHyAmS && cd AsHyAmS
