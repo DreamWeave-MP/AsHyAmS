@@ -1,4 +1,4 @@
-# DreamWeave Network state
+# AsHyAmS state
 
 This branch is written by `dreamweave-network refresh`, normally from the scheduled workflow on
 `main`. It is what the index observed, not what anybody published: every manifest here is a
@@ -9,4 +9,4 @@ Do not edit it by hand. To change what the index reads, edit `network/sources.to
 refresh rebuilds every current claim from the enrolled sites. Only the event history and the
 first-observed dates are lost.
 
-The layout and every record are described on the network site under About → State.
+The layout and every record are described on the AsHyAmS site under About → State.
