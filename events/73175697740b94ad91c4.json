@@ -1,0 +1,134 @@
+{
+  "id": "73175697740b94ad91c4",
+  "kind": "changed",
+  "project": "e33a86c1-bc17-4f55-a72b-1ded0e58523b",
+  "origin": "dreamweave-mp-github-io-dream-archivetool-563195a7",
+  "name": "dream_archivetool",
+  "observed_at": "2026-09-30T22:19:18Z",
+  "before": "ee344f0f7211b1afa971011e56292dc620e3e742118258a994e98d91e47d9691",
+  "after": "49ff88211c8b019eb022aa8fee6a9c23064651ce04a5ec1d937c7822881a1bd2",
+  "changes": [
+    {
+      "change": "project-field",
+      "field": "license",
+      "before": "GPL-3.0-or-later",
+      "after": "MIT OR Apache-2.0"
+    },
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "1.0.1-dev.0",
+      "after": "1.1.1-dev.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "windows-x64",
+          "before": 709473,
+          "after": 696935
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-arm64",
+          "before": 838679,
+          "after": 827734
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-x64",
+          "before": 880841,
+          "after": 869208
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-x64",
+          "before": 919064,
+          "after": 907185
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "android-arm64",
+          "before": 907788,
+          "after": 894783
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-arm64-portmaster",
+          "before": 905567,
+          "after": 890597
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "1.0.0",
+      "after": "1.1.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "windows-x64",
+          "before": 709236,
+          "after": 697038
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-arm64",
+          "before": 838405,
+          "after": 827985
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-x64",
+          "before": 880668,
+          "after": 869429
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-x64",
+          "before": 919003,
+          "after": 907214
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "android-arm64",
+          "before": 907750,
+          "after": 894814
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-arm64-portmaster",
+          "before": 905504,
+          "after": 890868
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "1.1.1-dev.0",
+      "channel": "development",
+      "date": "2026-09-30",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "1.1.0",
+      "channel": "stable",
+      "date": "2026-09-30",
+      "status": "available",
+      "notes": {
+        "summary": "Relicensed as MIT OR Apache-2.0 and built on l3i 1.1.0.",
+        "changed": [
+          "Relicensed from GPL-3.0 to MIT OR Apache-2.0: this is the first release under the new terms, and releases up to and including 1.0.0 stay GPL.",
+          "Requires dream_archive 1.1.0, its first MIT OR Apache-2.0 release.",
+          "l3i 1.1.0 comes from crates.io; the `@dream/archivetool` module is unchanged."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "1.0.1-dev.0",
+      "channel": "development"
+    }
+  ]
+}

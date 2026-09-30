@@ -15,8 +15,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/home/",
       "manifest": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave/projects/4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90.json",
-      "manifest_sha256": "e4d888989e07f73a5e44c04692cf473b4201f85036b90111e2b13f580fee39b6",
-      "updated": "2026-09-29",
+      "manifest_sha256": "283d9bccf44186a396f40c28ad06fc0e4f04f7e43b5864d8c4be43991ec658f8",
+      "updated": "2026-09-30",
       "channels": {
         "development": "1.1.1-dev.0",
         "stable": "1.1.0"
@@ -30,8 +30,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/simplified/",
       "manifest": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave/projects/9b7e3f21-6c4d-4a8b-b1e2-3f5a7c9d0e14.json",
-      "manifest_sha256": "b5b71c4e5d4de7b0276fe478f1a21d29db54cf63961c678f07df634ba4990a43",
-      "updated": "2026-09-29",
+      "manifest_sha256": "d007513831ee2da1af4833999590cc3f8a92615a121ca9f9873f1417cc46be87",
+      "updated": "2026-09-30",
       "channels": {
         "development": "1.0.1-dev.0",
         "stable": "1.0.0"

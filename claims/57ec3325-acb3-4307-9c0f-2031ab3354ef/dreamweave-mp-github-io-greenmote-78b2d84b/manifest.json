@@ -10,7 +10,7 @@
     "status": "active",
     "versioning": "numeric",
     "game": "morrowind",
-    "license": "GPL-3.0-only",
+    "license": "MIT OR Apache-2.0",
     "tags": [
       "OpenMW",
       "Morrowind",
@@ -47,22 +47,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.3.1-dev.1"
+      "version": "0.4.1-dev.0"
     },
     "stable": {
-      "version": "0.3.0"
+      "version": "0.4.0"
     }
   },
   "releases": [
     {
-      "version": "0.3.1-dev.1",
+      "version": "0.4.1-dev.0",
       "channel": "development",
-      "date": "2026-09-29",
+      "date": "2026-09-30",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/greenmote",
         "release": "development",
-        "revision": "f4b83c90df80d6218329919d0de92bc69804a5b6"
+        "revision": "8bf8743953ec81677dcfc3b93c59254e5c875615"
       },
       "runtimes": {},
       "platforms": [
@@ -106,9 +106,9 @@
           "format": "binary",
           "filename": "greenmote-Windows-X64.zip",
           "media_type": "application/zip",
-          "size": 5132826,
+          "size": 5120405,
           "digests": {
-            "sha256": "3be1c540759275e7acf5118701a35eb4c74b4a8b9a6530d6c7e5c522ee8739fa"
+            "sha256": "8e0c5419f09e82998bb606a03bef101f821358b0c10b6771d3c9eefc83df24b4"
           },
           "platform": {
             "os": "windows",
@@ -127,9 +127,9 @@
           "format": "binary",
           "filename": "greenmote-macOS-ARM64.zip",
           "media_type": "application/zip",
-          "size": 5314470,
+          "size": 5301690,
           "digests": {
-            "sha256": "ca0d6b3bc5b2a2c4ce6e20409008cd293f7f3dd948235fc85a543bd95475771d"
+            "sha256": "f2c9d07301f1234f10534b10a523c03b6518afae6b3093193c93f246e4d66d4a"
           },
           "platform": {
             "os": "macos",
@@ -148,9 +148,9 @@
           "format": "binary",
           "filename": "greenmote-macOS-X64.zip",
           "media_type": "application/zip",
-          "size": 5703016,
+          "size": 5692447,
           "digests": {
-            "sha256": "b09d4e87c1f1709d8d6e491733861f9bff9393407fed8ee7bed9af8ce2c235ed"
+            "sha256": "1b40e182ef5233c472d66d1b9900badd6fc16e76c549b66d39a82a3f531155a5"
           },
           "platform": {
             "os": "macos",
@@ -169,9 +169,9 @@
           "format": "binary",
           "filename": "greenmote-Linux-X64.zip",
           "media_type": "application/zip",
-          "size": 7043990,
+          "size": 7033141,
           "digests": {
-            "sha256": "63fbed83471dbec155537d37dffba5789de6596013eee66fdfdc7433d3d11e0c"
+            "sha256": "6b0912b4f560e56d250906f1abe5cfe06e61b0387ae5113bd15a17a7b54c8308"
           },
           "platform": {
             "os": "linux",
@@ -190,9 +190,9 @@
           "format": "binary",
           "filename": "greenmote-Android-ARM64.zip",
           "media_type": "application/zip",
-          "size": 2405209,
+          "size": 2393586,
           "digests": {
-            "sha256": "9c6e0d37412c504b6f0a23b450e600e2090bad7792bffb120b992aebff9a78b7"
+            "sha256": "8455da164035a770ea95ab31eee555c4733744af8ebe3d050700ac098c228460"
           },
           "platform": {
             "os": "android",
@@ -211,9 +211,9 @@
           "format": "binary",
           "filename": "greenmote-Portmaster-ARM64.zip",
           "media_type": "application/zip",
-          "size": 2393202,
+          "size": 2375625,
           "digests": {
-            "sha256": "5e2414c223f2fdb130c275a454a148505545292e7b148f45c8570eea3cefe3f2"
+            "sha256": "8dde9e654a019104c8a0f40c924dfe212e61e9a18122d3956e6fa71de6da9b9b"
           },
           "platform": {
             "os": "linux",
@@ -223,6 +223,208 @@
           "sources": [
             {
               "url": "https://github.com/DreamWeave-MP/greenmote/releases/download/development/greenmote-Portmaster-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.4.0",
+      "channel": "stable",
+      "date": "2026-09-30",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/greenmote",
+        "tag": "0.4.0",
+        "revision": "b29ab0e16711fcc2820ec744872a7082ac0e0441"
+      },
+      "notes": {
+        "summary": "Unclip leaves references alone across terrain seams and caps how far it tilts them, convert keeps the newest plugin's references, and the GUI closes the console Windows opens for it.",
+        "added": [
+          "The GUI window has Greenmote's crescent-moon icon.",
+          "`--max-tilt` (and `max_tilt` in `greenmote.toml`) caps how far `orient` tilts a reference, 45 degrees by default; a value outside 0 to 90 is a usage error.",
+          "The unclip report states `max_tilt` beside the other tolerances."
+        ],
+        "changed": [
+          "Unclip keeps a reference unchanged where the terrain under its mesh is a seam between landmasses, judged on the tilted base and on the grounded origin.",
+          "Convert skips Verdant Bitter Coast fern trees by default.",
+          "Unclip refuses Greenmote's own convert output as a target."
+        ],
+        "fixed": [
+          "Convert writes one `CELL` record per grid, so the newest plugin's references win in game instead of the oldest.",
+          "Context plugins load with their headers, so inherited references resolve to their owning plugin instead of being dropped.",
+          "`--output-plugin` writes the plugin even when unclip changes nothing.",
+          "An `[unclip]` table that only sets `max_tilt` or `max_sink_fraction` is kept.",
+          "Unclip no longer stops on a static whose mesh cannot be loaded, and `water-delete` is a water-plane crossing test again.",
+          "A failed command prints its error as a message, and `--help` describes `water-delete` and `static-delete` as they behave.",
+          "The Unclip tab's Open log button opens `greenmote-unclip.log`.",
+          "Starting the GUI from Explorer or a shortcut closes the console window Windows opens for it."
+        ],
+        "breaking": [
+          "Greenmote is licensed MIT OR Apache-2.0, at your option, instead of GPL-3.0-only. 0.2.0 and 0.3.0 stay GPL-3.0-only."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [
+        {
+          "os": "windows",
+          "arch": "x86_64"
+        },
+        {
+          "os": "macos",
+          "arch": "aarch64"
+        },
+        {
+          "os": "macos",
+          "arch": "x86_64"
+        },
+        {
+          "os": "linux",
+          "arch": "x86_64"
+        }
+      ],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "Greenmote",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "windows-x64",
+          "format": "binary",
+          "filename": "greenmote-Windows-X64.zip",
+          "media_type": "application/zip",
+          "size": 5120319,
+          "digests": {
+            "sha256": "87e736027bc67962c10ff4a948d9ba0c36e8b688b8a767fff5354933b13d06e1"
+          },
+          "platform": {
+            "os": "windows",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/greenmote/releases/download/0.4.0/greenmote-Windows-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-arm64",
+          "format": "binary",
+          "filename": "greenmote-macOS-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 5301679,
+          "digests": {
+            "sha256": "f68349ee5ed4b7a449511b728d7227e03047c2caf66664dd235dc8ba7ffeff45"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/greenmote/releases/download/0.4.0/greenmote-macOS-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-x64",
+          "format": "binary",
+          "filename": "greenmote-macOS-X64.zip",
+          "media_type": "application/zip",
+          "size": 5692281,
+          "digests": {
+            "sha256": "8bf7113b2776a4b4f8531a273985ae7617dc09a3f325926bfad25e9734f9cf8e"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/greenmote/releases/download/0.4.0/greenmote-macOS-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-x64",
+          "format": "binary",
+          "filename": "greenmote-Linux-X64.zip",
+          "media_type": "application/zip",
+          "size": 7032974,
+          "digests": {
+            "sha256": "3cfde9efea402f5cbda6e6957d7ca662498cd050d62ad6d51085dc6901656bc1"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/greenmote/releases/download/0.4.0/greenmote-Linux-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "android-arm64",
+          "format": "binary",
+          "filename": "greenmote-Android-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 2393490,
+          "digests": {
+            "sha256": "8e38a3127c29b34121cd87053ee096b49af0a1afca11317d43d00c89a0029b0f"
+          },
+          "platform": {
+            "os": "android",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/greenmote/releases/download/0.4.0/greenmote-Android-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-arm64-portmaster",
+          "format": "binary",
+          "filename": "greenmote-Portmaster-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 2375528,
+          "digests": {
+            "sha256": "b527e6b19ce77ac20bdefbddbc66903e5347c3290e8368a2b0931a0fc24ccf8a"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "aarch64",
+            "variant": "portmaster"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/greenmote/releases/download/0.4.0/greenmote-Portmaster-ARM64.zip",
               "kind": "publisher"
             }
           ],

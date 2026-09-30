@@ -10,7 +10,7 @@
     "status": "active",
     "versioning": "numeric",
     "game": "morrowind",
-    "license": "GPL-3.0-only",
+    "license": "MIT OR Apache-2.0",
     "tags": [
       "Rust",
       "Luau",
@@ -39,10 +39,67 @@
   },
   "channels": {
     "stable": {
-      "version": "1.0.0"
+      "version": "1.1.0"
     }
   },
   "releases": [
+    {
+      "version": "1.1.0",
+      "channel": "stable",
+      "date": "2026-09-30",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archive",
+        "tag": "1.1.0",
+        "revision": "6cf4005005b596751006c41f9cfd3de5bb354059"
+      },
+      "notes": {
+        "summary": "Relicensed as MIT OR Apache-2.0 and built on l3i 1.1.0.",
+        "changed": [
+          "Relicensed from GPL-3.0 to MIT OR Apache-2.0: this is the first release under the new terms, and releases up to and including 1.0.0 stay GPL.",
+          "Requires dream-path 1.1, its first MIT OR Apache-2.0 release.",
+          "l3i 1.1.0 comes from crates.io; the `@dream/archive` module is unchanged."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_archive",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "dream_archive-1.1.0.crate",
+          "media_type": "application/gzip",
+          "size": 7404128,
+          "digests": {
+            "sha256": "ef05ce9b63b87ff34e29708aa5d58829608063a64cf236420adbba101dbc24c7"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/dream_archive/dream_archive-1.1.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
     {
       "version": "1.0.0",
       "channel": "stable",

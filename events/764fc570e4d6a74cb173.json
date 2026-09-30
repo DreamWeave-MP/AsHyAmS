@@ -1,0 +1,138 @@
+{
+  "id": "764fc570e4d6a74cb173",
+  "kind": "changed",
+  "project": "b3efde19-438b-4325-bf94-fae56bf1d458",
+  "origin": "dreamweave-mp-github-io-dream-ini-11f42276",
+  "name": "dream-ini",
+  "observed_at": "2026-09-30T22:19:18Z",
+  "before": "e99422674acb75a9a38ddfe15e0cf26c418c395766baa29291cb1136f5c5b65d",
+  "after": "f9da30d854a23d52762a481a33b0af512f44212a137d473966dd9dae6af6ded4",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "1.0.1-dev.0",
+      "after": "1.0.2-dev.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "windows-x64",
+          "before": 3750271,
+          "after": 3750183
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-arm64",
+          "before": 3953181,
+          "after": 3952742
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-x64",
+          "before": 4135815,
+          "after": 4135749
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-x64",
+          "before": 5406335,
+          "after": 5401754
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "android-arm64",
+          "before": 832325,
+          "after": 832545
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-arm64-portmaster",
+          "before": 3222263,
+          "after": 3221597
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-arm64-muos",
+          "before": 3296846,
+          "after": 3296847
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "1.0.0",
+      "after": "1.0.1",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "windows-x64",
+          "before": 3750216,
+          "after": 3750033
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-arm64",
+          "before": 3953081,
+          "after": 3952600
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-x64",
+          "before": 4135847,
+          "after": 4135566
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-x64",
+          "before": 5406331,
+          "after": 5401529
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "android-arm64",
+          "before": 832255,
+          "after": 832499
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-arm64-portmaster",
+          "before": 3222341,
+          "after": 3221615
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-arm64-muos",
+          "before": 3296919,
+          "after": 3296875
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "1.0.2-dev.0",
+      "channel": "development",
+      "date": "2026-09-30",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "1.0.1",
+      "channel": "stable",
+      "date": "2026-09-30",
+      "status": "available",
+      "notes": {
+        "summary": "Built on l3i 1.1.0.",
+        "changed": [
+          "l3i 1.1.0 comes from crates.io; the `@dream/ini` module is unchanged."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "1.0.1-dev.0",
+      "channel": "development"
+    }
+  ]
+}

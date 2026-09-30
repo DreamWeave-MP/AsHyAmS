@@ -1,0 +1,39 @@
+{
+  "id": "30519cfae1de38a39b39",
+  "kind": "changed",
+  "project": "3aaf4fe0-616f-41a3-b520-306eda9347b0",
+  "origin": "dreamweave-mp-github-io-openmw-config-6147a97f",
+  "name": "openmw-config",
+  "observed_at": "2026-09-30T22:19:18Z",
+  "before": "b0204227be6cf430b6907befe518da269c1e42b2f100d422e4abd1c4bce56aa0",
+  "after": "5ee478e709caeca77147b6ad09a412f4294430590034e3ce68f222f61ce0191c",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "3.0.1",
+      "after": "3.0.2",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "crate",
+          "before": 107355,
+          "after": 107346
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "3.0.2",
+      "channel": "stable",
+      "date": "2026-09-30",
+      "status": "available",
+      "notes": {
+        "summary": "Built on l3i 1.1.0.",
+        "changed": [
+          "l3i 1.1.0 comes from crates.io; the `@dream/openmw-config` module is unchanged."
+        ]
+      }
+    }
+  ]
+}

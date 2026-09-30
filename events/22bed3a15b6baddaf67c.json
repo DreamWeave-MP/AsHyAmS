@@ -1,0 +1,152 @@
+{
+  "id": "22bed3a15b6baddaf67c",
+  "kind": "changed",
+  "project": "57ec3325-acb3-4307-9c0f-2031ab3354ef",
+  "origin": "dreamweave-mp-github-io-greenmote-78b2d84b",
+  "name": "Greenmote",
+  "observed_at": "2026-09-30T22:19:18Z",
+  "before": "9575d89cefb9bf4a000ecacc0da9ee784451df66f9e22ce99b8ec93c11ca436d",
+  "after": "746177b3d246c4cd9580af7709c12f268defb0101d5e5461c63997b162aaee6a",
+  "changes": [
+    {
+      "change": "project-field",
+      "field": "license",
+      "before": "GPL-3.0-only",
+      "after": "MIT OR Apache-2.0"
+    },
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.3.1-dev.1",
+      "after": "0.4.1-dev.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "windows-x64",
+          "before": 5132826,
+          "after": 5120405
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-arm64",
+          "before": 5314470,
+          "after": 5301690
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-x64",
+          "before": 5703016,
+          "after": 5692447
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-x64",
+          "before": 7043990,
+          "after": 7033141
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "android-arm64",
+          "before": 2405209,
+          "after": 2393586
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-arm64-portmaster",
+          "before": 2393202,
+          "after": 2375625
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.3.0",
+      "after": "0.4.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "windows-x64",
+          "before": 5046919,
+          "after": 5120319
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-arm64",
+          "before": 5241822,
+          "after": 5301679
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-x64",
+          "before": 5629557,
+          "after": 5692281
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-x64",
+          "before": 6958100,
+          "after": 7032974
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "android-arm64",
+          "before": 2401004,
+          "after": 2393490
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-arm64-portmaster",
+          "before": 2396545,
+          "after": 2375528
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.4.1-dev.0",
+      "channel": "development",
+      "date": "2026-09-30",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.4.0",
+      "channel": "stable",
+      "date": "2026-09-30",
+      "status": "available",
+      "notes": {
+        "summary": "Unclip leaves references alone across terrain seams and caps how far it tilts them, convert keeps the newest plugin's references, and the GUI closes the console Windows opens for it.",
+        "added": [
+          "The GUI window has Greenmote's crescent-moon icon.",
+          "`--max-tilt` (and `max_tilt` in `greenmote.toml`) caps how far `orient` tilts a reference, 45 degrees by default; a value outside 0 to 90 is a usage error.",
+          "The unclip report states `max_tilt` beside the other tolerances."
+        ],
+        "changed": [
+          "Unclip keeps a reference unchanged where the terrain under its mesh is a seam between landmasses, judged on the tilted base and on the grounded origin.",
+          "Convert skips Verdant Bitter Coast fern trees by default.",
+          "Unclip refuses Greenmote's own convert output as a target."
+        ],
+        "fixed": [
+          "Convert writes one `CELL` record per grid, so the newest plugin's references win in game instead of the oldest.",
+          "Context plugins load with their headers, so inherited references resolve to their owning plugin instead of being dropped.",
+          "`--output-plugin` writes the plugin even when unclip changes nothing.",
+          "An `[unclip]` table that only sets `max_tilt` or `max_sink_fraction` is kept.",
+          "Unclip no longer stops on a static whose mesh cannot be loaded, and `water-delete` is a water-plane crossing test again.",
+          "A failed command prints its error as a message, and `--help` describes `water-delete` and `static-delete` as they behave.",
+          "The Unclip tab's Open log button opens `greenmote-unclip.log`.",
+          "Starting the GUI from Explorer or a shortcut closes the console window Windows opens for it."
+        ],
+        "breaking": [
+          "Greenmote is licensed MIT OR Apache-2.0, at your option, instead of GPL-3.0-only. 0.2.0 and 0.3.0 stay GPL-3.0-only."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.3.1-dev.1",
+      "channel": "development"
+    }
+  ]
+}

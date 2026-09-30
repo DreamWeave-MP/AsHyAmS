@@ -15,11 +15,11 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/dream_archivetool/home/",
       "manifest": "https://dreamweave-mp.github.io/dream_archivetool/dreamweave/projects/e33a86c1-bc17-4f55-a72b-1ded0e58523b.json",
-      "manifest_sha256": "ee344f0f7211b1afa971011e56292dc620e3e742118258a994e98d91e47d9691",
+      "manifest_sha256": "49ff88211c8b019eb022aa8fee6a9c23064651ce04a5ec1d937c7822881a1bd2",
       "updated": "2026-09-30",
       "channels": {
-        "development": "1.0.1-dev.0",
-        "stable": "1.0.0"
+        "development": "1.1.1-dev.0",
+        "stable": "1.1.0"
       }
     }
   ]

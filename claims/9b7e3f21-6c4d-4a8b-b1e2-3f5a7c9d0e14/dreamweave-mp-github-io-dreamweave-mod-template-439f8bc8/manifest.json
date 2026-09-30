@@ -37,12 +37,12 @@
     {
       "version": "1.0.1-dev.0",
       "channel": "development",
-      "date": "2026-09-29",
+      "date": "2026-09-30",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
         "release": "dev-build",
-        "revision": "b62bfb1ecc33c44380e5cf51a9b78c4a2f6757ff"
+        "revision": "b25333b803bf6ff5fdb87b413215794356af32df"
       },
       "runtimes": {
         "openmw": ">=0.49"

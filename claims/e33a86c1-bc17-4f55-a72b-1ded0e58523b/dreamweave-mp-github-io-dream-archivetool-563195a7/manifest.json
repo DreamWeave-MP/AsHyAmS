@@ -10,7 +10,7 @@
     "status": "active",
     "versioning": "numeric",
     "game": "morrowind",
-    "license": "GPL-3.0-or-later",
+    "license": "MIT OR Apache-2.0",
     "tags": [
       "Morrowind",
       "Oblivion",
@@ -49,22 +49,22 @@
   },
   "channels": {
     "development": {
-      "version": "1.0.1-dev.0"
+      "version": "1.1.1-dev.0"
     },
     "stable": {
-      "version": "1.0.0"
+      "version": "1.1.0"
     }
   },
   "releases": [
     {
-      "version": "1.0.1-dev.0",
+      "version": "1.1.1-dev.0",
       "channel": "development",
       "date": "2026-09-30",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archivetool",
         "release": "development",
-        "revision": "1985470063519e74e3c505426d2cbe86999fde11"
+        "revision": "5ade8213225aa0dcb26676d70c27685a905d55b4"
       },
       "runtimes": {},
       "platforms": [
@@ -108,9 +108,9 @@
           "format": "binary",
           "filename": "dream_archivetool-Windows-X64.zip",
           "media_type": "application/zip",
-          "size": 709473,
+          "size": 696935,
           "digests": {
-            "sha256": "7b0b93b29fbde46758c5ac7cf158b0016263c09bdfcc1c6bae2409daad849122"
+            "sha256": "8d492d46144598944185596c5c6f911865a9fc8557c96b7a2ac6c50e562b5908"
           },
           "platform": {
             "os": "windows",
@@ -129,9 +129,9 @@
           "format": "binary",
           "filename": "dream_archivetool-macOS-ARM64.zip",
           "media_type": "application/zip",
-          "size": 838679,
+          "size": 827734,
           "digests": {
-            "sha256": "a24cff411288b0fd63eab3218fc30a494ac652f266aa528aa606caa5d7feb5d1"
+            "sha256": "c11ea0682831c1473387f314c1d872aef220960e076c4753384314cae99688ba"
           },
           "platform": {
             "os": "macos",
@@ -150,9 +150,9 @@
           "format": "binary",
           "filename": "dream_archivetool-macOS-X64.zip",
           "media_type": "application/zip",
-          "size": 880841,
+          "size": 869208,
           "digests": {
-            "sha256": "bb09e079fa449a9f3be2d5e05800ec01be752dc9dcd2e284517c992613217fae"
+            "sha256": "793f850c2f1f96454111c682a978c552b98e2b90ca17cbafd78d51e6810ac5e3"
           },
           "platform": {
             "os": "macos",
@@ -171,9 +171,9 @@
           "format": "binary",
           "filename": "dream_archivetool-Linux-X64.zip",
           "media_type": "application/zip",
-          "size": 919064,
+          "size": 907185,
           "digests": {
-            "sha256": "7b62ebdf3495e28c5f17474abcd75fdbc73a40ecd0e114310960960f79e0bcaa"
+            "sha256": "5fceee95a41e97c08aa0663a1cedb0f637fcfcf96563d13b7738dfa24127e5d7"
           },
           "platform": {
             "os": "linux",
@@ -192,9 +192,9 @@
           "format": "binary",
           "filename": "dream_archivetool-Android-ARM64.zip",
           "media_type": "application/zip",
-          "size": 907788,
+          "size": 894783,
           "digests": {
-            "sha256": "f8ac694d9b872c720fc489244d3d5a47af461b09343e10898f78874a1fbb4cd6"
+            "sha256": "ff3a0544bfd61ecc704b020d20e7c7400109c4f4f5021e35b8b79543811878d2"
           },
           "platform": {
             "os": "android",
@@ -213,9 +213,9 @@
           "format": "binary",
           "filename": "dream_archivetool-Portmaster-ARM64.zip",
           "media_type": "application/zip",
-          "size": 905567,
+          "size": 890597,
           "digests": {
-            "sha256": "780e62ab617554df946849ec258f1cf636c9496c661cab811780192d91e56154"
+            "sha256": "7377345213dd6c38b62bc48a22c11d3d8ed2222d49994077b1fa57a33435f79d"
           },
           "platform": {
             "os": "linux",
@@ -225,6 +225,190 @@
           "sources": [
             {
               "url": "https://github.com/DreamWeave-MP/dream_archivetool/releases/download/development/dream_archivetool-Portmaster-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "1.1.0",
+      "channel": "stable",
+      "date": "2026-09-30",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archivetool",
+        "tag": "1.1.0",
+        "revision": "262432e9acb9e772dbc1310ad1371e6d8125aa47"
+      },
+      "notes": {
+        "summary": "Relicensed as MIT OR Apache-2.0 and built on l3i 1.1.0.",
+        "changed": [
+          "Relicensed from GPL-3.0 to MIT OR Apache-2.0: this is the first release under the new terms, and releases up to and including 1.0.0 stay GPL.",
+          "Requires dream_archive 1.1.0, its first MIT OR Apache-2.0 release.",
+          "l3i 1.1.0 comes from crates.io; the `@dream/archivetool` module is unchanged."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [
+        {
+          "os": "windows",
+          "arch": "x86_64"
+        },
+        {
+          "os": "macos",
+          "arch": "aarch64"
+        },
+        {
+          "os": "macos",
+          "arch": "x86_64"
+        },
+        {
+          "os": "linux",
+          "arch": "x86_64"
+        }
+      ],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_archivetool",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "windows-x64",
+          "format": "binary",
+          "filename": "dream_archivetool-Windows-X64.zip",
+          "media_type": "application/zip",
+          "size": 697038,
+          "digests": {
+            "sha256": "d233a7dae6ebe2fd23ee300e383315e8bcb0f06f25975ea657c82deaf9698e8c"
+          },
+          "platform": {
+            "os": "windows",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream_archivetool/releases/download/1.1.0/dream_archivetool-Windows-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-arm64",
+          "format": "binary",
+          "filename": "dream_archivetool-macOS-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 827985,
+          "digests": {
+            "sha256": "3b7b524b834aba5fe70c4041db7e3edc650ca9a58bd57ca3fb1e434de566e461"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream_archivetool/releases/download/1.1.0/dream_archivetool-macOS-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-x64",
+          "format": "binary",
+          "filename": "dream_archivetool-macOS-X64.zip",
+          "media_type": "application/zip",
+          "size": 869429,
+          "digests": {
+            "sha256": "8eaef0d94f6b3c53d71859bec35bd29628f59230624fdddaceeb247ad09de283"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream_archivetool/releases/download/1.1.0/dream_archivetool-macOS-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-x64",
+          "format": "binary",
+          "filename": "dream_archivetool-Linux-X64.zip",
+          "media_type": "application/zip",
+          "size": 907214,
+          "digests": {
+            "sha256": "c6166e20f8f1688dd898f09a7ca498296fbcddde42221c5493166a1d8cab0dcf"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream_archivetool/releases/download/1.1.0/dream_archivetool-Linux-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "android-arm64",
+          "format": "binary",
+          "filename": "dream_archivetool-Android-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 894814,
+          "digests": {
+            "sha256": "00b07a16309427ef27bd1210daffe6cf434bfd5a61035e7fb057fc8b9b24e547"
+          },
+          "platform": {
+            "os": "android",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream_archivetool/releases/download/1.1.0/dream_archivetool-Android-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-arm64-portmaster",
+          "format": "binary",
+          "filename": "dream_archivetool-Portmaster-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 890868,
+          "digests": {
+            "sha256": "790d44dc26141681bf270b5824e5344c2fe8a26471d05f510b9cf91b09435e0c"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "aarch64",
+            "variant": "portmaster"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream_archivetool/releases/download/1.1.0/dream_archivetool-Portmaster-ARM64.zip",
               "kind": "publisher"
             }
           ],

@@ -1,0 +1,46 @@
+{
+  "id": "8239a853da2be2fe81a6",
+  "kind": "changed",
+  "project": "75bc8ccd-a1ce-4618-98d8-a757e8862304",
+  "origin": "dreamweave-mp-github-io-dream-path-5d432987",
+  "name": "dream-path",
+  "observed_at": "2026-09-30T22:19:18Z",
+  "before": "8c5c2ff01bdf63d55419231d11dd24311716b6995a19121a6e55be311011caa8",
+  "after": "03e62664e5b84519d36c16f6db6ec4e61316a2da4d22e0969cb496285eadac1f",
+  "changes": [
+    {
+      "change": "project-field",
+      "field": "license",
+      "before": "GPL-3.0-only",
+      "after": "MIT OR Apache-2.0"
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "1.0.0",
+      "after": "1.1.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "crate",
+          "before": 30995,
+          "after": 23274
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "1.1.0",
+      "channel": "stable",
+      "date": "2026-09-30",
+      "status": "available",
+      "notes": {
+        "summary": "Relicensed as MIT OR Apache-2.0 and built on l3i 1.1.0.",
+        "changed": [
+          "Relicensed from GPL-3.0 to MIT OR Apache-2.0: this is the first release under the new terms, and releases up to and including 1.0.0 stay GPL.",
+          "l3i 1.1.0 comes from crates.io; the `@dream/path` module is unchanged."
+        ]
+      }
+    }
+  ]
+}
