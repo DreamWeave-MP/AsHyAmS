@@ -41,6 +41,21 @@ by anything that can serve files.
 None of the three may quietly become another. The index never rewrites a publisher's claim. The
 site never computes anything at request time, because nothing runs at request time.
 
+## What a release can be
+
+A release is one of three things, and the index shows each for what it is.
+
+- **Game data.** An archive laid out for installation, `flat`, `bain` or `fomod`, with its
+  components, content files and runtime constraints. Most of the St4sh's 31 projects are this.
+- **A program.** One archive per platform: Windows, macOS and Linux, and on their own artifacts,
+  Android and handheld builds for PortMaster and muOS. It is unpacked where the user asks and never
+  installed into a game. Greenmote, Morrobroom, S3LightFixes and dream-ini publish these.
+- **A crate.** A Rust library's release as crates.io serves it, with the checksum Cargo verifies.
+  Nothing installs it; the index records it so the release has a history. dream-net, openmw-config,
+  l3i and the other DreamWeave libraries publish these.
+
+Every one of them carries its publisher's SHA-256, labelled as the publisher's.
+
 ## What this is not
 
 - **Not a registry.** Nothing is allocated here. Project ids are chosen by their authors; this
