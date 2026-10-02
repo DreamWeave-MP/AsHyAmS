@@ -11,9 +11,9 @@
     },
     {
       "url": "https://dreamweave-mp.github.io/dream_path/dreamweave.json",
-      "outcome": "site index unchanged (HTTP 304)"
+      "outcome": "a DreamWeave site index"
     }
   ],
-  "last_attempt": "2026-10-02T12:40:21Z",
-  "last_success": "2026-10-02T12:40:21Z"
+  "last_attempt": "2026-10-02T22:17:03Z",
+  "last_success": "2026-10-02T22:17:03Z"
 }

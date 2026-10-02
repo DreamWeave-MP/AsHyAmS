@@ -54,10 +54,83 @@
   },
   "channels": {
     "stable": {
-      "version": "1.3.0"
+      "version": "1.3.1"
     }
   },
   "releases": [
+    {
+      "version": "1.3.1",
+      "channel": "stable",
+      "date": "2026-10-02",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/l3i",
+        "tag": "1.3.1",
+        "revision": "29cc97da2076d1f2fa4d395ca074201fee762efd"
+      },
+      "notes": {
+        "summary": "Luau can now create capability-gated dream.net servers and mint private-key-backed connect tokens, and l3i can emit a textual disassembly of the exact compiled bytecode.",
+        "added": [
+          "`net.server{ schema, address, protocolId, maxClients? }` creates a dream.net server from Luau when `network.transport` is granted. The generated signing key remains private inside the server userdata; `server:connectToken(clientId, expiresInSeconds?, timeoutSeconds?)` returns only the token clients need.",
+          "`l3i::source::disassemble(source, options)` emits Luau's textual bytecode listing for every function, including instructions, source lines, locals and constants, using the same compiler options and library callbacks as `source::compile`."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "requires",
+          "project": "f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda",
+          "name": "dream-net",
+          "version": "=1.1.0",
+          "url": "https://DreamWeave-MP.github.io/dream-net/",
+          "reason": "Runtime infrastructure: the @dream/net module is in every plan, and l3i owns the bridge."
+        },
+        {
+          "kind": "recommends",
+          "project": "f7b9633b-b7cb-4db9-a19f-63556586a81d",
+          "name": "dream-soft-render",
+          "version": "=1.0.0",
+          "url": "https://DreamWeave-MP.github.io/dream-soft-render/",
+          "reason": "The @dream/soft-render module, when the soft-render feature is on."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "l3i",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "l3i-1.3.1.crate",
+          "media_type": "application/gzip",
+          "size": 1869180,
+          "digests": {
+            "sha256": "fbbb48c9258b9488248e8d07928c6f47ffdd01bf1e1d55267456f8c39f497b7d"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/l3i/l3i-1.3.1.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
     {
       "version": "1.3.0",
       "channel": "stable",

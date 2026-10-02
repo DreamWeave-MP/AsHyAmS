@@ -1,0 +1,40 @@
+{
+  "id": "5e4db1bcc78eaf6b2a3f",
+  "kind": "changed",
+  "project": "2198fb51-71ba-4695-8e1f-26b55144c4fd",
+  "origin": "dreamweave-mp-github-io-l3i-3bef17f5",
+  "name": "l3i",
+  "observed_at": "2026-10-02T22:17:03Z",
+  "before": "69e0b1102f6208fe157fcbbe9592c0691e97f1edddcac745b2e4b42632b6526a",
+  "after": "a0a4a916a9acbb781665455ae05c80bd4c2098c33e6f5f7545d6907d6e026a88",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "1.3.0",
+      "after": "1.3.1",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "crate",
+          "before": 1867226,
+          "after": 1869180
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "1.3.1",
+      "channel": "stable",
+      "date": "2026-10-02",
+      "status": "available",
+      "notes": {
+        "summary": "Luau can now create capability-gated dream.net servers and mint private-key-backed connect tokens, and l3i can emit a textual disassembly of the exact compiled bytecode.",
+        "added": [
+          "`net.server{ schema, address, protocolId, maxClients? }` creates a dream.net server from Luau when `network.transport` is granted. The generated signing key remains private inside the server userdata; `server:connectToken(clientId, expiresInSeconds?, timeoutSeconds?)` returns only the token clients need.",
+          "`l3i::source::disassemble(source, options)` emits Luau's textual bytecode listing for every function, including instructions, source lines, locals and constants, using the same compiler options and library callbacks as `source::compile`."
+        ]
+      }
+    }
+  ]
+}
