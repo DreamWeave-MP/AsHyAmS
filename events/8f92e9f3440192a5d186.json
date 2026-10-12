@@ -1,0 +1,31 @@
+{
+  "id": "8f92e9f3440192a5d186",
+  "kind": "changed",
+  "project": "185c3128-dbeb-46e2-8aec-05438a497124",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "S3ui",
+  "observed_at": "2026-10-12T06:02:39Z",
+  "before": "265e8ab72164b753aa027ccd759fa935fb1108905b1f638d411a0f0e472fe474",
+  "after": "793def6c027c1b345c1bfdf8dc11dce2f04ec3dc23bc8c0b33cced1d5961ac8f",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "0.0.1-dev.138",
+      "before": "2026-09-30",
+      "after": "2026-10-12"
+    },
+    {
+      "change": "release-amended",
+      "version": "0.0.1-dev.138",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "412c90c15c10363a6ec019015eec736104801d4a",
+          "after": "8b1f6a008c5957d2a2af7c46c8786bb1507f420e"
+        }
+      ]
+    }
+  ]
+}

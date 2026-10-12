@@ -1,0 +1,31 @@
+{
+  "id": "48197e8cb54be47e2231",
+  "kind": "changed",
+  "project": "f1a9f346-fdc3-4b71-b9bb-d06022c6f145",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Transmog Menu",
+  "observed_at": "2026-10-12T06:02:39Z",
+  "before": "3db9bfb9639cd1ddbaaa36c265c3eb5aa1bec7aee8d5af8f37a1da1f80db605b",
+  "after": "eba864e562d51f28c4e5a8c162fcf27db7f921b5c72c41ee479ba821cf55e005",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "0.7-dev.11",
+      "before": "2026-09-30",
+      "after": "2026-10-12"
+    },
+    {
+      "change": "release-amended",
+      "version": "0.7-dev.11",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "412c90c15c10363a6ec019015eec736104801d4a",
+          "after": "8b1f6a008c5957d2a2af7c46c8786bb1507f420e"
+        }
+      ]
+    }
+  ]
+}

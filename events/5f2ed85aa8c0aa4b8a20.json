@@ -1,0 +1,31 @@
+{
+  "id": "5f2ed85aa8c0aa4b8a20",
+  "kind": "changed",
+  "project": "5e11d08b-461f-463d-86c0-c247cec63714",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "P37z",
+  "observed_at": "2026-10-12T06:02:39Z",
+  "before": "1335fc2c6728b4719921439df457281553ba4232ef7198bf2fb24646c4d6784b",
+  "after": "c88791cebfde5c6aa0fa0d383a62fa271c10e2ee4aee07722e2c83cbaf2e99cf",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "0.0.1-dev.6",
+      "before": "2026-09-30",
+      "after": "2026-10-12"
+    },
+    {
+      "change": "release-amended",
+      "version": "0.0.1-dev.6",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "412c90c15c10363a6ec019015eec736104801d4a",
+          "after": "8b1f6a008c5957d2a2af7c46c8786bb1507f420e"
+        }
+      ]
+    }
+  ]
+}

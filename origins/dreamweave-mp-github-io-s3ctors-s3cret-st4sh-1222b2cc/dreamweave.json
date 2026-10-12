@@ -15,8 +15,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/horiz0n/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/0e93a788-e6a0-4bb2-b0f4-d803622bf642.json",
-      "manifest_sha256": "91cba593e487a6c06f9aba74baf3ec8240e09d77f37d1dfbd5af5b3735630c55",
-      "updated": "2026-09-30",
+      "manifest_sha256": "ef987b72e56daa5e6f0200cad46e5ce8cba898a08d89af913493f720edf23db6",
+      "updated": "2026-10-12",
       "channels": {
         "development": "1.3-dev.12"
       }
@@ -29,8 +29,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/s3ui/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/185c3128-dbeb-46e2-8aec-05438a497124.json",
-      "manifest_sha256": "265e8ab72164b753aa027ccd759fa935fb1108905b1f638d411a0f0e472fe474",
-      "updated": "2026-09-30",
+      "manifest_sha256": "793def6c027c1b345c1bfdf8dc11dce2f04ec3dc23bc8c0b33cced1d5961ac8f",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.0.1-dev.138"
       }
@@ -43,8 +43,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/chim_climbing/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/1968bc35-2839-4a92-9161-17481e76896d.json",
-      "manifest_sha256": "61b0eeacb4e9e2eb560127c90d7cdb43c48d670d4034c6660d95a421c03a2389",
-      "updated": "2026-09-30",
+      "manifest_sha256": "47b35246c10400f7b695fa6488101401227d3f571b3cb819450ba0dc1a89d524",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.511-dev.6"
       }
@@ -57,8 +57,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/t4rg3t5/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/2480cc49-8743-4fb2-854c-2073513049c8.json",
-      "manifest_sha256": "3ec774ef2b1d01f874cf45f0b8c1eece19ee36fd4510f72f68a206d2eb6b4dc8",
-      "updated": "2026-09-30",
+      "manifest_sha256": "90af65e81541cc8b1057f85f6f55714f74b276136d029833cc64305d7af17a51",
+      "updated": "2026-10-12",
       "channels": {
         "development": "1.01-dev.14"
       }
@@ -71,8 +71,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/s3maphore/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/28030d08-79fc-4aeb-aa6f-69e8ebd0940b.json",
-      "manifest_sha256": "7d80f4b9eb879a12cb0ede173fa2e09e055898dccf9d86c29b16c547e7ac190e",
-      "updated": "2026-09-30",
+      "manifest_sha256": "8f735352db062ec9f3cbbeb9a50b6c7829cbcf6c840a3e152199d4eeaf7d8a4c",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.9631-dev.30"
       }
@@ -85,8 +85,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/starwind_map_expansion/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/4d0348b2-0622-44d4-a4ef-114380d8912b.json",
-      "manifest_sha256": "72bd2425a80557bacc2bed39fd93c8004efefc198a7c4bc37b42f2632dbbb6e9",
-      "updated": "2026-09-30",
+      "manifest_sha256": "82a4abf0893019d441e79eec5de1d5660a6e564d6b771d50626788ad9ec3d4fd",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.0.1-dev.3"
       }
@@ -99,8 +99,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/monochrome_ui_supplement/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/56f73f30-68f8-4a06-aff7-9d81b7312a61.json",
-      "manifest_sha256": "7e4ec5fc0186eb5251365d3718d7dbc96e35adb63088bc6c2f7b0c28ca41fe60",
-      "updated": "2026-09-30",
+      "manifest_sha256": "6d2ca0588bd827b3e1f6400b03591d302945b3047d425f138454fe7e16305af6",
+      "updated": "2026-10-12",
       "channels": {
         "development": "1.1-dev.7"
       }
@@ -113,8 +113,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/sw_merged/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/5c86240d-5bf6-4095-a479-59dcaa723853.json",
-      "manifest_sha256": "9310eb8e451fce27abe0116a7d2da47268a70e5b45fc40c9c890e530f9512803",
-      "updated": "2026-09-30",
+      "manifest_sha256": "96381a311554b2dbe679798f04178fd355be3cf5c4ef186abdf8c645d04c22c6",
+      "updated": "2026-10-12",
       "channels": {
         "development": "1.01-dev.6"
       }
@@ -127,8 +127,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/p37z/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/5e11d08b-461f-463d-86c0-c247cec63714.json",
-      "manifest_sha256": "1335fc2c6728b4719921439df457281553ba4232ef7198bf2fb24646c4d6784b",
-      "updated": "2026-09-30",
+      "manifest_sha256": "c88791cebfde5c6aa0fa0d383a62fa271c10e2ee4aee07722e2c83cbaf2e99cf",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.0.1-dev.6"
       }
@@ -141,8 +141,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/cod3x/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/77a5e247-6e75-4507-a97a-7d849744446d.json",
-      "manifest_sha256": "be55cf08cd4d73cfd8cd4aaaf7f617436d269752c5606beaca016fdf4d2c27b3",
-      "updated": "2026-09-30",
+      "manifest_sha256": "44e76189d69009a953cf36ab0f8fc4d7a3d118b5026a1ea3cbf7692448600389",
+      "updated": "2026-10-12",
       "channels": {
         "development": "1.1-dev.8"
       }
@@ -155,10 +155,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/static_switching_system/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/81abbe84-b6ae-4104-96e7-d993fae68ae5.json",
-      "manifest_sha256": "8e7bbe426c418abd81930c7d4dfe69a1d1a941c373a62649895188a3e86c7f59",
-      "updated": "2026-09-30",
+      "manifest_sha256": "02050d82d01c241702895b24793bacfa1fae5e74340be061a7912324e2d9f0fc",
+      "updated": "2026-10-12",
       "channels": {
-        "development": "1.1-dev.8"
+        "development": "1.1-dev.10"
       }
     },
     {
@@ -169,8 +169,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/s4v3r/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/85f9afe2-54ff-44ee-a40a-0098f7ea1ac0.json",
-      "manifest_sha256": "40771275c1c64336e9721026550c9621d1aa4b6e9e9d2e9d671a6cd61fb00166",
-      "updated": "2026-09-30",
+      "manifest_sha256": "eb0f953014be388546ecb337b714784bf71efa7eb40a4eb6d3f66e1bd5e0686f",
+      "updated": "2026-10-12",
       "channels": {
         "development": "1.51-dev.5"
       }
@@ -183,8 +183,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/pr0f1l3r/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/89b83222-696a-4b0b-b243-98c44b863ff0.json",
-      "manifest_sha256": "9fd7722037734ca98e55eb7a3d2b9a2f321d7a8c83945cd4072c6e92a368be3e",
-      "updated": "2026-09-30",
+      "manifest_sha256": "b7d1b2aed6f71dc8916ed03374349755186eb1b0798517ebc6f8c98e03b069d1",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.0.1-dev.16"
       }
@@ -197,8 +197,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dr1p/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/8d411c5d-fb05-41aa-9025-b9a60f4ccc33.json",
-      "manifest_sha256": "76af3a5c33d399601c2aec24b07f1b0e43a45d40c65b3887bfd8b472207a7f03",
-      "updated": "2026-09-30",
+      "manifest_sha256": "fd8799a7cc0e7db9be9f65a93a7b1db12fc98732c6a6331bb984453d0c9e4b36",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.0.1-dev.47"
       }
@@ -211,8 +211,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/i_am_basket/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/9730fd78-f0d6-4c0f-bc15-51a571c43899.json",
-      "manifest_sha256": "7cf970cd67ee173b239d99f35a68772c52403b6901667abfdde4942a3eedc869",
-      "updated": "2026-09-30",
+      "manifest_sha256": "8cccf3a923cd20d337b25400f1adf46efb12909686aa219a487ae166951205c0",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.0.1-dev.3"
       }
@@ -225,8 +225,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/fargoth_assassins/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/9d492d12-1bd3-4b70-afbf-29aadbe64bed.json",
-      "manifest_sha256": "659b9751f69a93fc8729e5738be09bd1dcf7e7cc72366e3b2f12b0884a7a7e94",
-      "updated": "2026-09-30",
+      "manifest_sha256": "42016eb3d95b8be7db05a13f941faf6d38e4fbf4bebc45b19887fe720310d79c",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.6-dev.5"
       }
@@ -239,8 +239,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/starwind_pvp/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/a0ae5b47-703f-4013-b5ed-3e3bf234fd66.json",
-      "manifest_sha256": "e5a931440cf0538383dd12a74dc51a522f340e03035646d158daf0396fd79116",
-      "updated": "2026-09-30",
+      "manifest_sha256": "c4bcbffcff66cdd19b9e67ebda93ac7176aaee783235623ac9afa84c2d8a8b2d",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.2-dev.4"
       }
@@ -253,8 +253,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/sh4des/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/a9796e0f-2e06-402b-b1c5-c80a8bda1096.json",
-      "manifest_sha256": "cc672289459abca809ea0c570af5fcf9960c7798c2a696da33f8db3dd3f79f54",
-      "updated": "2026-09-30",
+      "manifest_sha256": "fa159da3afe25fb618e7f0b8dd6513834c0a32f5314430daa93b9c30dd175538",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.0.1-dev.12"
       }
@@ -267,8 +267,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/hawk3ye/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/ac37d9df-e920-46fd-9cdf-db16c96338e0.json",
-      "manifest_sha256": "31d7c5e8e63d766f49f7743a4a588be22e7570d2cba2a4eb7e6dd90c23247f30",
-      "updated": "2026-09-30",
+      "manifest_sha256": "8620a217360201bd0caddc94085e99a556559d86f785a2818b1e7845bf6d5543",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.521-dev.6"
       }
@@ -281,8 +281,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/luamics/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/bfeb1441-8280-4804-9abc-398f27ce805e.json",
-      "manifest_sha256": "a400a76cd78191808e4835516948e24e83a0cab0c1d4085b5ad7c0986d273334",
-      "updated": "2026-09-30",
+      "manifest_sha256": "e865c5da4b86348a821bb4252f54aabc34deb8c18423210702f513ceb5c7fbad",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.2-dev.4"
       }
@@ -295,8 +295,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/crass_nav/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/cbd85ee7-f08c-4633-8efd-82394f437807.json",
-      "manifest_sha256": "dcda36786dbef442d246408f01ea146437413d376cd1f00335802f17bea9f010",
-      "updated": "2026-09-30",
+      "manifest_sha256": "72ee4a80339476ecbb2b3bbd20f1a9252708df58955b019990ee5fe4f22072b7",
+      "updated": "2026-10-12",
       "channels": {
         "development": "1.1-dev.7"
       }
@@ -309,8 +309,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/h3lp_yours3lf/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/cd195eb1-05e3-4982-bba0-2e23abd9acec.json",
-      "manifest_sha256": "07edfea148535233f1172b1859599ac7b639e09182edd7c9a82e3469ca12403d",
-      "updated": "2026-09-30",
+      "manifest_sha256": "ac291851caefb6c1a0e5e5bb78582a7e9507afa82ea946db5b01acca47123a3d",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.821-dev.59"
       }
@@ -323,8 +323,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/birr/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/cfebb85d-0200-43aa-91f4-843b0c50cb44.json",
-      "manifest_sha256": "66520aa3708a7f2fff701063c33ee7b7dd65b13a1739403ac3473bc9bbf158ec",
-      "updated": "2026-09-30",
+      "manifest_sha256": "5eff7fb813defc3f928338334c91b2a5c4db6d4755aa370c58b9ad89c0c22375",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.821-dev.6"
       }
@@ -337,8 +337,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/chim_2090/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/d2c0f0bd-19c0-4df2-b899-62690a8212f9.json",
-      "manifest_sha256": "63b837abf7a711e6b8876429f0cbd53e46b24de1cb37efdb06b690c8e58216fa",
-      "updated": "2026-09-30",
+      "manifest_sha256": "f08a45098c2d7dc48f1a05518629de5863264453f8717e809442388689e608c7",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.0.1-dev.23"
       }
@@ -351,8 +351,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/baldurwind/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/d5424da4-bc27-4833-8758-4a1c14ffff03.json",
-      "manifest_sha256": "0458dd8c0937d3ed51ec255af98f5efcdbb85453e5f5092a49853ef5b7ff7801",
-      "updated": "2026-09-30",
+      "manifest_sha256": "dc2d5968db4fb61a2b949db492bcfe0cbd61cddd880740576557156aebb4c97c",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.1.2-dev.4"
       }
@@ -365,8 +365,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/visual_soulgems/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/d870dfb4-f434-4dd9-91e8-1a71c0e541bb.json",
-      "manifest_sha256": "0b16d98820b9b860dea711dbd51eb212cc84d483278c722acfa1cde6dbddc92c",
-      "updated": "2026-09-30",
+      "manifest_sha256": "becb768851a714c3cbccd648ecf9f7476278b9e8d3aa8a6619dd9ac8f4e4c9b4",
+      "updated": "2026-10-12",
       "channels": {
         "development": "1.2-dev.5"
       }
@@ -379,8 +379,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/ui_modes_slim/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/e0b8dda4-42d9-4e31-bf3f-43be964038db.json",
-      "manifest_sha256": "48b54891003dc6f4521ff77f14fe1885bc9cb9962289629b5f9aaae395953da4",
-      "updated": "2026-09-30",
+      "manifest_sha256": "d6ef0ac590dda3c6c95f6bd93aebf83360b907421f5295a3a7090a0fa6489b42",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.2-dev.5"
       }
@@ -393,8 +393,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/talk_to_the_hand/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/e371b89c-7cc6-4cb3-a9f4-425b31afd855.json",
-      "manifest_sha256": "c030ce80371759cad033e819fed0667566b1f5fc2f40f21c5b1c75de56c5eb78",
-      "updated": "2026-09-30",
+      "manifest_sha256": "8e100e52fd7d360c62c5028b77297534c0c83e8fba3ff064a7624c83d6436fd4",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.0.1-dev.8"
       }
@@ -407,8 +407,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/toolgun/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/ec13bb40-584e-45e6-aabc-b426ea6833a3.json",
-      "manifest_sha256": "8a2a04fec5851e29840c1458c1c3c438775a69c9aea2c17becb3359abed9a95b",
-      "updated": "2026-09-30",
+      "manifest_sha256": "45ad425b3bd2029ae5053b4fc6ed73bb248ebd5ad6062f28a362731592604d60",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.1.1-dev.5"
       }
@@ -421,8 +421,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/flextag/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/ed77443e-a232-4eee-839d-427c515a358b.json",
-      "manifest_sha256": "e82d6ddbdc4a9a38378dbfc461416be026c97c4e3ddd362bdf9d431e3e708d07",
-      "updated": "2026-09-30",
+      "manifest_sha256": "d77627cc9212710c907f755cd8e39781a2d1be012d0e14449c5b618036d6754c",
+      "updated": "2026-10-12",
       "channels": {
         "development": "1.0.2-dev.3"
       }
@@ -435,8 +435,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/transmog/",
       "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/f1a9f346-fdc3-4b71-b9bb-d06022c6f145.json",
-      "manifest_sha256": "3db9bfb9639cd1ddbaaa36c265c3eb5aa1bec7aee8d5af8f37a1da1f80db605b",
-      "updated": "2026-09-30",
+      "manifest_sha256": "eba864e562d51f28c4e5a8c162fcf27db7f921b5c72c41ee479ba821cf55e005",
+      "updated": "2026-10-12",
       "channels": {
         "development": "0.7-dev.11"
       }

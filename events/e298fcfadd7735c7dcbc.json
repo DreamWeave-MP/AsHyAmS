@@ -1,0 +1,31 @@
+{
+  "id": "e298fcfadd7735c7dcbc",
+  "kind": "changed",
+  "project": "d5424da4-bc27-4833-8758-4a1c14ffff03",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Baldurwind",
+  "observed_at": "2026-10-12T06:02:39Z",
+  "before": "0458dd8c0937d3ed51ec255af98f5efcdbb85453e5f5092a49853ef5b7ff7801",
+  "after": "dc2d5968db4fb61a2b949db492bcfe0cbd61cddd880740576557156aebb4c97c",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "0.1.2-dev.4",
+      "before": "2026-09-30",
+      "after": "2026-10-12"
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.2-dev.4",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "412c90c15c10363a6ec019015eec736104801d4a",
+          "after": "8b1f6a008c5957d2a2af7c46c8786bb1507f420e"
+        }
+      ]
+    }
+  ]
+}

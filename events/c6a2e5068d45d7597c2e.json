@@ -1,0 +1,31 @@
+{
+  "id": "c6a2e5068d45d7597c2e",
+  "kind": "changed",
+  "project": "cbd85ee7-f08c-4633-8efd-82394f437807",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Crassified Navigation",
+  "observed_at": "2026-10-12T06:02:39Z",
+  "before": "dcda36786dbef442d246408f01ea146437413d376cd1f00335802f17bea9f010",
+  "after": "72ee4a80339476ecbb2b3bbd20f1a9252708df58955b019990ee5fe4f22072b7",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "1.1-dev.7",
+      "before": "2026-09-30",
+      "after": "2026-10-12"
+    },
+    {
+      "change": "release-amended",
+      "version": "1.1-dev.7",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "412c90c15c10363a6ec019015eec736104801d4a",
+          "after": "8b1f6a008c5957d2a2af7c46c8786bb1507f420e"
+        }
+      ]
+    }
+  ]
+}

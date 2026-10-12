@@ -1,0 +1,31 @@
+{
+  "id": "5713578a6fb7b34ffffe",
+  "kind": "changed",
+  "project": "9d492d12-1bd3-4b70-afbf-29aadbe64bed",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Fargoth Assassins",
+  "observed_at": "2026-10-12T06:02:39Z",
+  "before": "659b9751f69a93fc8729e5738be09bd1dcf7e7cc72366e3b2f12b0884a7a7e94",
+  "after": "42016eb3d95b8be7db05a13f941faf6d38e4fbf4bebc45b19887fe720310d79c",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "0.6-dev.5",
+      "before": "2026-09-30",
+      "after": "2026-10-12"
+    },
+    {
+      "change": "release-amended",
+      "version": "0.6-dev.5",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "412c90c15c10363a6ec019015eec736104801d4a",
+          "after": "8b1f6a008c5957d2a2af7c46c8786bb1507f420e"
+        }
+      ]
+    }
+  ]
+}

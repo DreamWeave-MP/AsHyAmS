@@ -9,20 +9,20 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/flextag/",
     "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/ed77443e-a232-4eee-839d-427c515a358b.json",
-    "manifest_sha256": "e82d6ddbdc4a9a38378dbfc461416be026c97c4e3ddd362bdf9d431e3e708d07",
-    "updated": "2026-09-30",
+    "manifest_sha256": "d77627cc9212710c907f755cd8e39781a2d1be012d0e14449c5b618036d6754c",
+    "updated": "2026-10-12",
     "channels": {
       "development": "1.0.2-dev.3"
     }
   },
-  "advertised_sha256": "e82d6ddbdc4a9a38378dbfc461416be026c97c4e3ddd362bdf9d431e3e708d07",
-  "ingested_sha256": "e82d6ddbdc4a9a38378dbfc461416be026c97c4e3ddd362bdf9d431e3e708d07",
+  "advertised_sha256": "d77627cc9212710c907f755cd8e39781a2d1be012d0e14449c5b618036d6754c",
+  "ingested_sha256": "d77627cc9212710c907f755cd8e39781a2d1be012d0e14449c5b618036d6754c",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-09-30T01:45:06Z",
-  "last_changed": "2026-09-30T02:19:32Z",
-  "last_attempt": "2026-10-11T22:00:18Z",
-  "last_success": "2026-10-11T22:00:18Z"
+  "last_changed": "2026-10-12T06:02:39Z",
+  "last_attempt": "2026-10-12T06:02:39Z",
+  "last_success": "2026-10-12T06:02:39Z"
 }

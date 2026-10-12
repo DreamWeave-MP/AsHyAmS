@@ -1,0 +1,31 @@
+{
+  "id": "dc0065be975dcc9fba6d",
+  "kind": "changed",
+  "project": "8d411c5d-fb05-41aa-9025-b9a60f4ccc33",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "DR1P",
+  "observed_at": "2026-10-12T06:02:39Z",
+  "before": "76af3a5c33d399601c2aec24b07f1b0e43a45d40c65b3887bfd8b472207a7f03",
+  "after": "fd8799a7cc0e7db9be9f65a93a7b1db12fc98732c6a6331bb984453d0c9e4b36",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "0.0.1-dev.47",
+      "before": "2026-09-30",
+      "after": "2026-10-12"
+    },
+    {
+      "change": "release-amended",
+      "version": "0.0.1-dev.47",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "412c90c15c10363a6ec019015eec736104801d4a",
+          "after": "8b1f6a008c5957d2a2af7c46c8786bb1507f420e"
+        }
+      ]
+    }
+  ]
+}
