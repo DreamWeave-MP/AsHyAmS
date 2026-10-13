@@ -1,0 +1,57 @@
+{
+  "id": "2cee42dd835e0143b0cc",
+  "kind": "changed",
+  "project": "2198fb51-71ba-4695-8e1f-26b55144c4fd",
+  "origin": "dreamweave-mp-github-io-l3i-3bef17f5",
+  "name": "l3i",
+  "observed_at": "2026-10-13T00:43:48Z",
+  "before": "fcea8bfbcf25875eac8e33d97794bc58c74ec8c37b9fb5ea6ec6277d74268f86",
+  "after": "3dd65e5391eed75d6d7b8407b4930926b922f80263286d2ffb8a2103dbffef5f",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "2.0.0",
+      "after": "2.0.2",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "crate",
+          "before": 2377858,
+          "after": 2394884
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "2.0.2",
+      "channel": "stable",
+      "date": "2026-10-12",
+      "status": "available",
+      "notes": {
+        "summary": "A natively lowered `@dream/intern` lookup no longer reads a slot table the pool has freed, and the `@dream/data` definitions say what a span's `kind` is.",
+        "fixed": [
+          "Interning a key a pool already held, through the binder, while the pool sat at its load limit (12, 24, 48 ... identities) grew the slot table before looking the key up, and did not tell native code the table had moved, because the pool's length had not changed. Until the next new key, a lowered `pool:find` or `pool:intern` on an annotated `dream_intern_Pool` read the freed table: wrong tokens, `nil` for a key the pool held. A pool now looks a key up first and grows only to add one, so a key it holds moves nothing. Unannotated pools were never affected.",
+          "The `@dream/data` definitions gave `gather`, `scatter` and `add` a `kind: dream_data_Kind` parameter, the union of receiver classes, where the runtime takes the layout string every other span takes; and they typed a span's `kind` as the eight bare kinds, so the documented strided form (`\"f32@16+12\"`) was a type error under `--!strict`. A span's `kind` is now a `dream_data_Layout`, `dream_data_ElementKind | string`, in every signature, and the strict-script gate that checks the definitions against the runtime covers `@dream/data`, which it had left out.",
+          "`data.fill`'s description said the value converts as `buffer.write<kind>` converts. It is written as every data-plane write is: a number, truncated toward zero and wrapped to the width, saturating first beyond 2^63. The description says so now; the behaviour is unchanged."
+        ],
+        "migration": "Nothing to change. A pool annotated `dream_intern_Pool` that also receives keys through unannotated code was the exposed case, and is correct after an upgrade. A strict script that cast a strided layout to pass it to `@dream/data` can drop the cast.\n"
+      }
+    },
+    {
+      "change": "release-added",
+      "version": "2.0.1",
+      "channel": "stable",
+      "date": "2026-10-12",
+      "status": "available",
+      "notes": {
+        "summary": "A sink or slice statement may open a function body, and the `@dream/luau` definitions declare the record pattern nodes the tree has carried since 2.0.0.",
+        "fixed": [
+          "A statement that begins with a sink or a slice (`into(out)[for x in xs => x]`, `grid[2:3][1][1] = 5`) failed to compile as the first statement of a function body, with `Expected identifier when parsing expression, got ';'`: the lowering separated it from a statement that was not there. A body's first statement now gets no separator, whatever the header ends with, and where a return type ends is decided by Luau's parser, not estimated.",
+          "The `@dream/luau` definitions did not declare `StatLocalPattern`, `PatternRecord`, `PatternField` or `PatternIdentifier`, and typed `ExprFunction.args` and `ComprehensionGenerator.bindings` as lists of `dream_luau_Local` although a record pattern can stand in either. They are declared now, `dream_luau_StatLocalPattern` is a member of `dream_luau_Stat`, and a slot that may hold a pattern is a `dream_luau_Binding`, `dream_luau_Local | dream_luau_PatternRecord`."
+        ],
+        "migration": "A strict script that reads `name` off an element of `ExprFunction.args` or of a generator's `bindings` refines it by `kind` first, `\"Local\"` or `\"PatternRecord\"`. Nothing changes at run time.\n"
+      }
+    }
+  ]
+}
