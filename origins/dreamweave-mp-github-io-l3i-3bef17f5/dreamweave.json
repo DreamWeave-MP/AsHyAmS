@@ -15,10 +15,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/l3i/home/",
       "manifest": "https://dreamweave-mp.github.io/l3i/dreamweave/projects/2198fb51-71ba-4695-8e1f-26b55144c4fd.json",
-      "manifest_sha256": "82645c3dc767f57e7f4b911adce01e9b0b515fb38f8c124c6cad58666bb27dad",
-      "updated": "2026-10-14",
+      "manifest_sha256": "72c3fdd5e04e0017563c78ba43acc82998a7c1b9f0fe512829e5ed8ac10e882d",
+      "updated": "2026-10-15",
       "channels": {
-        "stable": "2.0.3"
+        "stable": "2.1.0"
       }
     }
   ]
