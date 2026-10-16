@@ -49,10 +49,160 @@
   },
   "channels": {
     "stable": {
-      "version": "2.1.0"
+      "version": "2.1.2"
     }
   },
   "releases": [
+    {
+      "version": "2.1.2",
+      "channel": "stable",
+      "date": "2026-10-15",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/l3i",
+        "tag": "2.1.2",
+        "revision": "3bdcd7f87494e8b20e087d10ebbdcfe40240b75c"
+      },
+      "notes": {
+        "summary": "2.1.1's fixes, released through the pipeline: 2.1.1 went to crates.io by hand, without its GitHub release or documentation.",
+        "migration": "Nothing to change. Take 2.1.2 in place of 2.1.1; they are the same code.\n",
+        "changed": [
+          "Two push closures end with a semicolon, as the pedantic lints ask. Nothing else differs from 2.1.1."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "requires",
+          "project": "f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda",
+          "name": "dream-net",
+          "version": "=1.1.0",
+          "url": "https://DreamWeave-MP.github.io/dream-net/",
+          "reason": "Runtime infrastructure: the @dream/udp module is in every plan, and l3i owns the bridge."
+        },
+        {
+          "kind": "recommends",
+          "project": "f7b9633b-b7cb-4db9-a19f-63556586a81d",
+          "name": "dream-soft-render",
+          "version": "=1.0.0",
+          "url": "https://DreamWeave-MP.github.io/dream-soft-render/",
+          "reason": "The @dream/soft-render module, when the soft-render feature is on."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "l3i",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "l3i-2.1.2.crate",
+          "media_type": "application/gzip",
+          "size": 2419486,
+          "digests": {
+            "sha256": "197c73848c84525b51058592349450423934aaabc5998b1854a17df2726b2b7d"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/l3i/l3i-2.1.2.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "2.1.1",
+      "channel": "stable",
+      "date": "2026-10-15",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/l3i",
+        "tag": "2.1.1",
+        "revision": "3f93eba47e74c072aedb589e4c153fb69df5a1fd"
+      },
+      "notes": {
+        "summary": "Fixes to 2.1.0's limits: no push or host-level allocation aborts the process, a wait the time limit cuts short fails the call it ends, process.run stops at the limit whatever holds its pipes, and a child finds programs on the host's PATH again.",
+        "migration": "Nothing to change. A host that wanted a child to have no `PATH` passes `clearEnv = true`. `Value::clone`, `Value::type_of` and `Value::eq` answer as for an invalid value (an invalid clone, `Type::None`, `false`) when the main thread has no stack slot left, where they could abort before.\n",
+        "fixed": [
+          "A child started without `process.environment` gets the host's `PATH` along with what `env` names, so `process.run('git')` finds a program where the host would, and so does whatever that program starts. 2.1.0 cleared `PATH` with the rest, and a bare name fell back to libc's default path. `clearEnv = true` still clears it.",
+          "`bytes.shortest(value, 'f32')` answers `nil` for a double past single precision's range, which narrows to an infinity. It formatted that infinity as `inf`, found no exponent, and aborted the process from inside the native call.",
+          "Every scalar, vector, light userdata and pinned-value push makes room on the stack first, and pinning a value, making a table, a closure or a userdata, and looking up a global run under protection at host level. A host that filled the stack, or ran out of memory under the cap while doing any of those outside a Lua call, aborted with Rust cannot catch foreign exceptions; it gets `Err`.",
+          "A `@dream/tcp` poller's or `@dream/dns` request's wait cut short by the execution time limit marks the call expired, as `process.sleep` and `process.run` do, so a script that ends with the wait fails with the limit instead of returning `Ok`.",
+          "`process.run` ends at the execution time limit even while a process the child started holds a captured pipe open, abandoning the capture instead of waiting for its reader, and kills and reaps a child whose wait fails."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "requires",
+          "project": "f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda",
+          "name": "dream-net",
+          "version": "=1.1.0",
+          "url": "https://DreamWeave-MP.github.io/dream-net/",
+          "reason": "Runtime infrastructure: the @dream/udp module is in every plan, and l3i owns the bridge."
+        },
+        {
+          "kind": "recommends",
+          "project": "f7b9633b-b7cb-4db9-a19f-63556586a81d",
+          "name": "dream-soft-render",
+          "version": "=1.0.0",
+          "url": "https://DreamWeave-MP.github.io/dream-soft-render/",
+          "reason": "The @dream/soft-render module, when the soft-render feature is on."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "l3i",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "l3i-2.1.1.crate",
+          "media_type": "application/gzip",
+          "size": 2419471,
+          "digests": {
+            "sha256": "8587484174381768eb24e756c1a64abd41e13c9ed284558297ceb98cf038a1ea"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/l3i/l3i-2.1.1.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
     {
       "version": "2.1.0",
       "channel": "stable",

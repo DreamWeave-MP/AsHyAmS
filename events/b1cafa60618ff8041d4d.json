@@ -1,0 +1,58 @@
+{
+  "id": "b1cafa60618ff8041d4d",
+  "kind": "changed",
+  "project": "2198fb51-71ba-4695-8e1f-26b55144c4fd",
+  "origin": "dreamweave-mp-github-io-l3i-3bef17f5",
+  "name": "l3i",
+  "observed_at": "2026-10-16T04:35:47Z",
+  "before": "72c3fdd5e04e0017563c78ba43acc82998a7c1b9f0fe512829e5ed8ac10e882d",
+  "after": "1a60591cad07059c2229558fb02cf5b79ae43dd2e450c88f1bc85fedf7fb334a",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "2.1.0",
+      "after": "2.1.2",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "crate",
+          "before": 2416845,
+          "after": 2419486
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "2.1.2",
+      "channel": "stable",
+      "date": "2026-10-15",
+      "status": "available",
+      "notes": {
+        "summary": "2.1.1's fixes, released through the pipeline: 2.1.1 went to crates.io by hand, without its GitHub release or documentation.",
+        "changed": [
+          "Two push closures end with a semicolon, as the pedantic lints ask. Nothing else differs from 2.1.1."
+        ],
+        "migration": "Nothing to change. Take 2.1.2 in place of 2.1.1; they are the same code.\n"
+      }
+    },
+    {
+      "change": "release-added",
+      "version": "2.1.1",
+      "channel": "stable",
+      "date": "2026-10-15",
+      "status": "available",
+      "notes": {
+        "summary": "Fixes to 2.1.0's limits: no push or host-level allocation aborts the process, a wait the time limit cuts short fails the call it ends, process.run stops at the limit whatever holds its pipes, and a child finds programs on the host's PATH again.",
+        "fixed": [
+          "A child started without `process.environment` gets the host's `PATH` along with what `env` names, so `process.run('git')` finds a program where the host would, and so does whatever that program starts. 2.1.0 cleared `PATH` with the rest, and a bare name fell back to libc's default path. `clearEnv = true` still clears it.",
+          "`bytes.shortest(value, 'f32')` answers `nil` for a double past single precision's range, which narrows to an infinity. It formatted that infinity as `inf`, found no exponent, and aborted the process from inside the native call.",
+          "Every scalar, vector, light userdata and pinned-value push makes room on the stack first, and pinning a value, making a table, a closure or a userdata, and looking up a global run under protection at host level. A host that filled the stack, or ran out of memory under the cap while doing any of those outside a Lua call, aborted with Rust cannot catch foreign exceptions; it gets `Err`.",
+          "A `@dream/tcp` poller's or `@dream/dns` request's wait cut short by the execution time limit marks the call expired, as `process.sleep` and `process.run` do, so a script that ends with the wait fails with the limit instead of returning `Ok`.",
+          "`process.run` ends at the execution time limit even while a process the child started holds a captured pipe open, abandoning the capture instead of waiting for its reader, and kills and reaps a child whose wait fails."
+        ],
+        "migration": "Nothing to change. A host that wanted a child to have no `PATH` passes `clearEnv = true`. `Value::clone`, `Value::type_of` and `Value::eq` answer as for an invalid value (an invalid clone, `Type::None`, `false`) when the main thread has no stack slot left, where they could abort before.\n"
+      }
+    }
+  ]
+}
