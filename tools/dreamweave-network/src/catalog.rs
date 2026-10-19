@@ -8,6 +8,11 @@
 //!
 //! Published beside the site as `network-data/catalog.json` and `network-data/events.json`,
 //! described by `schemas/dreamweave-network-catalog-1.schema.json`.
+//!
+//! The Jess package claims go in a file of their own, `network-data/jess-packages-v1.json`,
+//! described by `schemas/dreamweave-network-jess-packages-1.schema.json`: the discovery feed a
+//! Jess client reads to find which site publishes a package id, before it reads that site's own
+//! feed and believes it.
 
 use std::{collections::BTreeMap, sync::LazyLock};
 
@@ -16,17 +21,24 @@ use serde::Serialize;
 
 use crate::{
     events,
-    network::{Current, Network, Resolution},
+    network::{Current, Network, PackageClaim, PackageKey, Resolution},
+    packages::{PackageId, PackageVersion, Publisher},
     protocol::{ProjectId, RelationshipKind},
-    state::{ClaimHealth, ClaimKey, Event, OriginHealth},
+    state::{ClaimHealth, ClaimKey, Event, FeedHealth, OriginHealth},
 };
 
 pub const FORMAT: &str = "dreamweave-network-catalog";
 pub const EVENTS_FORMAT: &str = "dreamweave-network-events";
+pub const JESS_PACKAGES_FORMAT: &str = "dreamweave-network-jess-packages";
 pub const FORMAT_VERSION: u32 = 1;
 pub const SCHEMA_PATH: &str = "static/schemas/dreamweave-network-catalog-1.schema.json";
+pub const JESS_PACKAGES_SCHEMA_PATH: &str =
+    "static/schemas/dreamweave-network-jess-packages-1.schema.json";
+/// The file a Jess client is pointed at, under `network-data/`.
+pub const JESS_PACKAGES_FILE: &str = "jess-packages-v1.json";
 
 const NOTICE: &str = "A cache of claims observed by this index. Each claim's manifest URL, on the site that published it, is the authority; this file is not.";
+const JESS_PACKAGES_NOTICE: &str = "A cache of Jess package feeds observed by this index. Each package's feed URL, on the site that published it, is the authority; this file is not. Nothing here was downloaded or verified by this index: a client reads the publisher's feed, downloads from a source it names, and checks both digests itself.";
 
 #[derive(Debug, Clone, Serialize)]
 pub struct IndexInfo {
@@ -150,6 +162,69 @@ pub struct Catalog {
     pub conflicts: Vec<Conflict>,
     pub relationships: Vec<Relationship>,
     pub capabilities: Vec<Capability>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Serialize)]
+pub struct PackageRef {
+    pub id: PackageId,
+    pub origin: String,
+}
+
+impl From<&PackageKey> for PackageRef {
+    fn from(key: &PackageKey) -> Self {
+        Self {
+            id: key.id.clone(),
+            origin: key.origin.clone(),
+        }
+    }
+}
+
+/// One site's listing of one Jess package: the feed's entry copied unchanged, with where it
+/// came from and how fresh this index's copy is.
+#[derive(Debug, Serialize)]
+pub struct PackageRecord {
+    pub id: PackageId,
+    pub origin: String,
+    pub publisher: Publisher,
+    pub summary: Option<String>,
+    pub project: Option<ProjectId>,
+    pub repository: Option<String>,
+    /// The publisher's `jess-packages.json`: the authority for every version below.
+    pub feed_url: String,
+    /// The digest of the feed this index holds and copied these versions from.
+    pub feed_sha256: String,
+    pub health: FeedHealth,
+    pub cached: bool,
+    pub problem: Option<String>,
+    pub first_observed: String,
+    pub last_changed: Option<String>,
+    pub last_attempt: String,
+    pub last_success: Option<String>,
+    /// The newest version the publisher offers for new installs.
+    pub current: Option<String>,
+    pub versions: Vec<PackageVersion>,
+    pub conflict: bool,
+    pub network_page: String,
+}
+
+#[derive(Debug, Serialize)]
+pub struct PackageConflict {
+    pub id: PackageId,
+    pub claims: Vec<PackageRef>,
+    pub shared_versions: usize,
+    pub same_bytes: bool,
+}
+
+#[derive(Debug, Serialize)]
+pub struct JessPackages {
+    pub format: &'static str,
+    pub format_version: u32,
+    pub notice: &'static str,
+    pub index: IndexInfo,
+    pub observed_at: Option<String>,
+    pub crawler: Option<String>,
+    pub packages: Vec<PackageRecord>,
+    pub conflicts: Vec<PackageConflict>,
 }
 
 #[derive(Debug, Serialize)]
@@ -309,6 +384,57 @@ pub fn catalog(network: &Network, index: &IndexInfo) -> Catalog {
     }
 }
 
+fn package_record(network: &Network, claim: &PackageClaim, index: &IndexInfo) -> PackageRecord {
+    let site = &network.feeds[&claim.key.origin];
+    PackageRecord {
+        id: claim.key.id.clone(),
+        origin: claim.key.origin.clone(),
+        publisher: site.feed.publisher.clone(),
+        summary: claim.package.summary.clone(),
+        project: claim.package.project.clone(),
+        repository: claim.package.repository.clone(),
+        feed_url: site.record.url.clone(),
+        feed_sha256: site.record.ingested_sha256.clone().unwrap_or_default(),
+        health: site.record.health,
+        cached: site.record.health != FeedHealth::Current,
+        problem: site.record.problem.clone(),
+        first_observed: site.record.first_observed.clone(),
+        last_changed: site.record.last_changed.clone(),
+        last_attempt: site.record.last_attempt.clone(),
+        last_success: site.record.last_success.clone(),
+        current: claim.current().map(|version| version.version.clone()),
+        versions: claim.package.versions.clone(),
+        conflict: claim.conflict,
+        network_page: format!("{}/{}", index.url.trim_end_matches('/'), claim.path()),
+    }
+}
+
+pub fn jess_packages(network: &Network, index: &IndexInfo) -> JessPackages {
+    JessPackages {
+        format: JESS_PACKAGES_FORMAT,
+        format_version: FORMAT_VERSION,
+        notice: JESS_PACKAGES_NOTICE,
+        index: index.clone(),
+        observed_at: network.observed_at.clone(),
+        crawler: network.crawler.clone(),
+        packages: network
+            .listed_packages()
+            .into_iter()
+            .map(|claim| package_record(network, claim, index))
+            .collect(),
+        conflicts: network
+            .package_conflicts
+            .iter()
+            .map(|conflict| PackageConflict {
+                id: conflict.id.clone(),
+                claims: conflict.claims.iter().map(PackageRef::from).collect(),
+                shared_versions: conflict.shared_versions,
+                same_bytes: conflict.same_bytes,
+            })
+            .collect(),
+    }
+}
+
 pub fn events<'a>(network: &'a Network, index: &IndexInfo) -> Events<'a> {
     Events {
         format: EVENTS_FORMAT,
@@ -339,10 +465,23 @@ static SCHEMA: LazyLock<jsonschema::Validator> = LazyLock::new(|| {
         .expect("the catalog schema compiles")
 });
 
-/// Checks generated output against the published schema. A failure is this index's bug and
-/// fails the build: publishing a file that breaks its own documented format helps nobody.
-pub fn check(document: &serde_json::Value) -> Result<()> {
-    let errors: Vec<String> = SCHEMA
+static JESS_PACKAGES_SCHEMA: LazyLock<jsonschema::Validator> = LazyLock::new(|| {
+    let schema: serde_json::Value = serde_json::from_str(include_str!(
+        "../../../static/schemas/dreamweave-network-jess-packages-1.schema.json"
+    ))
+    .expect("the Jess packages schema is JSON");
+    jsonschema::options()
+        .should_validate_formats(true)
+        .build(&schema)
+        .expect("the Jess packages schema compiles")
+});
+
+fn check_against(
+    validator: &jsonschema::Validator,
+    what: &str,
+    document: &serde_json::Value,
+) -> Result<()> {
+    let errors: Vec<String> = validator
         .iter_errors(document)
         .take(10)
         .map(|error| format!("at {}: {error}", error.instance_path()))
@@ -351,8 +490,19 @@ pub fn check(document: &serde_json::Value) -> Result<()> {
         Ok(())
     } else {
         bail!(
-            "the generated catalog does not match its own schema: {}",
+            "the generated {what} does not match its own schema: {}",
             errors.join("; ")
         )
     }
+}
+
+/// Checks generated output against the published schema. A failure is this index's bug and
+/// fails the build: publishing a file that breaks its own documented format helps nobody.
+pub fn check(document: &serde_json::Value) -> Result<()> {
+    check_against(&SCHEMA, "catalog", document)
+}
+
+/// The same check for `jess-packages-v1.json`.
+pub fn check_jess_packages(document: &serde_json::Value) -> Result<()> {
+    check_against(&JESS_PACKAGES_SCHEMA, "Jess packages file", document)
 }

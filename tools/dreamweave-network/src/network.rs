@@ -12,6 +12,10 @@
 //! Every other channel is whatever its publisher says it is, so none is preferred over another
 //! except by version. Historical releases keep their own relationships and are shown on the
 //! claim's page; they never leak into the current graph.
+//!
+//! Jess packages are a second kind of claim, `(package id, origin)`, read from each site's
+//! package feed. They are kept apart from project claims: a package id is not a project id, and
+//! a feed's dependency requirements are evaluated by Jess, never resolved into this graph.
 
 use std::{
     cmp::Ordering,
@@ -24,11 +28,15 @@ use url::Url;
 
 use crate::{
     config::Curation,
+    packages::{Feed, Package, PackageId, PackageVersion},
     protocol::{
         DEVELOPMENT_CHANNEL, Manifest, ProjectId, Relationship, RelationshipKind, Release,
         STABLE_CHANNEL,
     },
-    state::{ClaimHealth, ClaimKey, ClaimRecord, Event, OriginRecord, SourceRecord, State},
+    state::{
+        ClaimHealth, ClaimKey, ClaimRecord, Event, FeedHealth, FeedRecord, OriginRecord,
+        SourceRecord, State,
+    },
     version::{Constraint, Version},
 };
 
@@ -106,6 +114,60 @@ impl Claim {
 
 pub fn claim_path(key: &ClaimKey) -> String {
     format!("projects/{}/{}/", key.project, key.origin)
+}
+
+/// A Jess package claim: one package id as one site's feed lists it.
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize)]
+pub struct PackageKey {
+    pub id: PackageId,
+    pub origin: String,
+}
+
+pub fn package_path(key: &PackageKey) -> String {
+    format!("packages/{}/{}/", key.id, key.origin)
+}
+
+/// A site's Jess package feed as this index holds it: the record and the last good document.
+#[derive(Debug, Clone)]
+pub struct SiteFeed {
+    pub record: FeedRecord,
+    pub feed: Feed,
+}
+
+impl SiteFeed {
+    /// In the catalog: the site has not withdrawn the feed.
+    pub fn is_listed(&self) -> bool {
+        self.record.health != FeedHealth::Withdrawn
+    }
+}
+
+#[derive(Debug, Clone)]
+pub struct PackageClaim {
+    pub key: PackageKey,
+    pub package: Package,
+    /// Another site's feed lists the same package id.
+    pub conflict: bool,
+}
+
+impl PackageClaim {
+    pub fn current(&self) -> Option<&PackageVersion> {
+        self.package.current()
+    }
+
+    pub fn path(&self) -> String {
+        package_path(&self.key)
+    }
+}
+
+/// One package id listed by more than one site. Neither claim wins. `shared_versions` counts
+/// the versions both list, and `same_bytes` says whether every one of those names the same
+/// archive and content digests: two sites mirroring one publication, or two publications.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+pub struct PackageConflict {
+    pub id: PackageId,
+    pub claims: Vec<PackageKey>,
+    pub shared_versions: usize,
+    pub same_bytes: bool,
 }
 
 pub fn capability_slug(capability: &str) -> String {
@@ -206,6 +268,10 @@ pub struct Network {
     /// Newest first.
     pub events: Vec<Event>,
     pub curation: Curation,
+    /// Every site's Jess package feed this index holds, by origin.
+    pub feeds: BTreeMap<String, SiteFeed>,
+    pub packages: BTreeMap<PackageKey, PackageClaim>,
+    pub package_conflicts: Vec<PackageConflict>,
 }
 
 impl Network {
@@ -243,6 +309,39 @@ impl Network {
             );
         }
 
+        let mut feeds = BTreeMap::new();
+        let mut packages = BTreeMap::new();
+        for (origin, record) in &state.origins {
+            let (Some(feed_record), Some(bytes)) =
+                (&record.jess_packages, state.feed_bytes(origin))
+            else {
+                continue;
+            };
+            let feed: Feed = serde_json::from_slice(bytes)
+                .with_context(|| format!("the held package feed of {origin}"))?;
+            for package in &feed.packages {
+                let key = PackageKey {
+                    id: package.id.clone(),
+                    origin: origin.clone(),
+                };
+                packages.insert(
+                    key.clone(),
+                    PackageClaim {
+                        key,
+                        package: package.clone(),
+                        conflict: false,
+                    },
+                );
+            }
+            feeds.insert(
+                origin.clone(),
+                SiteFeed {
+                    record: feed_record.clone(),
+                    feed,
+                },
+            );
+        }
+
         let mut network = Self {
             observed_at: state
                 .network
@@ -261,6 +360,9 @@ impl Network {
             gaps: Vec::new(),
             events: state.events.values().cloned().collect(),
             curation: curation.clone(),
+            feeds,
+            packages,
+            package_conflicts: Vec::new(),
         };
         network.events.sort_by(|left, right| {
             right
@@ -274,7 +376,76 @@ impl Network {
         network.build_capabilities();
         network.build_edges();
         network.build_gaps();
+        network.find_package_conflicts();
         Ok(network)
+    }
+
+    /// Whether a package claim is in the catalog: its site's feed is held and not withdrawn.
+    pub fn package_is_listed(&self, key: &PackageKey) -> bool {
+        self.feeds.get(&key.origin).is_some_and(SiteFeed::is_listed)
+    }
+
+    /// Listed package claims, in catalog order: id, then origin.
+    pub fn listed_packages(&self) -> Vec<&PackageClaim> {
+        self.packages
+            .values()
+            .filter(|claim| self.package_is_listed(&claim.key))
+            .collect()
+    }
+
+    fn find_package_conflicts(&mut self) {
+        let mut by_id: BTreeMap<PackageId, Vec<PackageKey>> = BTreeMap::new();
+        for claim in self.packages.values() {
+            if self.package_is_listed(&claim.key) {
+                by_id
+                    .entry(claim.key.id.clone())
+                    .or_default()
+                    .push(claim.key.clone());
+            }
+        }
+        let mut conflicts = Vec::new();
+        for (id, claims) in by_id {
+            if claims.len() < 2 {
+                continue;
+            }
+            let mut shared_versions = 0;
+            let mut same_bytes = true;
+            let mut seen: BTreeMap<&str, (&str, &str)> = BTreeMap::new();
+            let mut counted: BTreeSet<&str> = BTreeSet::new();
+            for key in &claims {
+                for version in &self.packages[key].package.versions {
+                    let digests = (
+                        version.content_digest.as_str(),
+                        version.artifact.digests.sha256.as_str(),
+                    );
+                    match seen.get(version.version.as_str()) {
+                        Some(first) => {
+                            if counted.insert(version.version.as_str()) {
+                                shared_versions += 1;
+                            }
+                            if *first != digests {
+                                same_bytes = false;
+                            }
+                        }
+                        None => {
+                            seen.insert(version.version.as_str(), digests);
+                        }
+                    }
+                }
+            }
+            for key in &claims {
+                if let Some(claim) = self.packages.get_mut(key) {
+                    claim.conflict = true;
+                }
+            }
+            conflicts.push(PackageConflict {
+                id,
+                claims,
+                shared_versions,
+                same_bytes: same_bytes && shared_versions > 0,
+            });
+        }
+        self.package_conflicts = conflicts;
     }
 
     /// Listed claims, in catalog order: name, then project id, then origin.
