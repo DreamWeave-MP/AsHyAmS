@@ -24,6 +24,15 @@ read exactly the same way: a site index at `dreamweave.json`, a manifest per pro
 against the published schemas with `schema_version` `"2"`. This index checks the documents, not
 who generated them.
 
+## Distributing Jess packages too
+
+If your site also distributes [Jess](https://github.com/DreamWeave-MP/jess) packages, put a
+`jess-packages.json` beside your `dreamweave.json`, valid against the
+[feed schema](@/about/packages.md). It lists each package, every version with its content digest
+and the archive's SHA-256, and the URL the archive downloads from, on your site or a mirror you
+name. The index copies it, shows it under Packages, and never serves or verifies the archive
+itself. `inspect` reads it too and reports it with the rest.
+
 ## 2. Check that it is healthy
 
 Sites built from the template have a **Network** page listing, per project, discovery, releases,
