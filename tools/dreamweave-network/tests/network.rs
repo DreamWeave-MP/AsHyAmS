@@ -64,7 +64,7 @@ async fn candlelight_requires_tallow_and_tallow_knows_it() {
         network.used_by(&tallow_key).into_iter().collect::<Vec<_>>(),
         vec![candlelight_key.clone()]
     );
-    assert!(network.conflicts.is_empty());
+    assert_eq!(network.conflicts.len(), 0);
 
     let provided = &network.capabilities["dreamweave:dynamic-lights"];
     assert_eq!(provided.providers, vec![candlelight_key]);
@@ -167,7 +167,7 @@ async fn a_reviewed_migration_resolves_a_conflict_without_hiding_either_claim() 
         featured: Vec::new(),
     };
     let network = Network::build(&state, &curation).unwrap();
-    assert!(network.conflicts.is_empty());
+    assert_eq!(network.conflicts.len(), 0);
     let superseded: Vec<_> = network
         .claims
         .values()

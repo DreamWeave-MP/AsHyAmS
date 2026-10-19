@@ -95,7 +95,7 @@ async fn an_unchanged_site_costs_no_manifest_downloads_and_no_events() {
         "{:?}",
         server.requested_paths()
     );
-    assert!(report.events.is_empty());
+    assert_eq!(report.events.len(), 0);
     let claim = &state.claims[&key(&state, CANDLELIGHT_ID)];
     assert_eq!(claim.last_success.as_deref(), Some(SECOND));
     assert_eq!(claim.first_observed, FIRST);
@@ -139,7 +139,7 @@ async fn a_new_release_is_one_changed_event_with_typed_changes() {
 
     // The same observations again: nothing new.
     let report = refresh(&config, &mut state, THIRD).await;
-    assert!(report.events.is_empty());
+    assert_eq!(report.events.len(), 0);
 }
 
 #[tokio::test]
@@ -155,8 +155,9 @@ async fn an_outage_keeps_the_last_good_claims_and_recovers_on_its_own() {
     let routes = server.take_down();
     let report = refresh(&config, &mut state, SECOND).await;
     assert_eq!(report.unreachable_sources.len(), 1);
-    assert!(
-        report.events.is_empty(),
+    assert_eq!(
+        report.events.len(),
+        0,
         "an outage is not a publication change"
     );
     let origin = &state.origins[&only_origin(&state)];
@@ -173,8 +174,8 @@ async fn an_outage_keeps_the_last_good_claims_and_recovers_on_its_own() {
 
     server.restore(routes);
     let report = refresh(&config, &mut state, THIRD).await;
-    assert!(report.unreachable_sources.is_empty());
-    assert!(report.events.is_empty());
+    assert_eq!(report.unreachable_sources.len(), 0);
+    assert_eq!(report.events.len(), 0);
     assert_eq!(
         state.origins[&only_origin(&state)].health,
         OriginHealth::Healthy
@@ -204,7 +205,7 @@ async fn an_invalid_manifest_never_replaces_the_valid_one() {
     broken["channels"]["stable"]["version"] = "1.0.0".into();
     site.publish(&[broken, tallow()]);
     let report = refresh(&config, &mut state, SECOND).await;
-    assert!(report.events.is_empty());
+    assert_eq!(report.events.len(), 0);
     let claim = &state.claims[&key(&state, CANDLELIGHT_ID)];
     assert_eq!(claim.health, ClaimHealth::Invalid);
     assert!(
@@ -257,7 +258,7 @@ async fn a_half_finished_deployment_is_inconsistent_not_malicious() {
         "the first read and two retries: {:?}",
         server.requested_paths()
     );
-    assert!(report.events.is_empty());
+    assert_eq!(report.events.len(), 0);
     let claim = &state.claims[&key(&state, CANDLELIGHT_ID)];
     assert_eq!(claim.health, ClaimHealth::Inconsistent);
     assert_eq!(claim.advertised_sha256, sha256_hex(&new_bytes));
@@ -306,7 +307,7 @@ async fn a_manifest_for_another_project_is_refused() {
             .unwrap()
             .contains("describes project")
     );
-    assert!(state.manifests.is_empty());
+    assert_eq!(state.manifests.len(), 0);
 }
 
 #[tokio::test]
@@ -446,7 +447,7 @@ async fn events_are_never_duplicated_even_when_claims_are_lost() {
     state.claims.clear();
     state.manifests.clear();
     let report = refresh(&config, &mut state, SECOND).await;
-    assert!(report.events.is_empty());
+    assert_eq!(report.events.len(), 0);
     assert_eq!(state.events.len(), 1);
 }
 
@@ -480,7 +481,7 @@ async fn an_unreachable_site_that_was_never_read_is_a_source_problem_only() {
     let mut state = State::default();
     let report = refresh(&config, &mut state, FIRST).await;
     assert_eq!(report.unreachable_sources.len(), 1);
-    assert!(state.origins.is_empty());
+    assert_eq!(state.origins.len(), 0);
     assert_eq!(
         state.sources.values().next().unwrap().health,
         SourceHealth::Unreachable

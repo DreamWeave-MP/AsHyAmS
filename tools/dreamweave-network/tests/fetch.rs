@@ -48,8 +48,9 @@ async fn refuses_loopback_under_the_real_policy() {
         "{error}"
     );
     assert!(error.is_policy_refusal());
-    assert!(
-        server.requests().is_empty(),
+    assert_eq!(
+        server.requests().len(),
+        0,
         "a refused address must never be connected to"
     );
 }

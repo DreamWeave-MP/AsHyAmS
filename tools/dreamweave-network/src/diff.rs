@@ -949,7 +949,7 @@ mod tests {
 
     #[test]
     fn an_unchanged_manifest_has_no_changes() {
-        assert!(changes(|_| {}).is_empty());
+        assert_eq!(changes(|_| {}).len(), 0);
     }
 
     #[test]
@@ -962,7 +962,7 @@ mod tests {
             .unwrap(),
         )
         .unwrap();
-        assert!(diff(&before, &manifest(&reordered)).is_empty());
+        assert_eq!(diff(&before, &manifest(&reordered)).len(), 0);
     }
 
     #[test]

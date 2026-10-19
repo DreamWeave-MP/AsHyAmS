@@ -568,7 +568,7 @@ mod tests {
     fn the_mod_templates_own_documents_are_valid() {
         let report = parse_index(INDEX.as_bytes()).unwrap();
         assert_eq!(report.index.projects.len(), 2);
-        assert!(report.duplicate_ids.is_empty());
+        assert_eq!(report.duplicate_ids.len(), 0);
         let candlelight = parse_manifest(CANDLELIGHT.as_bytes()).unwrap();
         assert_eq!(candlelight.project.name, "Candlelight");
         assert_eq!(candlelight.channels["stable"].version, "1.1.0");
