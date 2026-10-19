@@ -28,7 +28,7 @@ nothing links it: a site has a feed exactly when that file is there. The format 
 {
   "format": "jess-packages",
   "format_version": 1,
-  "publisher": { "name": "DreamWeave", "url": "https://dreamweave-mp.github.io/jess-packages/" },
+  "publisher": { "name": "DreamWeave", "url": "https://publisher.example/" },
   "packages": [
     {
       "id": "org.dreamweave.site",
