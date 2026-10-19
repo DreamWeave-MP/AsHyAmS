@@ -17,17 +17,40 @@ use serde_json::Value;
 use url::Url;
 
 use super::{
-    IndexEntry, Manifest, ProjectId, RelationshipKind, ReleaseStatus, SCHEMA_VERSION, SiteIndex,
+    IndexEntry, Manifest, PackageId, ProjectId, RelationshipKind, ReleaseStatus, SCHEMA_VERSIONS,
+    SiteIndex, is_package_id, reads_schema_version,
 };
 use crate::{
     policy,
     version::{Constraint, Scheme, Version},
 };
 
-static INDEX_SCHEMA: LazyLock<jsonschema::Validator> =
+static INDEX_SCHEMA_2: LazyLock<jsonschema::Validator> =
     LazyLock::new(|| compile(include_str!("../../schemas/dreamweave-index-2.schema.json")));
-static MANIFEST_SCHEMA: LazyLock<jsonschema::Validator> =
+static INDEX_SCHEMA_3: LazyLock<jsonschema::Validator> =
+    LazyLock::new(|| compile(include_str!("../../schemas/dreamweave-index-3.schema.json")));
+static MANIFEST_SCHEMA_2: LazyLock<jsonschema::Validator> =
     LazyLock::new(|| compile(include_str!("../../schemas/modManifest-2.schema.json")));
+static MANIFEST_SCHEMA_3: LazyLock<jsonschema::Validator> =
+    LazyLock::new(|| compile(include_str!("../../schemas/modManifest-3.schema.json")));
+
+/// The published schema for the version a document says it is; `read` has already refused any
+/// other version.
+fn index_schema(version: &str) -> &'static jsonschema::Validator {
+    if version == "2" {
+        &INDEX_SCHEMA_2
+    } else {
+        &INDEX_SCHEMA_3
+    }
+}
+
+fn manifest_schema(version: &str) -> &'static jsonschema::Validator {
+    if version == "2" {
+        &MANIFEST_SCHEMA_2
+    } else {
+        &MANIFEST_SCHEMA_3
+    }
+}
 
 fn compile(text: &str) -> jsonschema::Validator {
     let schema: Value = serde_json::from_str(text).expect("a vendored schema is JSON");
@@ -75,7 +98,12 @@ impl fmt::Display for Problem {
             ),
             Self::UnsupportedVersion(version) => write!(
                 formatter,
-                "schema_version {version:?}: a protocol version this index does not read (it reads \"{SCHEMA_VERSION}\")"
+                "schema_version {version:?}: a protocol version this index does not read (it reads {})",
+                SCHEMA_VERSIONS
+                    .iter()
+                    .map(|version| format!("\"{version}\""))
+                    .collect::<Vec<_>>()
+                    .join(" and ")
             ),
             Self::WrongDocument { expected, found } => write!(
                 formatter,
@@ -110,11 +138,12 @@ fn envelope_of(value: &Value) -> Option<Envelope> {
     })
 }
 
-fn read(bytes: &[u8], expected: &'static str) -> Result<Value, Problem> {
+/// The document as JSON with the version it declares, once the envelope has been accepted.
+fn read(bytes: &[u8], expected: &'static str) -> Result<(Value, String), Problem> {
     let value: Value =
         serde_json::from_slice(bytes).map_err(|error| Problem::NotJson(error.to_string()))?;
     let found = envelope_of(&value).ok_or(Problem::NotDreamWeave)?;
-    if found.schema_version != SCHEMA_VERSION {
+    if !reads_schema_version(&found.schema_version) {
         return Err(Problem::UnsupportedVersion(found.schema_version));
     }
     if found.document != expected {
@@ -124,7 +153,7 @@ fn read(bytes: &[u8], expected: &'static str) -> Result<Value, Problem> {
         });
     }
     check_strings(&value, "")?;
-    Ok(value)
+    Ok((value, found.schema_version))
 }
 
 fn check_strings(value: &Value, path: &str) -> Result<(), Problem> {
@@ -213,7 +242,7 @@ impl IndexReport {
 }
 
 pub fn parse_index(bytes: &[u8]) -> Result<IndexReport, Problem> {
-    let value = read(bytes, "index")?;
+    let (value, version) = read(bytes, "index")?;
     let listed = value
         .get("projects")
         .and_then(Value::as_array)
@@ -224,7 +253,7 @@ pub fn parse_index(bytes: &[u8]) -> Result<IndexReport, Problem> {
             policy::MAXIMUM_PROJECTS_PER_SITE
         )));
     }
-    check_schema(&INDEX_SCHEMA, &value)?;
+    check_schema(index_schema(&version), &value)?;
     let index: SiteIndex = typed(value)?;
 
     let mut problems = Vec::new();
@@ -237,6 +266,14 @@ pub fn parse_index(bytes: &[u8]) -> Result<IndexReport, Problem> {
             &format!("{}: manifest", entry.id),
             &entry.manifest,
         ));
+        if let Some(package) = &entry.jess_package
+            && !is_package_id(&package.0)
+        {
+            problems.push(format!(
+                "{}: jess_package {package} is not a Jess package id (lowercase words joined by dots)",
+                entry.id
+            ));
+        }
         if !seen.insert(entry.id.clone()) {
             duplicate_ids.insert(entry.id.clone());
         }
@@ -254,9 +291,9 @@ pub fn parse_index(bytes: &[u8]) -> Result<IndexReport, Problem> {
 // Project manifest ----------------------------------------------------------------------------
 
 pub fn parse_manifest(bytes: &[u8]) -> Result<Manifest, Problem> {
-    let value = read(bytes, "project")?;
+    let (value, version) = read(bytes, "project")?;
     check_manifest_counts(&value)?;
-    check_schema(&MANIFEST_SCHEMA, &value)?;
+    check_schema(manifest_schema(&version), &value)?;
     let manifest: Manifest = typed(value)?;
     let mut problems = manifest_rules(&manifest);
     if problems.is_empty() {
@@ -365,6 +402,24 @@ pub fn manifest_rules(manifest: &Manifest) -> Vec<String> {
             &format!("release {}", release.version),
             &mut problems,
         );
+    }
+
+    // One project publishes one Jess package: every jpk artifact names the same id.
+    let packages: BTreeSet<&PackageId> = manifest
+        .releases
+        .iter()
+        .flat_map(|release| release.artifacts.iter())
+        .filter_map(|artifact| artifact.jess.as_ref().map(|jess| &jess.package))
+        .collect();
+    if packages.len() > 1 {
+        problems.push(format!(
+            "releases publish more than one Jess package ({}); one project is one package",
+            packages
+                .iter()
+                .map(ToString::to_string)
+                .collect::<Vec<_>>()
+                .join(", ")
+        ));
     }
 
     let recomputed = manifest.recomputed_heads();
@@ -503,9 +558,38 @@ fn component_rules(release: &super::Release, at: &str, problems: &mut Vec<String
 
     let mut artifact_ids = BTreeSet::new();
     let mut program_platforms = BTreeSet::new();
+    let mut packages = 0;
     for artifact in &release.artifacts {
         if !artifact_ids.insert(artifact.id.as_str()) {
             problems.push(format!("{at}: artifact {} is listed twice", artifact.id));
+        }
+        // A Jess package's release is one jpk artifact, and only a jpk artifact says what
+        // package it holds. The version 3 schema states both; the types alone do not.
+        if artifact.is_package() != artifact.jess.is_some() {
+            problems.push(format!(
+                "{at}: artifact {}: a jpk artifact carries a jess block, and only a jpk artifact does",
+                artifact.id
+            ));
+        }
+        if let Some(jess) = &artifact.jess {
+            packages += 1;
+            if packages > 1 {
+                problems.push(format!(
+                    "{at}: two jpk artifacts; a Jess package's release has one"
+                ));
+            }
+            if !is_package_id(&jess.package.0) {
+                problems.push(format!(
+                    "{at}: artifact {}: {} is not a Jess package id (lowercase words joined by dots)",
+                    artifact.id, jess.package
+                ));
+            }
+            if jess.dependencies.contains_key(&jess.package.0) {
+                problems.push(format!(
+                    "{at}: artifact {}: {} depends on itself",
+                    artifact.id, jess.package
+                ));
+            }
         }
         // A program release has one binary artifact per platform and variant, and its
         // `platforms` lists every desktop one. Android and handheld builds are only on artifacts.
@@ -547,6 +631,8 @@ mod tests {
 
     const INDEX: &str = include_str!("../../tests/fixtures/mod-template/dreamweave.json");
     const CANDLELIGHT: &str = include_str!("../../tests/fixtures/mod-template/candlelight.json");
+    const SITE_GENERATOR: &str = include_str!("../../tests/fixtures/jess/site-generator.json");
+    const WORDS: &str = include_str!("../../tests/fixtures/jess/words.json");
     const TALLOW: &str = include_str!("../../tests/fixtures/mod-template/tallow.json");
 
     fn value(text: &str) -> Value {
@@ -595,11 +681,68 @@ mod tests {
             }
         );
         let mut future = value(INDEX);
-        future["schema_version"] = "3".into();
+        future["schema_version"] = "4".into();
         future["some_new_field"] = true.into();
         assert_eq!(
             parse_index(&bytes(&future)).unwrap_err(),
-            Problem::UnsupportedVersion("3".to_owned())
+            Problem::UnsupportedVersion("4".to_owned())
+        );
+    }
+
+    #[test]
+    fn version_3_adds_jess_packages_and_version_2_refuses_them() {
+        let generator = parse_manifest(SITE_GENERATOR.as_bytes()).unwrap();
+        let artifact = &generator.releases[0].artifacts[0];
+        assert!(artifact.is_package() && !artifact.is_program() && !artifact.is_crate());
+        let jess = artifact.jess.as_ref().unwrap();
+        assert_eq!(jess.package.0, "org.dreamweave.site");
+        assert_eq!(jess.jess_api, "1");
+        let words = parse_manifest(WORDS.as_bytes()).unwrap();
+        assert_eq!(words.releases[0].status, ReleaseStatus::Yanked);
+        assert_eq!(
+            words.releases[0].artifacts[0]
+                .jess
+                .as_ref()
+                .unwrap()
+                .dependencies["org.example.style"],
+            "^1.0"
+        );
+
+        // The same document under version 2 fails its schema: jess is a version 3 field.
+        let mut older = value(SITE_GENERATOR);
+        older["schema_version"] = "2".into();
+        assert!(matches!(
+            parse_manifest(&bytes(&older)).unwrap_err(),
+            Problem::Schema(_)
+        ));
+        // A jpk artifact without its jess block, or a flat one with it, is a schema error.
+        let mut bare = value(SITE_GENERATOR);
+        bare["releases"][0]["artifacts"][0]
+            .as_object_mut()
+            .unwrap()
+            .remove("jess");
+        assert!(matches!(
+            parse_manifest(&bytes(&bare)).unwrap_err(),
+            Problem::Schema(_)
+        ));
+        // Two packages across one project's releases break the protocol.
+        let mut two = value(SITE_GENERATOR);
+        two["releases"][1]["artifacts"][0]["jess"]["package"] = "org.dreamweave.other".into();
+        let problems = protocol_problems(&two);
+        assert!(
+            problems
+                .iter()
+                .any(|problem| problem.contains("one project is one package")),
+            "{problems:?}"
+        );
+        let mut selfish = value(SITE_GENERATOR);
+        selfish["releases"][0]["artifacts"][0]["jess"]["dependencies"]["org.dreamweave.site"] =
+            "0.1".into();
+        let problems = protocol_problems(&selfish);
+        assert!(
+            problems
+                .iter()
+                .any(|problem| problem.contains("depends on itself"))
         );
     }
 

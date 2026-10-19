@@ -28,9 +28,6 @@ pub const MAXIMUM_HTML_BYTES: u64 = 2 * 1024 * 1024;
 pub const MAXIMUM_INDEX_BYTES: u64 = 4 * 1024 * 1024;
 pub const MAXIMUM_MANIFEST_BYTES: u64 = 16 * 1024 * 1024;
 pub const MAXIMUM_MEDIA_BYTES: u64 = 2 * 1024 * 1024;
-/// A site's Jess package feed, `jess-packages.json`.
-pub const MAXIMUM_FEED_BYTES: u64 = 8 * 1024 * 1024;
-
 pub const MAXIMUM_PROJECTS_PER_SITE: usize = 500;
 pub const MAXIMUM_RELEASES_PER_PROJECT: usize = 2_000;
 pub const MAXIMUM_ARTIFACTS_PER_RELEASE: usize = 64;
@@ -38,9 +35,6 @@ pub const MAXIMUM_SOURCES_PER_ARTIFACT: usize = 32;
 pub const MAXIMUM_RELATIONSHIPS_PER_RELEASE: usize = 256;
 pub const MAXIMUM_COMPONENTS_PER_RELEASE: usize = 256;
 pub const MAXIMUM_MEDIA_PER_PROJECT: usize = 128;
-/// Packages in one site's Jess package feed. Versions per package share
-/// [`MAXIMUM_RELEASES_PER_PROJECT`].
-pub const MAXIMUM_PACKAGES_PER_FEED: usize = 500;
 /// Any single string in a document: a name, a note, a URL.
 pub const MAXIMUM_STRING_BYTES: usize = 64 * 1024;
 

@@ -5,9 +5,9 @@
 {%- set view = load_data(path=section.extra.view) %}
 <header class="net-page-head">
     <div class="dw-shell">
-        <p class="dw-kicker"><span>Jess packages</span><span>{{ view.rows | length }} claim{{ view.rows | length | pluralize }}</span><span>{{ view.feeds | length }} feed{{ view.feeds | length | pluralize }}</span></p>
+        <p class="dw-kicker"><span>Jess packages</span><span>{{ view.rows | length }} claim{{ view.rows | length | pluralize }}</span><span>{{ view.sites }} site{{ view.sites | pluralize }}</span></p>
         <h1>{{ section.title }}</h1>
-        <p class="net-lede">{{ section.description }} A package here is a claim by a site, found in its <code>jess-packages.json</code>; the site is the authority and the only place the archive comes from. <a href="{{ get_url(path='about/packages/', trailing_slash=true) | safe }}">How this works</a>.</p>
+        <p class="net-lede">{{ section.description }} A package here is a claim by a site: a project whose releases are JPK archives, as its manifest says. The site is the authority and the only place the archive comes from. <a href="{{ get_url(path='about/packages/', trailing_slash=true) | safe }}">How this works</a>.</p>
     </div>
 </header>
 <div class="dw-shell">
@@ -16,21 +16,21 @@
     {%- endif %}
     {%- if view.rows | length > 0 %}
     <div class="dw-table-scroll"><table class="net-table">
-        <thead><tr><th scope="col">Package</th><th scope="col">Current</th><th scope="col">Versions</th><th scope="col">Published by</th><th scope="col">Feed</th></tr></thead>
+        <thead><tr><th scope="col">Package</th><th scope="col">Current</th><th scope="col">Versions</th><th scope="col">Published by</th><th scope="col">Manifest</th></tr></thead>
         <tbody>
         {%- for row in view.rows %}
             <tr>
                 <td><a href="{{ get_url(path=row.path, trailing_slash=true) | safe }}"><code>{{ row.id }}</code></a>{% if row.conflict %} <span class="dw-badge dw-badge--danger">more than one site</span>{% endif %}{% if row.summary %}<br><small class="net-muted">{{ row.summary }}</small>{% endif %}</td>
                 <td>{% if row.current %}{{ row.current }}{% if row.jess_api %} <small class="net-muted">jess_api {{ row.jess_api }}</small>{% endif %}{% else %}<span class="net-muted">every version yanked</span>{% endif %}</td>
                 <td>{{ row.versions }}{% if row.yanked > 0 %} <small class="net-muted">({{ row.yanked }} yanked)</small>{% endif %}</td>
-                <td><a href="{{ get_url(path=row.origin_path, trailing_slash=true) | safe }}">{{ row.origin_label }}</a><br><small class="net-muted">{{ row.publisher }}</small></td>
+                <td><a href="{{ get_url(path=row.origin_path, trailing_slash=true) | safe }}">{{ row.origin_label }}</a><br><small class="net-muted">as <a href="{{ get_url(path=row.project_path, trailing_slash=true) | safe }}">{{ row.project_name }}</a></small></td>
                 <td>{{ net::health(token=row.health, label=row.health_label) }}</td>
             </tr>
         {%- endfor %}
         </tbody>
     </table></div>
     {%- else %}
-    <p class="net-empty">No enrolled site publishes a Jess package feed yet. <a href="{{ get_url(path='join/', trailing_slash=true) | safe }}">Publishing one</a> is a static file beside <code>dreamweave.json</code>.</p>
+    <p class="net-empty">No enrolled site publishes a Jess package yet. <a href="{{ get_url(path='join/', trailing_slash=true) | safe }}">Publishing one</a> is a project like any other, built with the Mod Template.</p>
     {%- endif %}
     <p class="net-fine">Also published as <a href="{{ get_url(path='network-data/jess-packages-v1.json', trailing_slash=false) | safe }}">network-data/jess-packages-v1.json</a>, the discovery file a Jess client reads. Nothing in it was downloaded or verified by this index.</p>
 </div>

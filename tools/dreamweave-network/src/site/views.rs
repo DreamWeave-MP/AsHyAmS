@@ -25,7 +25,7 @@ use crate::{
         Artifact, DEVELOPMENT_CHANNEL, Manifest, Notes, ProjectStatus, RelationshipKind, Release,
         ReleaseStatus, SourceKind,
     },
-    state::{ClaimHealth, ClaimKey, Event, EventKind, FeedHealth, OriginHealth},
+    state::{ClaimHealth, ClaimKey, Event, EventKind, OriginHealth},
 };
 
 #[derive(Debug, Clone, Serialize)]
@@ -1109,7 +1109,9 @@ pub struct PackageRow {
     pub origin: String,
     pub origin_label: String,
     pub origin_path: String,
-    pub publisher: String,
+    /// The project whose releases the package is, on the same site, and its page here.
+    pub project_name: String,
+    pub project_path: String,
     pub summary: Option<String>,
     /// The newest version offered for new installs, or none when every version is yanked.
     pub current: Option<String>,
@@ -1120,25 +1122,11 @@ pub struct PackageRow {
     pub health_label: String,
     pub cached: bool,
     pub conflict: bool,
-    /// The site's DreamWeave project the package says it belongs to, when the site publishes it.
-    pub project_path: Option<String>,
-    pub repository: Option<String>,
 }
 
 pub fn package_row(network: &Network, claim: &network::PackageClaim) -> PackageRow {
-    let site = &network.feeds[&claim.key.origin];
+    let project = network.package_project(claim);
     let origin = network.origins.get(&claim.key.origin);
-    let project_path = claim.package.project.as_ref().and_then(|project| {
-        let key = ClaimKey {
-            project: project.clone(),
-            origin: claim.key.origin.clone(),
-        };
-        network
-            .claims
-            .get(&key)
-            .filter(|target| target.manifest.is_some())
-            .map(Claim::path)
-    });
     PackageRow {
         id: claim.key.id.to_string(),
         path: claim.path(),
@@ -1146,7 +1134,8 @@ pub fn package_row(network: &Network, claim: &network::PackageClaim) -> PackageR
         origin: claim.key.origin.clone(),
         origin_label: origin.map_or_else(|| claim.key.origin.clone(), origin_label),
         origin_path: origin_path(&claim.key.origin),
-        publisher: site.feed.publisher.name.clone(),
+        project_name: claim.package.name.clone(),
+        project_path: project.path(),
         summary: claim.package.summary.clone(),
         current: claim.current().map(|version| version.version.clone()),
         jess_api: claim.current().map(|version| version.jess_api.clone()),
@@ -1155,71 +1144,23 @@ pub fn package_row(network: &Network, claim: &network::PackageClaim) -> PackageR
             .package
             .versions
             .iter()
-            .filter(|version| version.status == crate::packages::VersionStatus::Yanked)
+            .filter(|version| version.status == ReleaseStatus::Yanked)
             .count(),
-        health: site.record.health.token().to_owned(),
-        health_label: site.record.health.label().to_owned(),
-        cached: site.record.health != FeedHealth::Current,
+        health: project.record.health.token().to_owned(),
+        health_label: project.record.health.label().to_owned(),
+        cached: project.record.health != ClaimHealth::Current,
         conflict: claim.conflict,
-        project_path,
-        repository: claim.package.repository.clone(),
-    }
-}
-
-/// A JPK archive in the shape the artifact macro lays out, so a package version's download
-/// block looks exactly like a release's.
-pub fn package_artifact_view(artifact: &crate::packages::Artifact) -> ArtifactView {
-    let sources: Vec<SourceLink> = artifact
-        .sources
-        .iter()
-        .map(|source| SourceLink {
-            url: source.url.clone(),
-            kind: match source.kind {
-                SourceKind::Publisher => "publisher",
-                SourceKind::Mirror => "mirror",
-            }
-            .to_owned(),
-            name: source.name.clone(),
-        })
-        .collect();
-    ArtifactView {
-        id: artifact.filename.clone(),
-        filename: artifact.filename.clone(),
-        format: "jpk".to_owned(),
-        format_label: "Jess package".to_owned(),
-        media_type: artifact.media_type.clone(),
-        size: artifact.size,
-        size_label: size_label(artifact.size),
-        platform: None,
-        program: false,
-        sha256: artifact.digests.sha256.clone(),
-        short_sha256: short_digest(&artifact.digests.sha256),
-        download: sources
-            .iter()
-            .find(|source| source.kind == "publisher")
-            .or(sources.first())
-            .map(|source| source.url.clone()),
-        signatures: artifact
-            .signatures
-            .iter()
-            .map(|signature| SignatureView {
-                format: signature.format.clone(),
-                url: signature.url.clone(),
-                issuer: signature.issuer.clone(),
-                identity: signature.identity.clone(),
-            })
-            .collect(),
-        sources,
-        layout: Vec::new(),
     }
 }
 
 #[derive(Debug, Clone, Serialize)]
 pub struct PackageVersionView {
     pub version: String,
+    pub channel: String,
     pub status: String,
     pub current: bool,
     pub yanked_reason: Option<String>,
+    pub deprecated_reason: Option<String>,
     pub replacement: Option<String>,
     pub date: Option<String>,
     pub jess_api: String,
@@ -1242,17 +1183,20 @@ pub fn package_version_view(
         .into_iter()
         .map(|listed| listed.key.id.0.as_str())
         .collect();
+    let notice = version.yanked.as_ref().or(version.deprecated.as_ref());
     PackageVersionView {
         version: version.version.clone(),
+        channel: version.channel.clone(),
         status: version.status.token().to_owned(),
         current: claim
             .current()
             .is_some_and(|current| current.version == version.version),
-        yanked_reason: version.yanked.as_ref().map(|yanked| yanked.reason.clone()),
-        replacement: version
-            .yanked
+        yanked_reason: version.yanked.as_ref().map(|notice| notice.reason.clone()),
+        deprecated_reason: version
+            .deprecated
             .as_ref()
-            .and_then(|yanked| yanked.replacement.clone()),
+            .map(|notice| notice.reason.clone()),
+        replacement: notice.and_then(|notice| notice.replacement.clone()),
         date: version.date.clone(),
         jess_api: version.jess_api.clone(),
         content_digest: version.content_digest.clone(),
@@ -1269,52 +1213,6 @@ pub fn package_version_view(
                 }
             })
             .collect(),
-        artifact: package_artifact_view(&version.artifact),
+        artifact: artifact_view(&version.artifact),
     }
-}
-
-/// A site's package feed record, as the site page and the health page show it.
-#[derive(Debug, Clone, Serialize)]
-pub struct FeedView {
-    pub origin: String,
-    pub origin_label: String,
-    pub origin_path: String,
-    pub url: String,
-    pub publisher: String,
-    pub publisher_url: String,
-    pub health: String,
-    pub health_label: String,
-    pub cached: bool,
-    pub problem: Option<String>,
-    pub sha256: Option<String>,
-    pub packages: usize,
-    pub first_observed: String,
-    pub last_changed: Option<String>,
-    pub last_attempt: String,
-    pub last_success: Option<String>,
-}
-
-pub fn feed_view(network: &Network, origin: &str) -> Option<FeedView> {
-    let site = network.feeds.get(origin)?;
-    Some(FeedView {
-        origin: origin.to_owned(),
-        origin_label: network
-            .origins
-            .get(origin)
-            .map_or_else(|| origin.to_owned(), origin_label),
-        origin_path: origin_path(origin),
-        url: site.record.url.clone(),
-        publisher: site.feed.publisher.name.clone(),
-        publisher_url: site.feed.publisher.url.clone(),
-        health: site.record.health.token().to_owned(),
-        health_label: site.record.health.label().to_owned(),
-        cached: site.record.health != FeedHealth::Current,
-        problem: site.record.problem.clone(),
-        sha256: site.record.ingested_sha256.clone(),
-        packages: site.feed.packages.len(),
-        first_observed: time_label(&site.record.first_observed),
-        last_changed: site.record.last_changed.as_deref().map(time_label),
-        last_attempt: time_label(&site.record.last_attempt),
-        last_success: site.record.last_success.as_deref().map(time_label),
-    })
 }

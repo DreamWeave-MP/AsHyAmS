@@ -2,7 +2,7 @@
 //! generated as a site: a new release with breaking and migration notes, a yank, an artifact
 //! changing under an unchanged version, a rolling development build, a program built per
 //! platform, an identity conflict, an unreachable site, an invalid publication, and a Jess
-//! package feed listed by two sites with one yanked version.
+//! package published by two sites, one of them with a yanked version.
 //!
 //! Set `DREAMWEAVE_NETWORK_FIXTURE_SITE` to a directory to keep the result. CI renders it with
 //! `zola --root <directory> build` and checks its links, so the templates are exercised on every
@@ -21,7 +21,7 @@ use dreamweave_network::{
 use serde_json::{Value, json};
 use support::{
     Server,
-    sites::{Site, candlelight, config, feed, program, refresh, tallow},
+    sites::{Site, candlelight, config, program, refresh, site_generator, tallow, words},
 };
 
 const FIRST: &str = "2026-09-27T12:00:00Z";
@@ -135,15 +135,17 @@ async fn a_fixture_network_with_every_state_builds_a_site() {
     let elsewhere = Site::new(&server, "/elsewhere/");
     let flaky = Site::new(&server, "/flaky/");
     let broken = Site::new(&server, "/broken/");
-    template.publish(&[candlelight(), tallow(), program()]);
-    template.publish_feed(&feed());
+    template.publish(&[
+        candlelight(),
+        tallow(),
+        program(),
+        site_generator(),
+        words(),
+    ]);
     let mut impostor = tallow();
     impostor["project"]["name"] = "Tallow (another site's claim)".into();
-    elsewhere.publish(&[impostor]);
-    let mut mirrored = feed();
-    mirrored["publisher"]["name"] = "A mirror".into();
-    mirrored["packages"].as_array_mut().unwrap().truncate(1);
-    elsewhere.publish_feed(&mirrored);
+    // The second site mirrors the site generator's package exactly: the same id, the same bytes.
+    elsewhere.publish(&[impostor, site_generator()]);
     flaky.publish(&[ashfall()]);
     let glass = fictional(
         "c5a1e8f2-4d3b-4a7c-8e9f-1b2c3d4e5f60",
@@ -162,7 +164,13 @@ async fn a_fixture_network_with_every_state_builds_a_site() {
     let mut state = State::default();
     refresh(&config, &mut state, FIRST).await;
 
-    template.publish(&[candlelight_moved_on(), tallow(), program()]);
+    template.publish(&[
+        candlelight_moved_on(),
+        tallow(),
+        program(),
+        site_generator(),
+        words(),
+    ]);
     let mut invalid = glass;
     invalid["channels"]["stable"]["version"] = "9.9.9".into();
     broken.publish(&[invalid]);
@@ -171,8 +179,11 @@ async fn a_fixture_network_with_every_state_builds_a_site() {
     assert_eq!(report.unreachable_sources.len(), 1);
 
     let network = Network::build(&state, &Curation::default()).unwrap();
-    assert_eq!(network.conflicts.len(), 1);
+    // Tallow and the site generator's project are each claimed by two sites; the generator's
+    // package id is too, with the same bytes on both.
+    assert_eq!(network.conflicts.len(), 2);
     assert_eq!(network.package_conflicts.len(), 1);
+    assert!(network.package_conflicts[0].same_bytes);
     assert_eq!(network.listed_packages().len(), 3);
     let healths: Vec<ClaimHealth> = network
         .claims

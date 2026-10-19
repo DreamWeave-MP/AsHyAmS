@@ -190,7 +190,7 @@ async fn nothing_anywhere_is_not_found() {
 async fn a_newer_protocol_stops_discovery() {
     let server = Server::start();
     let mut future = serde_json::from_str::<serde_json::Value>(INDEX).unwrap();
-    future["schema_version"] = "3".into();
+    future["schema_version"] = "4".into();
     server.serve_json("/mods/dreamweave.json", future.to_string());
     let failure = discover(&server, "/mods/").await.unwrap_err();
     assert_eq!(failure.kind, FailureKind::UnsupportedVersion);

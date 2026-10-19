@@ -1,10 +1,14 @@
-//! The DreamWeave protocol documents this index reads, `schema_version` "2", as typed Rust.
+//! The DreamWeave protocol documents this index reads, `schema_version` "2" and "3", as typed
+//! Rust.
 //!
 //! These types are the boundary between untrusted bytes and everything else. They are only ever
 //! built by [`parse`], after the vendored JSON Schema and the protocol's own rules have accepted
 //! the document. Every field the protocol defines is here and nothing else is: an unknown core
-//! field is an error in schema version 2, so `deny_unknown_fields` is the specification talking,
-//! not caution.
+//! field is an error, so `deny_unknown_fields` is the specification talking, not caution.
+//!
+//! Version "3" added one thing to "2": a release's artifact may be a Jess package, `format`
+//! `jpk` with a `jess` block, and an index entry may name the package a project publishes. A
+//! "2" document is read with the same types; the parser refuses it the "3" fields.
 
 pub mod parse;
 
@@ -15,7 +19,15 @@ use serde_json::Value;
 
 use crate::version::{Scheme, Version};
 
-pub const SCHEMA_VERSION: &str = "2";
+/// The protocol versions this index reads. "3" added Jess packages to "2" and changed nothing
+/// else, so one set of types reads both; what "3" added is refused in a "2" document.
+pub const SCHEMA_VERSIONS: [&str; 2] = ["2", "3"];
+/// The newest protocol version this index reads: the one its own messages name.
+pub const SCHEMA_VERSION: &str = "3";
+
+pub fn reads_schema_version(version: &str) -> bool {
+    SCHEMA_VERSIONS.contains(&version)
+}
 pub const INDEX_MEDIA_TYPE: &str = "application/vnd.dreamweave.index+json";
 pub const PROJECT_MEDIA_TYPE: &str = "application/vnd.dreamweave.project+json";
 pub const INDEX_FILE_NAME: &str = "dreamweave.json";
@@ -43,6 +55,29 @@ pub fn is_project_id(text: &str) -> bool {
 }
 
 impl fmt::Display for ProjectId {
+    fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+        formatter.write_str(&self.0)
+    }
+}
+
+/// A Jess package id, as `jess.toml` declares it: reverse-DNS, lowercase. Chosen by the
+/// package's author, which says nothing about who may publish it.
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+#[serde(transparent)]
+pub struct PackageId(pub String);
+
+/// Lowercase ASCII words joined by dots, `org.example.name`, as Jess itself requires.
+pub fn is_package_id(text: &str) -> bool {
+    !text.is_empty()
+        && text.len() <= 200
+        && text.contains('.')
+        && !text.starts_with(['.', '-'])
+        && text.bytes().all(|byte| {
+            byte.is_ascii_lowercase() || byte.is_ascii_digit() || byte == b'.' || byte == b'-'
+        })
+}
+
+impl fmt::Display for PackageId {
     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
         formatter.write_str(&self.0)
     }
@@ -79,6 +114,10 @@ pub struct IndexEntry {
     pub summary: Option<String>,
     #[serde(rename = "type")]
     pub project_type: String,
+    /// The Jess package this project publishes, when it is one (`schema_version` 3). Repeated,
+    /// authoritatively, by the manifest's `jpk` artifacts.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub jess_package: Option<PackageId>,
     pub status: String,
     pub page: String,
     pub manifest: String,
@@ -528,6 +567,10 @@ pub struct Artifact {
     /// The one platform a `binary` artifact runs on. Required for `binary`, absent otherwise.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub platform: Option<Platform>,
+    /// For a `jpk` artifact: the Jess package inside (`schema_version` 3). Required for `jpk`,
+    /// absent otherwise.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub jess: Option<JessPackage>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub layout: Option<Layout>,
     pub sources: Vec<ArtifactSource>,
@@ -536,10 +579,18 @@ pub struct Artifact {
 
 pub const BINARY_FORMAT: &str = "binary";
 pub const CRATE_FORMAT: &str = "crate";
+pub const JPK_FORMAT: &str = "jpk";
+/// The media type of a JPK archive, as a manifest and a publisher's server name it.
+pub const JPK_MEDIA_TYPE: &str = "application/vnd.jess.jpk";
 
 impl Artifact {
     pub fn is_program(&self) -> bool {
         self.format == BINARY_FORMAT
+    }
+
+    /// A Jess package archive: installed by Jess, never by a DreamWeave client.
+    pub fn is_package(&self) -> bool {
+        self.format == JPK_FORMAT
     }
 
     pub fn is_crate(&self) -> bool {
@@ -551,6 +602,19 @@ impl Artifact {
 #[serde(deny_unknown_fields)]
 pub struct Digests {
     pub sha256: String,
+}
+
+/// What a `jpk` artifact holds, as its publisher states it. `content_digest` is Jess's own
+/// digest of the package's content, the one `jess.lock` pins; it is not the archive's digest,
+/// which is `digests.sha256`. The dependencies are copied as declared: they are Jess's to
+/// resolve and never enter this index's graph.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct JessPackage {
+    pub package: PackageId,
+    pub jess_api: String,
+    pub content_digest: String,
+    pub dependencies: BTreeMap<String, String>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]

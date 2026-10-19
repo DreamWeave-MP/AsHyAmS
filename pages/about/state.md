@@ -19,7 +19,6 @@ and pages; `network-state` holds observations. Neither pollutes the other's hist
 | `sources/<source>.json` | One per enrolled URL: which site it led to, the discovery trail, last attempt and success |
 | `origins/<site>/origin.json` | One per site index: health, problem, publication issues, validators, moves |
 | `origins/<site>/dreamweave.json` | That site index's last good bytes, exactly as served |
-| `origins/<site>/jess-packages.json` | The site's last good Jess package feed, if it publishes one; its record is in `origin.json` |
 | `claims/<project>/<site>/claim.json` | One per claim: health, advertised and held digests, first observed, last changed, last success |
 | `claims/<project>/<site>/manifest.json` | The claim's last good manifest, exactly as served |
 | `events/<event>.json` | One per observed transition, never rewritten |

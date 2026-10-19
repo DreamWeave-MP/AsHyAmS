@@ -7,7 +7,6 @@
 //!   sources/<source>.json                   one per enrolled URL: where it led, last attempt
 //!   origins/<origin>/origin.json            one per site index: health, validators, issues
 //!   origins/<origin>/dreamweave.json        that index's last good bytes, exactly as served
-//!   origins/<origin>/jess-packages.json     the site's last good Jess package feed, if it has one
 //!   claims/<project>/<origin>/claim.json    one per (project id, site): health, digests, times
 //!   claims/<project>/<origin>/manifest.json the claim's last good manifest, exactly as served
 //!   events/<event>.json                     one per observed transition, never rewritten
@@ -202,9 +201,6 @@ pub struct OriginRecord {
     pub first_observed: String,
     pub last_attempt: String,
     pub last_success: Option<String>,
-    /// The site's Jess package feed, once it has published one.
-    #[serde(default, skip_serializing_if = "Option::is_none")]
-    pub jess_packages: Option<FeedRecord>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
@@ -261,66 +257,6 @@ pub struct Rejection {
     pub sha256: String,
     pub crawler: String,
     pub problem: String,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
-#[serde(rename_all = "kebab-case")]
-pub enum FeedHealth {
-    /// The feed this index holds is the one the site serves right now.
-    Current,
-    /// The site itself could not be read on the last crawl.
-    OriginUnavailable,
-    /// The site was read, the feed could not be.
-    Unreachable,
-    /// The site serves a feed that fails its schema or rules.
-    Invalid,
-    /// This crawler's resource policy refused the feed.
-    Refused,
-    /// The site answered that there is no feed any more (HTTP 404).
-    Withdrawn,
-}
-
-impl FeedHealth {
-    pub fn token(self) -> &'static str {
-        match self {
-            Self::Current => "current",
-            Self::OriginUnavailable => "origin-unavailable",
-            Self::Unreachable => "unreachable",
-            Self::Invalid => "invalid",
-            Self::Refused => "refused",
-            Self::Withdrawn => "withdrawn",
-        }
-    }
-
-    pub fn label(self) -> &'static str {
-        match self {
-            Self::Current => "current",
-            Self::OriginUnavailable => "origin unavailable",
-            Self::Unreachable => "feed unreachable",
-            Self::Invalid => "invalid publication",
-            Self::Refused => "refused by crawler policy",
-            Self::Withdrawn => "withdrawn",
-        }
-    }
-}
-
-/// A site's Jess package feed as last observed: `jess-packages.json` beside its `dreamweave.json`.
-/// Present only on sites that have published one; most sites never do.
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct FeedRecord {
-    pub url: String,
-    pub validators: Validators,
-    /// The digest of `jess-packages.json` beside the origin record. `None` until a feed was
-    /// accepted.
-    pub ingested_sha256: Option<String>,
-    pub rejected: Option<Rejection>,
-    pub health: FeedHealth,
-    pub problem: Option<String>,
-    pub first_observed: String,
-    pub last_changed: Option<String>,
-    pub last_attempt: String,
-    pub last_success: Option<String>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -414,8 +350,6 @@ pub struct State {
     pub origins: BTreeMap<String, OriginRecord>,
     /// Last good site index bytes per origin.
     pub indexes: BTreeMap<String, Vec<u8>>,
-    /// Last good Jess package feed bytes per origin, for the origins that publish one.
-    pub feeds: BTreeMap<String, Vec<u8>>,
     pub claims: BTreeMap<ClaimKey, ClaimRecord>,
     /// Last good manifest bytes per claim.
     pub manifests: BTreeMap<ClaimKey, Vec<u8>>,
@@ -480,10 +414,6 @@ impl State {
             if index.exists() {
                 state.indexes.insert(record.id.clone(), fs::read(&index)?);
             }
-            let feed = path.join(crate::packages::FILE_NAME);
-            if feed.exists() {
-                state.feeds.insert(record.id.clone(), fs::read(&feed)?);
-            }
             state.origins.insert(record.id.clone(), record);
         }
         for project_directory in sorted_entries(&directory.join("claims"))? {
@@ -544,12 +474,6 @@ impl State {
                 bytes.clone(),
             );
         }
-        for (id, bytes) in &self.feeds {
-            files.insert(
-                PathBuf::from(format!("origins/{id}/{}", crate::packages::FILE_NAME)),
-                bytes.clone(),
-            );
-        }
         for (key, record) in &self.claims {
             files.insert(
                 PathBuf::from(format!("claims/{}/{}/claim.json", key.project, key.origin)),
@@ -601,10 +525,6 @@ impl State {
         self.manifests.get(key).map(Vec::as_slice)
     }
 
-    pub fn feed_bytes(&self, origin: &str) -> Option<&[u8]> {
-        self.feeds.get(origin).map(Vec::as_slice)
-    }
-
     /// The invariants a state directory has to hold, as a list of what is broken. Anything here
     /// is a bug in the crawler or a hand edit, never a publisher's doing.
     pub fn verify(&self, directory: &Path) -> Vec<String> {
@@ -653,30 +573,6 @@ impl State {
                 if &actual != expected {
                     problems.push(format!("origin {id}: dreamweave.json hashes to {actual}, the record says {expected}"));
                 }
-            }
-            let feed = origin.jess_packages.as_ref();
-            match (
-                feed.and_then(|feed| feed.ingested_sha256.as_ref()),
-                self.feeds.get(id),
-            ) {
-                (Some(expected), Some(bytes)) => {
-                    let actual = sha256_hex(bytes);
-                    if &actual != expected {
-                        problems.push(format!("origin {id}: jess-packages.json hashes to {actual}, the record says {expected}"));
-                    }
-                    if let Err(error) = serde_json::from_slice::<crate::packages::Feed>(bytes) {
-                        problems.push(format!(
-                            "origin {id}: jess-packages.json does not parse: {error}"
-                        ));
-                    }
-                }
-                (Some(_), None) => problems.push(format!(
-                    "origin {id}: the record names a package feed the directory does not hold"
-                )),
-                (None, Some(_)) => problems.push(format!(
-                    "origin {id}: a package feed is held without a digest on record"
-                )),
-                (None, None) => {}
             }
         }
         for (id, source) in &self.sources {

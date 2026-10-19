@@ -8,7 +8,7 @@
     <div class="dw-shell">
         <p class="dw-kicker"><span><a href="{{ get_url(path='packages/', trailing_slash=true) | safe }}">Jess packages</a></span><span>{{ net::health(token=row.health, label=row.health_label) }}</span>{% if row.conflict %}<span class="dw-badge dw-badge--danger">more than one site</span>{% endif %}</p>
         <h1><code>{{ net::breakable(text=row.id) }}</code></h1>
-        <p class="net-lede">{% if row.summary %}{{ row.summary }} {% endif %}Distributed by <a href="{{ get_url(path=row.origin_path, trailing_slash=true) | safe }}">{{ row.origin_label }}</a>, who say they are <a href="{{ view.publisher_url }}">{{ row.publisher }}</a>.</p>
+        <p class="net-lede">{% if row.summary %}{{ row.summary }} {% endif %}Published by <a href="{{ get_url(path=row.origin_path, trailing_slash=true) | safe }}">{{ row.origin_label }}</a> as the project <a href="{{ get_url(path=row.project_path, trailing_slash=true) | safe }}">{{ row.project_name }}</a>.</p>
     </div>
 </header>
 <div class="dw-shell dw-project__body">
@@ -17,7 +17,7 @@
         <aside class="dw-callout dw-callout--warning" role="note"><p class="dw-callout__title">Cached</p><p>{{ view.notice }}</p>{% if view.problem %}<p><code>{{ view.problem }}</code></p>{% endif %}</aside>
         {%- endif %}
         {%- if view.withdrawn %}
-        <aside class="dw-callout dw-callout--warning" role="note"><p class="dw-callout__title">Withdrawn</p><p>The site no longer serves a package feed. This is the last one it served; nothing in it is offered to clients.</p></aside>
+        <aside class="dw-callout dw-callout--warning" role="note"><p class="dw-callout__title">Withdrawn</p><p>The site no longer lists the project this package came from. This is the last manifest it served; nothing in it is offered to clients.</p></aside>
         {%- endif %}
         {%- if view.conflict %}
         <aside class="dw-callout dw-callout--danger" role="note">
@@ -26,11 +26,12 @@
         </aside>
         {%- endif %}
         <section class="dw-section" aria-labelledby="versions-title">
-            {{ net::section_head(number="01", title="Versions", note="Every version the publisher lists, newest first. Yanked versions stay listed and say why. The archive downloads from the publisher; this index never serves or verifies it.", id="versions-title") }}
+            {{ net::section_head(number="01", title="Versions", note="Every release of the project that is a JPK, newest first, as its manifest lists them. Yanked and deprecated versions stay listed and say why. The archive downloads from the publisher; this index never serves or verifies it.", id="versions-title") }}
             {%- for version in view.versions %}
             <article class="dw-release{% if version.status == 'yanked' %} dw-release--yanked{% endif %}" id="v{{ version.version | slugify }}">
-                <h3>{{ version.version }} {{ net::status(token=version.status) }}{% if version.current %} <span class="dw-badge dw-badge--ok">current</span>{% endif %}{% if version.date %} <small class="net-muted">released {{ version.date }}</small>{% endif %}</h3>
+                <h3>{{ version.version }} {{ net::status(token=version.status) }}{% if version.current %} <span class="dw-badge dw-badge--ok">current</span>{% endif %} <small class="net-muted">{{ version.channel }}{% if version.date %} · released {{ version.date }}{% endif %}</small></h3>
                 {%- if version.yanked_reason %}<p class="dw-callout dw-callout--warning">Yanked by the publisher: {{ version.yanked_reason }}{% if version.replacement %} Replacement: {{ version.replacement }}.{% endif %}</p>{% endif %}
+                {%- if version.deprecated_reason %}<p class="dw-callout dw-callout--warning">Deprecated by the publisher: {{ version.deprecated_reason }}{% if version.replacement %} Replacement: {{ version.replacement }}.{% endif %}</p>{% endif %}
                 <dl class="dw-record">
                     <dt>Jess API</dt><dd>{{ version.jess_api }}</dd>
                     <dt>Content digest</dt><dd class="dw-digest">{{ version.content_digest }} <button class="dw-copy" type="button" data-copy="{{ version.content_digest }}">Copy</button><br><small class="net-muted">BLAKE3 over the package's canonical content: what <code>jess.lock</code> pins. Not the archive's digest.</small></dd>
@@ -47,7 +48,7 @@
         {%- if view.others | length > 0 %}
         <section class="dw-section" aria-labelledby="others-title">
             {{ net::section_head(number="02", title="The same id elsewhere", id="others-title") }}
-            <ul>{% for other in view.others %}<li><a href="{{ get_url(path=other.path, trailing_slash=true) | safe }}">{{ other.origin_label }}</a> · {{ other.publisher }} · {{ other.current | default(value="every version yanked") }} · {{ other.health_label }}</li>{% endfor %}</ul>
+            <ul>{% for other in view.others %}<li><a href="{{ get_url(path=other.path, trailing_slash=true) | safe }}">{{ other.origin_label }}</a> · as {{ other.project_name }} · {{ other.current | default(value="every version yanked") }} · {{ other.health_label }}</li>{% endfor %}</ul>
         </section>
         {%- endif %}
     </div>
@@ -56,12 +57,10 @@
             <h2 class="dw-panel__title">Index record <small>observed</small></h2>
             <div class="dw-panel__body">{{ net::facts(items=view.record) }}</div>
         </section>
-        {%- if row.project_path %}
         <section class="dw-panel">
             <h2 class="dw-panel__title">Project</h2>
-            <div class="dw-panel__body"><p>The publisher says this package belongs to <a href="{{ get_url(path=row.project_path, trailing_slash=true) | safe }}">a DreamWeave project on the same site</a>.</p></div>
+            <div class="dw-panel__body"><p>These versions are the releases of <a href="{{ get_url(path=row.project_path, trailing_slash=true) | safe }}">{{ row.project_name }}</a>, a DreamWeave project on the same site; everything else about them is on its page.</p></div>
         </section>
-        {%- endif %}
     </aside>
 </div>
 {%- endblock content %}

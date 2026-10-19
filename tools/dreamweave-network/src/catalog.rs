@@ -10,9 +10,9 @@
 //! described by `schemas/dreamweave-network-catalog-1.schema.json`.
 //!
 //! The Jess package claims go in a file of their own, `network-data/jess-packages-v1.json`,
-//! described by `schemas/dreamweave-network-jess-packages-1.schema.json`: the discovery feed a
+//! described by `schemas/dreamweave-network-jess-packages-1.schema.json`: the discovery file a
 //! Jess client reads to find which site publishes a package id, before it reads that site's own
-//! feed and believes it.
+//! manifest and believes it.
 
 use std::{collections::BTreeMap, sync::LazyLock};
 
@@ -22,9 +22,9 @@ use serde::Serialize;
 use crate::{
     events,
     network::{Current, Network, PackageClaim, PackageKey, Resolution},
-    packages::{PackageId, PackageVersion, Publisher},
+    packages::{PackageId, PackageVersion},
     protocol::{ProjectId, RelationshipKind},
-    state::{ClaimHealth, ClaimKey, Event, FeedHealth, OriginHealth},
+    state::{ClaimHealth, ClaimKey, Event, OriginHealth},
 };
 
 pub const FORMAT: &str = "dreamweave-network-catalog";
@@ -38,7 +38,7 @@ pub const JESS_PACKAGES_SCHEMA_PATH: &str =
 pub const JESS_PACKAGES_FILE: &str = "jess-packages-v1.json";
 
 const NOTICE: &str = "A cache of claims observed by this index. Each claim's manifest URL, on the site that published it, is the authority; this file is not.";
-const JESS_PACKAGES_NOTICE: &str = "A cache of Jess package feeds observed by this index. Each package's feed URL, on the site that published it, is the authority; this file is not. Nothing here was downloaded or verified by this index: a client reads the publisher's feed, downloads from a source it names, and checks both digests itself.";
+const JESS_PACKAGES_NOTICE: &str = "A cache of Jess packages observed by this index in the manifests of the projects that publish them. Each package's manifest URL, on the site that published it, is the authority; this file is not. Nothing here was downloaded or verified by this index: a client reads the publisher's manifest, downloads from a source it names, and checks both digests itself.";
 
 #[derive(Debug, Clone, Serialize)]
 pub struct IndexInfo {
@@ -179,21 +179,21 @@ impl From<&PackageKey> for PackageRef {
     }
 }
 
-/// One site's listing of one Jess package: the feed's entry copied unchanged, with where it
-/// came from and how fresh this index's copy is.
+/// One site's publication of one Jess package: the project's releases that are the package,
+/// copied unchanged from its manifest, with where that came from and how fresh the copy is.
 #[derive(Debug, Serialize)]
 pub struct PackageRecord {
     pub id: PackageId,
     pub origin: String,
-    pub publisher: Publisher,
+    /// The project whose releases these are.
+    pub project: ProjectId,
+    pub name: String,
     pub summary: Option<String>,
-    pub project: Option<ProjectId>,
-    pub repository: Option<String>,
-    /// The publisher's `jess-packages.json`: the authority for every version below.
-    pub feed_url: String,
-    /// The digest of the feed this index holds and copied these versions from.
-    pub feed_sha256: String,
-    pub health: FeedHealth,
+    /// The publisher's manifest: the authority for every version below.
+    pub manifest_url: String,
+    /// The digest of the manifest this index holds and copied these versions from.
+    pub manifest_sha256: String,
+    pub health: ClaimHealth,
     pub cached: bool,
     pub problem: Option<String>,
     pub first_observed: String,
@@ -205,6 +205,7 @@ pub struct PackageRecord {
     pub versions: Vec<PackageVersion>,
     pub conflict: bool,
     pub network_page: String,
+    pub project_page: String,
 }
 
 #[derive(Debug, Serialize)]
@@ -385,27 +386,28 @@ pub fn catalog(network: &Network, index: &IndexInfo) -> Catalog {
 }
 
 fn package_record(network: &Network, claim: &PackageClaim, index: &IndexInfo) -> PackageRecord {
-    let site = &network.feeds[&claim.key.origin];
+    let project = network.package_project(claim);
+    let record = &project.record;
     PackageRecord {
         id: claim.key.id.clone(),
         origin: claim.key.origin.clone(),
-        publisher: site.feed.publisher.clone(),
-        summary: claim.package.summary.clone(),
         project: claim.package.project.clone(),
-        repository: claim.package.repository.clone(),
-        feed_url: site.record.url.clone(),
-        feed_sha256: site.record.ingested_sha256.clone().unwrap_or_default(),
-        health: site.record.health,
-        cached: site.record.health != FeedHealth::Current,
-        problem: site.record.problem.clone(),
-        first_observed: site.record.first_observed.clone(),
-        last_changed: site.record.last_changed.clone(),
-        last_attempt: site.record.last_attempt.clone(),
-        last_success: site.record.last_success.clone(),
+        name: claim.package.name.clone(),
+        summary: claim.package.summary.clone(),
+        manifest_url: record.entry.manifest.clone(),
+        manifest_sha256: record.ingested_sha256.clone().unwrap_or_default(),
+        health: record.health,
+        cached: record.health != ClaimHealth::Current,
+        problem: record.problem.clone(),
+        first_observed: record.first_observed.clone(),
+        last_changed: record.last_changed.clone(),
+        last_attempt: record.last_attempt.clone(),
+        last_success: record.last_success.clone(),
         current: claim.current().map(|version| version.version.clone()),
         versions: claim.package.versions.clone(),
         conflict: claim.conflict,
         network_page: format!("{}/{}", index.url.trim_end_matches('/'), claim.path()),
+        project_page: format!("{}/{}", index.url.trim_end_matches('/'), project.path()),
     }
 }
 

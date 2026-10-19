@@ -15,9 +15,9 @@ use super::{
     Front, Writer,
     format::{origin_label, plural, short_digest, site_address, slug, time_label},
     views::{
-        self, Card, EventRow, Fact, FeedView, Link, NotesView, PackageRow, PackageVersionView,
+        self, Card, EventRow, Fact, Link, NotesView, PackageRow, PackageVersionView,
         RelationshipGroup, ReleaseRow, ReleaseView, ReverseItem, SectionView, Stat, TagLink, card,
-        event_row, feed_view, package_row, package_version_view,
+        event_row, package_row, package_version_view,
     },
 };
 use crate::{
@@ -1636,8 +1636,6 @@ struct HealthView {
     problems: Vec<ClaimProblem>,
     counts: Vec<Fact>,
     generators: Vec<Fact>,
-    /// Every Jess package feed this index holds, current or not.
-    feeds: Vec<FeedView>,
 }
 
 fn origin_row(network: &Network, origin: &crate::state::OriginRecord) -> OriginRow {
@@ -1741,11 +1739,6 @@ fn health(writer: &mut Writer, network: &Network) -> Result<()> {
             .into_iter()
             .map(|(generator, count)| Fact::text(&generator, plural(count, "site", "sites")))
             .collect(),
-        feeds: network
-            .feeds
-            .keys()
-            .filter_map(|origin| feed_view(network, origin))
-            .collect(),
     };
     let path = writer.view("health", &view)?;
     writer.page(
@@ -1765,8 +1758,7 @@ struct OriginView {
     cards: Vec<Card>,
     others: Vec<ClaimProblem>,
     events: Vec<EventRow>,
-    /// The site's Jess package feed, when it publishes one, and the packages it lists.
-    feed: Option<FeedView>,
+    /// The Jess packages the site's projects publish.
     packages: Vec<PackageRow>,
 }
 
@@ -1811,7 +1803,6 @@ fn origins(writer: &mut Writer, network: &Network) -> Result<()> {
                 .map(|event| event_row(network, event))
                 .take(20)
                 .collect(),
-            feed: feed_view(network, &origin.id),
             packages: network
                 .packages
                 .values()
@@ -1910,7 +1901,8 @@ fn conflicts(writer: &mut Writer, network: &Network) -> Result<()> {
 #[derive(Serialize)]
 struct PackagesView {
     rows: Vec<PackageRow>,
-    feeds: Vec<FeedView>,
+    /// How many sites publish a listed package.
+    sites: usize,
     conflicts: usize,
 }
 
@@ -1927,8 +1919,6 @@ struct PackageView {
     record: Vec<Fact>,
     notice: Option<String>,
     problem: Option<String>,
-    feed: FeedView,
-    publisher_url: String,
     versions: Vec<PackageVersionView>,
     others: Vec<PackageRow>,
     conflict: Option<PackageConflictView>,
@@ -1936,7 +1926,8 @@ struct PackageView {
 }
 
 fn package_record_facts(network: &Network, claim: &PackageClaim) -> Vec<Fact> {
-    let site = &network.feeds[&claim.key.origin];
+    let project = network.package_project(claim);
+    let record = &project.record;
     let origin = network.origins.get(&claim.key.origin);
     let mut facts = vec![
         Fact::code("Package id", claim.key.id.to_string())
@@ -1946,57 +1937,45 @@ fn package_record_facts(network: &Network, claim: &PackageClaim) -> Vec<Fact> {
             origin.map_or_else(|| claim.key.origin.clone(), origin_label),
         )
         .path(views::origin_path(&claim.key.origin)),
-        Fact::text("Publisher says", site.feed.publisher.name.clone())
-            .url(site.feed.publisher.url.clone()),
-        Fact::code("Package feed", site.record.url.clone()).url(site.record.url.clone()),
+        Fact::text("As the project", claim.package.name.clone()).path(project.path()),
+        Fact::code("Project id", claim.package.project.to_string())
+            .path(format!("projects/{}/", claim.package.project)),
+        Fact::code("Manifest", record.entry.manifest.clone()).url(record.entry.manifest.clone()),
     ];
-    if let Some(ingested) = &site.record.ingested_sha256 {
-        facts.push(Fact::code("Held feed sha256", ingested.clone()));
+    if let Some(ingested) = &record.ingested_sha256 {
+        facts.push(Fact::code("Held manifest sha256", ingested.clone()));
     }
-    if let Some(project) = &claim.package.project {
-        facts.push(
-            Fact::code("DreamWeave project", project.to_string())
-                .path(format!("projects/{project}/")),
-        );
-    }
-    if let Some(repository) = &claim.package.repository {
-        facts.push(Fact::code("Repository", repository.clone()).url(repository.clone()));
-    }
-    facts.push(Fact::text("Feed health", site.record.health.label()));
+    facts.push(Fact::text("Manifest health", record.health.label()));
     facts.push(Fact::text(
         "First observed",
-        time_label(&site.record.first_observed),
+        time_label(&record.first_observed),
     ));
-    if let Some(changed) = &site.record.last_changed {
-        facts.push(Fact::text("Feed last changed", time_label(changed)));
+    if let Some(changed) = &record.last_changed {
+        facts.push(Fact::text("Manifest last changed", time_label(changed)));
     }
-    if let Some(success) = &site.record.last_success {
+    if let Some(success) = &record.last_success {
         facts.push(Fact::text("Last confirmed current", time_label(success)));
     }
-    facts.push(Fact::text(
-        "Last attempt",
-        time_label(&site.record.last_attempt),
-    ));
+    facts.push(Fact::text("Last attempt", time_label(&record.last_attempt)));
     facts
 }
 
 fn package_notice(network: &Network, claim: &PackageClaim) -> Option<String> {
-    let site = &network.feeds[&claim.key.origin];
-    if site.record.health == crate::state::FeedHealth::Current {
+    let record = &network.package_project(claim).record;
+    if record.health == ClaimHealth::Current {
         return None;
     }
-    let success = site
-        .record
+    let success = record
         .last_success
         .as_deref()
         .map_or_else(|| "never".to_owned(), time_label);
     Some(format!(
-        "Cached from the last successful observation of the feed, {success}. As of {}, the feed is {}.",
+        "Cached from the last successful observation of the project's manifest, {success}. As of {}, the manifest is {}.",
         network
             .observed_at
             .as_deref()
-            .map_or_else(|| time_label(&site.record.last_attempt), time_label),
-        site.record.health.label()
+            .map_or_else(|| time_label(&record.last_attempt), time_label),
+        record.health.label()
     ))
 }
 
@@ -2006,13 +1985,14 @@ fn packages(writer: &mut Writer, network: &Network) -> Result<()> {
         .into_iter()
         .map(|claim| package_row(network, claim))
         .collect();
+    let sites: BTreeSet<&str> = network
+        .listed_packages()
+        .into_iter()
+        .map(|claim| claim.key.origin.as_str())
+        .collect();
     let view = PackagesView {
         rows,
-        feeds: network
-            .feeds
-            .keys()
-            .filter_map(|origin| feed_view(network, origin))
-            .collect(),
+        sites: sites.len(),
         conflicts: network.package_conflicts.len(),
     };
     let path = writer.view("packages", &view)?;
@@ -2020,7 +2000,7 @@ fn packages(writer: &mut Writer, network: &Network) -> Result<()> {
         "packages/_index.md",
         &Front {
             title: "Jess packages",
-            description: "Every Jess package (JPK) the enrolled sites distribute, one entry per package id per site, with every version each publisher lists.",
+            description: "Every Jess package (JPK) the enrolled sites publish, one entry per package id per site, with every version its project's manifest lists.",
             template: "packages.html",
             view: Some(&path),
         },
@@ -2067,16 +2047,12 @@ fn package_identities(writer: &mut Writer, network: &Network) -> Result<()> {
 
 fn package_pages(writer: &mut Writer, network: &Network) -> Result<()> {
     for claim in network.packages.values() {
-        let feed =
-            feed_view(network, &claim.key.origin).expect("a package claim comes from a held feed");
         let view = PackageView {
             row: package_row(network, claim),
             record: package_record_facts(network, claim),
             notice: package_notice(network, claim),
-            problem: feed.problem.clone(),
-            publisher_url: feed.publisher_url.clone(),
+            problem: network.package_project(claim).record.problem.clone(),
             withdrawn: !network.package_is_listed(&claim.key),
-            feed,
             versions: claim
                 .package
                 .versions
@@ -2357,13 +2333,13 @@ fn public_data(writer: &Writer, network: &Network, index: &IndexInfo, pages: &Pa
         let mut fields: BTreeMap<String, Vec<String>> = BTreeMap::new();
         fields.insert("id".to_owned(), vec![row.id.to_lowercase()]);
         fields.insert("site".to_owned(), vec![row.origin_label.to_lowercase()]);
-        fields.insert("publisher".to_owned(), vec![row.publisher.to_lowercase()]);
+        fields.insert("project".to_owned(), vec![row.project_name.to_lowercase()]);
         SearchRecord {
             text: format!(
                 "{} {} {} {}",
                 row.id,
                 row.summary.clone().unwrap_or_default(),
-                row.publisher,
+                row.project_name,
                 row.origin_label
             )
             .to_lowercase(),

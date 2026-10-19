@@ -17,10 +17,13 @@ use super::Server;
 pub const CANDLELIGHT: &str = include_str!("../fixtures/mod-template/candlelight.json");
 pub const TALLOW: &str = include_str!("../fixtures/mod-template/tallow.json");
 pub const PROGRAM: &str = include_str!("../fixtures/programs/lantern-forge.json");
-pub const FEED: &str = include_str!("../fixtures/jess/jess-packages.json");
+pub const SITE_GENERATOR: &str = include_str!("../fixtures/jess/site-generator.json");
+pub const WORDS: &str = include_str!("../fixtures/jess/words.json");
 pub const THUMBNAIL: &[u8] = include_bytes!("../fixtures/thumbnail.png");
 pub const CANDLELIGHT_ID: &str = "4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90";
 pub const TALLOW_ID: &str = "9b7e3f21-6c4d-4a8b-b1e2-3f5a7c9d0e14";
+pub const SITE_GENERATOR_ID: &str = "7f3c1a2e-5b6d-4e8f-9a0b-1c2d3e4f5a6b";
+pub const WORDS_ID: &str = "0a1b2c3d-4e5f-4a6b-8c9d-0e1f2a3b4c5d";
 
 pub fn candlelight() -> Value {
     serde_json::from_str(CANDLELIGHT).unwrap()
@@ -34,9 +37,24 @@ pub fn program() -> Value {
     serde_json::from_str(PROGRAM).unwrap()
 }
 
-/// The fixture Jess package feed: `org.dreamweave.site` and a fictional `org.example.words`.
-pub fn feed() -> Value {
-    serde_json::from_str(FEED).unwrap()
+/// A `schema_version` 3 project whose releases are the Jess package `org.dreamweave.site`.
+pub fn site_generator() -> Value {
+    serde_json::from_str(SITE_GENERATOR).unwrap()
+}
+
+/// A `schema_version` 3 project publishing a fictional `org.example.words`, newest version yanked.
+pub fn words() -> Value {
+    serde_json::from_str(WORDS).unwrap()
+}
+
+/// The Jess package id a manifest's releases publish, if any: what its index entry repeats.
+fn jess_package(manifest: &Value) -> Option<Value> {
+    manifest["releases"]
+        .as_array()?
+        .iter()
+        .flat_map(|release| release["artifacts"].as_array().into_iter().flatten())
+        .find(|artifact| artifact["format"] == "jpk")
+        .map(|artifact| artifact["jess"]["package"].clone())
 }
 
 pub fn pretty(value: &Value) -> Vec<u8> {
@@ -73,7 +91,7 @@ impl<'a> Site<'a> {
             .iter()
             .map(|(channel, head)| (channel.clone(), head["version"].clone()))
             .collect();
-        json!({
+        let mut entry = json!({
             "id": id,
             "name": manifest["project"]["name"],
             "summary": manifest["project"]["summary"],
@@ -84,12 +102,26 @@ impl<'a> Site<'a> {
             "manifest_sha256": sha256_hex(bytes),
             "updated": manifest["releases"][0]["date"],
             "channels": channels,
-        })
+        });
+        if let Some(package) = jess_package(manifest) {
+            entry["jess_package"] = package;
+        }
+        entry
     }
 
+    /// A site index: `schema_version` 3 when an entry uses what version 3 added, 2 otherwise, so
+    /// the version 2 fixtures keep testing version 2 documents.
     pub fn index(&self, entries: &[Value]) -> Value {
+        let version = if entries
+            .iter()
+            .any(|entry| entry.get("jess_package").is_some())
+        {
+            "3"
+        } else {
+            "2"
+        };
         json!({
-            "schema_version": "2",
+            "schema_version": version,
             "document": "index",
             "generator": "fixture",
             "site": { "name": "Fixture site", "url": self.url("") },
@@ -98,7 +130,8 @@ impl<'a> Site<'a> {
     }
 
     /// Points every media URL at this server, which serves a small PNG there, so no test ever
-    /// fetches a publisher's real image.
+    /// fetches a publisher's real image, and every JPK source at this server too, so nothing in
+    /// a test names a real download (the index never fetches one either way).
     pub fn localized(&self, manifest: &Value) -> Value {
         let mut manifest = manifest.clone();
         let id = manifest["project"]["id"].as_str().unwrap().to_owned();
@@ -110,6 +143,22 @@ impl<'a> Site<'a> {
                         self.server.serve(&path, "image/png", THUMBNAIL.to_vec());
                         item[field] = self.server.url(&path).to_string().into();
                     }
+                }
+            }
+        }
+        for release in manifest["releases"].as_array_mut().into_iter().flatten() {
+            for artifact in release["artifacts"].as_array_mut().into_iter().flatten() {
+                if artifact["format"] != "jpk" {
+                    continue;
+                }
+                let name = artifact["filename"].as_str().unwrap().to_owned();
+                for source in artifact["sources"].as_array_mut().into_iter().flatten() {
+                    let directory = if source["kind"] == "mirror" {
+                        "mirror"
+                    } else {
+                        "packages"
+                    };
+                    source["url"] = self.url(&format!("{directory}/{name}")).into();
                 }
             }
         }
@@ -141,41 +190,6 @@ impl<'a> Site<'a> {
     pub fn serve_index(&self, index: &Value) {
         self.server
             .serve_json(&format!("{}dreamweave.json", self.base), pretty(index));
-    }
-
-    pub fn feed_path(&self) -> String {
-        format!("{}jess-packages.json", self.base)
-    }
-
-    /// Serves a Jess package feed beside the site index, pointing its archive URLs at this
-    /// server so nothing in a test names a real download.
-    pub fn publish_feed(&self, feed: &Value) {
-        let mut feed = feed.clone();
-        if let Some(packages) = feed["packages"].as_array_mut() {
-            for package in packages {
-                for version in package["versions"].as_array_mut().into_iter().flatten() {
-                    let name = version["artifact"]["filename"].as_str().unwrap().to_owned();
-                    for source in version["artifact"]["sources"]
-                        .as_array_mut()
-                        .into_iter()
-                        .flatten()
-                    {
-                        let directory = if source["kind"] == "mirror" {
-                            "mirror"
-                        } else {
-                            "packages"
-                        };
-                        source["url"] = self.url(&format!("{directory}/{name}")).into();
-                    }
-                }
-            }
-        }
-        feed["publisher"]["url"] = self.url("").into();
-        self.server.serve_json(&self.feed_path(), pretty(&feed));
-    }
-
-    pub fn withdraw_feed(&self) {
-        self.server.remove(&self.feed_path());
     }
 }
 

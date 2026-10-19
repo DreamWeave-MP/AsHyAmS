@@ -76,26 +76,6 @@
         <p>{{ net::health(token="current", label="Every claim is current.") }}</p>
         {%- endif %}
     </section>
-
-    {%- if view.feeds | length > 0 %}
-    <section class="dw-section" aria-labelledby="feeds-title">
-        {{ net::section_head(number="04", title="Jess package feeds", note="Sites that publish jess-packages.json. A feed that fails a check keeps its last good copy.", id="feeds-title") }}
-        <div class="dw-table-scroll"><table class="net-table">
-            <thead><tr><th scope="col">Site</th><th scope="col">Feed</th><th scope="col">Packages</th><th scope="col">Last success</th></tr></thead>
-            <tbody>
-            {%- for feed in view.feeds %}
-                <tr>
-                    <td><a href="{{ get_url(path=feed.origin_path, trailing_slash=true) | safe }}">{{ feed.origin_label }}</a><br><small class="net-muted">{{ feed.publisher }}</small></td>
-                    <td>{{ net::health(token=feed.health, label=feed.health_label) }}{% if feed.problem %}<br><code class="net-problem">{{ feed.problem }}</code>{% endif %}</td>
-                    <td>{{ feed.packages }}</td>
-                    <td>{{ feed.last_success | default(value="never") }}</td>
-                </tr>
-            {%- endfor %}
-            </tbody>
-        </table></div>
-    </section>
-    {%- endif %}
-
     <div class="net-split">
         <section class="dw-section" aria-labelledby="counts-title">
             {{ net::section_head(number="05", title="Claims by state", id="counts-title") }}

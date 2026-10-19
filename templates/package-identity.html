@@ -19,12 +19,12 @@
     <p>A package id is a claim, not proof of who speaks for a package. This page lists every site this index has seen distribute this one.</p>
     {%- endif %}
     <div class="dw-table-scroll"><table class="net-table">
-        <thead><tr><th scope="col">Published by</th><th scope="col">Publisher says</th><th scope="col">Current</th><th scope="col">Versions</th><th scope="col">Feed</th></tr></thead>
+        <thead><tr><th scope="col">Published by</th><th scope="col">As the project</th><th scope="col">Current</th><th scope="col">Versions</th><th scope="col">Manifest</th></tr></thead>
         <tbody>
         {%- for claim in view.claims %}
             <tr>
                 <td><a href="{{ get_url(path=claim.path, trailing_slash=true) | safe }}">{{ claim.origin_label }}</a></td>
-                <td>{{ claim.publisher }}</td>
+                <td><a href="{{ get_url(path=claim.project_path, trailing_slash=true) | safe }}">{{ claim.project_name }}</a></td>
                 <td>{{ claim.current | default(value="every version yanked") }}</td>
                 <td>{{ claim.versions }}</td>
                 <td>{{ net::health(token=claim.health, label=claim.health_label) }}</td>

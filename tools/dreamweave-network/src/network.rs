@@ -13,9 +13,10 @@
 //! except by version. Historical releases keep their own relationships and are shown on the
 //! claim's page; they never leak into the current graph.
 //!
-//! Jess packages are a second kind of claim, `(package id, origin)`, read from each site's
-//! package feed. They are kept apart from project claims: a package id is not a project id, and
-//! a feed's dependency requirements are evaluated by Jess, never resolved into this graph.
+//! Jess packages are a second kind of claim, `(package id, origin)`, read from the manifest of
+//! the project that publishes the package (protocol version 3). They are kept apart from project
+//! claims: a package id is not a project id, and a package's dependency requirements are
+//! evaluated by Jess, never resolved into this graph.
 
 use std::{
     cmp::Ordering,
@@ -28,15 +29,12 @@ use url::Url;
 
 use crate::{
     config::Curation,
-    packages::{Feed, Package, PackageId, PackageVersion},
+    packages::{self, Package, PackageId, PackageVersion},
     protocol::{
         DEVELOPMENT_CHANNEL, Manifest, ProjectId, Relationship, RelationshipKind, Release,
         STABLE_CHANNEL,
     },
-    state::{
-        ClaimHealth, ClaimKey, ClaimRecord, Event, FeedHealth, FeedRecord, OriginRecord,
-        SourceRecord, State,
-    },
+    state::{ClaimHealth, ClaimKey, ClaimRecord, Event, OriginRecord, SourceRecord, State},
     version::{Constraint, Version},
 };
 
@@ -116,7 +114,7 @@ pub fn claim_path(key: &ClaimKey) -> String {
     format!("projects/{}/{}/", key.project, key.origin)
 }
 
-/// A Jess package claim: one package id as one site's feed lists it.
+/// A Jess package claim: one package id as one site's project publishes it.
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize)]
 pub struct PackageKey {
     pub id: PackageId,
@@ -127,25 +125,13 @@ pub fn package_path(key: &PackageKey) -> String {
     format!("packages/{}/{}/", key.id, key.origin)
 }
 
-/// A site's Jess package feed as this index holds it: the record and the last good document.
-#[derive(Debug, Clone)]
-pub struct SiteFeed {
-    pub record: FeedRecord,
-    pub feed: Feed,
-}
-
-impl SiteFeed {
-    /// In the catalog: the site has not withdrawn the feed.
-    pub fn is_listed(&self) -> bool {
-        self.record.health != FeedHealth::Withdrawn
-    }
-}
-
 #[derive(Debug, Clone)]
 pub struct PackageClaim {
     pub key: PackageKey,
+    /// The project claim the package is read from: its manifest, its health, its record.
+    pub project: ClaimKey,
     pub package: Package,
-    /// Another site's feed lists the same package id.
+    /// Another site publishes the same package id.
     pub conflict: bool,
 }
 
@@ -268,8 +254,7 @@ pub struct Network {
     /// Newest first.
     pub events: Vec<Event>,
     pub curation: Curation,
-    /// Every site's Jess package feed this index holds, by origin.
-    pub feeds: BTreeMap<String, SiteFeed>,
+    /// Every Jess package some held manifest publishes, by `(package id, origin)`.
     pub packages: BTreeMap<PackageKey, PackageClaim>,
     pub package_conflicts: Vec<PackageConflict>,
 }
@@ -309,37 +294,24 @@ impl Network {
             );
         }
 
-        let mut feeds = BTreeMap::new();
-        let mut packages = BTreeMap::new();
-        for (origin, record) in &state.origins {
-            let (Some(feed_record), Some(bytes)) =
-                (&record.jess_packages, state.feed_bytes(origin))
-            else {
+        // A package claim per held manifest that publishes one. Two projects of one site naming
+        // the same package would be two claims under one key; the first by project id stands and
+        // the other is the site's own inconsistency to fix.
+        let mut packages: BTreeMap<PackageKey, PackageClaim> = BTreeMap::new();
+        for (key, claim) in &claims {
+            let Some(package) = claim.manifest.as_ref().and_then(packages::package_of) else {
                 continue;
             };
-            let feed: Feed = serde_json::from_slice(bytes)
-                .with_context(|| format!("the held package feed of {origin}"))?;
-            for package in &feed.packages {
-                let key = PackageKey {
-                    id: package.id.clone(),
-                    origin: origin.clone(),
-                };
-                packages.insert(
-                    key.clone(),
-                    PackageClaim {
-                        key,
-                        package: package.clone(),
-                        conflict: false,
-                    },
-                );
-            }
-            feeds.insert(
-                origin.clone(),
-                SiteFeed {
-                    record: feed_record.clone(),
-                    feed,
-                },
-            );
+            let package_key = PackageKey {
+                id: package.id.clone(),
+                origin: key.origin.clone(),
+            };
+            packages.entry(package_key.clone()).or_insert(PackageClaim {
+                key: package_key,
+                project: key.clone(),
+                package,
+                conflict: false,
+            });
         }
 
         let mut network = Self {
@@ -360,7 +332,6 @@ impl Network {
             gaps: Vec::new(),
             events: state.events.values().cloned().collect(),
             curation: curation.clone(),
-            feeds,
             packages,
             package_conflicts: Vec::new(),
         };
@@ -380,9 +351,17 @@ impl Network {
         Ok(network)
     }
 
-    /// Whether a package claim is in the catalog: its site's feed is held and not withdrawn.
+    /// Whether a package claim is in the catalog: the project claim it comes from is listed.
     pub fn package_is_listed(&self, key: &PackageKey) -> bool {
-        self.feeds.get(&key.origin).is_some_and(SiteFeed::is_listed)
+        self.packages
+            .get(key)
+            .and_then(|claim| self.claims.get(&claim.project))
+            .is_some_and(Claim::is_listed)
+    }
+
+    /// The project claim a package claim is read from.
+    pub fn package_project(&self, claim: &PackageClaim) -> &Claim {
+        &self.claims[&claim.project]
     }
 
     /// Listed package claims, in catalog order: id, then origin.

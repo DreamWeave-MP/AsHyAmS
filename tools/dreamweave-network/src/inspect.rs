@@ -8,7 +8,7 @@ use url::Url;
 
 use crate::{
     discovery::{self, Discovery, Failure},
-    fetch::{FetchError, Fetcher},
+    fetch::Fetcher,
     network::{Current, current_release},
     packages, policy,
     protocol::{
@@ -24,19 +24,11 @@ pub struct ClaimInspection {
     pub current: Option<Current>,
 }
 
-/// The site's Jess package feed, `jess-packages.json` beside the index.
-pub struct FeedInspection {
-    pub url: Url,
-    pub feed: Result<packages::Feed, String>,
-}
-
 pub struct Inspection {
     pub source: Url,
     pub discovery: Result<Discovery, Failure>,
     pub index: Option<Result<IndexReport, Problem>>,
     pub claims: Vec<ClaimInspection>,
-    /// `None` when the site publishes no feed, which is the usual case.
-    pub feed: Option<FeedInspection>,
 }
 
 impl Inspection {
@@ -45,13 +37,11 @@ impl Inspection {
         matches!(self.index, Some(Ok(_)))
     }
 
-    /// Readable, every manifest it lists is valid and current, and its package feed, if it has
-    /// one, is valid.
+    /// Readable, and every manifest it lists is valid and current.
     pub fn is_clean(&self) -> bool {
         self.is_readable()
             && self.claims.iter().all(|claim| claim.manifest.is_ok())
             && matches!(&self.index, Some(Ok(report)) if report.duplicate_ids.is_empty())
-            && self.feed.as_ref().is_none_or(|feed| feed.feed.is_ok())
     }
 
     pub fn report(&self) -> String {
@@ -133,7 +123,7 @@ impl Inspection {
                 }
             }
         }
-        self.feed_report(&mut text);
+        self.packages_report(&mut text);
         let _ = writeln!(
             text,
             "\n{}",
@@ -146,36 +136,35 @@ impl Inspection {
         text
     }
 
-    fn feed_report(&self, text: &mut String) {
-        if let Some(feed) = &self.feed {
-            let _ = writeln!(text);
-            match &feed.feed {
-                Ok(parsed) => {
-                    let _ = writeln!(
-                        text,
-                        "packages   {} ({} by {})",
-                        feed.url,
-                        parsed.packages.len(),
-                        parsed.publisher.name
-                    );
-                    for package in &parsed.packages {
-                        let current = package.current().map_or_else(
-                            || "every version yanked".to_owned(),
-                            |version| version.version.clone(),
-                        );
-                        let _ = writeln!(
-                            text,
-                            "    {}  {current} · {} versions",
-                            package.id,
-                            package.versions.len()
-                        );
-                    }
-                }
-                Err(problem) => {
-                    let _ = writeln!(text, "packages   {}", feed.url);
-                    let _ = writeln!(text, "    PROBLEM   the package feed {problem}");
-                }
-            }
+    /// The Jess packages the site's projects publish, read from their manifests.
+    fn packages_report(&self, text: &mut String) {
+        let packages: Vec<packages::Package> = self
+            .claims
+            .iter()
+            .filter_map(|claim| claim.manifest.as_ref().ok())
+            .filter_map(packages::package_of)
+            .collect();
+        if packages.is_empty() {
+            return;
+        }
+        let _ = writeln!(text);
+        let _ = writeln!(
+            text,
+            "packages   {} published by this site's projects",
+            packages.len()
+        );
+        for package in packages {
+            let current = package.current().map_or_else(
+                || "every version yanked".to_owned(),
+                |version| version.version.clone(),
+            );
+            let _ = writeln!(
+                text,
+                "    {}  {current} · {} versions · {}",
+                package.id,
+                package.versions.len(),
+                package.name
+            );
         }
     }
 }
@@ -229,28 +218,10 @@ pub async fn inspect(fetcher: &Fetcher, source: &Url) -> Inspection {
             claims.push(inspect_claim(fetcher, entry).await);
         }
     }
-    let mut feed = None;
-    if let Ok(found) = &discovery
-        && let Ok(url) = found.index_url().join(packages::FILE_NAME)
-    {
-        feed = inspect_feed(fetcher, url).await;
-    }
     Inspection {
         source: source.clone(),
         discovery,
         index,
         claims,
-        feed,
     }
-}
-
-async fn inspect_feed(fetcher: &Fetcher, url: Url) -> Option<FeedInspection> {
-    let feed = match fetcher.get(&url, policy::MAXIMUM_FEED_BYTES, None).await {
-        Ok(response) if packages::looks_like_feed(&response.body) => {
-            packages::parse_feed(&response.body).map_err(|problem| problem.to_string())
-        }
-        Ok(_) | Err(FetchError::Status(404)) => return None,
-        Err(error) => Err(format!("{url}: {error}")),
-    };
-    Some(FeedInspection { url, feed })
 }

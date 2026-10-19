@@ -21,17 +21,17 @@ either by hand.
 You do not have to use the template. Anything that implements the
 [protocol](https://dreamweave-mp.github.io/DreamWeave-Mod-Template/guide/protocol/) correctly is
 read exactly the same way: a site index at `dreamweave.json`, a manifest per project, both valid
-against the published schemas with `schema_version` `"2"`. This index checks the documents, not
-who generated them.
+against the published schemas with `schema_version` `"2"` or `"3"`. This index checks the
+documents, not who generated them.
 
-## Distributing Jess packages too
+## Publishing a Jess package
 
-If your site also distributes [Jess](https://github.com/DreamWeave-MP/jess) packages, put a
-`jess-packages.json` beside your `dreamweave.json`, valid against the
-[feed schema](@/about/packages.md). It lists each package, every version with its content digest
-and the archive's SHA-256, and the URL the archive downloads from, on your site or a mirror you
-name. The index copies it, shows it under Packages, and never serves or verifies the archive
-itself. `inspect` reads it too and reports it with the rest.
+A [Jess](https://github.com/DreamWeave-MP/jess) package is a project like any other: one
+repository built with the Mod Template, whose `mod.toml` says `format = "jpk"`. Its tagged
+releases are the package's versions, each a `jpk` artifact in the manifest with the package's
+content digest beside the archive's SHA-256 (see [Jess packages](@/about/packages.md)). The index
+shows it under Packages and never serves or verifies the archive itself. `inspect` reports it
+with the rest.
 
 ## 2. Check that it is healthy
 

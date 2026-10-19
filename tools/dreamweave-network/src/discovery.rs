@@ -18,7 +18,10 @@ use url::Url;
 use crate::{
     fetch::{FetchError, Fetcher, Response, Validators},
     policy,
-    protocol::{INDEX_FILE_NAME, INDEX_MEDIA_TYPE, PROJECT_MEDIA_TYPE, SCHEMA_VERSION, parse},
+    protocol::{
+        INDEX_FILE_NAME, INDEX_MEDIA_TYPE, PROJECT_MEDIA_TYPE, SCHEMA_VERSION, parse,
+        reads_schema_version,
+    },
 };
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -197,7 +200,7 @@ impl Walker<'_> {
         self.redirects.extend(response.redirects.iter().cloned());
 
         if let Some(envelope) = parse::envelope(&response.body) {
-            if envelope.schema_version != SCHEMA_VERSION {
+            if !reads_schema_version(&envelope.schema_version) {
                 self.note(
                     &response.url,
                     format!("schema_version {:?}", envelope.schema_version),
@@ -256,7 +259,7 @@ impl Walker<'_> {
         self.fail(
             FailureKind::UnsupportedVersion,
             format!(
-                "{url} uses DreamWeave schema_version {version:?}; this index reads \"{SCHEMA_VERSION}\""
+                "{url} uses DreamWeave schema_version {version:?}; this index reads up to \"{SCHEMA_VERSION}\""
             ),
         )
     }
@@ -307,7 +310,7 @@ impl Walker<'_> {
                 Ok(Some(response))
             }
             Ok(response) => match parse::envelope(&response.body) {
-                Some(envelope) if envelope.schema_version != SCHEMA_VERSION => {
+                Some(envelope) if !reads_schema_version(&envelope.schema_version) => {
                     self.note(url, format!("schema_version {:?}", envelope.schema_version));
                     Err(self.newer_protocol(url, &envelope.schema_version))
                 }

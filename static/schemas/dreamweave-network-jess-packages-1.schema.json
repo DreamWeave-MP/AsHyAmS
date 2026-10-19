@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://dreamweave-mp.github.io/AsHyAmS/schemas/dreamweave-network-jess-packages-1.schema.json",
   "title": "DreamWeave Network Jess packages, format version 1",
-  "description": "The Jess package claims one DreamWeave Network index observed: every package every enrolled site's jess-packages.json lists, with the site that published it, the feed URL that remains the authority, every version the publisher lists, and id collisions between sites. A discovery cache for Jess clients, not a registry: nothing here was downloaded or verified by the index, and a client reads the publisher's feed before it believes anything.",
+  "description": "The Jess package claims one DreamWeave Network index observed: every package some enrolled site's project publishes as jpk releases (protocol schema_version 3), with the site that published it, the project it is, the manifest URL that remains the authority, every version the manifest lists, and id collisions between sites. A discovery cache for Jess clients, not a registry: nothing here was downloaded or verified by the index, and a client reads the publisher's manifest before it believes anything.",
   "type": "object",
   "required": [
     "format",
@@ -126,17 +126,6 @@
         }
       }
     },
-    "feed_health": {
-      "description": "current: the held feed is the one the site serves. Anything else: the held feed is the last good one, and the value says why it is not current.",
-      "enum": [
-        "current",
-        "origin-unavailable",
-        "unreachable",
-        "invalid",
-        "refused",
-        "withdrawn"
-      ]
-    },
     "package_ref": {
       "type": "object",
       "required": [
@@ -154,11 +143,13 @@
       }
     },
     "package_version": {
+      "description": "One release of the project that is the package, as its manifest describes it.",
       "type": "object",
       "required": [
         "version",
-        "jess_api",
+        "channel",
         "status",
+        "jess_api",
         "content_digest",
         "dependencies",
         "artifact"
@@ -168,46 +159,35 @@
         "version": {
           "$ref": "#/$defs/version"
         },
-        "jess_api": {
+        "channel": {
           "type": "string",
-          "pattern": "^[1-9][0-9]*$"
+          "minLength": 1
         },
         "status": {
           "enum": [
             "available",
-            "yanked"
+            "yanked",
+            "deprecated"
           ]
         },
         "yanked": {
-          "description": "Present exactly when status is yanked.",
-          "type": "object",
-          "required": [
-            "reason"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "reason": {
-              "type": "string",
-              "minLength": 1
-            },
-            "replacement": {
-              "$ref": "#/$defs/version"
-            }
-          }
+          "$ref": "#/$defs/notice"
+        },
+        "deprecated": {
+          "$ref": "#/$defs/notice"
         },
         "date": {
           "$ref": "#/$defs/date"
         },
+        "jess_api": {
+          "type": "string",
+          "minLength": 1
+        },
         "content_digest": {
-          "description": "The Jess content digest: BLAKE3 over the package's canonical uncompressed content, as jess package inspect prints it and jess.lock pins it. Not a digest of the archive file.",
           "$ref": "#/$defs/hex64"
         },
         "dependencies": {
-          "description": "The package's [dependencies], by id. A client checks them against the archive's own manifest.",
           "type": "object",
-          "propertyNames": {
-            "pattern": "^[a-z0-9][a-z0-9.-]*$"
-          },
           "additionalProperties": {
             "$ref": "#/$defs/requirement"
           }
@@ -215,50 +195,34 @@
         "artifact": {
           "$ref": "#/$defs/artifact"
         }
-      },
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "status": {
-                "const": "yanked"
-              }
-            },
-            "required": [
-              "status"
-            ]
-          },
-          "then": {
-            "required": [
-              "yanked"
-            ]
-          },
-          "else": {
-            "not": {
-              "required": [
-                "yanked"
-              ]
-            }
-          }
-        }
-      ]
+      }
     },
     "artifact": {
-      "description": "The JPK archive file: its bytes as served, where to get them, and how to check them.",
+      "description": "The JPK archive as the manifest lists it, copied unchanged: its own digest, where it downloads from, how it was signed.",
       "type": "object",
       "required": [
+        "id",
+        "format",
         "filename",
         "media_type",
         "size",
         "digests",
+        "jess",
         "sources",
         "signatures"
       ],
       "additionalProperties": false,
       "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "format": {
+          "const": "jpk"
+        },
         "filename": {
           "type": "string",
-          "pattern": "^[^/\\\\]+\\.jpk$"
+          "minLength": 1
         },
         "media_type": {
           "const": "application/vnd.jess.jpk"
@@ -275,90 +239,53 @@
           "additionalProperties": false,
           "properties": {
             "sha256": {
-              "description": "SHA-256 of the archive file's bytes as downloaded.",
               "$ref": "#/$defs/hex64"
             }
           }
+        },
+        "platform": {
+          "type": "object"
+        },
+        "layout": {
+          "type": "object"
+        },
+        "jess": {
+          "$ref": "#/$defs/jess"
         },
         "sources": {
           "type": "array",
           "minItems": 1,
           "items": {
-            "type": "object",
-            "required": [
-              "url",
-              "kind"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "url": {
-                "$ref": "#/$defs/url"
-              },
-              "kind": {
-                "enum": [
-                  "publisher",
-                  "mirror"
-                ]
-              },
-              "name": {
-                "type": "string",
-                "minLength": 1
-              }
-            }
+            "$ref": "#/$defs/artifact_source"
           }
         },
         "signatures": {
           "type": "array",
           "items": {
-            "type": "object",
-            "required": [
-              "format",
-              "url"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "format": {
-                "type": "string",
-                "minLength": 1
-              },
-              "url": {
-                "$ref": "#/$defs/url"
-              },
-              "issuer": {
-                "type": "string",
-                "minLength": 1
-              },
-              "identity": {
-                "type": "string",
-                "minLength": 1
-              }
-            }
+            "$ref": "#/$defs/signature"
           }
         }
       }
     },
     "package_claim": {
+      "description": "One site's publication of one Jess package: the releases of its project that are the package, copied from its manifest, with where that came from and how fresh this index's copy is.",
       "type": "object",
       "required": [
         "id",
         "origin",
-        "publisher",
-        "summary",
         "project",
-        "repository",
-        "feed_url",
-        "feed_sha256",
+        "name",
+        "manifest_url",
+        "manifest_sha256",
         "health",
         "cached",
-        "problem",
         "first_observed",
-        "last_changed",
         "last_attempt",
-        "last_success",
         "current",
         "versions",
         "conflict",
-        "network_page"
+        "network_page",
+        "project_page"
       ],
       "additionalProperties": false,
       "properties": {
@@ -366,56 +293,43 @@
           "$ref": "#/$defs/package_id"
         },
         "origin": {
-          "$ref": "#/$defs/origin_id"
-        },
-        "publisher": {
-          "type": "object",
-          "required": [
-            "name",
-            "url"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "url": {
-              "$ref": "#/$defs/url"
-            }
-          }
-        },
-        "summary": {
-          "$ref": "#/$defs/optional_string"
+          "type": "string",
+          "minLength": 1
         },
         "project": {
-          "oneOf": [
-            {
-              "$ref": "#/$defs/uuid"
-            },
-            {
-              "type": "null"
-            }
+          "$ref": "#/$defs/uuid"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": [
+            "string",
+            "null"
           ]
         },
-        "repository": {
-          "$ref": "#/$defs/optional_string"
+        "manifest_url": {
+          "$ref": "#/$defs/url",
+          "description": "The publisher's manifest: the authority for every version below."
         },
-        "feed_url": {
-          "description": "The publisher's jess-packages.json: the authority for every version below.",
-          "$ref": "#/$defs/url"
-        },
-        "feed_sha256": {
-          "description": "The digest of the feed this index holds and copied these versions from.",
-          "$ref": "#/$defs/hex64"
+        "manifest_sha256": {
+          "$ref": "#/$defs/hex64",
+          "description": "The digest of the manifest this index holds and copied these versions from."
         },
         "health": {
-          "$ref": "#/$defs/feed_health"
+          "type": "string",
+          "minLength": 1,
+          "description": "The project claim's health as the index records it: current, or why the copy is a cached one."
         },
         "cached": {
           "type": "boolean"
         },
         "problem": {
-          "$ref": "#/$defs/optional_string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "first_observed": {
           "$ref": "#/$defs/time"
@@ -430,7 +344,6 @@
           "$ref": "#/$defs/optional_time"
         },
         "current": {
-          "description": "The newest version the publisher offers for new installs, or null when every version is yanked.",
           "oneOf": [
             {
               "$ref": "#/$defs/version"
@@ -438,10 +351,10 @@
             {
               "type": "null"
             }
-          ]
+          ],
+          "description": "The newest version the publisher offers for new installs, or null when every version is yanked."
         },
         "versions": {
-          "description": "Every version the feed lists, newest first, yanked ones included, copied unchanged.",
           "type": "array",
           "minItems": 1,
           "items": {
@@ -452,6 +365,9 @@
           "type": "boolean"
         },
         "network_page": {
+          "$ref": "#/$defs/url"
+        },
+        "project_page": {
           "$ref": "#/$defs/url"
         }
       }
@@ -484,6 +400,96 @@
         "same_bytes": {
           "description": "Every shared version names the same content digest and archive digest in every claim: the sites mirror one publication. False when any differs, or when no version is shared.",
           "type": "boolean"
+        }
+      }
+    },
+    "notice": {
+      "type": "object",
+      "required": [
+        "reason"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "reason": {
+          "type": "string"
+        },
+        "replacement": {
+          "type": "string"
+        }
+      }
+    },
+    "artifact_source": {
+      "type": "object",
+      "required": [
+        "url",
+        "kind"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "$ref": "#/$defs/url"
+        },
+        "kind": {
+          "enum": [
+            "publisher",
+            "mirror"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "signature": {
+      "type": "object",
+      "required": [
+        "format",
+        "url"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "type": "string"
+        },
+        "url": {
+          "$ref": "#/$defs/url"
+        },
+        "issuer": {
+          "$ref": "#/$defs/url"
+        },
+        "identity": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "jess": {
+      "description": "The artifact's jess block as the manifest carries it.",
+      "type": "object",
+      "required": [
+        "package",
+        "jess_api",
+        "content_digest",
+        "dependencies"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "package": {
+          "$ref": "#/$defs/package_id"
+        },
+        "jess_api": {
+          "type": "string",
+          "minLength": 1
+        },
+        "content_digest": {
+          "$ref": "#/$defs/hex64"
+        },
+        "dependencies": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/requirement"
+          }
         }
       }
     }

@@ -498,7 +498,7 @@ async fn a_newer_protocol_is_reported_and_nothing_is_guessed() {
     refresh(&config, &mut state, FIRST).await;
 
     let mut future = site.index(&[]);
-    future["schema_version"] = "3".into();
+    future["schema_version"] = "4".into();
     future["projects"] = json!([{ "id": TALLOW_ID, "whatever": "comes next" }]);
     site.serve_index(&future);
     refresh(&config, &mut state, SECOND).await;

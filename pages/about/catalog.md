@@ -21,7 +21,7 @@ Everything this index knows is also published as JSON beside the site:
 | [`network-data/events.json`](../../network-data/events.json) | Every observed change, with typed differences and tags |
 | [`network-data/updates.xml`](../../network-data/updates.xml) | The latest hundred events as an Atom feed |
 | [`schemas/dreamweave-network-catalog-1.schema.json`](../../schemas/dreamweave-network-catalog-1.schema.json) | JSON Schema for both JSON files |
-| [`network-data/jess-packages-v1.json`](../../network-data/jess-packages-v1.json) | Every Jess package claim, with its publisher's feed URL; see [Jess packages](@/about/packages.md) |
+| [`network-data/jess-packages-v1.json`](../../network-data/jess-packages-v1.json) | Every Jess package claim, with the manifest it was read from; see [Jess packages](@/about/packages.md) |
 | [`schemas/dreamweave-network-jess-packages-1.schema.json`](../../schemas/dreamweave-network-jess-packages-1.schema.json) | JSON Schema for that file |
 
 The catalog is a cache format, not a protocol. Every claim in it carries the site that published

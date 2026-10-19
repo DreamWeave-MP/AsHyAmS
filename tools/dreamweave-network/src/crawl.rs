@@ -13,8 +13,6 @@
 //!    usually a deployment caught halfway, so wait and read both documents again before calling
 //!    it inconsistent.
 //! 4. Validate, diff against the held manifest, record events.
-//! 5. Read `jess-packages.json` beside the index, if the site publishes one: the Jess package
-//!    feed, kept with the same last-good rule as a manifest.
 //!
 //! Nothing a publisher does can fail the refresh. An unreachable site, a broken manifest, a
 //! half-finished deployment: each becomes state on the claims it affects, and the last good
@@ -29,16 +27,15 @@ use crate::{
     config::Config,
     diff,
     discovery::{self, FailureKind, Known},
-    fetch::{FetchError, Fetcher, Response, Validators},
-    packages, policy,
+    fetch::{FetchError, Fetcher, Response},
+    policy,
     protocol::{
         IndexEntry, Manifest, MediaKind, ProjectId,
         parse::{self, IndexReport, Problem},
     },
     state::{
-        self, AttemptRecord, ClaimHealth, ClaimKey, ClaimRecord, Event, EventKind, FeedHealth,
-        FeedRecord, MediaRecord, Move, OriginHealth, OriginRecord, Rejection, SourceHealth,
-        SourceRecord, State,
+        self, AttemptRecord, ClaimHealth, ClaimKey, ClaimRecord, Event, EventKind, MediaRecord,
+        Move, OriginHealth, OriginRecord, Rejection, SourceHealth, SourceRecord, State,
     },
 };
 
@@ -66,8 +63,6 @@ pub struct Report {
     pub sources: usize,
     pub unreachable_sources: Vec<String>,
     pub manifests_fetched: usize,
-    /// Jess package feeds read anew, because a site published one or changed it.
-    pub feeds_fetched: usize,
     pub events: Vec<Event>,
     pub removed_origins: Vec<String>,
 }
@@ -82,9 +77,6 @@ impl Report {
             self.manifests_fetched,
             self.events.len()
         )];
-        if self.feeds_fetched > 0 {
-            lines.push(format!("{} Jess package feeds fetched", self.feeds_fetched));
-        }
         for source in &self.unreachable_sources {
             lines.push(format!("unavailable: {source}"));
         }
@@ -122,9 +114,6 @@ struct Resolved {
     index: Result<IndexReport, Problem>,
     manifests: BTreeMap<ProjectId, ManifestOutcome>,
     media: BTreeMap<ProjectId, MediaOutcome>,
-    /// `jess-packages.json` beside the index.
-    feed_url: Url,
-    feed: FeedOutcome,
 }
 
 enum ManifestOutcome {
@@ -144,27 +133,6 @@ enum ManifestOutcome {
         advertised: String,
         served: String,
     },
-    Unreachable(String),
-}
-
-enum FeedOutcome {
-    /// The site publishes no feed (HTTP 404, or a page that is not one where none was known).
-    Absent,
-    /// The same bytes this index already holds, by validators or by digest.
-    Unchanged {
-        validators: Option<Validators>,
-    },
-    StillRejected,
-    Fetched {
-        bytes: Vec<u8>,
-        sha256: String,
-        validators: Validators,
-    },
-    Invalid {
-        sha256: String,
-        problem: String,
-    },
-    Refused(String),
     Unreachable(String),
 }
 
@@ -329,18 +297,6 @@ impl Crawler {
                 media.insert(project, image);
             }
         }
-        let feed_url = index_url
-            .join(packages::FILE_NAME)
-            .expect("a file name joins onto an index URL");
-        let feed = self
-            .feed_outcome(
-                &feed_url,
-                state
-                    .origins
-                    .get(&origin)
-                    .and_then(|record| record.jess_packages.as_ref()),
-            )
-            .await;
         SourceOutcome::Resolved(Box::new(Resolved {
             method: found.method,
             trail: found.trail,
@@ -351,62 +307,7 @@ impl Crawler {
             index,
             manifests,
             media,
-            feed_url,
-            feed,
         }))
-    }
-
-    /// Reads the site's Jess package feed, if it has one. Most sites do not, and for them this
-    /// is one request answered 404 per crawl.
-    async fn feed_outcome(&self, url: &Url, previous: Option<&FeedRecord>) -> FeedOutcome {
-        let validators = previous
-            .map(|record| &record.validators)
-            .filter(|validators| !validators.is_empty());
-        let response = match self
-            .fetcher
-            .get(url, policy::MAXIMUM_FEED_BYTES, validators)
-            .await
-        {
-            Ok(response) => response,
-            Err(FetchError::Status(404)) => return FeedOutcome::Absent,
-            Err(error) if error.is_policy_refusal() => {
-                return FeedOutcome::Refused(format!("{url}: {error}"));
-            }
-            Err(error) => return FeedOutcome::Unreachable(format!("{url}: {error}")),
-        };
-        if response.not_modified {
-            return FeedOutcome::Unchanged { validators: None };
-        }
-        let sha256 = state::sha256_hex(&response.body);
-        if let Some(previous) = previous {
-            if previous.ingested_sha256.as_deref() == Some(sha256.as_str()) {
-                return FeedOutcome::Unchanged {
-                    validators: Some(response.validators),
-                };
-            }
-            if previous.rejected.as_ref().is_some_and(|rejected| {
-                rejected.sha256 == sha256 && rejected.crawler == CRAWLER_VERSION
-            }) {
-                return FeedOutcome::StillRejected;
-            }
-        } else if !packages::looks_like_feed(&response.body) {
-            // A host that answers every path with a page: no feed, not a broken one.
-            return FeedOutcome::Absent;
-        }
-        match packages::parse_feed(&response.body) {
-            Ok(_) => FeedOutcome::Fetched {
-                bytes: response.body,
-                sha256,
-                validators: response.validators,
-            },
-            Err(problem) if problem.is_policy_refusal() => {
-                FeedOutcome::Refused(problem.to_string())
-            }
-            Err(problem) => FeedOutcome::Invalid {
-                sha256,
-                problem: problem.to_string(),
-            },
-        }
     }
 
     async fn manifest_outcome(
@@ -698,7 +599,6 @@ impl Apply<'_> {
         for origin in gone {
             self.state.origins.remove(&origin);
             self.state.indexes.remove(&origin);
-            self.state.feeds.remove(&origin);
             self.state.claims.retain(|key, _| key.origin != origin);
             self.state.manifests.retain(|key, _| key.origin != origin);
             self.report.removed_origins.push(origin);
@@ -760,14 +660,7 @@ impl Apply<'_> {
             }
             origin.health = origin_health(failure.kind);
             origin.problem = Some(failure.detail.clone());
-            origin.last_attempt.clone_from(&now);
-            if let Some(feed) = &mut origin.jess_packages
-                && feed.health != FeedHealth::Withdrawn
-            {
-                feed.health = FeedHealth::OriginUnavailable;
-                feed.problem = Some(failure.detail.clone());
-                feed.last_attempt = now;
-            }
+            origin.last_attempt = now;
         }
         self.origin_unavailable(origin_id, &failure.detail);
     }
@@ -817,7 +710,6 @@ impl Apply<'_> {
             return;
         }
         self.applied.push(resolved.origin.clone());
-        self.feed(resolved);
 
         match &resolved.index {
             Ok(index) => {
@@ -870,7 +762,6 @@ impl Apply<'_> {
                 first_observed: now.clone(),
                 last_attempt: now.clone(),
                 last_success: None,
-                jess_packages: None,
             });
         if !origin.sources.contains(&url.to_string()) {
             origin.sources.push(url.to_string());
@@ -907,91 +798,6 @@ impl Apply<'_> {
                     _ => OriginHealth::InvalidIndex,
                 };
                 origin.problem = Some(problem.to_string());
-            }
-        }
-    }
-
-    /// Applies what the crawl saw of the site's Jess package feed. A feed that fails any check
-    /// leaves the held one exactly where it was and says why; a 404 withdraws it, which keeps
-    /// the record and the bytes but takes its packages out of the catalog.
-    fn feed(&mut self, resolved: &Resolved) {
-        let now = self.stamp();
-        let Some(origin) = self.state.origins.get_mut(&resolved.origin) else {
-            return;
-        };
-        if let FeedOutcome::Absent = &resolved.feed {
-            if let Some(record) = &mut origin.jess_packages {
-                if record.health != FeedHealth::Withdrawn {
-                    record.health = FeedHealth::Withdrawn;
-                    record.problem = None;
-                }
-                record.last_attempt = now;
-            }
-            return;
-        }
-        let record = origin.jess_packages.get_or_insert_with(|| FeedRecord {
-            url: resolved.feed_url.to_string(),
-            validators: Validators::default(),
-            ingested_sha256: None,
-            rejected: None,
-            health: FeedHealth::Current,
-            problem: None,
-            first_observed: now.clone(),
-            last_changed: None,
-            last_attempt: now.clone(),
-            last_success: None,
-        });
-        record.url = resolved.feed_url.to_string();
-        record.last_attempt.clone_from(&now);
-        record.problem = None;
-        match &resolved.feed {
-            FeedOutcome::Absent => unreachable!("handled above"),
-            FeedOutcome::Unchanged { validators } => {
-                if let Some(validators) = validators {
-                    record.validators = validators.clone();
-                }
-                record.health = FeedHealth::Current;
-                record.last_success = Some(now);
-            }
-            FeedOutcome::Fetched {
-                bytes,
-                sha256,
-                validators,
-            } => {
-                self.report.feeds_fetched += 1;
-                self.state
-                    .feeds
-                    .insert(resolved.origin.clone(), bytes.clone());
-                record.validators = validators.clone();
-                record.ingested_sha256 = Some(sha256.clone());
-                record.rejected = None;
-                record.health = FeedHealth::Current;
-                record.last_changed = Some(now.clone());
-                record.last_success = Some(now);
-            }
-            FeedOutcome::StillRejected => {
-                record.health = FeedHealth::Invalid;
-                record.problem = record
-                    .rejected
-                    .as_ref()
-                    .map(|rejected| rejected.problem.clone());
-            }
-            FeedOutcome::Invalid { sha256, problem } => {
-                record.health = FeedHealth::Invalid;
-                record.problem = Some(problem.clone());
-                record.rejected = Some(Rejection {
-                    sha256: sha256.clone(),
-                    crawler: CRAWLER_VERSION.to_owned(),
-                    problem: problem.clone(),
-                });
-            }
-            FeedOutcome::Refused(problem) => {
-                record.health = FeedHealth::Refused;
-                record.problem = Some(problem.clone());
-            }
-            FeedOutcome::Unreachable(problem) => {
-                record.health = FeedHealth::Unreachable;
-                record.problem = Some(problem.clone());
             }
         }
     }
