@@ -35,6 +35,7 @@
     {%- block extra_head %}{% endblock extra_head %}
     <link rel="alternate" type="application/atom+xml" title="AsHyAmS updates" href="{{ get_url(path='network-data/updates.xml', trailing_slash=false) | safe }}">
     <link rel="alternate" type="application/json" title="AsHyAmS catalog (DreamWeave Network Catalog v1)" href="{{ get_url(path='network-data/catalog.json', trailing_slash=false) | safe }}">
+    <link rel="alternate" type="application/json" title="AsHyAmS Jess packages (DreamWeave Network Jess packages v1)" href="{{ get_url(path='network-data/jess-packages-v1.json', trailing_slash=false) | safe }}">
 </head>
 <body class="net {% block body_class %}{% endblock body_class %}">
 <a class="dw-skip-link" href="#main">Skip to content</a>

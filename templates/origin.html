@@ -24,9 +24,16 @@
             <ul>{% for claim in view.others %}<li>{% if claim.path %}<a href="{{ get_url(path=claim.path, trailing_slash=true) | safe }}">{{ claim.name }}</a>{% else %}{{ claim.name }}{% endif %} · {{ claim.health_label }}{% if claim.problem %} · <code>{{ claim.problem }}</code>{% endif %}</li>{% endfor %}</ul>
             {%- endif %}
         </section>
+        {%- if view.feed %}
+        <section class="dw-section" aria-labelledby="packages-title">
+            {{ net::section_head(number="02", title="Jess packages", note="From the site's jess-packages.json. The site is the only place the archives come from.", id="packages-title") }}
+            {%- if view.feed.problem %}<p>{{ net::health(token=view.feed.health, label=view.feed.health_label) }} · <code>{{ view.feed.problem }}</code></p>{% endif %}
+            <ul>{% for package in view.packages %}<li><a href="{{ get_url(path=package.path, trailing_slash=true) | safe }}"><code>{{ package.id }}</code></a> · {{ package.current | default(value="every version yanked") }} · {{ package.versions }} version{{ package.versions | pluralize }}{% if package.conflict %} <span class="dw-badge dw-badge--danger">more than one site</span>{% endif %}</li>{% endfor %}</ul>
+        </section>
+        {%- endif %}
         {%- if view.events | length > 0 %}
         <section class="dw-section" aria-labelledby="events-title">
-            {{ net::section_head(number="02", title="Recent changes", id="events-title") }}
+            {{ net::section_head(number="03", title="Recent changes", id="events-title") }}
             {{ net::events(rows=view.events) }}
         </section>
         {%- endif %}
@@ -43,6 +50,7 @@
                     <dt>Last success</dt><dd>{{ origin.last_success | default(value="never") }}</dd>
                     {%- for source in origin.sources %}<dt>Enrolled as</dt><dd class="dw-digest"><a href="{{ source }}">{{ source }}</a></dd>{% endfor %}
                     {%- for redirect in origin.redirects %}<dt>Redirected from</dt><dd class="dw-digest">{{ redirect }}</dd>{% endfor %}
+                    {%- if view.feed %}<dt>Package feed</dt><dd class="dw-digest"><a href="{{ view.feed.url }}">{{ view.feed.url }}</a><br>{{ net::health(token=view.feed.health, label=view.feed.health_label) }}</dd>{% endif %}
                 </dl>
                 {%- if origin.previous | length > 0 %}
                 <h3 class="net-subhead">Replaced</h3>

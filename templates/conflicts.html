@@ -2,10 +2,11 @@
 {% import "macros/net.html" as net %}
 
 {%- block content %}
-{%- set rows = load_data(path=section.extra.view) %}
+{%- set view = load_data(path=section.extra.view) %}
+{%- set rows = view.projects %}
 <header class="net-page-head">
     <div class="dw-shell">
-        <p class="dw-kicker"><span>Identity</span><span>{{ rows | length }} conflict{{ rows | length | pluralize }}</span></p>
+        <p class="dw-kicker"><span>Identity</span><span>{{ rows | length }} project conflict{{ rows | length | pluralize }}</span><span>{{ view.packages | length }} package conflict{{ view.packages | length | pluralize }}</span></p>
         <h1>{{ section.title }}</h1>
         <p class="net-lede">{{ section.description }}</p>
     </div>
@@ -33,6 +34,28 @@
     </section>
     {%- else %}
     <p>{{ net::health(token="current", label="No project id is published by more than one site.") }}</p>
+    {%- endfor %}
+    <h2 class="net-subhead">Jess package ids</h2>
+    <p>A Jess package id is chosen by its author too, and two sites' <code>jess-packages.json</code> can list the same one. When the versions both list carry the same digests, the sites are mirroring one publication; when they differ, there are two publications under one name. Either way this index lists both and a Jess client asks which one you mean.</p>
+    {%- for conflict in view.packages %}
+    <section class="net-conflict" aria-labelledby="package-conflict-{{ loop.index }}">
+        <h2 id="package-conflict-{{ loop.index }}">PACKAGE ID <a class="dw-id" href="{{ get_url(path=conflict.path, trailing_slash=true) | safe }}">{{ conflict.id }}</a> <span class="dw-badge{% if conflict.same_bytes %} dw-badge--info{% else %} dw-badge--danger{% endif %}">{% if conflict.same_bytes %}same bytes on every shared version{% elif conflict.shared_versions > 0 %}different bytes for a shared version{% else %}no version in common{% endif %}</span></h2>
+        <ol class="net-conflict__claims">
+        {%- for claim in conflict.claims %}
+            <li>
+                <p><strong>Claim {{ loop.index }}</strong> · <a href="{{ get_url(path=claim.path, trailing_slash=true) | safe }}">{{ claim.origin_label }}</a></p>
+                <dl class="dw-record">
+                    <dt>Publisher says</dt><dd>{{ claim.publisher }}</dd>
+                    <dt>Current</dt><dd>{{ claim.current | default(value="every version yanked") }}</dd>
+                    <dt>Versions</dt><dd>{{ claim.versions }}</dd>
+                    <dt>Feed</dt><dd>{{ net::health(token=claim.health, label=claim.health_label) }}</dd>
+                </dl>
+            </li>
+        {%- endfor %}
+        </ol>
+    </section>
+    {%- else %}
+    <p>{{ net::health(token="current", label="No Jess package id is published by more than one site.") }}</p>
     {%- endfor %}
 </div>
 {%- endblock content %}

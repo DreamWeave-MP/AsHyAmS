@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% import "macros/net.html" as net %}
+
+{%- block content %}
+{%- set view = load_data(path=page.extra.view) %}
+{%- set row = view.row %}
+<header class="net-page-head">
+    <div class="dw-shell">
+        <p class="dw-kicker"><span><a href="{{ get_url(path='packages/', trailing_slash=true) | safe }}">Jess packages</a></span><span>{{ net::health(token=row.health, label=row.health_label) }}</span>{% if row.conflict %}<span class="dw-badge dw-badge--danger">more than one site</span>{% endif %}</p>
+        <h1><code>{{ net::breakable(text=row.id) }}</code></h1>
+        <p class="net-lede">{% if row.summary %}{{ row.summary }} {% endif %}Distributed by <a href="{{ get_url(path=row.origin_path, trailing_slash=true) | safe }}">{{ row.origin_label }}</a>, who say they are <a href="{{ view.publisher_url }}">{{ row.publisher }}</a>.</p>
+    </div>
+</header>
+<div class="dw-shell dw-project__body">
+    <div class="dw-project__main">
+        {%- if view.notice %}
+        <aside class="dw-callout dw-callout--warning" role="note"><p class="dw-callout__title">Cached</p><p>{{ view.notice }}</p>{% if view.problem %}<p><code>{{ view.problem }}</code></p>{% endif %}</aside>
+        {%- endif %}
+        {%- if view.withdrawn %}
+        <aside class="dw-callout dw-callout--warning" role="note"><p class="dw-callout__title">Withdrawn</p><p>The site no longer serves a package feed. This is the last one it served; nothing in it is offered to clients.</p></aside>
+        {%- endif %}
+        {%- if view.conflict %}
+        <aside class="dw-callout dw-callout--danger" role="note">
+            <p class="dw-callout__title">Published by more than one site</p>
+            <p>{% if view.conflict.same_bytes %}Every version shared with the other site{{ view.others | length | pluralize }} names the same digests: mirrored bytes.{% else %}The other site{{ view.others | length | pluralize }} list{% if view.others | length == 1 %}s{% endif %} this id with {% if view.conflict.shared_versions > 0 %}different digests for a version both list{% else %}no version in common{% endif %}.{% endif %} See <a href="{{ get_url(path=row.identity_path, trailing_slash=true) | safe }}">every claim for this id</a>.</p>
+        </aside>
+        {%- endif %}
+        <section class="dw-section" aria-labelledby="versions-title">
+            {{ net::section_head(number="01", title="Versions", note="Every version the publisher lists, newest first. Yanked versions stay listed and say why. The archive downloads from the publisher; this index never serves or verifies it.", id="versions-title") }}
+            {%- for version in view.versions %}
+            <article class="dw-release{% if version.status == 'yanked' %} dw-release--yanked{% endif %}" id="v{{ version.version | slugify }}">
+                <h3>{{ version.version }} {{ net::status(token=version.status) }}{% if version.current %} <span class="dw-badge dw-badge--ok">current</span>{% endif %}{% if version.date %} <small class="net-muted">released {{ version.date }}</small>{% endif %}</h3>
+                {%- if version.yanked_reason %}<p class="dw-callout dw-callout--warning">Yanked by the publisher: {{ version.yanked_reason }}{% if version.replacement %} Replacement: {{ version.replacement }}.{% endif %}</p>{% endif %}
+                <dl class="dw-record">
+                    <dt>Jess API</dt><dd>{{ version.jess_api }}</dd>
+                    <dt>Content digest</dt><dd class="dw-digest">{{ version.content_digest }} <button class="dw-copy" type="button" data-copy="{{ version.content_digest }}">Copy</button><br><small class="net-muted">BLAKE3 over the package's canonical content: what <code>jess.lock</code> pins. Not the archive's digest.</small></dd>
+                </dl>
+                {%- if version.dependencies | length > 0 %}
+                <h4 class="net-subhead">Declared dependencies</h4>
+                {{ net::facts(items=version.dependencies) }}
+                <p class="net-fine">As the publisher wrote them. Jess resolves them; this index does not.</p>
+                {%- endif %}
+                {{ net::artifact(artifact=version.artifact, release=version, primary=version.current) }}
+            </article>
+            {%- endfor %}
+        </section>
+        {%- if view.others | length > 0 %}
+        <section class="dw-section" aria-labelledby="others-title">
+            {{ net::section_head(number="02", title="The same id elsewhere", id="others-title") }}
+            <ul>{% for other in view.others %}<li><a href="{{ get_url(path=other.path, trailing_slash=true) | safe }}">{{ other.origin_label }}</a> · {{ other.publisher }} · {{ other.current | default(value="every version yanked") }} · {{ other.health_label }}</li>{% endfor %}</ul>
+        </section>
+        {%- endif %}
+    </div>
+    <aside class="dw-project__rail" aria-label="Index record">
+        <section class="dw-panel">
+            <h2 class="dw-panel__title">Index record <small>observed</small></h2>
+            <div class="dw-panel__body">{{ net::facts(items=view.record) }}</div>
+        </section>
+        {%- if row.project_path %}
+        <section class="dw-panel">
+            <h2 class="dw-panel__title">Project</h2>
+            <div class="dw-panel__body"><p>The publisher says this package belongs to <a href="{{ get_url(path=row.project_path, trailing_slash=true) | safe }}">a DreamWeave project on the same site</a>.</p></div>
+        </section>
+        {%- endif %}
+    </aside>
+</div>
+{%- endblock content %}

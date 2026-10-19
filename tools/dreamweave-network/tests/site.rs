@@ -1,7 +1,8 @@
 //! A fixture network with every state the site has to show, crawled twice through real HTTP and
 //! generated as a site: a new release with breaking and migration notes, a yank, an artifact
 //! changing under an unchanged version, a rolling development build, a program built per
-//! platform, an identity conflict, an unreachable site and an invalid publication.
+//! platform, an identity conflict, an unreachable site, an invalid publication, and a Jess
+//! package feed listed by two sites with one yanked version.
 //!
 //! Set `DREAMWEAVE_NETWORK_FIXTURE_SITE` to a directory to keep the result. CI renders it with
 //! `zola --root <directory> build` and checks its links, so the templates are exercised on every
@@ -20,7 +21,7 @@ use dreamweave_network::{
 use serde_json::{Value, json};
 use support::{
     Server,
-    sites::{Site, candlelight, config, program, refresh, tallow},
+    sites::{Site, candlelight, config, feed, program, refresh, tallow},
 };
 
 const FIRST: &str = "2026-09-27T12:00:00Z";
@@ -97,6 +98,36 @@ fn copy_into(from: &Path, to: &Path) {
     }
 }
 
+/// Everything the fixture site must have written, checked after the build.
+fn check_generated(root: &Path) {
+    for generated in [
+        "content/_index.md",
+        "content/conflicts/_index.md",
+        "content/updates/anomaly.md",
+        "content/packages/_index.md",
+        "content/packages/org.dreamweave.site/_index.md",
+        "static/network-data/jess-packages-v1.json",
+        "static/network-data/catalog.json",
+        "static/network-data/search.json",
+        "static/network-data/updates.xml",
+    ] {
+        assert!(
+            root.join(generated).is_file(),
+            "{generated} was not written"
+        );
+    }
+    let catalog: Value =
+        serde_json::from_slice(&fs::read(root.join("static/network-data/catalog.json")).unwrap())
+            .unwrap();
+    assert!(
+        catalog["claims"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .any(|claim| claim["cached"] == true)
+    );
+}
+
 #[tokio::test]
 async fn a_fixture_network_with_every_state_builds_a_site() {
     let server = Server::start();
@@ -105,9 +136,14 @@ async fn a_fixture_network_with_every_state_builds_a_site() {
     let flaky = Site::new(&server, "/flaky/");
     let broken = Site::new(&server, "/broken/");
     template.publish(&[candlelight(), tallow(), program()]);
+    template.publish_feed(&feed());
     let mut impostor = tallow();
     impostor["project"]["name"] = "Tallow (another site's claim)".into();
     elsewhere.publish(&[impostor]);
+    let mut mirrored = feed();
+    mirrored["publisher"]["name"] = "A mirror".into();
+    mirrored["packages"].as_array_mut().unwrap().truncate(1);
+    elsewhere.publish_feed(&mirrored);
     flaky.publish(&[ashfall()]);
     let glass = fictional(
         "c5a1e8f2-4d3b-4a7c-8e9f-1b2c3d4e5f60",
@@ -136,6 +172,8 @@ async fn a_fixture_network_with_every_state_builds_a_site() {
 
     let network = Network::build(&state, &Curation::default()).unwrap();
     assert_eq!(network.conflicts.len(), 1);
+    assert_eq!(network.package_conflicts.len(), 1);
+    assert_eq!(network.listed_packages().len(), 3);
     let healths: Vec<ClaimHealth> = network
         .claims
         .values()
@@ -169,29 +207,7 @@ async fn a_fixture_network_with_every_state_builds_a_site() {
     state.save(&state_directory).unwrap();
     let built = site::build(&root, &state_directory, &network, None).unwrap();
     assert!(built.pages > 50, "{}", built.pages);
-    for generated in [
-        "content/_index.md",
-        "content/conflicts/_index.md",
-        "content/updates/anomaly.md",
-        "static/network-data/catalog.json",
-        "static/network-data/search.json",
-        "static/network-data/updates.xml",
-    ] {
-        assert!(
-            root.join(generated).is_file(),
-            "{generated} was not written"
-        );
-    }
-    let catalog: Value =
-        serde_json::from_slice(&fs::read(root.join("static/network-data/catalog.json")).unwrap())
-            .unwrap();
-    assert!(
-        catalog["claims"]
-            .as_array()
-            .unwrap()
-            .iter()
-            .any(|claim| claim["cached"] == true)
-    );
+    check_generated(&root);
     if keep.is_none() {
         fs::remove_dir_all(&root).unwrap();
     }

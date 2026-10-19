@@ -36,6 +36,7 @@ menu = [
     { name = "Releases", path = "releases/" },
     { name = "Dependencies", path = "dependencies/" },
     { name = "Capabilities", path = "capabilities/" },
+    { name = "Packages", path = "packages/" },
     { name = "Health", path = "health/" },
     { name = "Join", path = "join/" },
     { name = "About", path = "about/" },

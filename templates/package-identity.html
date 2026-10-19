@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% import "macros/net.html" as net %}
+
+{%- block content %}
+{%- set view = load_data(path=section.extra.view) %}
+<header class="net-page-head">
+    <div class="dw-shell">
+        <p class="dw-kicker"><span><a href="{{ get_url(path='packages/', trailing_slash=true) | safe }}">Jess packages</a></span><span>{{ view.claims | length }} claim{{ view.claims | length | pluralize }}</span></p>
+        <h1><code>{{ net::breakable(text=view.id) }}</code></h1>
+    </div>
+</header>
+<div class="dw-shell dw-article">
+    {%- if view.conflict %}
+    <aside class="dw-callout dw-callout--danger" role="note">
+        <p class="dw-callout__title">Published by more than one site</p>
+        <p>{% if view.conflict.same_bytes %}Every version both sites list names the same archive and the same content digest ({{ view.conflict.shared_versions }} shared), which is what mirroring one publication looks like.{% elif view.conflict.shared_versions > 0 %}{{ view.conflict.shared_versions }} version{{ view.conflict.shared_versions | pluralize }} appear{% if view.conflict.shared_versions == 1 %}s{% endif %} on more than one site with different digests: two publications under one id.{% else %}The sites list no version in common.{% endif %} A package id is chosen by its author, not allocated by anyone. This index shows every claim and picks none; a Jess client asks which publisher you mean, or follows the one its lock already pins.</p>
+    </aside>
+    {%- else %}
+    <p>A package id is a claim, not proof of who speaks for a package. This page lists every site this index has seen distribute this one.</p>
+    {%- endif %}
+    <div class="dw-table-scroll"><table class="net-table">
+        <thead><tr><th scope="col">Published by</th><th scope="col">Publisher says</th><th scope="col">Current</th><th scope="col">Versions</th><th scope="col">Feed</th></tr></thead>
+        <tbody>
+        {%- for claim in view.claims %}
+            <tr>
+                <td><a href="{{ get_url(path=claim.path, trailing_slash=true) | safe }}">{{ claim.origin_label }}</a></td>
+                <td>{{ claim.publisher }}</td>
+                <td>{{ claim.current | default(value="every version yanked") }}</td>
+                <td>{{ claim.versions }}</td>
+                <td>{{ net::health(token=claim.health, label=claim.health_label) }}</td>
+            </tr>
+        {%- endfor %}
+        </tbody>
+    </table></div>
+</div>
+{%- endblock content %}
