@@ -17,6 +17,7 @@ use super::Server;
 pub const CANDLELIGHT: &str = include_str!("../fixtures/mod-template/candlelight.json");
 pub const TALLOW: &str = include_str!("../fixtures/mod-template/tallow.json");
 pub const PROGRAM: &str = include_str!("../fixtures/programs/lantern-forge.json");
+pub const FEED: &str = include_str!("../fixtures/jess/jess-packages.json");
 pub const THUMBNAIL: &[u8] = include_bytes!("../fixtures/thumbnail.png");
 pub const CANDLELIGHT_ID: &str = "4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90";
 pub const TALLOW_ID: &str = "9b7e3f21-6c4d-4a8b-b1e2-3f5a7c9d0e14";
@@ -31,6 +32,11 @@ pub fn tallow() -> Value {
 
 pub fn program() -> Value {
     serde_json::from_str(PROGRAM).unwrap()
+}
+
+/// The fixture Jess package feed: `org.dreamweave.site` and a fictional `org.example.words`.
+pub fn feed() -> Value {
+    serde_json::from_str(FEED).unwrap()
 }
 
 pub fn pretty(value: &Value) -> Vec<u8> {
@@ -135,6 +141,41 @@ impl<'a> Site<'a> {
     pub fn serve_index(&self, index: &Value) {
         self.server
             .serve_json(&format!("{}dreamweave.json", self.base), pretty(index));
+    }
+
+    pub fn feed_path(&self) -> String {
+        format!("{}jess-packages.json", self.base)
+    }
+
+    /// Serves a Jess package feed beside the site index, pointing its archive URLs at this
+    /// server so nothing in a test names a real download.
+    pub fn publish_feed(&self, feed: &Value) {
+        let mut feed = feed.clone();
+        if let Some(packages) = feed["packages"].as_array_mut() {
+            for package in packages {
+                for version in package["versions"].as_array_mut().into_iter().flatten() {
+                    let name = version["artifact"]["filename"].as_str().unwrap().to_owned();
+                    for source in version["artifact"]["sources"]
+                        .as_array_mut()
+                        .into_iter()
+                        .flatten()
+                    {
+                        let directory = if source["kind"] == "mirror" {
+                            "mirror"
+                        } else {
+                            "packages"
+                        };
+                        source["url"] = self.url(&format!("{directory}/{name}")).into();
+                    }
+                }
+            }
+        }
+        feed["publisher"]["url"] = self.url("").into();
+        self.server.serve_json(&self.feed_path(), pretty(&feed));
+    }
+
+    pub fn withdraw_feed(&self) {
+        self.server.remove(&self.feed_path());
     }
 }
 

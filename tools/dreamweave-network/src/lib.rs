@@ -13,6 +13,7 @@ pub mod graph;
 pub mod inspect;
 pub mod markdown;
 pub mod network;
+pub mod packages;
 pub mod policy;
 pub mod protocol;
 pub mod site;

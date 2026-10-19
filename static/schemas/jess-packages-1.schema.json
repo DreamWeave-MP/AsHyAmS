@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dreamweave-mp.github.io/AsHyAmS/schemas/jess-packages-1.schema.json",
+  "title": "Jess package feed, format version 1",
+  "description": "A static document a site publishes as jess-packages.json beside its dreamweave.json: the Jess packages (JPKs) it distributes, every version of each, and where the archive bytes are. The site is the authority for everything in it. An index copies it; a Jess client reads it, downloads the archive from a source it names, and verifies both digests before anything is installed.",
+  "type": "object",
+  "required": ["format", "format_version", "publisher", "packages"],
+  "additionalProperties": false,
+  "properties": {
+    "format": { "const": "jess-packages" },
+    "format_version": { "const": 1 },
+    "publisher": {
+      "description": "Who publishes this feed, as they wish to be named, and the site it belongs to.",
+      "type": "object",
+      "required": ["name", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "$ref": "#/$defs/url" }
+      }
+    },
+    "packages": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/package" }
+    }
+  },
+  "$defs": {
+    "package_id": {
+      "description": "A Jess package id: reverse-DNS, lowercase, as jess.toml's [package] id.",
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9.-]*$",
+      "maxLength": 200
+    },
+    "version": {
+      "description": "An exact Jess package version: major.minor.patch, no leading zeros.",
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "requirement": {
+      "description": "A Jess version requirement as jess.toml writes one: ^1.2 (or 1.2, the same), =1.2.3.",
+      "type": "string",
+      "pattern": "^[=^]?(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,2}$"
+    },
+    "uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "hex64": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "url": {
+      "type": "string",
+      "pattern": "^https?://",
+      "maxLength": 2048
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "package": {
+      "type": "object",
+      "required": ["id", "versions"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "$ref": "#/$defs/package_id" },
+        "summary": { "type": "string", "minLength": 1 },
+        "project": {
+          "description": "The DreamWeave project this package belongs to, when the same site publishes one. Never a claim about any other site's project.",
+          "$ref": "#/$defs/uuid"
+        },
+        "repository": { "$ref": "#/$defs/url" },
+        "versions": {
+          "description": "Every version the publisher still lists, newest first. Yanked versions stay listed and say so.",
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/package_version" }
+        }
+      }
+    },
+    "package_version": {
+      "type": "object",
+      "required": ["version", "jess_api", "status", "content_digest", "dependencies", "artifact"],
+      "additionalProperties": false,
+      "properties": {
+        "version": { "$ref": "#/$defs/version" },
+        "jess_api": { "type": "string", "pattern": "^[1-9][0-9]*$" },
+        "status": { "enum": ["available", "yanked"] },
+        "yanked": {
+          "description": "Present exactly when status is yanked.",
+          "type": "object",
+          "required": ["reason"],
+          "additionalProperties": false,
+          "properties": {
+            "reason": { "type": "string", "minLength": 1 },
+            "replacement": { "$ref": "#/$defs/version" }
+          }
+        },
+        "date": { "$ref": "#/$defs/date" },
+        "content_digest": {
+          "description": "The Jess content digest: BLAKE3 over the package's canonical uncompressed content, as jess package inspect prints it and jess.lock pins it. Not a digest of the archive file.",
+          "$ref": "#/$defs/hex64"
+        },
+        "dependencies": {
+          "description": "The package's [dependencies], by id. A client checks them against the archive's own manifest.",
+          "type": "object",
+          "propertyNames": { "pattern": "^[a-z0-9][a-z0-9.-]*$" },
+          "additionalProperties": { "$ref": "#/$defs/requirement" }
+        },
+        "artifact": { "$ref": "#/$defs/artifact" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "yanked" } }, "required": ["status"] },
+          "then": { "required": ["yanked"] },
+          "else": { "not": { "required": ["yanked"] } }
+        }
+      ]
+    },
+    "artifact": {
+      "description": "The JPK archive file: its bytes as served, where to get them, and how to check them.",
+      "type": "object",
+      "required": ["filename", "media_type", "size", "digests", "sources", "signatures"],
+      "additionalProperties": false,
+      "properties": {
+        "filename": { "type": "string", "pattern": "^[^/\\\\]+\\.jpk$" },
+        "media_type": { "const": "application/vnd.jess.jpk" },
+        "size": { "type": "integer", "minimum": 1 },
+        "digests": {
+          "type": "object",
+          "required": ["sha256"],
+          "additionalProperties": false,
+          "properties": {
+            "sha256": {
+              "description": "SHA-256 of the archive file's bytes as downloaded.",
+              "$ref": "#/$defs/hex64"
+            }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["url", "kind"],
+            "additionalProperties": false,
+            "properties": {
+              "url": { "$ref": "#/$defs/url" },
+              "kind": { "enum": ["publisher", "mirror"] },
+              "name": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "signatures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["format", "url"],
+            "additionalProperties": false,
+            "properties": {
+              "format": { "type": "string", "minLength": 1 },
+              "url": { "$ref": "#/$defs/url" },
+              "issuer": { "type": "string", "minLength": 1 },
+              "identity": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    }
+  }
+}
