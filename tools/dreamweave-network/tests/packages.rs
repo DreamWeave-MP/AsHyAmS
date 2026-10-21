@@ -86,8 +86,14 @@ async fn a_project_whose_releases_are_jpks_is_a_package_claim_with_every_version
         .find(|claim| claim.key.id.0 == "org.dreamweave.site")
         .unwrap();
     assert_eq!(generator.project, key);
-    assert_eq!(generator.package.versions.len(), 2);
-    assert_eq!(generator.current().unwrap().version, "0.1.1");
+    assert_eq!(generator.package.versions.len(), 3);
+    assert_eq!(generator.package.versions[0].version, "0.1.2-dev.6");
+    assert!(generator.package.versions[0].prerelease);
+    assert_eq!(
+        generator.current().unwrap().version,
+        "0.1.1",
+        "a development build is listed, and never current: only an exact requirement chooses it"
+    );
     assert!(!generator.conflict);
     let words = network
         .packages
@@ -129,7 +135,9 @@ async fn a_project_whose_releases_are_jpks_is_a_package_claim_with_every_version
         exported["manifest_sha256"],
         state.claims[&key].ingested_sha256.clone().unwrap()
     );
-    let version = &exported["versions"][0];
+    assert_eq!(exported["versions"][0]["version"], "0.1.2-dev.6");
+    assert_eq!(exported["versions"][0]["channel"], "development");
+    let version = &exported["versions"][1];
     assert_eq!(version["version"], "0.1.1");
     assert_eq!(version["artifact"]["format"], "jpk");
     assert_eq!(
@@ -222,7 +230,10 @@ async fn one_id_from_two_sites_is_two_claims_and_a_conflict_that_says_whether_by
         .find(|conflict| conflict.id == PackageId("org.dreamweave.site".to_owned()))
         .unwrap();
     assert_eq!(site.claims.len(), 2);
-    assert_eq!(site.shared_versions, 2);
+    assert_eq!(
+        site.shared_versions, 3,
+        "the development build counts among the versions shared"
+    );
     assert!(site.same_bytes, "a mirror names the same digests");
     let words = network
         .package_conflicts

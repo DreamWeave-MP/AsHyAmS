@@ -55,14 +55,14 @@
       "maxLength": 200
     },
     "version": {
-      "description": "An exact Jess package version: major.minor.patch, no leading zeros.",
+      "description": "An exact Jess package version: major.minor.patch, no leading zeros, with the dot-separated identifiers of a pre-release after a hyphen (0.1.2-dev.6, a development build), which only a requirement naming it exactly chooses.",
       "type": "string",
-      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-(0|[1-9][0-9]*|[0-9A-Za-z-]*[A-Za-z-][0-9A-Za-z-]*)(\\.(0|[1-9][0-9]*|[0-9A-Za-z-]*[A-Za-z-][0-9A-Za-z-]*))*)?$"
     },
     "requirement": {
-      "description": "A Jess version requirement as jess.toml writes one: ^1.2 (or 1.2, the same), =1.2.3.",
+      "description": "A Jess version requirement as jess.toml writes one: ^1.2 (or 1.2, the same), =1.2.3, or a pre-release named exactly, 0.1.2-dev.6.",
       "type": "string",
-      "pattern": "^[=^]?(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,2}$"
+      "pattern": "^[=^]?(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*)){0,2}(-(0|[1-9][0-9]*|[0-9A-Za-z-]*[A-Za-z-][0-9A-Za-z-]*)(\\.(0|[1-9][0-9]*|[0-9A-Za-z-]*[A-Za-z-][0-9A-Za-z-]*))*)?$"
     },
     "uuid": {
       "type": "string",
@@ -352,7 +352,7 @@
               "type": "null"
             }
           ],
-          "description": "The newest version the publisher offers for new installs, or null when every version is yanked."
+          "description": "The newest release the publisher offers for new installs: never a pre-release, which only a requirement naming it exactly chooses; null when nothing else is available."
         },
         "versions": {
           "type": "array",

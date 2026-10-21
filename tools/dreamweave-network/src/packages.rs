@@ -19,6 +19,7 @@ use serde::Serialize;
 
 use crate::protocol::{Artifact, JPK_MEDIA_TYPE, Manifest, Notice, ProjectId, ReleaseStatus};
 pub use crate::protocol::{PackageId, is_package_id};
+use crate::version::Version;
 
 /// The media type of a JPK archive, as a manifest and a publisher's server name it.
 pub const ARTIFACT_MEDIA_TYPE: &str = JPK_MEDIA_TYPE;
@@ -37,11 +38,13 @@ pub struct Package {
 }
 
 impl Package {
-    /// The newest version the publisher still offers for new installs, if any.
+    /// The newest version the publisher still offers for new installs, if any. Never a
+    /// pre-release (`0.1.2-dev.6`, a development build): Jess chooses one only when a
+    /// requirement names it exactly, so it is listed, and it is not what a new install gets.
     pub fn current(&self) -> Option<&PackageVersion> {
         self.versions
             .iter()
-            .find(|version| version.status == ReleaseStatus::Available)
+            .find(|version| version.status == ReleaseStatus::Available && !version.prerelease)
     }
 
     pub fn version(&self, text: &str) -> Option<&PackageVersion> {
@@ -54,6 +57,10 @@ impl Package {
 #[derive(Debug, Clone, PartialEq, Serialize)]
 pub struct PackageVersion {
     pub version: String,
+    /// Whether `version` carries pre-release identifiers under the project's scheme: a fact read
+    /// off the version text, so the document doesn't repeat it.
+    #[serde(skip)]
+    pub prerelease: bool,
     pub channel: String,
     pub status: ReleaseStatus,
     #[serde(default, skip_serializing_if = "Option::is_none")]
@@ -89,8 +96,12 @@ pub fn package_of(manifest: &Manifest) -> Option<Package> {
             continue;
         };
         id.get_or_insert_with(|| jess.package.clone());
+        // The parser has already held every release's version to the project's scheme.
+        let prerelease = Version::parse(&release.version, manifest.scheme())
+            .is_ok_and(|version| version.is_prerelease());
         versions.push(PackageVersion {
             version: release.version.clone(),
+            prerelease,
             channel: release.channel.clone(),
             status: release.status,
             yanked: release.yanked.clone(),
@@ -124,8 +135,14 @@ mod tests {
     fn a_project_with_jpk_releases_is_a_package_and_one_without_is_not() {
         let generator = package_of(&parse_manifest(SITE_GENERATOR.as_bytes()).unwrap()).unwrap();
         assert_eq!(generator.id.0, "org.dreamweave.site");
-        assert_eq!(generator.versions.len(), 2);
-        assert_eq!(generator.current().unwrap().version, "0.1.1");
+        assert_eq!(generator.versions.len(), 3);
+        assert_eq!(generator.versions[0].version, "0.1.2-dev.6");
+        assert!(generator.versions[0].prerelease);
+        assert_eq!(
+            generator.current().unwrap().version,
+            "0.1.1",
+            "a development build is listed, and never current: only an exact requirement chooses it"
+        );
         assert_eq!(generator.version("0.1.0").unwrap().channel, "stable");
         let words = package_of(&parse_manifest(WORDS.as_bytes()).unwrap()).unwrap();
         assert_eq!(words.versions[0].status, ReleaseStatus::Yanked);
