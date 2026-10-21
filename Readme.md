@@ -86,5 +86,6 @@ and it is in this repository under `pages/about/`:
 
 ## License
 
-AGPL-3.0-or-later (see `LICENSE`). The presentation builds on the DreamWeave Mod Template's, also
-AGPL-3.0; `UPSTREAM.md` records what was imported and from which revision.
+MIT OR Apache-2.0, at your option: [MIT](LICENSE-MIT), [Apache-2.0](LICENSE-APACHE). The
+presentation builds on the DreamWeave Mod Template's; `UPSTREAM.md` records what was imported and
+from which revision.

@@ -7,8 +7,8 @@ time, so a clean checkout always has everything.
 ## From DreamWeave-Mod-Template
 
 Imported at `b62bfb1ecc33c44380e5cf51a9b78c4a2f6757ff` (branch `V5`) from
-<https://github.com/DreamWeave-MP/DreamWeave-Mod-Template>, licensed AGPL-3.0 like this
-repository. Attribution stays with the Mod Template's contributors.
+<https://github.com/DreamWeave-MP/DreamWeave-Mod-Template>. Attribution stays with the Mod
+Template's contributors.
 
 | Files | What |
 |---|---|
