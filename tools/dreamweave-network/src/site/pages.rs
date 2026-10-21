@@ -1301,7 +1301,9 @@ struct UsedBy {
 
 #[derive(Serialize)]
 struct DependenciesView {
-    overview: Option<String>,
+    /// One map per connected component, largest first, so one dense cluster never widens the
+    /// drawing of every unrelated pair.
+    overviews: Vec<String>,
     foundations: Option<String>,
     rows: Vec<EdgeRow>,
     used_by: Vec<UsedBy>,
@@ -1347,11 +1349,18 @@ fn ecosystem_graph(network: &Network, keep: impl Fn(&network::Edge) -> bool) -> 
 }
 
 fn dependencies(writer: &mut Writer, network: &Network) -> Result<()> {
-    let overview = ecosystem_graph(network, |_| true).render(
-        "overview",
-        "Current relationships between indexed projects",
-        "Dependents above, dependencies below. Only relationships that resolve to an indexed claim are drawn; the table lists all of them.",
-    );
+    let overviews: Vec<String> = ecosystem_graph(network, |_| true)
+        .components()
+        .iter()
+        .enumerate()
+        .filter_map(|(index, component)| {
+            component.render(
+                &format!("overview-{}", index + 1),
+                "Current relationships between indexed projects",
+                "Dependents above, dependencies below. Only relationships that resolve to an indexed claim are drawn; the table lists all of them.",
+            )
+        })
+        .collect();
     let foundations = ecosystem_graph(network, |edge| {
         edge.targets()
             .iter()
@@ -1383,19 +1392,26 @@ fn dependencies(writer: &mut Writer, network: &Network) -> Result<()> {
             .cmp(&left.count)
             .then_with(|| left.name.cmp(&right.name))
     });
+    let mut rows: Vec<EdgeRow> = network
+        .edges
+        .iter()
+        .map(|edge| EdgeRow {
+            from: network.claims[&edge.from].name().to_owned(),
+            from_path: claim_path(&edge.from),
+            kind: edge.kind().token().to_owned(),
+            item: views::relationship_item(network, edge),
+        })
+        .collect();
+    rows.sort_by(|left, right| {
+        left.from
+            .cmp(&right.from)
+            .then_with(|| left.kind.cmp(&right.kind))
+            .then_with(|| left.item.name.cmp(&right.item.name))
+    });
     let view = DependenciesView {
-        overview,
+        overviews,
         foundations,
-        rows: network
-            .edges
-            .iter()
-            .map(|edge| EdgeRow {
-                from: network.claims[&edge.from].name().to_owned(),
-                from_path: claim_path(&edge.from),
-                kind: edge.kind().token().to_owned(),
-                item: views::relationship_item(network, edge),
-            })
-            .collect(),
+        rows,
         used_by,
         unresolved: network
             .edges
@@ -1527,6 +1543,11 @@ fn gaps(writer: &mut Writer, network: &Network) -> Result<()> {
                     "project",
                     gap.names.iter().next().cloned().unwrap_or_else(|| project.to_string()),
                     format!("DreamWeave project id {project}. No site this index reads publishes it."),
+                ),
+                GapKey::Package { package } => (
+                    "package",
+                    package.0.clone(),
+                    "A Jess package id. No site this index reads publishes it, so a client resolves it only through a publisher it names itself.".to_owned(),
                 ),
                 GapKey::Capability { capability } => (
                     "capability",

@@ -19,11 +19,13 @@ pub const TALLOW: &str = include_str!("../fixtures/mod-template/tallow.json");
 pub const PROGRAM: &str = include_str!("../fixtures/programs/lantern-forge.json");
 pub const SITE_GENERATOR: &str = include_str!("../fixtures/jess/site-generator.json");
 pub const WORDS: &str = include_str!("../fixtures/jess/words.json");
+pub const STYLE: &str = include_str!("../fixtures/jess/style.json");
 pub const THUMBNAIL: &[u8] = include_bytes!("../fixtures/thumbnail.png");
 pub const CANDLELIGHT_ID: &str = "4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90";
 pub const TALLOW_ID: &str = "9b7e3f21-6c4d-4a8b-b1e2-3f5a7c9d0e14";
 pub const SITE_GENERATOR_ID: &str = "7f3c1a2e-5b6d-4e8f-9a0b-1c2d3e4f5a6b";
 pub const WORDS_ID: &str = "0a1b2c3d-4e5f-4a6b-8c9d-0e1f2a3b4c5d";
+pub const STYLE_ID: &str = "5b6c7d8e-9f0a-4b1c-8d2e-3f4a5b6c7d8e";
 
 pub fn candlelight() -> Value {
     serde_json::from_str(CANDLELIGHT).unwrap()
@@ -45,6 +47,11 @@ pub fn site_generator() -> Value {
 /// A `schema_version` 3 project publishing a fictional `org.example.words`, newest version yanked.
 pub fn words() -> Value {
     serde_json::from_str(WORDS).unwrap()
+}
+
+/// A `schema_version` 3 project publishing `org.example.style`, the package words depends on.
+pub fn style() -> Value {
+    serde_json::from_str(STYLE).unwrap()
 }
 
 /// The Jess package id a manifest's releases publish, if any: what its index entry repeats.

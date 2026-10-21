@@ -87,6 +87,60 @@ impl Graph {
         self.edges.is_empty()
     }
 
+    /// The connected components, largest first: a page draws each as its own map, so one dense
+    /// cluster never widens the drawing of every unrelated pair.
+    pub fn components(&self) -> Vec<Graph> {
+        fn root(parent: &mut [usize], mut node: usize) -> usize {
+            while parent[node] != node {
+                parent[node] = parent[parent[node]];
+                node = parent[node];
+            }
+            node
+        }
+        let index: BTreeMap<&str, usize> = self
+            .nodes
+            .iter()
+            .enumerate()
+            .map(|(position, node)| (node.id.as_str(), position))
+            .collect();
+        let mut parent: Vec<usize> = (0..self.nodes.len()).collect();
+        for edge in &self.edges {
+            let (Some(&from), Some(&to)) =
+                (index.get(edge.from.as_str()), index.get(edge.to.as_str()))
+            else {
+                continue;
+            };
+            let (from, to) = (root(&mut parent, from), root(&mut parent, to));
+            if from != to {
+                parent[from] = to;
+            }
+        }
+        let mut components: BTreeMap<usize, Graph> = BTreeMap::new();
+        for (position, node) in self.nodes.iter().enumerate() {
+            let key = root(&mut parent, position);
+            components.entry(key).or_default().nodes.push(node.clone());
+        }
+        for edge in &self.edges {
+            let Some(&from) = index.get(edge.from.as_str()) else {
+                continue;
+            };
+            let key = root(&mut parent, from);
+            components.entry(key).or_default().edges.push(edge.clone());
+        }
+        let mut components: Vec<Graph> = components
+            .into_values()
+            .filter(|graph| !graph.is_empty())
+            .collect();
+        components.sort_by(|left, right| {
+            right
+                .nodes
+                .len()
+                .cmp(&left.nodes.len())
+                .then_with(|| left.nodes[0].id.cmp(&right.nodes[0].id))
+        });
+        components
+    }
+
     fn layers(&self) -> Vec<Vec<usize>> {
         let index: BTreeMap<&str, usize> = self
             .nodes

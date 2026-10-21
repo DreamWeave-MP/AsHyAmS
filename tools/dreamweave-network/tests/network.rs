@@ -6,12 +6,16 @@ mod support;
 use dreamweave_network::{
     config::{Curation, Migration},
     network::{GapKey, Network, Resolution},
+    packages::PackageId,
     protocol::{ProjectId, RelationshipKind},
     state::State,
 };
 use support::{
     Server,
-    sites::{CANDLELIGHT_ID, Site, TALLOW_ID, candlelight, config, refresh, tallow},
+    sites::{
+        CANDLELIGHT_ID, STYLE_ID, Site, TALLOW_ID, WORDS_ID, candlelight, config, refresh, style,
+        tallow, words,
+    },
 };
 
 const NOW: &str = "2026-09-28T00:00:00Z";
@@ -179,4 +183,54 @@ async fn a_reviewed_migration_resolves_a_conflict_without_hiding_either_claim() 
         "a superseded claim is still shown"
     );
     assert_eq!(network.claims_of(&ProjectId(TALLOW_ID.to_owned())).len(), 1);
+}
+
+#[tokio::test]
+async fn a_jess_package_dependency_is_an_edge_between_the_projects_publishing_the_packages() {
+    let server = Server::start();
+    let site = Site::new(&server, "/mods/");
+    site.publish(&[words(), style()]);
+    let state = crawled(&[&site]).await;
+    let network = Network::build(&state, &Curation::default()).unwrap();
+
+    let key = |id: &str| {
+        network
+            .claims
+            .keys()
+            .find(|key| key.project.0 == id)
+            .unwrap()
+            .clone()
+    };
+    let (words_key, style_key) = (key(WORDS_ID), key(STYLE_ID));
+    let edges = network.forward_edges(&words_key);
+    assert_eq!(edges.len(), 1);
+    let edge = edges[0];
+    assert_eq!(edge.kind(), RelationshipKind::Requires);
+    assert_eq!(edge.package.as_ref().unwrap().0, "org.example.words");
+    assert_eq!(edge.relationship.name.as_deref(), Some("org.example.style"));
+    // The current release of words is 1.2.0, the one not yanked, and it asks for `1`.
+    assert_eq!(edge.relationship.version.as_deref(), Some("1"));
+    assert_eq!(edge.targets(), std::slice::from_ref(&style_key));
+    assert_eq!(
+        edge.satisfied, None,
+        "which version Jess picks is Jess's to judge"
+    );
+    assert_eq!(
+        network.used_by(&style_key).into_iter().collect::<Vec<_>>(),
+        [words_key]
+    );
+    assert!(network.forward_edges(&style_key).is_empty());
+}
+
+#[tokio::test]
+async fn a_jess_package_dependency_nothing_publishes_is_a_gap_by_package_id() {
+    let server = Server::start();
+    let site = Site::new(&server, "/mods/");
+    site.publish(&[words()]);
+    let state = crawled(&[&site]).await;
+    let network = Network::build(&state, &Curation::default()).unwrap();
+    assert!(network.gaps.iter().any(|gap| gap.key
+        == GapKey::Package {
+            package: PackageId("org.example.style".to_owned())
+        }));
 }

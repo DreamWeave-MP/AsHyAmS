@@ -12,7 +12,7 @@
 <div class="dw-shell">
     {%- for gap in view.gaps %}
     <section class="net-gap net-gap--{{ gap.by }}" aria-labelledby="gap-{{ loop.index }}">
-        <h2 id="gap-{{ loop.index }}">{% if gap.by == "capability" %}<code>{{ gap.title }}</code>{% else %}{{ gap.title }}{% endif %} <small>referenced by {{ gap.references | length }} indexed project{{ gap.references | length | pluralize }}</small></h2>
+        <h2 id="gap-{{ loop.index }}">{% if gap.by == "capability" or gap.by == "package" %}<code>{{ gap.title }}</code>{% else %}{{ gap.title }}{% endif %} <small>referenced by {{ gap.references | length }} indexed project{{ gap.references | length | pluralize }}</small></h2>
         <p class="net-muted">{{ gap.detail }}</p>
         {%- if gap.names | length > 1 %}<p>Also called: {% for name in gap.names %}{{ name }}{% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
         {%- if gap.urls | length > 0 %}<p>{% for url in gap.urls %}<a href="{{ url }}">{{ url }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}

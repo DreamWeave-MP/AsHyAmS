@@ -15,8 +15,10 @@
 //!
 //! Jess packages are a second kind of claim, `(package id, origin)`, read from the manifest of
 //! the project that publishes the package (protocol version 3). They are kept apart from project
-//! claims: a package id is not a project id, and a package's dependency requirements are
-//! evaluated by Jess, never resolved into this graph.
+//! claims: a package id is not a project id. A package's current version declares dependencies
+//! by package id, and each becomes a `requires` edge from the project publishing the package to
+//! the project publishing the dependency, so the dependency map covers packages as it covers
+//! mods; which version Jess picks is Jess's business, so the requirement is shown, never judged.
 
 use std::{
     cmp::Ordering,
@@ -197,6 +199,10 @@ pub struct Edge {
     /// Whether the target's current release satisfies the constraint, under the target's own
     /// versioning scheme. `None` when there is no constraint or nothing to test it against.
     pub satisfied: Option<bool>,
+    /// The Jess package whose current version declared this edge, when it came from a package's
+    /// `dependencies` rather than a release's relationships; the dependency's id is the
+    /// relationship's name and the requirement its version.
+    pub package: Option<PackageId>,
 }
 
 impl Edge {
@@ -218,6 +224,8 @@ impl Edge {
 pub enum GapKey {
     /// A DreamWeave project id nobody in this index publishes.
     Project { project: ProjectId },
+    /// A Jess package id no site in this index publishes.
+    Package { package: PackageId },
     /// A capability no current release provides.
     Capability { capability: String },
     /// No id, but a URL: grouped by the URL.
@@ -582,6 +590,49 @@ impl Network {
                     relationship: relationship.clone(),
                     resolution,
                     satisfied,
+                    package: None,
+                });
+            }
+        }
+        // A package's current version depends on package ids; each resolves to the projects
+        // publishing that id (one, or several when the id is claimed twice), on behalf of the
+        // project publishing the package.
+        for claim in self.packages.values() {
+            let Some(project) = self.claims.get(&claim.project) else {
+                continue;
+            };
+            if !project.is_listed() || project.superseded_by.is_some() {
+                continue;
+            }
+            let Some(version) = claim.current() else {
+                continue;
+            };
+            for (id, requirement) in &version.dependencies {
+                let targets: BTreeSet<ClaimKey> = self
+                    .packages
+                    .values()
+                    .filter(|published| published.key.id.0 == *id)
+                    .map(|published| published.project.clone())
+                    .collect();
+                edges.push(Edge {
+                    from: claim.project.clone(),
+                    release: version.version.clone(),
+                    relationship: Relationship {
+                        kind: RelationshipKind::Requires,
+                        project: None,
+                        capability: None,
+                        name: Some(id.clone()),
+                        version: Some(requirement.clone()),
+                        url: None,
+                        reason: None,
+                    },
+                    resolution: if targets.is_empty() {
+                        Resolution::Unresolved
+                    } else {
+                        Resolution::Project(targets.into_iter().collect())
+                    },
+                    satisfied: None,
+                    package: Some(claim.key.id.clone()),
                 });
             }
         }
@@ -598,6 +649,10 @@ impl Network {
             let key = if let Some(project) = &relationship.project {
                 GapKey::Project {
                     project: project.clone(),
+                }
+            } else if edge.package.is_some() {
+                GapKey::Package {
+                    package: PackageId(relationship.name.clone().unwrap_or_default()),
                 }
             } else if let Some(capability) = &relationship.capability {
                 GapKey::Capability {

@@ -394,6 +394,13 @@ pub fn relationship_item(network: &Network, edge: &Edge) -> RelationshipItem {
                     format!("project id {project}, not published by any site this index reads")
                 })
                 .or_else(|| {
+                    edge.package.as_ref().and_then(|_| {
+                        relationship.name.as_ref().map(|package| {
+                            format!("Jess package {package}, published by no site this index reads")
+                        })
+                    })
+                })
+                .or_else(|| {
                     relationship.capability.as_ref().map(|capability| {
                         format!("capability {capability}, provided by nothing indexed")
                     })

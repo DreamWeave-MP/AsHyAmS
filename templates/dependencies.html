@@ -11,12 +11,12 @@
     </div>
 </header>
 <div class="dw-shell">
-    {%- if view.overview %}
-    <figure class="net-map" aria-labelledby="overview-caption">
-        <div class="net-map__canvas">{{ view.overview | safe }}</div>
-        <figcaption id="overview-caption">Every current relationship between indexed projects. Dependents above, dependencies below. <span class="net-legend"><span class="net-legend__item net-legend__item--requires">requires</span><span class="net-legend__item net-legend__item--recommends">recommends</span><span class="net-legend__item net-legend__item--conflicts">conflicts</span><span class="net-legend__item net-legend__item--compatible">compatible</span><span class="net-legend__item net-legend__item--replaces">replaces</span></span></figcaption>
+    {%- for overview in view.overviews %}
+    <figure class="net-map" aria-labelledby="overview-caption-{{ loop.index }}">
+        <div class="net-map__canvas">{{ overview | safe }}</div>
+        <figcaption id="overview-caption-{{ loop.index }}">{% if view.overviews | length > 1 %}Map {{ loop.index }} of {{ view.overviews | length }}: one group of projects connected to each other and to nothing drawn in another map. {% else %}Every current relationship between indexed projects. {% endif %}Dependents above, dependencies below. <span class="net-legend"><span class="net-legend__item net-legend__item--requires">requires</span><span class="net-legend__item net-legend__item--recommends">recommends</span><span class="net-legend__item net-legend__item--conflicts">conflicts</span><span class="net-legend__item net-legend__item--compatible">compatible</span><span class="net-legend__item net-legend__item--replaces">replaces</span></span></figcaption>
     </figure>
-    {%- endif %}
+    {%- endfor %}
 
     <div class="net-split">
         <section class="dw-section" aria-labelledby="used-title">
