@@ -1,0 +1,155 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "4a074668-4523-4c12-871c-4411c245bcca",
+    "name": "truetype",
+    "summary": "TrueType fonts read in JSL for Jess: names, metrics, character maps, kerning and glyph outlines.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/truetype/issues",
+      "page": "https://dreamweave-mp.github.io/truetype/home/",
+      "source": "https://github.com/DreamWeave-MP/truetype"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.3"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/truetype",
+        "release": "development",
+        "revision": "111b678cc8f756d7d690a252624d6bc49b8be7d5"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "truetype",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.truetype-0.1.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 25595,
+          "digests": {
+            "sha256": "a2580eafa74ad497f480b948c1f87970513a24e770a09661d0615dd09aad05ef"
+          },
+          "jess": {
+            "package": "org.dreamweave.truetype",
+            "jess_api": "1",
+            "content_digest": "4d6ba73144a5724669a20549583713c232425f4a8a92fe6c55d31933ceb5debb",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/truetype/releases/download/development/org.dreamweave.truetype-0.1.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/truetype",
+        "tag": "truetype-0.1.0",
+        "revision": "d4d37b94f71e35e539b7bb68347d8feb142ee945"
+      },
+      "notes": {
+        "summary": "First release: TrueType fonts read in JSL, names, metrics, character maps, kerning and outlines handed to a pen."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "truetype",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.truetype-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 25589,
+          "digests": {
+            "sha256": "95a84952da2bc8ef2045731a5e4d3209873a1dd42ad55648fcb5f89bed073dd8"
+          },
+          "jess": {
+            "package": "org.dreamweave.truetype",
+            "jess_api": "1",
+            "content_digest": "69200d052a55e32c0d4c91efcf2707b1593b17ac35ca362a7a5edf3481181ccb",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/truetype/releases/download/truetype-0.1.0/org.dreamweave.truetype-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-dream-propaganda-ce8c1375",
+  "index_url": "https://dreamweave-mp.github.io/dream_propaganda/dreamweave.json",
+  "site_name": "dream_propaganda",
+  "site_url": "https://dreamweave-mp.github.io/dream_propaganda/",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/dream_propaganda/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6ad941ad-3ee\"",
+    "last_modified": "Wed, 21 Oct 2026 22:50:21 GMT"
+  },
+  "index_sha256": "6cceb85074ef7b04b749be686a5148a2fc607990db80198256dc46ef74fcde6d",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-10-21T22:52:03Z",
+  "last_attempt": "2026-10-21T22:52:03Z",
+  "last_success": "2026-10-21T22:52:03Z"
+}

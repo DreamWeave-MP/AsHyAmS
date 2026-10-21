@@ -15,10 +15,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/home/",
       "manifest": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave/projects/4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90.json",
-      "manifest_sha256": "dd9d360cde12ad0dc4bb425d58702745de5a0a053b933275aeb7055ad5dd6524",
+      "manifest_sha256": "374c77948abc1d3baafc168330eafa5091292cbf49f5dfcb4b9f917a5bbedc1b",
       "updated": "2026-10-21",
       "channels": {
-        "development": "1.1.1-dev.82",
+        "development": "1.1.1-dev.85",
         "stable": "1.0.0"
       }
     },
@@ -31,10 +31,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/template/",
       "manifest": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave/projects/74143198-50bf-434b-938e-816699a5d0a4.json",
-      "manifest_sha256": "74ef4e8f7b418082522a465d7836261681849e028c7872eb77547c8a26ca3b0b",
+      "manifest_sha256": "8b782d07405ab62e46ce8e4a50a4055646ae70fcdcc508908c32da028b0e7cca",
       "updated": "2026-10-21",
       "channels": {
-        "development": "0.3.2-dev.82",
+        "development": "0.3.3-dev.85",
         "stable": "0.3.0"
       }
     },
@@ -46,10 +46,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/simplified/",
       "manifest": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave/projects/9b7e3f21-6c4d-4a8b-b1e2-3f5a7c9d0e14.json",
-      "manifest_sha256": "73c24538290eddcba9a5a21574ec0fee9a21e1e2a6fb56e07c68f44e8fe80e26",
+      "manifest_sha256": "1d5d276c57bb121dd31b066d830ab02eda137c2badfc989cde0e5ca10f06973f",
       "updated": "2026-10-21",
       "channels": {
-        "development": "1.0.1-dev.82",
+        "development": "1.0.1-dev.85",
         "stable": "1.0.0"
       }
     }

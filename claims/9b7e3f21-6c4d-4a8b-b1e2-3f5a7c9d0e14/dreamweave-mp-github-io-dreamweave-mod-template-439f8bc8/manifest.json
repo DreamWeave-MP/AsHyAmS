@@ -27,7 +27,7 @@
   },
   "channels": {
     "development": {
-      "version": "1.0.1-dev.82"
+      "version": "1.0.1-dev.85"
     },
     "stable": {
       "version": "1.0.0"
@@ -35,14 +35,14 @@
   },
   "releases": [
     {
-      "version": "1.0.1-dev.82",
+      "version": "1.0.1-dev.85",
       "channel": "development",
       "date": "2026-10-21",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
         "release": "dev-build",
-        "revision": "7b2e16c564bd276559ad2a93b0ac21ad57afe0b0"
+        "revision": "9f306f4d2750dbceba35fc11ef1d26a34e4b72f0"
       },
       "runtimes": {
         "openmw": ">=0.49"
@@ -95,7 +95,7 @@
           "media_type": "application/zip",
           "size": 119305,
           "digests": {
-            "sha256": "3978c8dd6171e391a2fe03110c871b12d46efa0801f6a2c8768467443323ef65"
+            "sha256": "0dfb0ee9e60d8dce59137cbf553eafc4ab218a1fc2073ab1d14d587491afe824"
           },
           "layout": {
             "release_document": "dreamweave.release.json",

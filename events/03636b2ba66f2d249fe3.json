@@ -1,0 +1,63 @@
+{
+  "id": "03636b2ba66f2d249fe3",
+  "kind": "changed",
+  "project": "74143198-50bf-434b-938e-816699a5d0a4",
+  "origin": "dreamweave-mp-github-io-dreamweave-mod-template-439f8bc8",
+  "name": "DreamWeave Mod Template",
+  "observed_at": "2026-10-21T22:52:03Z",
+  "before": "74ef4e8f7b418082522a465d7836261681849e028c7872eb77547c8a26ca3b0b",
+  "after": "8b782d07405ab62e46ce8e4a50a4055646ae70fcdcc508908c32da028b0e7cca",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.3.2-dev.82",
+      "after": "0.3.3-dev.85",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 180488,
+          "after": 180492
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.3.1",
+      "after": "0.3.2",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 180481,
+          "after": 180485
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.3.3-dev.85",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.3.2",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "notes": {
+        "summary": "Magick is taken from 0.1.2 within 0.1 rather than exactly 0.1.2, so a site can build with Magick's newer releases."
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.3.2-dev.82",
+      "channel": "development"
+    }
+  ]
+}

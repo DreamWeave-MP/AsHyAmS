@@ -1,0 +1,161 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "7dbec8fb-91c2-40d5-a71e-1f6d83d2320d",
+    "name": "dream_propaganda",
+    "summary": "OPERATION: BUILD SOMETHING, DreamWeave's recruitment posters, drawn by Jess in JSL from their copy, two logos and installed fonts.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/dream_propaganda/issues",
+      "page": "https://dreamweave-mp.github.io/dream_propaganda/home/",
+      "source": "https://github.com/DreamWeave-MP/dream_propaganda"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.3"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_propaganda",
+        "release": "development",
+        "revision": "c3b0e50885b9816c7a884cc4d96c1cea88a7b46c"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_propaganda",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.dream-propaganda-0.1.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 70224,
+          "digests": {
+            "sha256": "1503eb168d6c787c1515e8567ebd3c815eab3fea762ce48eaea7e316a77befbd"
+          },
+          "jess": {
+            "package": "org.dreamweave.dream-propaganda",
+            "jess_api": "1",
+            "content_digest": "3edee2442bbc8d1a313a8d5eb2fd2fbe1d74bef9e0c0c71db7edc0c47d2ef386",
+            "dependencies": {
+              "org.dreamweave.magick": "0.1.3",
+              "org.dreamweave.truetype": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream_propaganda/releases/download/development/org.dreamweave.dream-propaganda-0.1.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_propaganda",
+        "tag": "dream_propaganda-0.1.0",
+        "revision": "1ae1d55912caed95d48eee0e8dcad0b1f20251c9"
+      },
+      "notes": {
+        "summary": "First release: OPERATION: BUILD SOMETHING's ten posters, drawn by Jess from their copy, two logos and installed fonts."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_propaganda",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.dream-propaganda-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 70213,
+          "digests": {
+            "sha256": "7a4b2633dc851b4fc72f227596bb80b34c53b9935fdd81ddbc875b9e7a3a641f"
+          },
+          "jess": {
+            "package": "org.dreamweave.dream-propaganda",
+            "jess_api": "1",
+            "content_digest": "5aaceda113f4ddc614ebf3299961fd0e3768635146b8ed78ee6a83ecbe11d7f8",
+            "dependencies": {
+              "org.dreamweave.magick": "0.1.3",
+              "org.dreamweave.truetype": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream_propaganda/releases/download/dream_propaganda-0.1.0/org.dreamweave.dream-propaganda-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

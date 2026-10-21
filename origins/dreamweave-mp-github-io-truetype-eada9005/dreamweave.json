@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "truetype",
+    "url": "https://dreamweave-mp.github.io/truetype/"
+  },
+  "projects": [
+    {
+      "id": "4a074668-4523-4c12-871c-4411c245bcca",
+      "name": "truetype",
+      "summary": "TrueType fonts read in JSL for Jess: names, metrics, character maps, kerning and glyph outlines.",
+      "type": "library",
+      "jess_package": "org.dreamweave.truetype",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/truetype/home/",
+      "manifest": "https://dreamweave-mp.github.io/truetype/dreamweave/projects/4a074668-4523-4c12-871c-4411c245bcca.json",
+      "manifest_sha256": "2e3ca67612053f7dbda92487449f59d15407c479ba4db906ee0880bd3bebaeed",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.1-dev.3",
+        "stable": "0.1.0"
+      }
+    }
+  ]
+}

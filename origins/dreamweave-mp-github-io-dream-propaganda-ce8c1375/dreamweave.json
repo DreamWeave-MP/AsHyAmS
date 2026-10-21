@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "dream_propaganda",
+    "url": "https://dreamweave-mp.github.io/dream_propaganda/"
+  },
+  "projects": [
+    {
+      "id": "7dbec8fb-91c2-40d5-a71e-1f6d83d2320d",
+      "name": "dream_propaganda",
+      "summary": "OPERATION: BUILD SOMETHING, DreamWeave's recruitment posters, drawn by Jess in JSL from their copy, two logos and installed fonts.",
+      "type": "tool",
+      "jess_package": "org.dreamweave.dream-propaganda",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/dream_propaganda/home/",
+      "manifest": "https://dreamweave-mp.github.io/dream_propaganda/dreamweave/projects/7dbec8fb-91c2-40d5-a71e-1f6d83d2320d.json",
+      "manifest_sha256": "0aa0c5663bae80b52e02f364eb85124bf0c08995b3f9239c6399fa7321c210f0",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.1-dev.3",
+        "stable": "0.1.0"
+      }
+    }
+  ]
+}

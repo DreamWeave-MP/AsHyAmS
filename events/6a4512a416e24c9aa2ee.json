@@ -1,0 +1,69 @@
+{
+  "id": "6a4512a416e24c9aa2ee",
+  "kind": "changed",
+  "project": "4aefcc8f-913f-48f5-8980-2326173a7288",
+  "origin": "dreamweave-mp-github-io-magick-e9b07a6b",
+  "name": "Magick",
+  "observed_at": "2026-10-21T22:52:03Z",
+  "before": "e35ff97c8b2f20c9d8d3d8c450a37aa44ee0142ba9570c57f8b8e3d1b8b42679",
+  "after": "121eb040cb66bb016933244bcac52011e8692e5886516a8ccc3d9e8abb384ec0",
+  "changes": [
+    {
+      "change": "project-field",
+      "field": "summary",
+      "before": "A pure-Luau raster toolkit for Jess: PNG, BMP and TGA, atlases, gradients, masks and filters.",
+      "after": "A pure-Luau raster toolkit for Jess: PNG, BMP and TGA, anti-aliased paths, atlases, gradients, masks and filters."
+    },
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.3-dev.6",
+      "after": "0.1.4-dev.9",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 77869,
+          "after": 92749
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.1.2",
+      "after": "0.1.3",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 77863,
+          "after": 92743
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.4-dev.9",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.3",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "notes": {
+        "summary": "Anti-aliased paths through @magick/path, Image.screen and Image.scale."
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.3-dev.6",
+      "channel": "development"
+    }
+  ]
+}

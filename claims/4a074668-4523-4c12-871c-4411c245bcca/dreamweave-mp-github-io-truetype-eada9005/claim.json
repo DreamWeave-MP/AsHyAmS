@@ -1,0 +1,30 @@
+{
+  "project": "4a074668-4523-4c12-871c-4411c245bcca",
+  "origin": "dreamweave-mp-github-io-truetype-eada9005",
+  "entry": {
+    "id": "4a074668-4523-4c12-871c-4411c245bcca",
+    "name": "truetype",
+    "summary": "TrueType fonts read in JSL for Jess: names, metrics, character maps, kerning and glyph outlines.",
+    "type": "library",
+    "jess_package": "org.dreamweave.truetype",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/truetype/home/",
+    "manifest": "https://dreamweave-mp.github.io/truetype/dreamweave/projects/4a074668-4523-4c12-871c-4411c245bcca.json",
+    "manifest_sha256": "2e3ca67612053f7dbda92487449f59d15407c479ba4db906ee0880bd3bebaeed",
+    "updated": "2026-10-21",
+    "channels": {
+      "development": "0.1.1-dev.3",
+      "stable": "0.1.0"
+    }
+  },
+  "advertised_sha256": "2e3ca67612053f7dbda92487449f59d15407c479ba4db906ee0880bd3bebaeed",
+  "ingested_sha256": "2e3ca67612053f7dbda92487449f59d15407c479ba4db906ee0880bd3bebaeed",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-10-21T22:52:03Z",
+  "last_changed": "2026-10-21T22:52:03Z",
+  "last_attempt": "2026-10-21T22:52:03Z",
+  "last_success": "2026-10-21T22:52:03Z"
+}

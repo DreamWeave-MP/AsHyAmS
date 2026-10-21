@@ -5,7 +5,7 @@
   "project": {
     "id": "4aefcc8f-913f-48f5-8980-2326173a7288",
     "name": "Magick",
-    "summary": "A pure-Luau raster toolkit for Jess: PNG, BMP and TGA, atlases, gradients, masks and filters.",
+    "summary": "A pure-Luau raster toolkit for Jess: PNG, BMP and TGA, anti-aliased paths, atlases, gradients, masks and filters.",
     "type": "library",
     "status": "active",
     "versioning": "numeric",
@@ -31,22 +31,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.3-dev.6"
+      "version": "0.1.4-dev.9"
     },
     "stable": {
-      "version": "0.1.2"
+      "version": "0.1.3"
     }
   },
   "releases": [
     {
-      "version": "0.1.3-dev.6",
+      "version": "0.1.4-dev.9",
       "channel": "development",
       "date": "2026-10-21",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/magick",
         "release": "development",
-        "revision": "c645b8a0ba26ae38a20851de80b15b0fb844d2fe"
+        "revision": "932bf21333107e8df21f5fe9e721cff87e693c22"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,79 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.magick-0.1.3-dev.6.jpk",
+          "filename": "org.dreamweave.magick-0.1.4-dev.9.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 77869,
+          "size": 92749,
           "digests": {
-            "sha256": "9811c74191573e11fb8e03fa66b58c29132a0bc44f041bc89e66f1b2d9cdf151"
+            "sha256": "b6a5f92620947302c3bede70423e438b7d77c2854f49804e882264bca91db587"
           },
           "jess": {
             "package": "org.dreamweave.magick",
             "jess_api": "1",
-            "content_digest": "d45ee54174c9c4701ae3032a2a337a008c13af92eab33f239358cd27f5ca8e0c",
+            "content_digest": "792e0d7b8e4fe84797cdcea7fee52814cbd9de59005c14b8005de917916ca424",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/magick/releases/download/development/org.dreamweave.magick-0.1.3-dev.6.jpk",
+              "url": "https://github.com/DreamWeave-MP/magick/releases/download/development/org.dreamweave.magick-0.1.4-dev.9.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.3",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/magick",
+        "tag": "magick-0.1.3",
+        "revision": "b415011fd7cc8ad0720d891de79d3244f46d6aaf"
+      },
+      "notes": {
+        "summary": "Anti-aliased paths through @magick/path, Image.screen and Image.scale."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "Magick",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.magick-0.1.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 92743,
+          "digests": {
+            "sha256": "bac4b460ebaaed78ff164c8f04866057bd01a235f857dc23d2a480dd7b22a358"
+          },
+          "jess": {
+            "package": "org.dreamweave.magick",
+            "jess_api": "1",
+            "content_digest": "08ef69240ae2a041651d94b67240149357733070f327f3085b944f6c814ddb6f",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/magick/releases/download/magick-0.1.3/org.dreamweave.magick-0.1.3.jpk",
               "kind": "publisher"
             }
           ],

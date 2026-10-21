@@ -31,22 +31,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.3.2-dev.82"
+      "version": "0.3.3-dev.85"
     },
     "stable": {
-      "version": "0.3.1"
+      "version": "0.3.2"
     }
   },
   "releases": [
     {
-      "version": "0.3.2-dev.82",
+      "version": "0.3.3-dev.85",
       "channel": "development",
       "date": "2026-10-21",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
         "release": "dev-build",
-        "revision": "7b2e16c564bd276559ad2a93b0ac21ad57afe0b0"
+        "revision": "9f306f4d2750dbceba35fc11ef1d26a34e4b72f0"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,18 +71,18 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.mod-template-0.3.2-dev.82.jpk",
+          "filename": "org.dreamweave.mod-template-0.3.3-dev.85.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 180488,
+          "size": 180492,
           "digests": {
-            "sha256": "9627d802aeef4962da692b074453a1a74a7ed2705bfd049783d183399d54cf07"
+            "sha256": "689c95633846f22df714f8625e5c8732e5ce19e9ee5aa1473c03ed89fdc573cc"
           },
           "jess": {
             "package": "org.dreamweave.mod-template",
             "jess_api": "1",
-            "content_digest": "8c257f4db5b04e9592163a80286236303f86eca1c89ff1e67f6978e9cea5e60a",
+            "content_digest": "af89e1570a7f10169f1757842e449e8e2a070f451ddc337c193c2fdcaf645e71",
             "dependencies": {
-              "org.dreamweave.magick": "=0.1.2",
+              "org.dreamweave.magick": "0.1.2",
               "org.dreamweave.site": "=0.1.1",
               "org.dreamweave.theme": "=0.2.0",
               "org.dreamweave.vfs": "2"
@@ -90,7 +90,70 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template/releases/download/dev-build/org.dreamweave.mod-template-0.3.2-dev.82.jpk",
+              "url": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template/releases/download/dev-build/org.dreamweave.mod-template-0.3.3-dev.85.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.3.2",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
+        "tag": "template-0.3.2",
+        "revision": "274cebd995e10ef1adabdde695c56c30f7dbe748"
+      },
+      "notes": {
+        "summary": "Magick is taken from 0.1.2 within 0.1 rather than exactly 0.1.2, so a site can build with Magick's newer releases."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DreamWeave Mod Template",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.mod-template-0.3.2.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 180485,
+          "digests": {
+            "sha256": "aec719c3535d92a41c507c47822d8c18146f34aefbe9ee929568d783bd5ce7cf"
+          },
+          "jess": {
+            "package": "org.dreamweave.mod-template",
+            "jess_api": "1",
+            "content_digest": "717fb9c43365b6fec4d1fa637906aecafc4687b96b64c999f2ffcf26306436ad",
+            "dependencies": {
+              "org.dreamweave.magick": "0.1.2",
+              "org.dreamweave.site": "=0.1.1",
+              "org.dreamweave.theme": "=0.2.0",
+              "org.dreamweave.vfs": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template/releases/download/template-0.3.2/org.dreamweave.mod-template-0.3.2.jpk",
               "kind": "publisher"
             }
           ],

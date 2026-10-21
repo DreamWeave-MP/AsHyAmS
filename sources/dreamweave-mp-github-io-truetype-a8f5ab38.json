@@ -1,0 +1,19 @@
+{
+  "url": "https://dreamweave-mp.github.io/truetype/",
+  "origin": "dreamweave-mp-github-io-truetype-eada9005",
+  "health": "resolved",
+  "problem": null,
+  "method": "found by walking up the path",
+  "trail": [
+    {
+      "url": "https://dreamweave-mp.github.io/truetype/",
+      "outcome": "an HTML page with no DreamWeave <link>"
+    },
+    {
+      "url": "https://dreamweave-mp.github.io/truetype/dreamweave.json",
+      "outcome": "a DreamWeave site index"
+    }
+  ],
+  "last_attempt": "2026-10-21T22:52:03Z",
+  "last_success": "2026-10-21T22:52:03Z"
+}

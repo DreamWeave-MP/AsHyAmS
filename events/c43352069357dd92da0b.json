@@ -1,0 +1,32 @@
+{
+  "id": "c43352069357dd92da0b",
+  "kind": "changed",
+  "project": "4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90",
+  "origin": "dreamweave-mp-github-io-dreamweave-mod-template-439f8bc8",
+  "name": "Candlelight",
+  "observed_at": "2026-10-21T22:52:03Z",
+  "before": "dd9d360cde12ad0dc4bb425d58702745de5a0a053b933275aeb7055ad5dd6524",
+  "after": "374c77948abc1d3baafc168330eafa5091292cbf49f5dfcb4b9f917a5bbedc1b",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "1.1.1-dev.82",
+      "after": "1.1.1-dev.85",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "1.1.1-dev.85",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "1.1.1-dev.82",
+      "channel": "development"
+    }
+  ]
+}

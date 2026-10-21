@@ -4,27 +4,27 @@
   "entry": {
     "id": "4aefcc8f-913f-48f5-8980-2326173a7288",
     "name": "Magick",
-    "summary": "A pure-Luau raster toolkit for Jess: PNG, BMP and TGA, atlases, gradients, masks and filters.",
+    "summary": "A pure-Luau raster toolkit for Jess: PNG, BMP and TGA, anti-aliased paths, atlases, gradients, masks and filters.",
     "type": "library",
     "jess_package": "org.dreamweave.magick",
     "status": "active",
     "page": "https://dreamweave-mp.github.io/magick/home/",
     "manifest": "https://dreamweave-mp.github.io/magick/dreamweave/projects/4aefcc8f-913f-48f5-8980-2326173a7288.json",
-    "manifest_sha256": "e35ff97c8b2f20c9d8d3d8c450a37aa44ee0142ba9570c57f8b8e3d1b8b42679",
+    "manifest_sha256": "121eb040cb66bb016933244bcac52011e8692e5886516a8ccc3d9e8abb384ec0",
     "updated": "2026-10-21",
     "channels": {
-      "development": "0.1.3-dev.6",
+      "development": "0.1.4-dev.9",
       "stable": "0.1.2"
     }
   },
-  "advertised_sha256": "e35ff97c8b2f20c9d8d3d8c450a37aa44ee0142ba9570c57f8b8e3d1b8b42679",
-  "ingested_sha256": "e35ff97c8b2f20c9d8d3d8c450a37aa44ee0142ba9570c57f8b8e3d1b8b42679",
+  "advertised_sha256": "121eb040cb66bb016933244bcac52011e8692e5886516a8ccc3d9e8abb384ec0",
+  "ingested_sha256": "121eb040cb66bb016933244bcac52011e8692e5886516a8ccc3d9e8abb384ec0",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-10-21T20:38:07Z",
-  "last_changed": "2026-10-21T20:38:07Z",
-  "last_attempt": "2026-10-21T21:54:32Z",
-  "last_success": "2026-10-21T21:54:32Z"
+  "last_changed": "2026-10-21T22:52:03Z",
+  "last_attempt": "2026-10-21T22:52:03Z",
+  "last_success": "2026-10-21T22:52:03Z"
 }

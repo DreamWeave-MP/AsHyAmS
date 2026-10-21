@@ -1,0 +1,19 @@
+{
+  "url": "https://dreamweave-mp.github.io/dream_propaganda/",
+  "origin": "dreamweave-mp-github-io-dream-propaganda-ce8c1375",
+  "health": "resolved",
+  "problem": null,
+  "method": "found by walking up the path",
+  "trail": [
+    {
+      "url": "https://dreamweave-mp.github.io/dream_propaganda/",
+      "outcome": "an HTML page with no DreamWeave <link>"
+    },
+    {
+      "url": "https://dreamweave-mp.github.io/dream_propaganda/dreamweave.json",
+      "outcome": "a DreamWeave site index"
+    }
+  ],
+  "last_attempt": "2026-10-21T22:52:03Z",
+  "last_success": "2026-10-21T22:52:03Z"
+}
