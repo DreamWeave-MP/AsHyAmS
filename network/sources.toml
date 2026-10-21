@@ -117,3 +117,123 @@ note = "openmw-install, org.dreamweave.openmw-install, an OpenMW installation op
 url = "https://dreamweave-mp.github.io/openmw-content/"
 added = "2026-10-21"
 note = "openmw-content, org.dreamweave.openmw-content, a load order's content files opened: a Jess package. Enrolled before its first deploy; unreachable until then."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/add-vanilla-refs/"
+added = "2026-10-21"
+note = "Restores lost vanilla references to a plugin"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/codecs-lab/"
+added = "2026-10-21"
+note = "Compression research: Luau codecs against native bindings"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/doctor/"
+added = "2026-10-21"
+note = "Diagnoses plugins, load orders and installs"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/doom/"
+added = "2026-10-21"
+note = "DOOM's simulation in Luau; ships no IWAD"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/dream-ecs/"
+added = "2026-10-21"
+note = "A packed archetype ECS with JessQL queries"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/dream-scene/"
+added = "2026-10-21"
+note = "Renderer-agnostic scene storage"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/dreamwind/"
+added = "2026-10-21"
+note = "The Morrowind and OpenMW toolbench"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/dreamwind-sql/"
+added = "2026-10-21"
+note = "Relational views over plugins, NIFs and the VFS"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/jessql/"
+added = "2026-10-21"
+note = "A Luau relational query engine"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/merged-lands/"
+added = "2026-10-21"
+note = "Merges a load order's landscape into one plugin"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/merge-to-master/"
+added = "2026-10-21"
+note = "Merges a plugin into its master"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/nif/"
+added = "2026-10-21"
+note = "NIF models, every version Morrowind and OpenMW read"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/nif-assets/"
+added = "2026-10-21"
+note = "Checks a mod's NIF models against its VFS"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/openmw-import-morrowind/"
+added = "2026-10-21"
+note = "Imports Morrowind.ini into an OpenMW configuration"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/openmw-workbench/"
+added = "2026-10-21"
+note = "A JessQL workbench over OpenMW data"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/physik/"
+added = "2026-10-21"
+note = "Compact 3D rigid-body physics"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/plugin-assets/"
+added = "2026-10-21"
+note = "Checks the assets a plugin refers to"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/recast-luau/"
+added = "2026-10-21"
+note = "A pure-Luau RecastNavigation and Detour port"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/st4sh-scripts/"
+added = "2026-10-21"
+note = "St4sh graphics and build scripts over magick"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/starwind/"
+added = "2026-10-21"
+note = "Builds the Starwind total conversion"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/tes3cmd/"
+added = "2026-10-21"
+note = "tes3cmd for Jess"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/tes3conv/"
+added = "2026-10-21"
+note = "Morrowind plugins to JSON and back"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/tes3-saves/"
+added = "2026-10-21"
+note = "Reads, strips and repairs saves"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/TES3Merge/"
+added = "2026-10-21"
+note = "Merges a load order's records into a patch, a port of NullCascade's TES3Merge"
