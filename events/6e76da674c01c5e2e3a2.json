@@ -1,0 +1,43 @@
+{
+  "id": "6e76da674c01c5e2e3a2",
+  "kind": "changed",
+  "project": "2198fb51-71ba-4695-8e1f-26b55144c4fd",
+  "origin": "dreamweave-mp-github-io-l3i-3bef17f5",
+  "name": "l3i",
+  "observed_at": "2026-10-21T17:15:20Z",
+  "before": "1a60591cad07059c2229558fb02cf5b79ae43dd2e450c88f1bc85fedf7fb334a",
+  "after": "588e2ca3d9e466089d9662d2e533fd634cd72556ac6c015426b217d608911e28",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "2.1.2",
+      "after": "2.1.3",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "crate",
+          "before": 2419486,
+          "after": 2419507
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "2.1.3",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "notes": {
+        "summary": "Security release: every dependency updated, closing seven RustSec advisories in the TLS stack and the Zstandard decoder, one of them high severity.",
+        "changed": [
+          "ruzstd 0.9.1: RUSTSEC-2026-0344, a decompression bomb where a tiny input could exhaust memory (high). The JPK reader's zstd entries and `bytes.zstd` decode through it.",
+          "rustls 0.23.46: RUSTSEC-2026-0346 (session `Debug` impls exposed TLS secrets, medium), RUSTSEC-2026-0347, RUSTSEC-2026-0348, and RUSTSEC-2026-0349 (buffered data after ECH rejection, a 1 GiB certificate decompression before authentication, and a downgrade to classical key exchange from an unauthenticated ServerHello, all low).",
+          "rustls-webpki 0.103.16 and webpki-root-certs 1.0.10: RUSTSEC-2026-0382 and RUSTSEC-2026-0383, certificate verification and the bundled roots accepting distrusted intermediates.",
+          "The manifest's floors for rustls and ruzstd now start at the fixed versions, so a fresh resolution of a dependent can't pick the vulnerable ones. Every other dependency in the lock moved to its current compatible release. No API changed."
+        ],
+        "migration": "Nothing to change. Take 2.1.3 in place of 2.1.2; `cargo update -p l3i` in a dependent does it, and `cargo audit` there should come back clean of these seven.\n"
+      }
+    }
+  ]
+}
