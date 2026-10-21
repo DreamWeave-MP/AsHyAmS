@@ -1,0 +1,30 @@
+{
+  "project": "0921f076-a7ea-4c32-82a6-a57040fe866e",
+  "origin": "dreamweave-mp-github-io-tes3-saves-add03e37",
+  "entry": {
+    "id": "0921f076-a7ea-4c32-82a6-a57040fe866e",
+    "name": "tes3-saves",
+    "summary": "Reads, strips and repairs Morrowind and OpenMW saves, verified in memory before anything is written, as a Jess package and command in Luau.",
+    "type": "tool",
+    "jess_package": "org.dreamweave.tes3-saves",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/tes3-saves/home/",
+    "manifest": "https://dreamweave-mp.github.io/tes3-saves/dreamweave/projects/0921f076-a7ea-4c32-82a6-a57040fe866e.json",
+    "manifest_sha256": "5d8ded9d3421a99982b0a6c2e0ae9ee5aa6163e24015586f9434bff259b6b0be",
+    "updated": "2026-10-21",
+    "channels": {
+      "development": "0.1.1-dev.3",
+      "stable": "0.1.0"
+    }
+  },
+  "advertised_sha256": "5d8ded9d3421a99982b0a6c2e0ae9ee5aa6163e24015586f9434bff259b6b0be",
+  "ingested_sha256": "5d8ded9d3421a99982b0a6c2e0ae9ee5aa6163e24015586f9434bff259b6b0be",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_changed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

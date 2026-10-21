@@ -1,0 +1,30 @@
+{
+  "project": "14eca538-2918-4b4f-90ae-80b764a62e57",
+  "origin": "dreamweave-mp-github-io-starwind-aaae7355",
+  "entry": {
+    "id": "14eca538-2918-4b4f-90ae-80b764a62e57",
+    "name": "starwind",
+    "summary": "Builds Starwind, the Star Wars total conversion, from its sources on a Morrowind install, as a Jess command in Luau.",
+    "type": "tool",
+    "jess_package": "org.dreamweave.starwind",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/starwind/home/",
+    "manifest": "https://dreamweave-mp.github.io/starwind/dreamweave/projects/14eca538-2918-4b4f-90ae-80b764a62e57.json",
+    "manifest_sha256": "33b85f64590f8a245921231cf9cf950da3db972a5fae34844d914866d0b930d2",
+    "updated": "2026-10-21",
+    "channels": {
+      "development": "0.1.1-dev.3",
+      "stable": "0.1.0"
+    }
+  },
+  "advertised_sha256": "33b85f64590f8a245921231cf9cf950da3db972a5fae34844d914866d0b930d2",
+  "ingested_sha256": "33b85f64590f8a245921231cf9cf950da3db972a5fae34844d914866d0b930d2",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_changed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

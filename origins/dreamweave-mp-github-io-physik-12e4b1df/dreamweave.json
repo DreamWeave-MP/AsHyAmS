@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "physik",
+    "url": "https://dreamweave-mp.github.io/physik/"
+  },
+  "projects": [
+    {
+      "id": "3059e0aa-40e6-42d1-8db4-ef7832aec8a0",
+      "name": "physik",
+      "summary": "Compact 3D rigid-body physics for Jess and Luau: shapes, broad and narrow phase, constraints and a solver.",
+      "type": "library",
+      "jess_package": "org.dreamweave.physik",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/physik/home/",
+      "manifest": "https://dreamweave-mp.github.io/physik/dreamweave/projects/3059e0aa-40e6-42d1-8db4-ef7832aec8a0.json",
+      "manifest_sha256": "2553d4a632f6956b2387a9615da3994a47e1056f9b7dde58441e995d7ebb363c",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.3.3-dev.3",
+        "stable": "0.3.2"
+      }
+    }
+  ]
+}

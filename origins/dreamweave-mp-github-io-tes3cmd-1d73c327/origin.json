@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-tes3cmd-1d73c327",
+  "index_url": "https://dreamweave-mp.github.io/tes3cmd/dreamweave.json",
+  "site_name": "tes3cmd",
+  "site_url": "https://dreamweave-mp.github.io/tes3cmd/",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/tes3cmd/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6ad92b3d-3b1\"",
+    "last_modified": "Wed, 21 Oct 2026 21:14:37 GMT"
+  },
+  "index_sha256": "e4cedc2744f3147be5c1c918e8012214d6731e8c51d375679487808e7f630036",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

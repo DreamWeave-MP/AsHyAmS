@@ -1,0 +1,162 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "6f2d395b-2cc9-4bc7-9ba9-d1e73d0dadb6",
+    "name": "add-vanilla-refs",
+    "summary": "Adds the vanilla references a plugin's cells lost back from the masters, a Jess package and command in Luau.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/add-vanilla-refs/issues",
+      "page": "https://dreamweave-mp.github.io/add-vanilla-refs/home/",
+      "source": "https://github.com/DreamWeave-MP/add-vanilla-refs"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.3"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/add-vanilla-refs",
+        "release": "development",
+        "revision": "360c9c8be3180855b2c30341d8c61d7239015360"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "add-vanilla-refs",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.add-vanilla-refs-0.1.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 44075,
+          "digests": {
+            "sha256": "c12432bcdfde9bd2bb6fb434bdcd29627bc64d17777899c74a7da7fb53976819"
+          },
+          "jess": {
+            "package": "org.dreamweave.add-vanilla-refs",
+            "jess_api": "1",
+            "content_digest": "8ef12762dfb166b7744c5fc7be733e4f8d3b79d04a292bf2b2cee7973d5b0638",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.tes3conv": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/add-vanilla-refs/releases/download/development/org.dreamweave.add-vanilla-refs-0.1.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/add-vanilla-refs",
+        "tag": "add_vanilla_refs-0.1.0",
+        "revision": "5f36886d2bcaf49254dc7d83645c4d4d115043e0"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "add-vanilla-refs",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.add-vanilla-refs-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 44069,
+          "digests": {
+            "sha256": "6444d6642c586aac6e17487f398fbad1a7e43850874249eb76a29bf2ae7c326a"
+          },
+          "jess": {
+            "package": "org.dreamweave.add-vanilla-refs",
+            "jess_api": "1",
+            "content_digest": "006152b77fae4504825573ede68c6520d2f8e691cd48b0cd595e99c49a0bb9a5",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.tes3conv": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/add-vanilla-refs/releases/download/add_vanilla_refs-0.1.0/org.dreamweave.add-vanilla-refs-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "project": "81f77b59-4fc4-436d-a6e7-77157076405c",
+  "origin": "dreamweave-mp-github-io-dream-ecs-5f1ec54c",
+  "entry": {
+    "id": "81f77b59-4fc4-436d-a6e7-77157076405c",
+    "name": "dream-ecs",
+    "summary": "A packed archetype and chunk entity component system for Jess, with JessQL as its query front end.",
+    "type": "library",
+    "jess_package": "org.dreamweave.ecs",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/dream-ecs/home/",
+    "manifest": "https://dreamweave-mp.github.io/dream-ecs/dreamweave/projects/81f77b59-4fc4-436d-a6e7-77157076405c.json",
+    "manifest_sha256": "129feccebc110982c3efa16280143756b4989528dc12f5b4d6c06308fa7d8464",
+    "updated": "2026-10-21",
+    "channels": {
+      "development": "0.2.2-dev.3",
+      "stable": "0.2.1"
+    }
+  },
+  "advertised_sha256": "129feccebc110982c3efa16280143756b4989528dc12f5b4d6c06308fa7d8464",
+  "ingested_sha256": "129feccebc110982c3efa16280143756b4989528dc12f5b4d6c06308fa7d8464",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_changed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

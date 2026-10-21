@@ -1,0 +1,30 @@
+{
+  "project": "66795eef-6cc5-41f2-b8ed-d373c78e5f42",
+  "origin": "dreamweave-mp-github-io-doctor-a2c4e454",
+  "entry": {
+    "id": "66795eef-6cc5-41f2-b8ed-d373c78e5f42",
+    "name": "doctor",
+    "summary": "Diagnoses a Morrowind or OpenMW plugin, a load order and an install, naming what is dirty, missing or mismatched, as a Jess command in Luau.",
+    "type": "tool",
+    "jess_package": "org.dreamweave.doctor",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/doctor/home/",
+    "manifest": "https://dreamweave-mp.github.io/doctor/dreamweave/projects/66795eef-6cc5-41f2-b8ed-d373c78e5f42.json",
+    "manifest_sha256": "316d3a4e3b2bb2e873c760e9d0c170a6bedf0fd6e66b8bd81f095a9dc6b51f49",
+    "updated": "2026-10-21",
+    "channels": {
+      "development": "0.1.1-dev.3",
+      "stable": "0.1.0"
+    }
+  },
+  "advertised_sha256": "316d3a4e3b2bb2e873c760e9d0c170a6bedf0fd6e66b8bd81f095a9dc6b51f49",
+  "ingested_sha256": "316d3a4e3b2bb2e873c760e9d0c170a6bedf0fd6e66b8bd81f095a9dc6b51f49",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_changed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

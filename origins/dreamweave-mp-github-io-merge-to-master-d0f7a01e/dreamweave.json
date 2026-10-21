@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "merge-to-master",
+    "url": "https://dreamweave-mp.github.io/merge-to-master/"
+  },
+  "projects": [
+    {
+      "id": "25a14f79-a94a-495c-80d6-d1e834c924c2",
+      "name": "merge-to-master",
+      "summary": "Merges a plugin's objects and topics into its master, deleted records removed, as a Jess command in Luau.",
+      "type": "tool",
+      "jess_package": "org.dreamweave.merge-to-master",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/merge-to-master/home/",
+      "manifest": "https://dreamweave-mp.github.io/merge-to-master/dreamweave/projects/25a14f79-a94a-495c-80d6-d1e834c924c2.json",
+      "manifest_sha256": "edafe51716b1ee97f102007c29b8ca73e0d126bee00081af16864c247009de22",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.1-dev.3",
+        "stable": "0.1.0"
+      }
+    }
+  ]
+}

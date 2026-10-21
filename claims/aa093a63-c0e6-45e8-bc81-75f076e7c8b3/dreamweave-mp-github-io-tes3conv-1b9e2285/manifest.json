@@ -1,0 +1,160 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "aa093a63-c0e6-45e8-bc81-75f076e7c8b3",
+    "name": "tes3conv",
+    "summary": "Converts Morrowind plugins to JSON and back, byte for byte where the original was, as a Jess command in Luau.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/tes3conv/issues",
+      "page": "https://dreamweave-mp.github.io/tes3conv/home/",
+      "source": "https://github.com/DreamWeave-MP/tes3conv"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.3"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/tes3conv",
+        "release": "development",
+        "revision": "91261372c5de0c4976563f39d454902da0922e74"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "tes3conv",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.tes3conv-0.1.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 135469,
+          "digests": {
+            "sha256": "9de03a8aa748c6dee77515a7249bbdca538d220e318872c56749625d5c98a61b"
+          },
+          "jess": {
+            "package": "org.dreamweave.tes3conv",
+            "jess_api": "1",
+            "content_digest": "94ce0407ded48e7d63e77382341d37bff65be34aef497de3a08190c91af41e75",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/tes3conv/releases/download/development/org.dreamweave.tes3conv-0.1.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/tes3conv",
+        "tag": "tes3conv-0.1.0",
+        "revision": "5c3e01f45032d4d7f7c63e8cb28ff0b6e8d75bcd"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "tes3conv",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.tes3conv-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 135463,
+          "digests": {
+            "sha256": "d23c44c9d5cec9704451637dfa831e974936124978dee1defc8e428fc0c23dca"
+          },
+          "jess": {
+            "package": "org.dreamweave.tes3conv",
+            "jess_api": "1",
+            "content_digest": "746ef70ea9a175ff91bf610caf30552a7eea9cb68264de93280500d6aba30934",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/tes3conv/releases/download/tes3conv-0.1.0/org.dreamweave.tes3conv-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

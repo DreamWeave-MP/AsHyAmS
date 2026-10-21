@@ -1,0 +1,30 @@
+{
+  "project": "d6a547e9-7e26-4dcd-a5d0-d7234df8d0c4",
+  "origin": "dreamweave-mp-github-io-nif-a91a2f67",
+  "entry": {
+    "id": "d6a547e9-7e26-4dcd-a5d0-d7234df8d0c4",
+    "name": "nif",
+    "summary": "NetImmerse and Gamebryo NIF models, every version Morrowind and OpenMW read, parsed and written raw-preserving, as a Jess package in Luau.",
+    "type": "library",
+    "jess_package": "org.dreamweave.nif",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/nif/home/",
+    "manifest": "https://dreamweave-mp.github.io/nif/dreamweave/projects/d6a547e9-7e26-4dcd-a5d0-d7234df8d0c4.json",
+    "manifest_sha256": "d6b6a54cbe02afae383e93fc399e030160545140c494a92192b0c10825ab2841",
+    "updated": "2026-10-21",
+    "channels": {
+      "development": "0.1.1-dev.3",
+      "stable": "0.1.0"
+    }
+  },
+  "advertised_sha256": "d6b6a54cbe02afae383e93fc399e030160545140c494a92192b0c10825ab2841",
+  "ingested_sha256": "d6b6a54cbe02afae383e93fc399e030160545140c494a92192b0c10825ab2841",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_changed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

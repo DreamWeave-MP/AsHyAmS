@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "dream-scene",
+    "url": "https://dreamweave-mp.github.io/dream-scene/"
+  },
+  "projects": [
+    {
+      "id": "e20f98cb-26dd-4bfa-8c4e-e9f7e2c6db1f",
+      "name": "dream-scene",
+      "summary": "Renderer-agnostic 3D scene and world presentation storage for Jess, a Luau package.",
+      "type": "library",
+      "jess_package": "org.dreamweave.scene",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/dream-scene/home/",
+      "manifest": "https://dreamweave-mp.github.io/dream-scene/dreamweave/projects/e20f98cb-26dd-4bfa-8c4e-e9f7e2c6db1f.json",
+      "manifest_sha256": "11bff517bd809d04a56f29e90125926f04c0ce09ea399aeeba134d3b442e6ccf",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.1-dev.3",
+        "stable": "0.1.0"
+      }
+    }
+  ]
+}

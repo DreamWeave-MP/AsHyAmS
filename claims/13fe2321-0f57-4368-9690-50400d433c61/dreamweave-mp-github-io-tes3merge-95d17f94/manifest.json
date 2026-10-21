@@ -1,0 +1,170 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "13fe2321-0f57-4368-9690-50400d433c61",
+    "name": "tes3merge",
+    "summary": "Merges the records of a Morrowind load order into one patch plugin, a port of NullCascade's TES3Merge, as a Jess package and command in Luau.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/tes3merge/issues",
+      "page": "https://dreamweave-mp.github.io/TES3Merge/home/",
+      "source": "https://github.com/DreamWeave-MP/tes3merge"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": [
+      {
+        "name": "NullCascade",
+        "role": "TES3Merge, the original: this package is a port of it, under its MIT license (LICENSES/TES3Merge-LICENSE-MIT.txt)",
+        "url": "https://github.com/NullCascade/TES3Merge"
+      }
+    ]
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.3"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/tes3merge",
+        "release": "development",
+        "revision": "6b0467d159104473e29a297702f42cef5c6688ce"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "tes3merge",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.tes3merge-0.1.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 46197,
+          "digests": {
+            "sha256": "6a9521efa6f3685998e19cc7dd4e0e8149f3ebc4046ed57011207faa80d137a0"
+          },
+          "jess": {
+            "package": "org.dreamweave.tes3merge",
+            "jess_api": "1",
+            "content_digest": "58ec3349a0b1ab0e3db28f16496ed723096c75ebd56fb2e27361ff044883e412",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.openmw-content": "0.1",
+              "org.dreamweave.openmw-install": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/tes3merge/releases/download/development/org.dreamweave.tes3merge-0.1.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/tes3merge",
+        "tag": "tes3merge-0.1.0",
+        "revision": "b9b4a86725a9fb9b09f05e32afba68bf990ef8ac"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "tes3merge",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.tes3merge-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 46191,
+          "digests": {
+            "sha256": "8890bccc5c09bd2519fe1ab60817bd22f57c571e27cc7046c1017ca3d6eb7358"
+          },
+          "jess": {
+            "package": "org.dreamweave.tes3merge",
+            "jess_api": "1",
+            "content_digest": "c829af7c0ddc3342bef4f2d7001229a487651005dba6ccd3bc07a34cfffa5fee",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.openmw-content": "0.1",
+              "org.dreamweave.openmw-install": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/tes3merge/releases/download/tes3merge-0.1.0/org.dreamweave.tes3merge-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

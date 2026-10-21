@@ -1,25 +1,26 @@
 {
-  "schema_version": "2",
+  "schema_version": "3",
   "document": "index",
-  "generator": "DreamWeave Mod Template 5.0.0",
+  "generator": "DreamWeave Mod Template 0.3.0",
   "site": {
-    "name": "dream_archivetool",
+    "name": "dream-archivetool",
     "url": "https://dreamweave-mp.github.io/dream_archivetool/"
   },
   "projects": [
     {
-      "id": "e33a86c1-bc17-4f55-a72b-1ded0e58523b",
-      "name": "dream_archivetool",
-      "summary": "Inspect, extract, create and update Bethesda BSA and BA2 archives: a command line, a Rust library, and a Luau extension.",
+      "id": "29471f23-7ed9-43b9-b222-bcc597335ab5",
+      "name": "dream-archivetool",
+      "summary": "Inspects, extracts, creates and updates Bethesda BSA and BA2 archives over dream-archive, as a Jess package and command in Luau.",
       "type": "tool",
+      "jess_package": "org.dreamweave.dream-archivetool",
       "status": "active",
       "page": "https://dreamweave-mp.github.io/dream_archivetool/home/",
-      "manifest": "https://dreamweave-mp.github.io/dream_archivetool/dreamweave/projects/e33a86c1-bc17-4f55-a72b-1ded0e58523b.json",
-      "manifest_sha256": "49ff88211c8b019eb022aa8fee6a9c23064651ce04a5ec1d937c7822881a1bd2",
-      "updated": "2026-09-30",
+      "manifest": "https://dreamweave-mp.github.io/dream_archivetool/dreamweave/projects/29471f23-7ed9-43b9-b222-bcc597335ab5.json",
+      "manifest_sha256": "75cccf59d319758729c4140a61128586172ad7947daaa8b24736e5ec791475d5",
+      "updated": "2026-10-21",
       "channels": {
-        "development": "1.1.1-dev.0",
-        "stable": "1.1.0"
+        "development": "0.1.1-dev.3",
+        "stable": "0.1.0"
       }
     }
   ]

@@ -1,0 +1,155 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "3059e0aa-40e6-42d1-8db4-ef7832aec8a0",
+    "name": "physik",
+    "summary": "Compact 3D rigid-body physics for Jess and Luau: shapes, broad and narrow phase, constraints and a solver.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/physik/issues",
+      "page": "https://dreamweave-mp.github.io/physik/home/",
+      "source": "https://github.com/DreamWeave-MP/physik"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.3.3-dev.3"
+    },
+    "stable": {
+      "version": "0.3.2"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.3.3-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/physik",
+        "release": "development",
+        "revision": "a8de391428e7959808a835950f506360d4fe6496"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "physik",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.physik-0.3.3-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 91920,
+          "digests": {
+            "sha256": "4f688f252ec52ee02253f82426059335acb444a305fcf2a16c5bb3d194dda862"
+          },
+          "jess": {
+            "package": "org.dreamweave.physik",
+            "jess_api": "1",
+            "content_digest": "a57f4efb59402df7611c1199c6f8fe7fbb6f4c6b90aae560f64f3cf156a97d53",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/physik/releases/download/development/org.dreamweave.physik-0.3.3-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.3.2",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/physik",
+        "tag": "physik-0.3.2",
+        "revision": "02820809defa392c5dced08b973c880aab2861e8"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "physik",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.physik-0.3.2.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 91914,
+          "digests": {
+            "sha256": "f01707c92ab466aa2e13aae51b02e76d8d9cd40950ea724041be538c6410379d"
+          },
+          "jess": {
+            "package": "org.dreamweave.physik",
+            "jess_api": "1",
+            "content_digest": "0e1d0a9171dcc13122ab8f9ebbc88ebdf84371e28b31e53e551feff23de57162",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/physik/releases/download/physik-0.3.2/org.dreamweave.physik-0.3.2.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

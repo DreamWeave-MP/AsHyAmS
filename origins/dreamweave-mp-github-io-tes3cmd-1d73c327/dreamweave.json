@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "tes3cmd",
+    "url": "https://dreamweave-mp.github.io/tes3cmd/"
+  },
+  "projects": [
+    {
+      "id": "9efafc2e-98f1-4d72-87c7-fb3da5b435f3",
+      "name": "tes3cmd",
+      "summary": "tes3cmd for Jess: cleans, dumps, diffs and fixes Morrowind plugins the way the original did, as a Luau package and command.",
+      "type": "tool",
+      "jess_package": "org.dreamweave.tes3cmd",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/tes3cmd/home/",
+      "manifest": "https://dreamweave-mp.github.io/tes3cmd/dreamweave/projects/9efafc2e-98f1-4d72-87c7-fb3da5b435f3.json",
+      "manifest_sha256": "f903dbf10af3d07a7b5a7a9174f47bb048f0c6f1ee87e008325739543968af83",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.1-dev.3",
+        "stable": "0.1.0"
+      }
+    }
+  ]
+}

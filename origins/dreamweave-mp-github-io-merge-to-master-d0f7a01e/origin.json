@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-merge-to-master-d0f7a01e",
+  "index_url": "https://dreamweave-mp.github.io/merge-to-master/dreamweave.json",
+  "site_name": "merge-to-master",
+  "site_url": "https://dreamweave-mp.github.io/merge-to-master/",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/merge-to-master/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6ad92b8f-3cf\"",
+    "last_modified": "Wed, 21 Oct 2026 21:15:59 GMT"
+  },
+  "index_sha256": "14d671e00ca494146688df02ae1a30c76ce58017a44ac72033963688f26c5c16",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

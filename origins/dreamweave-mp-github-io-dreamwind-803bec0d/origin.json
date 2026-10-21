@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-dreamwind-803bec0d",
+  "index_url": "https://dreamweave-mp.github.io/dreamwind/dreamweave.json",
+  "site_name": "DreamWind",
+  "site_url": "https://dreamweave-mp.github.io/dreamwind/",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/dreamwind/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6ad92e9f-3d6\"",
+    "last_modified": "Wed, 21 Oct 2026 21:29:03 GMT"
+  },
+  "index_sha256": "118c53681b692038ff13800d47aa66075200cf7a1e7b0eb9c55ce0512ca8d639",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

@@ -1,0 +1,162 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "9ff24c72-d67c-44d1-9af4-4c102dff10ef",
+    "name": "nif-assets",
+    "summary": "Checks the NIF models of a mod against the VFS they load from, naming what is missing, misnamed or malformed, as a Jess command in Luau.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/nif-assets/issues",
+      "page": "https://dreamweave-mp.github.io/nif-assets/home/",
+      "source": "https://github.com/DreamWeave-MP/nif-assets"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.3"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/nif-assets",
+        "release": "development",
+        "revision": "710687df148bbf3b3c93536e34dd8ae7a663bf9a"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "nif-assets",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.nif-assets-0.1.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 216866,
+          "digests": {
+            "sha256": "36df3bb492028e0e86444562a457f9f3b5cefa5dbc80261ea6133bb55d886e0a"
+          },
+          "jess": {
+            "package": "org.dreamweave.nif-assets",
+            "jess_api": "1",
+            "content_digest": "c8018dd5e91eb9eae4a66d8ebff6f82bfd2cdb5b4c81fa12d766a669bd655117",
+            "dependencies": {
+              "org.dreamweave.nif": "0.1",
+              "org.dreamweave.vfs": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/nif-assets/releases/download/development/org.dreamweave.nif-assets-0.1.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/nif-assets",
+        "tag": "nif_assets-0.1.0",
+        "revision": "e10e9c89d4155dcda82a9318b9b02d7ff65fe1ab"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "nif-assets",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.nif-assets-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 216853,
+          "digests": {
+            "sha256": "2ab58c811539bb7e24c3fb0b7e85820f8f91b845d5656399f98c8f8c7b7da10a"
+          },
+          "jess": {
+            "package": "org.dreamweave.nif-assets",
+            "jess_api": "1",
+            "content_digest": "8c4c04d31b5d5db05b7fd3bec2ec1498b900f8155f7dacb03451b996b2b0f197",
+            "dependencies": {
+              "org.dreamweave.nif": "0.1",
+              "org.dreamweave.vfs": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/nif-assets/releases/download/nif_assets-0.1.0/org.dreamweave.nif-assets-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "1a882ea1-5f83-49eb-ba1f-728d90ee1a2d",
+    "name": "st4sh-scripts",
+    "summary": "St4sh graphics and build scripts for Jess: the Morrowind UI generator, H3 artwork and chrome tools, COD3X generators and the atlas utility, over magick.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/st4sh-scripts/issues",
+      "page": "https://dreamweave-mp.github.io/st4sh-scripts/home/",
+      "source": "https://github.com/DreamWeave-MP/st4sh-scripts"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.2-dev.3"
+    },
+    "stable": {
+      "version": "0.1.1"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.2-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/st4sh-scripts",
+        "release": "development",
+        "revision": "bdcc82d4066eb5b938976a4b26fdabb793415289"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "st4sh-scripts",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.st4sh-scripts-0.1.2-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 861163,
+          "digests": {
+            "sha256": "0c89514c4670a52fc04fad1f2964da2e60c9321b24061cd3dc976e1d703ec2c6"
+          },
+          "jess": {
+            "package": "org.dreamweave.st4sh-scripts",
+            "jess_api": "1",
+            "content_digest": "0bb6a1455eff174e1a43672c20c00ce964b15bd0030b0a4c6b3a4e74a713a0d0",
+            "dependencies": {
+              "org.dreamweave.magick": "^0.1.2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/st4sh-scripts/releases/download/development/org.dreamweave.st4sh-scripts-0.1.2-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.1",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/st4sh-scripts",
+        "tag": "st4sh_scripts-0.1.1",
+        "revision": "c53e2de8216961ae0621e5d4299f7afb9c3174b8"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "st4sh-scripts",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.st4sh-scripts-0.1.1.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 861161,
+          "digests": {
+            "sha256": "d78052b89d5bc48015bc748aa6500af78367b9986af34493b7f622b74ce9286d"
+          },
+          "jess": {
+            "package": "org.dreamweave.st4sh-scripts",
+            "jess_api": "1",
+            "content_digest": "59096854ecf99a17ee5d51c2ff6b3211b7a323fb212b815b96aaabfccdfbcee1",
+            "dependencies": {
+              "org.dreamweave.magick": "^0.1.2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/st4sh-scripts/releases/download/st4sh_scripts-0.1.1/org.dreamweave.st4sh-scripts-0.1.1.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

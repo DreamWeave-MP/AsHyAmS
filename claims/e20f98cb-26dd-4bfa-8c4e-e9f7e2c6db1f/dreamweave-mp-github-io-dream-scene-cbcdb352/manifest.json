@@ -1,0 +1,155 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "e20f98cb-26dd-4bfa-8c4e-e9f7e2c6db1f",
+    "name": "dream-scene",
+    "summary": "Renderer-agnostic 3D scene and world presentation storage for Jess, a Luau package.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/dream-scene/issues",
+      "page": "https://dreamweave-mp.github.io/dream-scene/home/",
+      "source": "https://github.com/DreamWeave-MP/dream-scene"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.3"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream-scene",
+        "release": "development",
+        "revision": "9d30cc03fe232f8afc26612a320b43be474c33c8"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream-scene",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.scene-0.1.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 61238,
+          "digests": {
+            "sha256": "aa4c3f2283abbd67f3522879e149c88c4ae8ede3ee30e55ced47f09d5a564023"
+          },
+          "jess": {
+            "package": "org.dreamweave.scene",
+            "jess_api": "1",
+            "content_digest": "3dee31e17eaab8ee9f98d78327c0da55e23139e83661df237f4c6b677e5166e3",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-scene/releases/download/development/org.dreamweave.scene-0.1.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream-scene",
+        "tag": "scene-0.1.0",
+        "revision": "d69e7a9749673f811caabd2c37c19d03a5014b84"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream-scene",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.scene-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 61232,
+          "digests": {
+            "sha256": "f1c609e290d471e1182949c95c3cd59012fa921bee846a91630416627d0608df"
+          },
+          "jess": {
+            "package": "org.dreamweave.scene",
+            "jess_api": "1",
+            "content_digest": "969eac34fd267bcb89c6cf57fa8f0a24fefda7db091e077bb069a05111c7275f",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-scene/releases/download/scene-0.1.0/org.dreamweave.scene-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

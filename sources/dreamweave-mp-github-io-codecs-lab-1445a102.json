@@ -1,0 +1,19 @@
+{
+  "url": "https://dreamweave-mp.github.io/codecs-lab/",
+  "origin": "dreamweave-mp-github-io-codecs-lab-334b26a5",
+  "health": "resolved",
+  "problem": null,
+  "method": "found by walking up the path",
+  "trail": [
+    {
+      "url": "https://dreamweave-mp.github.io/codecs-lab/",
+      "outcome": "an HTML page with no DreamWeave <link>"
+    },
+    {
+      "url": "https://dreamweave-mp.github.io/codecs-lab/dreamweave.json",
+      "outcome": "a DreamWeave site index"
+    }
+  ],
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

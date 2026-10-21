@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "recast-luau",
+    "url": "https://dreamweave-mp.github.io/recast-luau/"
+  },
+  "projects": [
+    {
+      "id": "9b956581-d9f4-4a41-b46b-3e70dca1f086",
+      "name": "recast-luau",
+      "summary": "A pure-Luau port of RecastNavigation and Detour for Jess: navmesh building and pathfinding with no C or C++ ABI.",
+      "type": "library",
+      "jess_package": "org.dreamweave.recast",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/recast-luau/home/",
+      "manifest": "https://dreamweave-mp.github.io/recast-luau/dreamweave/projects/9b956581-d9f4-4a41-b46b-3e70dca1f086.json",
+      "manifest_sha256": "d75732860d18aa0ade83adf9eb81db63ee4ec929fc69c5b0f348fc20bd73e537",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.2.1-dev.3",
+        "stable": "0.2.0"
+      }
+    }
+  ]
+}

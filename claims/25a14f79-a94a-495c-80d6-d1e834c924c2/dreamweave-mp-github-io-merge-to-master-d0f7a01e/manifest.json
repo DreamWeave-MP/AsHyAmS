@@ -1,0 +1,162 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "25a14f79-a94a-495c-80d6-d1e834c924c2",
+    "name": "merge-to-master",
+    "summary": "Merges a plugin's objects and topics into its master, deleted records removed, as a Jess command in Luau.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/merge-to-master/issues",
+      "page": "https://dreamweave-mp.github.io/merge-to-master/home/",
+      "source": "https://github.com/DreamWeave-MP/merge-to-master"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.3"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/merge-to-master",
+        "release": "development",
+        "revision": "66b0a8949f520ab42e4045c0e4cf3360763cfe7f"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "merge-to-master",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.merge-to-master-0.1.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 54076,
+          "digests": {
+            "sha256": "30d39f929b1949756db6ee2bfeb97963990d8eb9d5e71ea985b27e3e1096dcf5"
+          },
+          "jess": {
+            "package": "org.dreamweave.merge-to-master",
+            "jess_api": "1",
+            "content_digest": "b49c21bb579d8e83d7d10a91b60a1247758c3f402f27a9337df5a83b71569343",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.tes3conv": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/merge-to-master/releases/download/development/org.dreamweave.merge-to-master-0.1.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/merge-to-master",
+        "tag": "merge_to_master-0.1.0",
+        "revision": "b6f736d85ee2deea3165e011bc59df06bbab4d46"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "merge-to-master",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.merge-to-master-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 54070,
+          "digests": {
+            "sha256": "4c3896fbbcbd116d971514abe917dd9d4adc7698441698c09a341d4d117ad5aa"
+          },
+          "jess": {
+            "package": "org.dreamweave.merge-to-master",
+            "jess_api": "1",
+            "content_digest": "bc64ecc2278868aa4cd909bfa3f66906dfda5d6b0b65cb0fa23df75e5ed7e92a",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.tes3conv": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/merge-to-master/releases/download/merge_to_master-0.1.0/org.dreamweave.merge-to-master-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

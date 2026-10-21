@@ -1,0 +1,159 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "81f77b59-4fc4-436d-a6e7-77157076405c",
+    "name": "dream-ecs",
+    "summary": "A packed archetype and chunk entity component system for Jess, with JessQL as its query front end.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/dream-ecs/issues",
+      "page": "https://dreamweave-mp.github.io/dream-ecs/home/",
+      "source": "https://github.com/DreamWeave-MP/dream-ecs"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.2.2-dev.3"
+    },
+    "stable": {
+      "version": "0.2.1"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.2.2-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream-ecs",
+        "release": "development",
+        "revision": "f1bedadb249d4e2277bb2a6f27d11d00ed69da2d"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream-ecs",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.ecs-0.2.2-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 70445,
+          "digests": {
+            "sha256": "52d768f93d2fb9f0bccf3d3f6f15da05766e91ba62964d85c56734ab9a672732"
+          },
+          "jess": {
+            "package": "org.dreamweave.ecs",
+            "jess_api": "1",
+            "content_digest": "26a49af1b42b9d8617eb92da6c6b44eeff6e6ce8d16ad0666a8ac6c6397083c6",
+            "dependencies": {
+              "org.dreamweave.jessql": "0.1.6"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ecs/releases/download/development/org.dreamweave.ecs-0.2.2-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.2.1",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream-ecs",
+        "tag": "ecs-0.2.1",
+        "revision": "5e8b9dd30f5bb2e62ee3ce7c6ad166823728299e"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream-ecs",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.ecs-0.2.1.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 70439,
+          "digests": {
+            "sha256": "3fe4c789a81b4a937bdd0c3535674affb88f8015c3bf87bebcb8df58b6242f11"
+          },
+          "jess": {
+            "package": "org.dreamweave.ecs",
+            "jess_api": "1",
+            "content_digest": "e22287be76bac454aa5ef8c18fc31d1ec2fb07ed93d45671314c927ccbadde8f",
+            "dependencies": {
+              "org.dreamweave.jessql": "0.1.6"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream-ecs/releases/download/ecs-0.2.1/org.dreamweave.ecs-0.2.1.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

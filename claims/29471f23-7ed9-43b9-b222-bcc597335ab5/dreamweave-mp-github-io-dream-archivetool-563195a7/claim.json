@@ -1,0 +1,30 @@
+{
+  "project": "29471f23-7ed9-43b9-b222-bcc597335ab5",
+  "origin": "dreamweave-mp-github-io-dream-archivetool-563195a7",
+  "entry": {
+    "id": "29471f23-7ed9-43b9-b222-bcc597335ab5",
+    "name": "dream-archivetool",
+    "summary": "Inspects, extracts, creates and updates Bethesda BSA and BA2 archives over dream-archive, as a Jess package and command in Luau.",
+    "type": "tool",
+    "jess_package": "org.dreamweave.dream-archivetool",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/dream_archivetool/home/",
+    "manifest": "https://dreamweave-mp.github.io/dream_archivetool/dreamweave/projects/29471f23-7ed9-43b9-b222-bcc597335ab5.json",
+    "manifest_sha256": "75cccf59d319758729c4140a61128586172ad7947daaa8b24736e5ec791475d5",
+    "updated": "2026-10-21",
+    "channels": {
+      "development": "0.1.1-dev.3",
+      "stable": "0.1.0"
+    }
+  },
+  "advertised_sha256": "75cccf59d319758729c4140a61128586172ad7947daaa8b24736e5ec791475d5",
+  "ingested_sha256": "75cccf59d319758729c4140a61128586172ad7947daaa8b24736e5ec791475d5",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_changed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-st4sh-scripts-c210b2b0",
+  "index_url": "https://dreamweave-mp.github.io/st4sh-scripts/dreamweave.json",
+  "site_name": "st4sh-scripts",
+  "site_url": "https://dreamweave-mp.github.io/st4sh-scripts/",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/st4sh-scripts/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6ad929d4-3f5\"",
+    "last_modified": "Wed, 21 Oct 2026 21:08:36 GMT"
+  },
+  "index_sha256": "8a09330c69ec3578338ce90034a12c4d3f46a9ad84a01d0d8296f4430e7d8ddf",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

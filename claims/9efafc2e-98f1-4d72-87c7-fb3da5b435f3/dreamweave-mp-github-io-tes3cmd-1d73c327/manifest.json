@@ -1,0 +1,162 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "9efafc2e-98f1-4d72-87c7-fb3da5b435f3",
+    "name": "tes3cmd",
+    "summary": "tes3cmd for Jess: cleans, dumps, diffs and fixes Morrowind plugins the way the original did, as a Luau package and command.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/tes3cmd/issues",
+      "page": "https://dreamweave-mp.github.io/tes3cmd/home/",
+      "source": "https://github.com/DreamWeave-MP/tes3cmd"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.3"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/tes3cmd",
+        "release": "development",
+        "revision": "358ed666df0c64d132080648eaf996536a3aee91"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "tes3cmd",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.tes3cmd-0.1.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 179920,
+          "digests": {
+            "sha256": "b0682cd57672573208f273788478fe4b5d7c557aed0caadbb795283b6af9f6bd"
+          },
+          "jess": {
+            "package": "org.dreamweave.tes3cmd",
+            "jess_api": "1",
+            "content_digest": "5113e8208d1757e3cfb8bf2fe2614fbc4a74be73930c2afdb8458b62fba439f7",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.tes3-saves": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/tes3cmd/releases/download/development/org.dreamweave.tes3cmd-0.1.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/tes3cmd",
+        "tag": "tes3cmd-0.1.0",
+        "revision": "672a2862f1fd28f9b32d3501b85b261150ddf728"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "tes3cmd",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.tes3cmd-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 179910,
+          "digests": {
+            "sha256": "343e473f566a482487402e6aaae0af1c8ac8d4e0cdaac0339906d00f877af0c6"
+          },
+          "jess": {
+            "package": "org.dreamweave.tes3cmd",
+            "jess_api": "1",
+            "content_digest": "89d73166d8990284feb5e84d227e88c7f563bd631af1bbfa87a948892b749697",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.tes3-saves": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/tes3cmd/releases/download/tes3cmd-0.1.0/org.dreamweave.tes3cmd-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

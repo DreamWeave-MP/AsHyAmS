@@ -1,0 +1,155 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "9b956581-d9f4-4a41-b46b-3e70dca1f086",
+    "name": "recast-luau",
+    "summary": "A pure-Luau port of RecastNavigation and Detour for Jess: navmesh building and pathfinding with no C or C++ ABI.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/recast-luau/issues",
+      "page": "https://dreamweave-mp.github.io/recast-luau/home/",
+      "source": "https://github.com/DreamWeave-MP/recast-luau"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.2.1-dev.3"
+    },
+    "stable": {
+      "version": "0.2.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.2.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/recast-luau",
+        "release": "development",
+        "revision": "8eefbc5eadcea04dfac244a60a0d1ed0769e1ee6"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "recast-luau",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.recast-0.2.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 302048,
+          "digests": {
+            "sha256": "e7bcad4913b16a48361e1c96f376a6abbcfe7cd292a25c33f49eb2aa02049b24"
+          },
+          "jess": {
+            "package": "org.dreamweave.recast",
+            "jess_api": "1",
+            "content_digest": "15b5b3b0d56f6f6aff6112fa39e6ddc8b79f46545c1b2d961fffbe419a462a59",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/recast-luau/releases/download/development/org.dreamweave.recast-0.2.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/recast-luau",
+        "tag": "recast-0.2.0",
+        "revision": "78113ebaf6c9d43e289c00e02d89e312b664e38d"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "recast-luau",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.recast-0.2.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 302042,
+          "digests": {
+            "sha256": "75bf4ea642ef130d9ec1c8e26d19ed241a2b6b22fcf8bc678a192a41bc1cf44c"
+          },
+          "jess": {
+            "package": "org.dreamweave.recast",
+            "jess_api": "1",
+            "content_digest": "aabfe01cf0d427e303d8c32e9f8c6f100d364ec5e967b03f7a06b70b63d7fe44",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/recast-luau/releases/download/recast-0.2.0/org.dreamweave.recast-0.2.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

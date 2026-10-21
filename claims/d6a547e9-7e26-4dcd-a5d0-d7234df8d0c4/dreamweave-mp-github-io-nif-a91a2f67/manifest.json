@@ -1,0 +1,156 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "d6a547e9-7e26-4dcd-a5d0-d7234df8d0c4",
+    "name": "nif",
+    "summary": "NetImmerse and Gamebryo NIF models, every version Morrowind and OpenMW read, parsed and written raw-preserving, as a Jess package in Luau.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/nif/issues",
+      "page": "https://dreamweave-mp.github.io/nif/home/",
+      "source": "https://github.com/DreamWeave-MP/nif"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.3"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/nif",
+        "release": "development",
+        "revision": "a91c82bd0ed710dabfa9d0aa515e593480547c9c"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "nif",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.nif-0.1.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 1094017,
+          "digests": {
+            "sha256": "be04f671fad1103b2a2ac0f718de4a8fe0b362437f504e59dbbb557cd8151677"
+          },
+          "jess": {
+            "package": "org.dreamweave.nif",
+            "jess_api": "1",
+            "content_digest": "1971e477900f7258a694dbfaf685de73a7304674627623363dc3ab4fce32e456",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/nif/releases/download/development/org.dreamweave.nif-0.1.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/nif",
+        "tag": "nif-0.1.0",
+        "revision": "6840b7baadb5cb5ebd90a7c48962985a7a1c474f"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "nif",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.nif-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 1094011,
+          "digests": {
+            "sha256": "72d5c82c48911dd11feb91cd2cc687f13ddab560224ad6e705c87eb20939cfa5"
+          },
+          "jess": {
+            "package": "org.dreamweave.nif",
+            "jess_api": "1",
+            "content_digest": "df3a5a6ece5355be28c4ef521a528759e2568acb4a18bb7e3f486d883d1282fe",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/nif/releases/download/nif-0.1.0/org.dreamweave.nif-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

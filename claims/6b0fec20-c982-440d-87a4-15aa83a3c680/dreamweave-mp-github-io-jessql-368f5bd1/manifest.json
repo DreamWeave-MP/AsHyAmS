@@ -1,0 +1,155 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "6b0fec20-c982-440d-87a4-15aa83a3c680",
+    "name": "JessQL",
+    "summary": "A Luau relational query engine for Jess: in-memory tables and arbitrary Jess objects exposed as relations, queried, not stored.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/jessql/issues",
+      "page": "https://dreamweave-mp.github.io/jessql/home/",
+      "source": "https://github.com/DreamWeave-MP/jessql"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.7-dev.3"
+    },
+    "stable": {
+      "version": "0.1.6"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.7-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/jessql",
+        "release": "development",
+        "revision": "2d1ec8a1b0c03cd2d2879eab3c7a52824528fc25"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "JessQL",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.jessql-0.1.7-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 75631,
+          "digests": {
+            "sha256": "7ce2567113a5a63128a8cc924a9c28b83010c46ddd79838b5b9a0a5e01c7bccb"
+          },
+          "jess": {
+            "package": "org.dreamweave.jessql",
+            "jess_api": "1",
+            "content_digest": "6534beec56284360eb8df6740292ce9178a77d6ac3bfacdc042335cf589745ff",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/jessql/releases/download/development/org.dreamweave.jessql-0.1.7-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.6",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/jessql",
+        "tag": "jessql-0.1.6",
+        "revision": "e7425c7959c5b45bfb222369eca986d636de7a16"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "JessQL",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.jessql-0.1.6.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 75625,
+          "digests": {
+            "sha256": "3a6281e312e4ae40246f19b421d10c9dec67b12e6bdc38c9facf33a0e334843e"
+          },
+          "jess": {
+            "package": "org.dreamweave.jessql",
+            "jess_api": "1",
+            "content_digest": "50ad29e8e61f5f0da1351b361cfc56b75696d843b68b7d90d99f04a6aeef45fe",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/jessql/releases/download/jessql-0.1.6/org.dreamweave.jessql-0.1.6.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

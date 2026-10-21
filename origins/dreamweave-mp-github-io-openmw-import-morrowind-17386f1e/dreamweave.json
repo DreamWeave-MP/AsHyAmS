@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "openmw-import-morrowind",
+    "url": "https://dreamweave-mp.github.io/openmw-import-morrowind/"
+  },
+  "projects": [
+    {
+      "id": "bd0af2fc-6c77-47e3-9bab-05573cc76588",
+      "name": "openmw-import-morrowind",
+      "summary": "Imports a Morrowind.ini into an OpenMW configuration the way openmw-iniimporter does, byte for byte, as a Jess command in Luau.",
+      "type": "tool",
+      "jess_package": "org.dreamweave.openmw-import-morrowind",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/openmw-import-morrowind/home/",
+      "manifest": "https://dreamweave-mp.github.io/openmw-import-morrowind/dreamweave/projects/bd0af2fc-6c77-47e3-9bab-05573cc76588.json",
+      "manifest_sha256": "2a31463bb321cc0c49ee40f85e6209634f5acc760fbea726181cba2669bd5e29",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.1-dev.3",
+        "stable": "0.1.0"
+      }
+    }
+  ]
+}

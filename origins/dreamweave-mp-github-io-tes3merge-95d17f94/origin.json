@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-tes3merge-95d17f94",
+  "index_url": "https://dreamweave-mp.github.io/TES3Merge/dreamweave.json",
+  "site_name": "tes3merge",
+  "site_url": "https://dreamweave-mp.github.io/TES3Merge/",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/TES3Merge/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6ad928c3-3cf\"",
+    "last_modified": "Wed, 21 Oct 2026 21:04:03 GMT"
+  },
+  "index_sha256": "a6fdac2cef62f7b342c6233e6e6a646a82f8a5ae8a8d8edd91a6dd568ed7dea9",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

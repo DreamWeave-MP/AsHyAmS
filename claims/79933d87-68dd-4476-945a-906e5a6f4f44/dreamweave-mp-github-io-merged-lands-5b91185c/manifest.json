@@ -1,0 +1,164 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "79933d87-68dd-4476-945a-906e5a6f4f44",
+    "name": "merged-lands",
+    "summary": "Merges the landscape of a load order into one plugin, heights and textures reconciled the way OpenMW reads them, as a Jess command in Luau.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/merged-lands/issues",
+      "page": "https://dreamweave-mp.github.io/merged-lands/home/",
+      "source": "https://github.com/DreamWeave-MP/merged-lands"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.3"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/merged-lands",
+        "release": "development",
+        "revision": "b7213cd46316da5098166d05829bd32064a1aa53"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "merged-lands",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.merged-lands-0.1.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 118419,
+          "digests": {
+            "sha256": "d27b405ae0264eeb1dbf85080da49b6bd71938cbc6fda67a396f691720a4d5db"
+          },
+          "jess": {
+            "package": "org.dreamweave.merged-lands",
+            "jess_api": "1",
+            "content_digest": "8a2eca7d47403f349fee6a53cd00f4c196efaa103ba0900acebcd778f75615be",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.openmw-content": "0.1",
+              "org.dreamweave.openmw-install": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/merged-lands/releases/download/development/org.dreamweave.merged-lands-0.1.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/merged-lands",
+        "tag": "merged_lands-0.1.0",
+        "revision": "25594d77e8004abbac8e84e9cea5063a7a09b706"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "merged-lands",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.merged-lands-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 118413,
+          "digests": {
+            "sha256": "ac5f01cc1a30daf551575076cfd05cbac375a5607e4dbe4bc5bc79bbecfc4d0e"
+          },
+          "jess": {
+            "package": "org.dreamweave.merged-lands",
+            "jess_api": "1",
+            "content_digest": "a8a36dc67c4069a1c4ef2b6408733d6f3db2bb916c0e4e31e25e7251b6cc2f4a",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.openmw-content": "0.1",
+              "org.dreamweave.openmw-install": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/merged-lands/releases/download/merged_lands-0.1.0/org.dreamweave.merged-lands-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "dreamwind-sql",
+    "url": "https://dreamweave-mp.github.io/dreamwind-sql/"
+  },
+  "projects": [
+    {
+      "id": "24902fa8-2605-49b1-b278-5eb59a0f39b8",
+      "name": "dreamwind-sql",
+      "summary": "Relational views over TES3 plugins, NIF models and an OpenMW VFS for JessQL: the adapter, with no engine semantics of its own.",
+      "type": "library",
+      "jess_package": "org.dreamweave.dreamwind-sql",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/dreamwind-sql/home/",
+      "manifest": "https://dreamweave-mp.github.io/dreamwind-sql/dreamweave/projects/24902fa8-2605-49b1-b278-5eb59a0f39b8.json",
+      "manifest_sha256": "6b19d8e2083de135262152feb3b99832b4d02eacfbc3b7b79e1d0e70964bc636",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.2-dev.3",
+        "stable": "0.1.1"
+      }
+    }
+  ]
+}

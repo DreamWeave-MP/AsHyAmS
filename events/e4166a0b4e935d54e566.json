@@ -1,0 +1,11 @@
+{
+  "id": "e4166a0b4e935d54e566",
+  "kind": "observed",
+  "project": "6f2d395b-2cc9-4bc7-9ba9-d1e73d0dadb6",
+  "origin": "dreamweave-mp-github-io-add-vanilla-refs-4c01b15a",
+  "name": "add-vanilla-refs",
+  "observed_at": "2026-10-21T21:31:59Z",
+  "before": null,
+  "after": "31644b0fa98d71d7b9806602fc663353276e74a823c18a18210418a00ec9eee0",
+  "changes": []
+}

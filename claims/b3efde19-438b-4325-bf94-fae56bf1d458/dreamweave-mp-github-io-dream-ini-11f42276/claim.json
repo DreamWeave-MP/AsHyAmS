@@ -19,11 +19,11 @@
   "advertised_sha256": "f9da30d854a23d52762a481a33b0af512f44212a137d473966dd9dae6af6ded4",
   "ingested_sha256": "f9da30d854a23d52762a481a33b0af512f44212a137d473966dd9dae6af6ded4",
   "rejected": null,
-  "health": "current",
+  "health": "withdrawn",
   "problem": null,
   "media": null,
   "first_observed": "2026-09-30T01:45:06Z",
   "last_changed": "2026-09-30T22:19:18Z",
-  "last_attempt": "2026-10-21T20:38:07Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
   "last_success": "2026-10-21T20:38:07Z"
 }

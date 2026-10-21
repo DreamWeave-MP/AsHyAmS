@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "merged-lands",
+    "url": "https://dreamweave-mp.github.io/merged-lands/"
+  },
+  "projects": [
+    {
+      "id": "79933d87-68dd-4476-945a-906e5a6f4f44",
+      "name": "merged-lands",
+      "summary": "Merges the landscape of a load order into one plugin, heights and textures reconciled the way OpenMW reads them, as a Jess command in Luau.",
+      "type": "tool",
+      "jess_package": "org.dreamweave.merged-lands",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/merged-lands/home/",
+      "manifest": "https://dreamweave-mp.github.io/merged-lands/dreamweave/projects/79933d87-68dd-4476-945a-906e5a6f4f44.json",
+      "manifest_sha256": "b7f55fff8b4f347a53027ffe9273937e3633af1cc9b4d2bfd8a79f4f6c704235",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.1-dev.3",
+        "stable": "0.1.0"
+      }
+    }
+  ]
+}

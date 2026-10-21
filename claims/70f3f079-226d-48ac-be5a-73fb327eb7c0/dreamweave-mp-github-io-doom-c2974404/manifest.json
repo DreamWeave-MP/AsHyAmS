@@ -1,0 +1,156 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "70f3f079-226d-48ac-be5a-73fb327eb7c0",
+    "name": "DOOM for Jess",
+    "summary": "DOOM's game simulation in Luau, for Jess: WAD reading, the renderer, demos, saves and netgames. Ships no IWAD; bring a legally obtained WAD.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "DOOM"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/doom/issues",
+      "page": "https://dreamweave-mp.github.io/doom/home/",
+      "source": "https://github.com/DreamWeave-MP/doom"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.4"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.4",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/doom",
+        "release": "development",
+        "revision": "e603f8c1619b5d6ba748020e1d4c1236e7c18a10"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DOOM for Jess",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.doom-0.1.1-dev.4.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 251410,
+          "digests": {
+            "sha256": "6836069763c1951e767be6e2debed944ecbab6ee9344df5e86967e76cbea68e5"
+          },
+          "jess": {
+            "package": "org.dreamweave.doom",
+            "jess_api": "1",
+            "content_digest": "82b55ea60ba6c235b7837ea262742ca771bbfc2d3fc5451d083de55e991cdf5a",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/doom/releases/download/development/org.dreamweave.doom-0.1.1-dev.4.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/doom",
+        "tag": "doom-0.1.0",
+        "revision": "5569e4625d534608a9a339d68c4fbc3ef51e9e1b"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DOOM for Jess",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.doom-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 251404,
+          "digests": {
+            "sha256": "39cdd9d741ebc0844b3d01c5f77aba7f39d36877c76ddc9be1248fbf02a5f524"
+          },
+          "jess": {
+            "package": "org.dreamweave.doom",
+            "jess_api": "1",
+            "content_digest": "ec39bcb4c02fd165455d9dfa1a22bae2d105740f286edaa414482eccf54db8f4",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/doom/releases/download/doom-0.1.0/org.dreamweave.doom-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

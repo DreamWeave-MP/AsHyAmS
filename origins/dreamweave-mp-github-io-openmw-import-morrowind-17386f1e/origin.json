@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-openmw-import-morrowind-17386f1e",
+  "index_url": "https://dreamweave-mp.github.io/openmw-import-morrowind/dreamweave.json",
+  "site_name": "openmw-import-morrowind",
+  "site_url": "https://dreamweave-mp.github.io/openmw-import-morrowind/",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/openmw-import-morrowind/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6ad92c5b-415\"",
+    "last_modified": "Wed, 21 Oct 2026 21:19:23 GMT"
+  },
+  "index_sha256": "8df860a054aae14d3fbb7a81c737943774ec682267a173e07a0cece55363a447",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

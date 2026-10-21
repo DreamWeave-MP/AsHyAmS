@@ -1,0 +1,164 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "24902fa8-2605-49b1-b278-5eb59a0f39b8",
+    "name": "dreamwind-sql",
+    "summary": "Relational views over TES3 plugins, NIF models and an OpenMW VFS for JessQL: the adapter, with no engine semantics of its own.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/dreamwind-sql/issues",
+      "page": "https://dreamweave-mp.github.io/dreamwind-sql/home/",
+      "source": "https://github.com/DreamWeave-MP/dreamwind-sql"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.2-dev.3"
+    },
+    "stable": {
+      "version": "0.1.1"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.2-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dreamwind-sql",
+        "release": "development",
+        "revision": "bdd44b4885a3856538fd3ae7e5226508f732a574"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dreamwind-sql",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.dreamwind-sql-0.1.2-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 63190,
+          "digests": {
+            "sha256": "24dc5818c6c6beb13cf7dbdc26e65c5e9dc08abba5089f25237df4b5fd1be468"
+          },
+          "jess": {
+            "package": "org.dreamweave.dreamwind-sql",
+            "jess_api": "1",
+            "content_digest": "a95984249810c772927c914c69e7ac277345693c2351b8428698791fd95f6333",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.jessql": "0.1.1",
+              "org.dreamweave.nif": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dreamwind-sql/releases/download/development/org.dreamweave.dreamwind-sql-0.1.2-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.1",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dreamwind-sql",
+        "tag": "dreamwind_sql-0.1.1",
+        "revision": "15b7381d246b2a09d3730639bb22e81810cccb90"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dreamwind-sql",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.dreamwind-sql-0.1.1.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 63184,
+          "digests": {
+            "sha256": "09a4e4f6a72a5d08d0b9e2408e11ca8b034eb5e0b3890d79333522830d496f77"
+          },
+          "jess": {
+            "package": "org.dreamweave.dreamwind-sql",
+            "jess_api": "1",
+            "content_digest": "4efdf68c3ef4b95b52bfc7ad9b62c2139cf1e00d2d6f4344866f21517cb1804a",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.jessql": "0.1.1",
+              "org.dreamweave.nif": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dreamwind-sql/releases/download/dreamwind_sql-0.1.1/org.dreamweave.dreamwind-sql-0.1.1.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

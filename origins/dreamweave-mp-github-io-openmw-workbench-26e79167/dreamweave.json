@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "openmw-workbench",
+    "url": "https://dreamweave-mp.github.io/openmw-workbench/"
+  },
+  "projects": [
+    {
+      "id": "f8c45ec3-cbbf-4bec-9202-859088a8c0a0",
+      "name": "openmw-workbench",
+      "summary": "A workbench over OpenMW data on Jess: plugins, saves, models and the VFS, queried through JessQL, in Luau.",
+      "type": "library",
+      "jess_package": "org.dreamweave.openmw-workbench",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/openmw-workbench/home/",
+      "manifest": "https://dreamweave-mp.github.io/openmw-workbench/dreamweave/projects/f8c45ec3-cbbf-4bec-9202-859088a8c0a0.json",
+      "manifest_sha256": "c7aab1bc935848cacf1bafe87b3488da63c5b720a8a216c0efd5e9caf6b69156",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.6.1-dev.3",
+        "stable": "0.6.0"
+      }
+    }
+  ]
+}

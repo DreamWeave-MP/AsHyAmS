@@ -1,0 +1,168 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "f8c45ec3-cbbf-4bec-9202-859088a8c0a0",
+    "name": "openmw-workbench",
+    "summary": "A workbench over OpenMW data on Jess: plugins, saves, models and the VFS, queried through JessQL, in Luau.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/openmw-workbench/issues",
+      "page": "https://dreamweave-mp.github.io/openmw-workbench/home/",
+      "source": "https://github.com/DreamWeave-MP/openmw-workbench"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.6.1-dev.3"
+    },
+    "stable": {
+      "version": "0.6.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.6.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/openmw-workbench",
+        "release": "development",
+        "revision": "6a12213f7f660780fc4658f7b29ee6dab8dce412"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-workbench",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.openmw-workbench-0.6.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 150924,
+          "digests": {
+            "sha256": "f984e62200509e5a3a47aeff5e35f0731944eb8a36109ba1adbcb55d94de40ea"
+          },
+          "jess": {
+            "package": "org.dreamweave.openmw-workbench",
+            "jess_api": "1",
+            "content_digest": "d5de5bdf6b629b1e4f7c5cfa2f34bb0970dcb24e93bce35c5a0bc856c7d59760",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.jessql": "0.1.4",
+              "org.dreamweave.nif": "0.1",
+              "org.dreamweave.tes3-saves": "0.1",
+              "org.dreamweave.vfs": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/openmw-workbench/releases/download/development/org.dreamweave.openmw-workbench-0.6.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.6.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/openmw-workbench",
+        "tag": "openmw_workbench-0.6.0",
+        "revision": "62c74f71736288624a3a0afd3465a4782d4ea3f9"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-workbench",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.openmw-workbench-0.6.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 150918,
+          "digests": {
+            "sha256": "5fd7d4807a9c2909b915450168d875a63db04ee2de0cdcb9b451ed461cd04c4a"
+          },
+          "jess": {
+            "package": "org.dreamweave.openmw-workbench",
+            "jess_api": "1",
+            "content_digest": "4486f62658148af44d65d8fd8250f0ee9e6b0fb0035265900c25276fbaa650a8",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.jessql": "0.1.4",
+              "org.dreamweave.nif": "0.1",
+              "org.dreamweave.tes3-saves": "0.1",
+              "org.dreamweave.vfs": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/openmw-workbench/releases/download/openmw_workbench-0.6.0/org.dreamweave.openmw-workbench-0.6.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

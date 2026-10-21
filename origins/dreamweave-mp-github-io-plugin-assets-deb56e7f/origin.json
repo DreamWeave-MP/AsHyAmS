@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-plugin-assets-deb56e7f",
+  "index_url": "https://dreamweave-mp.github.io/plugin-assets/dreamweave.json",
+  "site_name": "plugin-assets",
+  "site_url": "https://dreamweave-mp.github.io/plugin-assets/",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/plugin-assets/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6ad92d11-3d9\"",
+    "last_modified": "Wed, 21 Oct 2026 21:22:25 GMT"
+  },
+  "index_sha256": "6ce64bd99cf15d76c034bb4c5f4f65ca5e10930e45b7479176a9b8248f893069",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

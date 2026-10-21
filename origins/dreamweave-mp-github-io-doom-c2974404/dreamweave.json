@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "DOOM for Jess",
+    "url": "https://dreamweave-mp.github.io/doom/"
+  },
+  "projects": [
+    {
+      "id": "70f3f079-226d-48ac-be5a-73fb327eb7c0",
+      "name": "DOOM for Jess",
+      "summary": "DOOM's game simulation in Luau, for Jess: WAD reading, the renderer, demos, saves and netgames. Ships no IWAD; bring a legally obtained WAD.",
+      "type": "library",
+      "jess_package": "org.dreamweave.doom",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/doom/home/",
+      "manifest": "https://dreamweave-mp.github.io/doom/dreamweave/projects/70f3f079-226d-48ac-be5a-73fb327eb7c0.json",
+      "manifest_sha256": "3c005cc41be54806686a21fec479b1f6a23db629346c2384891e57e38b6cfed3",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.1-dev.4",
+        "stable": "0.1.0"
+      }
+    }
+  ]
+}

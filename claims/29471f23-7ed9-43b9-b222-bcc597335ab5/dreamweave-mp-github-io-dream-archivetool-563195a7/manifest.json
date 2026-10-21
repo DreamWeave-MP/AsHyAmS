@@ -1,0 +1,160 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "29471f23-7ed9-43b9-b222-bcc597335ab5",
+    "name": "dream-archivetool",
+    "summary": "Inspects, extracts, creates and updates Bethesda BSA and BA2 archives over dream-archive, as a Jess package and command in Luau.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/dream_archivetool/issues",
+      "page": "https://dreamweave-mp.github.io/dream_archivetool/home/",
+      "source": "https://github.com/DreamWeave-MP/dream_archivetool"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.3"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archivetool",
+        "release": "development",
+        "revision": "a77498479773419619b4bf0a03ac4b15e9aaff81"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream-archivetool",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.dream-archivetool-0.1.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 90440,
+          "digests": {
+            "sha256": "065bed8862aa64fb0158ba3cb9f7cabef4ae65cca02eddd02d27159bda6adc9d"
+          },
+          "jess": {
+            "package": "org.dreamweave.dream-archivetool",
+            "jess_api": "1",
+            "content_digest": "5d49bdc761a308a41d0c2fc924886e40c41559ef1d452abb98f85a512fd2b753",
+            "dependencies": {
+              "org.dreamweave.dream-archive": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream_archivetool/releases/download/development/org.dreamweave.dream-archivetool-0.1.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archivetool",
+        "tag": "dream_archivetool-0.1.0",
+        "revision": "06722c4309be7874526ac4fce8f80fe8a3bb9bd1"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream-archivetool",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.dream-archivetool-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 90430,
+          "digests": {
+            "sha256": "31d63be30642e7dec4028bb4d4416705d5731dbbcbcb032755b6a7aeb2503770"
+          },
+          "jess": {
+            "package": "org.dreamweave.dream-archivetool",
+            "jess_api": "1",
+            "content_digest": "66c4f1c9b3476f4a180020df63dc4864f52df68029531abe41d2191cd52f734b",
+            "dependencies": {
+              "org.dreamweave.dream-archive": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream_archivetool/releases/download/dream_archivetool-0.1.0/org.dreamweave.dream-archivetool-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "nif-assets",
+    "url": "https://dreamweave-mp.github.io/nif-assets/"
+  },
+  "projects": [
+    {
+      "id": "9ff24c72-d67c-44d1-9af4-4c102dff10ef",
+      "name": "nif-assets",
+      "summary": "Checks the NIF models of a mod against the VFS they load from, naming what is missing, misnamed or malformed, as a Jess command in Luau.",
+      "type": "tool",
+      "jess_package": "org.dreamweave.nif-assets",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/nif-assets/home/",
+      "manifest": "https://dreamweave-mp.github.io/nif-assets/dreamweave/projects/9ff24c72-d67c-44d1-9af4-4c102dff10ef.json",
+      "manifest_sha256": "6bc2c3a49327f8031096502d74944598ad4ce9c7f981f2655f6d5f186d9d2799",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.1-dev.3",
+        "stable": "0.1.0"
+      }
+    }
+  ]
+}

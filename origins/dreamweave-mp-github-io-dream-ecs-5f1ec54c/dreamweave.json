@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "dream-ecs",
+    "url": "https://dreamweave-mp.github.io/dream-ecs/"
+  },
+  "projects": [
+    {
+      "id": "81f77b59-4fc4-436d-a6e7-77157076405c",
+      "name": "dream-ecs",
+      "summary": "A packed archetype and chunk entity component system for Jess, with JessQL as its query front end.",
+      "type": "library",
+      "jess_package": "org.dreamweave.ecs",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/dream-ecs/home/",
+      "manifest": "https://dreamweave-mp.github.io/dream-ecs/dreamweave/projects/81f77b59-4fc4-436d-a6e7-77157076405c.json",
+      "manifest_sha256": "129feccebc110982c3efa16280143756b4989528dc12f5b4d6c06308fa7d8464",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.2.2-dev.3",
+        "stable": "0.2.1"
+      }
+    }
+  ]
+}

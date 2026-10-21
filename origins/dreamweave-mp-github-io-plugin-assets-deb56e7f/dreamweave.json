@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "plugin-assets",
+    "url": "https://dreamweave-mp.github.io/plugin-assets/"
+  },
+  "projects": [
+    {
+      "id": "5ce03451-8745-40ba-abb9-a9dbde31b493",
+      "name": "plugin-assets",
+      "summary": "Checks the assets a plugin refers to against the VFS, naming what OpenMW would refuse, drop or miss, as a Jess command in Luau.",
+      "type": "tool",
+      "jess_package": "org.dreamweave.plugin-assets",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/plugin-assets/home/",
+      "manifest": "https://dreamweave-mp.github.io/plugin-assets/dreamweave/projects/5ce03451-8745-40ba-abb9-a9dbde31b493.json",
+      "manifest_sha256": "3617ac9e8a9d54d49c6d08d3556defdfc3970686da5cfb6bd96371be6893e10f",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.1-dev.3",
+        "stable": "0.1.0"
+      }
+    }
+  ]
+}

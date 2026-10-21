@@ -1,0 +1,30 @@
+{
+  "project": "25a14f79-a94a-495c-80d6-d1e834c924c2",
+  "origin": "dreamweave-mp-github-io-merge-to-master-d0f7a01e",
+  "entry": {
+    "id": "25a14f79-a94a-495c-80d6-d1e834c924c2",
+    "name": "merge-to-master",
+    "summary": "Merges a plugin's objects and topics into its master, deleted records removed, as a Jess command in Luau.",
+    "type": "tool",
+    "jess_package": "org.dreamweave.merge-to-master",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/merge-to-master/home/",
+    "manifest": "https://dreamweave-mp.github.io/merge-to-master/dreamweave/projects/25a14f79-a94a-495c-80d6-d1e834c924c2.json",
+    "manifest_sha256": "edafe51716b1ee97f102007c29b8ca73e0d126bee00081af16864c247009de22",
+    "updated": "2026-10-21",
+    "channels": {
+      "development": "0.1.1-dev.3",
+      "stable": "0.1.0"
+    }
+  },
+  "advertised_sha256": "edafe51716b1ee97f102007c29b8ca73e0d126bee00081af16864c247009de22",
+  "ingested_sha256": "edafe51716b1ee97f102007c29b8ca73e0d126bee00081af16864c247009de22",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_changed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

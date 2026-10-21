@@ -1,0 +1,204 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "aca6a4b0-f8b2-44a9-9cc4-55ef3c9d83f8",
+    "name": "DreamWind",
+    "summary": "The Morrowind and OpenMW toolbench on Jess: plugins, saves, NIF models, archives, the VFS, configuration and load orders, every tool a Luau package.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/dreamwind/issues",
+      "page": "https://dreamweave-mp.github.io/dreamwind/home/",
+      "source": "https://github.com/DreamWeave-MP/dreamwind"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.2.1-dev.3"
+    },
+    "stable": {
+      "version": "0.2.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.2.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dreamwind",
+        "release": "development",
+        "revision": "9428258a271e6c3187a39562cb495e37d6736da0"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DreamWind",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.dreamwind-0.2.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 9691,
+          "digests": {
+            "sha256": "1a4194dcac0f191fabca6574bb29f0e67846c03073f743096700b06d8fedaf0e"
+          },
+          "jess": {
+            "package": "org.dreamweave.dreamwind",
+            "jess_api": "1",
+            "content_digest": "fa294f5a9ae364cbf38705f7892ca6c09217d54d88e715d97279ea593366551a",
+            "dependencies": {
+              "org.dreamweave.add-vanilla-refs": "0.1",
+              "org.dreamweave.doctor": "0.1",
+              "org.dreamweave.dream-archive": "2",
+              "org.dreamweave.dream-archivetool": "0.1",
+              "org.dreamweave.dream-ini": "0.1",
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.merge-to-master": "0.1",
+              "org.dreamweave.merged-lands": "0.1",
+              "org.dreamweave.nif": "0.1",
+              "org.dreamweave.nif-assets": "0.1",
+              "org.dreamweave.openmw-config": "4",
+              "org.dreamweave.openmw-content": "0.1",
+              "org.dreamweave.openmw-import-morrowind": "0.1",
+              "org.dreamweave.openmw-install": "0.1",
+              "org.dreamweave.plugin-assets": "0.1",
+              "org.dreamweave.s3lightfixes": "1",
+              "org.dreamweave.starwind": "0.1",
+              "org.dreamweave.tes3-saves": "0.1",
+              "org.dreamweave.tes3cmd": "0.1",
+              "org.dreamweave.tes3conv": "0.1",
+              "org.dreamweave.tes3merge": "0.1",
+              "org.dreamweave.vfs": "2",
+              "org.dreamweave.vfstool": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dreamwind/releases/download/development/org.dreamweave.dreamwind-0.2.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dreamwind",
+        "tag": "dreamwind-0.2.0",
+        "revision": "098fedc88011953ebe4974cedbbccef97c88910a"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DreamWind",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.dreamwind-0.2.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 9685,
+          "digests": {
+            "sha256": "f890529e3538431dd576f1edf7f12d833aae4a9c029cc81c0a38b4844116dbfd"
+          },
+          "jess": {
+            "package": "org.dreamweave.dreamwind",
+            "jess_api": "1",
+            "content_digest": "1b58500389cc9c42f1c4842bdd3b4f9dc012c78b8082708924464b9db394828c",
+            "dependencies": {
+              "org.dreamweave.add-vanilla-refs": "0.1",
+              "org.dreamweave.doctor": "0.1",
+              "org.dreamweave.dream-archive": "2",
+              "org.dreamweave.dream-archivetool": "0.1",
+              "org.dreamweave.dream-ini": "0.1",
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.merge-to-master": "0.1",
+              "org.dreamweave.merged-lands": "0.1",
+              "org.dreamweave.nif": "0.1",
+              "org.dreamweave.nif-assets": "0.1",
+              "org.dreamweave.openmw-config": "4",
+              "org.dreamweave.openmw-content": "0.1",
+              "org.dreamweave.openmw-import-morrowind": "0.1",
+              "org.dreamweave.openmw-install": "0.1",
+              "org.dreamweave.plugin-assets": "0.1",
+              "org.dreamweave.s3lightfixes": "1",
+              "org.dreamweave.starwind": "0.1",
+              "org.dreamweave.tes3-saves": "0.1",
+              "org.dreamweave.tes3cmd": "0.1",
+              "org.dreamweave.tes3conv": "0.1",
+              "org.dreamweave.tes3merge": "0.1",
+              "org.dreamweave.vfs": "2",
+              "org.dreamweave.vfstool": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dreamwind/releases/download/dreamwind-0.2.0/org.dreamweave.dreamwind-0.2.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

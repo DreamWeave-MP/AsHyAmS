@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-doom-c2974404",
+  "index_url": "https://dreamweave-mp.github.io/doom/dreamweave.json",
+  "site_name": "DOOM for Jess",
+  "site_url": "https://dreamweave-mp.github.io/doom/",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/doom/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6ad9299f-3c5\"",
+    "last_modified": "Wed, 21 Oct 2026 21:07:43 GMT"
+  },
+  "index_sha256": "e7c0e8f87197ebba9aeb83b1d9f866cfbb3691918943c7e8b4a729b8b78f0c5a",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

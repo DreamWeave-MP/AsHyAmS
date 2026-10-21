@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-dreamwind-sql-5234d80a",
+  "index_url": "https://dreamweave-mp.github.io/dreamwind-sql/dreamweave.json",
+  "site_name": "dreamwind-sql",
+  "site_url": "https://dreamweave-mp.github.io/dreamwind-sql/",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/dreamwind-sql/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6ad92c08-3db\"",
+    "last_modified": "Wed, 21 Oct 2026 21:18:00 GMT"
+  },
+  "index_sha256": "be972a09540c1c492f579a897cca0eac8c1286dff8dff3289fc1cf1006548108",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

@@ -1,0 +1,168 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "66795eef-6cc5-41f2-b8ed-d373c78e5f42",
+    "name": "doctor",
+    "summary": "Diagnoses a Morrowind or OpenMW plugin, a load order and an install, naming what is dirty, missing or mismatched, as a Jess command in Luau.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/doctor/issues",
+      "page": "https://dreamweave-mp.github.io/doctor/home/",
+      "source": "https://github.com/DreamWeave-MP/doctor"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.3"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/doctor",
+        "release": "development",
+        "revision": "19b314937da0a0e760bb32a36abe7fe81cc3f667"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "doctor",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.doctor-0.1.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 43076,
+          "digests": {
+            "sha256": "82d5d2046a81be959492943a9b2a9ad83ed611510fc251172d8611277b318463"
+          },
+          "jess": {
+            "package": "org.dreamweave.doctor",
+            "jess_api": "1",
+            "content_digest": "42470a25f9e39f7a96365cd45b38a047cf49639fc07a357ac54ce67e50913e7c",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.openmw-content": "0.1",
+              "org.dreamweave.openmw-install": "0.1",
+              "org.dreamweave.plugin-assets": "0.1",
+              "org.dreamweave.tes3cmd": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/doctor/releases/download/development/org.dreamweave.doctor-0.1.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/doctor",
+        "tag": "doctor-0.1.0",
+        "revision": "fda7831817afe7ed214a103c9ac6da0bc6f782b5"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "doctor",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.doctor-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 43071,
+          "digests": {
+            "sha256": "662f5f33dafb788ef804a99891efd87bb3e53a0a209dedde984089f94eb2915f"
+          },
+          "jess": {
+            "package": "org.dreamweave.doctor",
+            "jess_api": "1",
+            "content_digest": "42344e99b039bfb5ee710b2860477b6905d4c324ef6545cd432649e5b8b4a6fd",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.openmw-content": "0.1",
+              "org.dreamweave.openmw-install": "0.1",
+              "org.dreamweave.plugin-assets": "0.1",
+              "org.dreamweave.tes3cmd": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/doctor/releases/download/doctor-0.1.0/org.dreamweave.doctor-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

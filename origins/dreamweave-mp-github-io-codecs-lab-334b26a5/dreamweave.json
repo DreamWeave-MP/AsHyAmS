@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "codecs-lab",
+    "url": "https://dreamweave-mp.github.io/codecs-lab/"
+  },
+  "projects": [
+    {
+      "id": "d680cff4-488c-4670-a957-a02fa177b21b",
+      "name": "codecs-lab",
+      "summary": "Compression research for Jess and l3i: interoperable Luau codecs, pure and hybrid, measured against the native @dream/bytes bindings.",
+      "type": "library",
+      "jess_package": "org.dreamweave.codecs-lab",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/codecs-lab/home/",
+      "manifest": "https://dreamweave-mp.github.io/codecs-lab/dreamweave/projects/d680cff4-488c-4670-a957-a02fa177b21b.json",
+      "manifest_sha256": "3cb6b0d28f02395e85d84e052aa90238a35c6b8709309d8d1db60e02143b021b",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.1-dev.3",
+        "stable": "0.1.0"
+      }
+    }
+  ]
+}

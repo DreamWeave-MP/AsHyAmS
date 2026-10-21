@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "tes3merge",
+    "url": "https://dreamweave-mp.github.io/TES3Merge/"
+  },
+  "projects": [
+    {
+      "id": "13fe2321-0f57-4368-9690-50400d433c61",
+      "name": "tes3merge",
+      "summary": "Merges the records of a Morrowind load order into one patch plugin, a port of NullCascade's TES3Merge, as a Jess package and command in Luau.",
+      "type": "tool",
+      "jess_package": "org.dreamweave.tes3merge",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/TES3Merge/home/",
+      "manifest": "https://dreamweave-mp.github.io/TES3Merge/dreamweave/projects/13fe2321-0f57-4368-9690-50400d433c61.json",
+      "manifest_sha256": "0a3a3522bc7d2d024e748b5182d2c08aedfb68ddb718a22577ae380e765f5aa6",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.1-dev.3",
+        "stable": "0.1.0"
+      }
+    }
+  ]
+}

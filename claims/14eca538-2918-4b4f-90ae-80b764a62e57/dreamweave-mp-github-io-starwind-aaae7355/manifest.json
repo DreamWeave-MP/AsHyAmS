@@ -1,0 +1,166 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "14eca538-2918-4b4f-90ae-80b764a62e57",
+    "name": "starwind",
+    "summary": "Builds Starwind, the Star Wars total conversion, from its sources on a Morrowind install, as a Jess command in Luau.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/starwind/issues",
+      "page": "https://dreamweave-mp.github.io/starwind/home/",
+      "source": "https://github.com/DreamWeave-MP/starwind"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.3"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.3",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/starwind",
+        "release": "development",
+        "revision": "5a6b27ca6964e3f48bf2bab8d764b808aec9688d"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "starwind",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.starwind-0.1.1-dev.3.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 119343,
+          "digests": {
+            "sha256": "ad7b3aed32dd9f7000a32a70975e1666d14e63dec7defcbfab7c28e3b9c78064"
+          },
+          "jess": {
+            "package": "org.dreamweave.starwind",
+            "jess_api": "1",
+            "content_digest": "56c23eec66b66c6d284a355316ac38c31316588c7aedcebb086a4559549e57c9",
+            "dependencies": {
+              "org.dreamweave.add-vanilla-refs": "0.1",
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.merge-to-master": "0.1",
+              "org.dreamweave.tes3conv": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/starwind/releases/download/development/org.dreamweave.starwind-0.1.1-dev.3.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/starwind",
+        "tag": "starwind-0.1.0",
+        "revision": "02fb313d49702dafdb64e6df887b0b32ee75361f"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "starwind",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.starwind-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 119337,
+          "digests": {
+            "sha256": "875c2bf9447af19121371aa0e00a58da4e0a82e0e3741ea54c8807a95f54e2a2"
+          },
+          "jess": {
+            "package": "org.dreamweave.starwind",
+            "jess_api": "1",
+            "content_digest": "6d8ab00f7aa8f3d0b12ee40fb938a117a045e6766298e601db655137da92b49e",
+            "dependencies": {
+              "org.dreamweave.add-vanilla-refs": "0.1",
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.merge-to-master": "0.1",
+              "org.dreamweave.tes3conv": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/starwind/releases/download/starwind-0.1.0/org.dreamweave.starwind-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

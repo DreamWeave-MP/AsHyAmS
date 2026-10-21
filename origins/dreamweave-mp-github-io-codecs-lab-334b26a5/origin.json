@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-codecs-lab-334b26a5",
+  "index_url": "https://dreamweave-mp.github.io/codecs-lab/dreamweave.json",
+  "site_name": "codecs-lab",
+  "site_url": "https://dreamweave-mp.github.io/codecs-lab/",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/codecs-lab/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6ad928ec-3d0\"",
+    "last_modified": "Wed, 21 Oct 2026 21:04:44 GMT"
+  },
+  "index_sha256": "0b6924788b9abda0ff31ea1217d0f449cafc38764d88a557547af9c22764f40a",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

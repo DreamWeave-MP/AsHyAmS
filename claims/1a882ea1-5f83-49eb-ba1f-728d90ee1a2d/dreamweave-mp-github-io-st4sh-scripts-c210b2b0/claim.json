@@ -1,0 +1,30 @@
+{
+  "project": "1a882ea1-5f83-49eb-ba1f-728d90ee1a2d",
+  "origin": "dreamweave-mp-github-io-st4sh-scripts-c210b2b0",
+  "entry": {
+    "id": "1a882ea1-5f83-49eb-ba1f-728d90ee1a2d",
+    "name": "st4sh-scripts",
+    "summary": "St4sh graphics and build scripts for Jess: the Morrowind UI generator, H3 artwork and chrome tools, COD3X generators and the atlas utility, over magick.",
+    "type": "library",
+    "jess_package": "org.dreamweave.st4sh-scripts",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/st4sh-scripts/home/",
+    "manifest": "https://dreamweave-mp.github.io/st4sh-scripts/dreamweave/projects/1a882ea1-5f83-49eb-ba1f-728d90ee1a2d.json",
+    "manifest_sha256": "8ae6e5afa34000c4b9e7ff39c8deca167e047b833bfcb0f55f97ef1373daa2ea",
+    "updated": "2026-10-21",
+    "channels": {
+      "development": "0.1.2-dev.3",
+      "stable": "0.1.1"
+    }
+  },
+  "advertised_sha256": "8ae6e5afa34000c4b9e7ff39c8deca167e047b833bfcb0f55f97ef1373daa2ea",
+  "ingested_sha256": "8ae6e5afa34000c4b9e7ff39c8deca167e047b833bfcb0f55f97ef1373daa2ea",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_changed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

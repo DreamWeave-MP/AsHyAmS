@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-nif-a91a2f67",
+  "index_url": "https://dreamweave-mp.github.io/nif/dreamweave.json",
+  "site_name": "nif",
+  "site_url": "https://dreamweave-mp.github.io/nif/",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/nif/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6ad9296b-3ab\"",
+    "last_modified": "Wed, 21 Oct 2026 21:06:51 GMT"
+  },
+  "index_sha256": "5b7b556a2a1ccb4cb0909b817703d18bc80952bc598417db4f0e12d9e7d5030e",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}

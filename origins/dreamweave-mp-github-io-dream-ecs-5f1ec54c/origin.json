@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-dream-ecs-5f1ec54c",
+  "index_url": "https://dreamweave-mp.github.io/dream-ecs/dreamweave.json",
+  "site_name": "dream-ecs",
+  "site_url": "https://dreamweave-mp.github.io/dream-ecs/",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/dream-ecs/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6ad92bff-3a1\"",
+    "last_modified": "Wed, 21 Oct 2026 21:17:51 GMT"
+  },
+  "index_sha256": "b31d627fcadb7762d23fa27b421cc64c858987fa0b549fc093b4e78e6565da73",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-10-21T21:31:59Z",
+  "last_attempt": "2026-10-21T21:31:59Z",
+  "last_success": "2026-10-21T21:31:59Z"
+}
