@@ -1,0 +1,23 @@
+{
+  "url": "https://dreamweave-mp.github.io/magick/",
+  "origin": null,
+  "health": "no-index",
+  "problem": "no dreamweave.json between https://dreamweave-mp.github.io/magick/ and the root of https://dreamweave-mp.github.io/, and no page advertised one",
+  "method": null,
+  "trail": [
+    {
+      "url": "https://dreamweave-mp.github.io/magick/",
+      "outcome": "HTTP 404"
+    },
+    {
+      "url": "https://dreamweave-mp.github.io/magick/dreamweave.json",
+      "outcome": "HTTP 404"
+    },
+    {
+      "url": "https://dreamweave-mp.github.io/dreamweave.json",
+      "outcome": "HTTP 404"
+    }
+  ],
+  "last_attempt": "2026-10-21T14:11:30Z",
+  "last_success": null
+}

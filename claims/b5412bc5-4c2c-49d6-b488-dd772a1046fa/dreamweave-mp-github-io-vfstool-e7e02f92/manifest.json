@@ -1,0 +1,777 @@
+{
+  "schema_version": "2",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 5.0.0",
+  "project": {
+    "id": "b5412bc5-4c2c-49d6-b488-dd772a1046fa",
+    "name": "vfstool_lib",
+    "summary": "OpenMW's virtual file system as a Rust library: provider stacks, conflict and provenance reports, locks, materialization, and the @dream/vfs Luau module.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "license": "MIT OR Apache-2.0",
+    "tags": [
+      "OpenMW",
+      "Rust",
+      "Luau",
+      "VFS"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "crate": "https://crates.io/crates/vfstool_lib",
+      "documentation": "https://dreamweave-mp.github.io/vfstool/docs/api/",
+      "donate": "https://ko-fi.com/magicaldave",
+      "issues": "https://github.com/DreamWeave-MP/vfstool/issues",
+      "page": "https://dreamweave-mp.github.io/vfstool/lib/",
+      "source": "https://github.com/DreamWeave-MP/vfstool"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": [
+      {
+        "name": "OpenMW",
+        "role": "The virtual file system vfstool_lib reimplements",
+        "url": "https://openmw.org"
+      }
+    ]
+  },
+  "channels": {
+    "stable": {
+      "version": "1.0.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "1.0.0",
+      "channel": "stable",
+      "date": "2026-09-29",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/vfstool",
+        "tag": "1.0.0",
+        "revision": "1a4193604e822f0e79cd1ae8da560d200157b556"
+      },
+      "notes": {
+        "summary": "First stable release: the Luau binding is an l3i extension providing @dream/vfs, keys stay bytes end to end, and the top-level API is under semver.",
+        "added": [
+          "`VFS::len` and `VFS::is_empty`, in constant time, and `get_file_normalized`, `contains_normalized` and `paths_matching_bytes` for keys already normalized.",
+          "`VfsKeyInput::vfs_key_bytes`, and `VfsKeyInput` for `[u8]`; `VfsFile::path_bytes`.",
+          "In Luau: `file:readInto(buffer, offset?)`, `tree:count()`, `snapshot:len()`, and a type for every function, method and view element in the plan's definitions.",
+          "File I/O in Luau: `file:size()`, positional `file:readAt(buffer, fileOffset, length?, bufferOffset?)` through a memory map, `file:readRange`, `file:readAllBuffer`, and `file:open()` giving a `Reader` with `read`, `readInto`, `seek`, `skip`, `tell` and `close`.",
+          "The `lua-write` feature: a write root on the VFS (`writeRoot` option, `setWriteRoot`), `writeFile`, `openWrite` giving a `Writer`, `mkdir`, `remove` and `rename`, behind the `filesystem.write` runtime capability; the root is kept canonical and refuses keys that pass through a symbolic link beneath it.",
+          "The `lua-host` feature: a `host` table of host-path functions (`readFile`, `readAt`, `writeFile`, `open`, `openWrite`, `stat`, `exists`, `list`, `mkdir`, `remove`, `rename`, `copy`, `canonicalize`), behind the `filesystem.host` runtime capability.",
+          "`lua::VfsRequireNavigator`, l3i's `require` over a VFS with `.luaurc` aliases and relative paths, and `lua::TemplateCache`, OpenMW's script template cache: one compiled template per module per VM, cloned per instance, invalidated explicitly. The `jit` feature forwards l3i's and reports each template's native code status.",
+          "Zip archives: `.jpk` files are read as zip archives, and Zstandard entries are listed and decoded through a pure-Rust decoder."
+        ],
+        "changed": [
+          "Looking up a key that is already normalized borrows it instead of allocating, and searches compare bytes.",
+          "The sorted key list is built once per change to the VFS and shared by every `keys()` call.",
+          "`lua::Vfs` is shared and `Clone`, and `lua::VfsFileHandle` is built with `VfsFileHandle::new`. dream_archive 1.0.0 and l3i 1.0.0 come from crates.io; Rust 1.92."
+        ],
+        "fixed": [
+          "On Unix, a key that is not UTF-8 keeps its exact bytes in provider records, lock manifests and semantic conflicts, instead of a lossy spelling that looks up nothing.",
+          "`collapse_into` and `dump_to_directory` into one of the VFS's own data directories leave a loose file that already is its destination where it is. They deleted it before linking or copying it.",
+          "`extract_file` into the folder a loose file already lives in leaves the file there. It deleted the file, then failed to copy it.",
+          "`run_finalize` and `run_finalize_tracked` leave a destination that already is the changed file, rewritten in place through a hard link from `output_dir`, as it is. They copied it onto itself, which truncated it to nothing.",
+          "`VfsFile::file_name` and `file_stem` end an archive entry's folders at `\\` as well as `/` on every platform: a Morrowind BSA's `meshes\\x\\ex_door.nif` is `ex_door.nif` on Linux and macOS too, in trees, `Display` and Luau's `file:fileName()`.",
+          "`ConflictIndex::diff_report` compares the keys the index holds for each source, found by exact spelling or with case and separators folded, so archives, indexes built from file lists and sources spelled in another case compare correctly; it read both paths from disk as typed. A path the index does not have is still read from disk.",
+          "`conflicts_report` and `shadowed_report` without `use_relative` join a loose source's path with each file's own spelling, instead of the lowercase key, so every path names a file that exists. `ConflictIndex::from_directories` records those spellings.",
+          "`simulate`, `simulate_with_opts`, `simulate_impact` and `plan_candidate_directory` find each key's current winner by its place in the provider stack. They compared the VFS's number for the source with the index's, which differ after a source that provides nothing, and counted unchanged keys as changed and left `current_winner_source` empty.",
+          "The layer index of a VFS keeps a source that never provided a key, such as an empty data directory, so its positions are the `source_index` of the VFS's provider records and `ArchiveInfo`; it dropped such sources and numbered later ones lower. A source whose providers were all removed still leaves it.",
+          "A simulated reorder never lifts an archive above a loose file: `simulate`, `simulate_with_opts` and `simulate_impact` ranked every source by the new order alone, so moving an archive after a data directory reported the archive winning.",
+          "`set_winner_file` and `set_winner_loose_file` record a new key's directories, so `set_winner_file(\"a/b.txt\", …)` followed by `set_winner_file(\"a\", …)` refuses the second instead of keeping a file and a directory named `a`, which no VFS can write out.",
+          "`remove_resolved_file`, `remove_resolved_prefix` and `remove_resolved_matching_glob` release the removed keys' directories: after `remove_resolved_file(\"a/b.txt\")`, `push_provider(\"a\", …)` returned `false`.",
+          "`push_provider_batch` checks each entry against the ones before it, so `push_directory` and `push_archive` no longer add a file and a directory with one name; `push_directory` keeps the same one `from_directories` keeps.",
+          "`Display` for `VFS` and `display_filtered` list a file whose path has no file name, such as `VfsFile::from(\"/\")`, by its whole path instead of panicking, and serialized trees list it too instead of leaving it out.",
+          "`Display` for `VFS`, `display_filtered` and Luau's `vfs:display()` nest each directory under its parent, one `│   ` per level, and list directories that hold only directories. Every directory was printed by its last name at one level, so `meshes/x` and `textures/x` both showed as `x/`, and an archive's folders looked like loose ones.",
+          "Luau's `serialize` writes `Entries` and `Providers` views, tree streams and `VfsFile` handles, each file as its file row's fields; it refused every userdata but `Keys` and `ProviderRecords` views, although the documentation said views serialize.",
+          "`collapse_into` with `use_symlinks` links to each file's absolute path. A VFS built from relative directories made links that resolved from the output folder instead, and dangled.",
+          "In Luau, an unknown source kind in `VfsProvider.new` reads `VfsProvider.new.kind: unknown source kind 'zip' (...)`, without a second `dream.vfs:` inside it.",
+          "`lua::KeyBlob` is exported, so a host can fill the `lua::Keys(pub KeyBlob)` view it could only build empty.",
+          "Every `PathBuf` in a report serializes as a string, with U+FFFD in place of bytes that are not UTF-8, instead of failing with `path contains invalid UTF-8 characters`; `diff_against_lock` compares keys and sources as that text, so a lock read back from a file does not drift."
+        ],
+        "breaking": [
+          "The `lua` feature makes the crate an l3i extension, `lua::VfsExtension`, providing the module `@dream/vfs`. `lua::open`, `lua::register` and `mlua` are gone.",
+          "In Luau: key lists are sequence views and trees are streams (`:toTable()` gives the old tables), indices are 1-based, sizes are integers, unknown option keys are errors, and paths are bytes.",
+          "Building with `lua` needs l3i's toolchain: clang, lld and cross-language thin LTO.",
+          "dream-path 1.0.",
+          "The library writes nothing to standard output or error. `collapse_into` and `dump_to_directory` return a `MaterializationReport`, the files written and each winner left out as a `MaterializationSkip`, instead of `()` and a count, and `DirectoryDiff` gains `unreadable`, what `diff_directory`'s walk could not read. In Luau, `collapseInto` returns the skipped files and `dumpToDirectory` returns them after the count."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "vfstool_lib",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "vfstool_lib-1.0.0.crate",
+          "media_type": "application/gzip",
+          "size": 216746,
+          "digests": {
+            "sha256": "db40ecfedfb73886364eeecf08f09124a888426636616e03d73137c12ecaeff0"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-1.0.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.10.4",
+      "channel": "stable",
+      "date": "2026-09-27",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/vfstool",
+        "tag": "0.10.4",
+        "revision": "dada4ea5bc37c1febc99217d20d7400849e95396"
+      },
+      "notes": {
+        "summary": "vfstool_lib is MIT OR Apache-2.0.",
+        "changed": [
+          "vfstool_lib is licensed MIT OR Apache-2.0, at your option, instead of GPL-3.0-only."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "vfstool_lib",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "vfstool_lib-0.10.4.crate",
+          "media_type": "application/gzip",
+          "size": 140075,
+          "digests": {
+            "sha256": "a6ae5a21d9a820c15d62ce94e52966886a9f6cf6e853777985486eedef3bbdef"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.10.4.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.10.3",
+      "channel": "stable",
+      "date": "2026-09-27",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/vfstool",
+        "tag": "0.10.3",
+        "revision": "14c4cb6885884a5b759736929bc75e0a6d20c7c1"
+      },
+      "notes": {
+        "fixed": [
+          "A prefix with a trailing separator matches like one without: `paths_with(\"meshes/\")`, `remove_provider_prefix` and `remove_resolved_prefix`, and their Luau forms.",
+          "`vfs:keys()` returns the keys sorted, as documented, instead of in hash map order."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "vfstool_lib",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "vfstool_lib-0.10.3.crate",
+          "media_type": "application/gzip",
+          "size": 135739,
+          "digests": {
+            "sha256": "04709ff10f4c9558c81231bbc2022f17717b0aadaf104c6ec36a7d14dd151bce"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.10.3.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.10.2",
+      "channel": "stable",
+      "date": "2026-09-27",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/vfstool",
+        "tag": "0.10.2",
+        "revision": "7ec4c060b6a504fb9fbfe4b665e884718e1cb408"
+      },
+      "notes": {
+        "fixed": [
+          "`VfsFile:readAll()` returns a Luau string, as documented, instead of a table of bytes."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "vfstool_lib",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "vfstool_lib-0.10.2.crate",
+          "media_type": "application/gzip",
+          "size": 135093,
+          "digests": {
+            "sha256": "fa683d03c638112193eccf6bd9aed7218e3fded4ae2fa8025dd600d56b8aa2b2"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.10.2.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.10.1",
+      "channel": "stable",
+      "date": "2026-09-26",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/vfstool",
+        "tag": "0.10.1",
+        "revision": "d00c04d5dd3499b122de7b1c6ae5de589eec1839"
+      },
+      "notes": {
+        "changed": [
+          "Rust 1.88."
+        ],
+        "fixed": [
+          "Fallout 3's voice archives are read, through dream_archive 0.2.2."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "vfstool_lib",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "vfstool_lib-0.10.1.crate",
+          "media_type": "application/gzip",
+          "size": 135076,
+          "digests": {
+            "sha256": "e2e0aadc44235b50617f29b3c32f1da6ad28aea01fb2c02970b8a0ae2a90bbd2"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.10.1.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.10.0",
+      "channel": "stable",
+      "date": "2026-09-26",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/vfstool",
+        "tag": "0.10.0",
+        "revision": "5de3318eaa8e98bd416beea65df725e625bbee7b"
+      },
+      "notes": {
+        "changed": [
+          "dream-path 0.2."
+        ],
+        "fixed": [
+          "Oblivion's BSAs are no longer mistaken for Xbox archives, through dream_archive 0.2."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "vfstool_lib",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "vfstool_lib-0.10.0.crate",
+          "media_type": "application/gzip",
+          "size": 135062,
+          "digests": {
+            "sha256": "9930d1d68621a753f9c3dee804e6a5c8d49261d889362ca8d91ea19b9acdfc01"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.10.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.9.1",
+      "channel": "stable",
+      "date": "2026-09-26",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/vfstool",
+        "tag": "0.9.1",
+        "revision": "3beebe557589f50c982dd57dbe6d572c095572da"
+      },
+      "notes": {
+        "summary": "The Lua bindings run on Luau, with camelCase names.",
+        "fixed": [
+          "Fallout 3 BSAs whose entries store only a folder and a file name are enumerated.",
+          "Dependencies updated past the crossbeam-epoch and memmap2 security advisories."
+        ],
+        "breaking": [
+          "The `lua` feature builds mlua 0.12's vendored Luau; `standalone-lua` and LuaJIT are gone. Functions, methods, table fields and string enum values are camelCase."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "vfstool_lib",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "vfstool_lib-0.9.1.crate",
+          "media_type": "application/gzip",
+          "size": 135064,
+          "digests": {
+            "sha256": "743edd3c4cee4dbf770783631c042e258f1503c545c9d09137df3aa3dfb07170"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.9.1.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.9.0",
+      "channel": "stable",
+      "date": "2026-04-29",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/vfstool",
+        "tag": "0.9.0",
+        "revision": "d840a0f222c5eed097aba6e20472799fe8551693"
+      },
+      "notes": {
+        "summary": "A new core: provider stacks behind every key, byte-first keys, conflict and provenance reports, locks, semantic analysis, materialization and the run workflow.",
+        "added": [
+          "`VFS` keeps every provider of a key, low to high priority, with the winner cached: `explain`, `provider_records_for`, `duplicates`, `archives`, `archive_entries`, `source_contributions`, and mutation that either replaces a key's stack or preserves it.",
+          "`LayerIndex` for provenance, provider chains, lock manifests (`VfsLock`) and drift reports; `ConflictIndex` for conflicts, shadowed sources and source-to-source diffs.",
+          "`analyze_pair` and semantic conflict reports that tell cosmetic changes from behavior changes in INI, TOML, JSON and script files.",
+          "`collapse_into`, `materialization_plan`, `dump_to_directory` and `extract_file`, and `run_setup` and `run_finalize` for running a tool on the merged VFS.",
+          "ZIP and PK3 archives behind the `zip` feature.",
+          "With `serialize`, `serde`, `serde_json`, `serde_yaml` and `toml` are re-exported.",
+          "Lua bindings through `mlua` behind `lua`; `standalone-lua` builds a vendored LuaJIT.",
+          "Simulation, candidate planning, policies, a load-order solver and a knowledge base, the last three in the unstable `experimental` module."
+        ],
+        "changed": [
+          "vfstool_lib is licensed GPL-3.0-only instead of GPL-3.0-or-later."
+        ],
+        "breaking": [
+          "Keys are byte-first `NormalizedPath`s from dream-path, taken through `VfsKeyInput`; host paths stay `Path` and `PathBuf`. `normalize_path` is gone; `normalize_host_path` normalizes a host path for comparison.",
+          "The `bsa` feature is `beth-archives`, and reads BSA and BA2 through dream_archive instead of `ba2`.",
+          "Rust 1.87."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "vfstool_lib",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "vfstool_lib-0.9.0.crate",
+          "media_type": "application/gzip",
+          "size": 133398,
+          "digests": {
+            "sha256": "58e7a4910009fc3506a67bb5649a64ca3b2eaa4fd5660e788c112d27f09a0617"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.9.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.2.3",
+      "channel": "stable",
+      "date": "2025-09-25",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/vfstool",
+        "tag": "0.2.3",
+        "revision": "93532af372c53b45dee34c8f32f45a037c3a2bbe"
+      },
+      "notes": {
+        "changed": [
+          "Updated dependencies, with `serde_yaml` in place of `serde_yaml_with_quirks`."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "vfstool_lib",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "vfstool_lib-0.2.3.crate",
+          "media_type": "application/gzip",
+          "size": 31320,
+          "digests": {
+            "sha256": "b78ae7af1167db8bc737d8774d5ab696478d7dfadc5e5bbfeab01a39c61ceeec"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.2.3.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.2.1",
+      "channel": "stable",
+      "date": "2025-09-25",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/vfstool",
+        "tag": "0.2.1",
+        "revision": "f897022e02798365fa7405872c8ea9e6cf97ba64"
+      },
+      "notes": {
+        "fixed": [
+          "Files reached through symbolic links in a data directory are part of the VFS."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "vfstool_lib",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "vfstool_lib-0.2.1.crate",
+          "media_type": "application/gzip",
+          "size": 31305,
+          "digests": {
+            "sha256": "002946c537e63df036d10e5cbf2023792e42bbeb46bb19969b0ee0dcfe235147"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.2.1.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "channel": "stable",
+      "date": "2025-07-07",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/vfstool",
+        "tag": "0.2.0",
+        "revision": "97b8b72e1e3f1eddaa91d0766cbd0015dc775a50"
+      },
+      "notes": {
+        "changed": [
+          "Updated `serde_yaml_with_quirks` and `toml`."
+        ],
+        "breaking": [
+          "Archive support is behind the `bsa` feature; without it, a VFS is built from loose files only."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "vfstool_lib",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "vfstool_lib-0.2.0.crate",
+          "media_type": "application/gzip",
+          "size": 20027,
+          "digests": {
+            "sha256": "167e9debaf4b0f4f545e90139c4081363a56f8882425efac2afbf10c7a637df0"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.2.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2025-04-25",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/vfstool",
+        "tag": "0.1.0"
+      },
+      "notes": {
+        "summary": "First release: OpenMW's virtual file system from ordered data directories and BSA and BA2 archives.",
+        "added": [
+          "With `zip`, `.jpk` files are read as ZIP archives beside `.zip` and `.pk3`, and Zstandard entries decode through ruzstd, in pure Rust. Every ZIP entry is listed whatever its compression; one compressed another way fails when it is opened.",
+          "`VFS::from_directories` builds the VFS from data directories in load order, later ones winning, and from the archives it is given, which loose files override.",
+          "`get_file`, `paths_matching` and `paths_with` look files up by their lowercase, `/`-separated path; `tree` and `tree_filtered` sort them into folders.",
+          "`VfsFile`: a loose file or an archive entry, opened for reading either way.",
+          "Morrowind, Oblivion, Skyrim and Fallout 4 archives through `ba2`, and JSON, YAML and TOML trees behind `serialize`."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "vfstool_lib",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "vfstool_lib-0.1.0.crate",
+          "media_type": "application/gzip",
+          "size": 19761,
+          "digests": {
+            "sha256": "fe2a196a33e3fa420a612a5f5d12dd9c60907d87044e835aabf9e8b841c16e0b"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.1.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}
