@@ -82,3 +82,38 @@ note = "dream_archivetool: a command line and library for Bethesda BSA and BA2 a
 url = "https://dreamweave-mp.github.io/dream_path/"
 added = "2026-09-30"
 note = "dream-path: normalized virtual resource paths for DreamWeave and OpenMW tools, a Rust crate."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/dreamweave-site/"
+added = "2026-10-21"
+note = "The DreamWeave site generator, org.dreamweave.site: a Jess package. Enrolled before its first deploy; unreachable until then."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/dreamweave-theme/"
+added = "2026-10-21"
+note = "The DreamWeave theme, org.dreamweave.theme: a Jess package. Enrolled before its first deploy; unreachable until then."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/magick/"
+added = "2026-10-21"
+note = "Magick, org.dreamweave.magick, a pure-Luau raster toolkit: a Jess package. Enrolled before its first deploy; unreachable until then."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/vfstool/"
+added = "2026-10-21"
+note = "OpenMW's virtual file system as two Jess packages, org.dreamweave.vfs and org.dreamweave.vfstool; the Rust releases before them stay listed. Enrolled before its first deploy; unreachable until then."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/esm/"
+added = "2026-10-21"
+note = "esm, org.dreamweave.esm, the ESM record stream in Luau: a Jess package. Enrolled before its first deploy; unreachable until then."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/openmw-install/"
+added = "2026-10-21"
+note = "openmw-install, org.dreamweave.openmw-install, an OpenMW installation opened: a Jess package. Enrolled before its first deploy; unreachable until then."
+
+[[source]]
+url = "https://dreamweave-mp.github.io/openmw-content/"
+added = "2026-10-21"
+note = "openmw-content, org.dreamweave.openmw-content, a load order's content files opened: a Jess package. Enrolled before its first deploy; unreachable until then."
