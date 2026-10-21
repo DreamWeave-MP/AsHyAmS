@@ -343,9 +343,10 @@ fn projects(writer: &mut Writer, network: &Network) -> Result<()> {
             .into_iter()
             .map(|(tag, count)| Facet {
                 token: format!("tag:{}", slug(&tag.label)),
+                // Facets count listed claims only, whose tags always have a page.
+                path: views::tag_path(&tag.label),
                 label: tag.label,
                 count,
-                path: tag.path,
             })
             .collect(),
         cards: all,

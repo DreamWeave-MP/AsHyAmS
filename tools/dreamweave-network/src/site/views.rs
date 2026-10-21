@@ -95,7 +95,9 @@ pub struct Image {
 #[derive(Debug, Clone, Serialize)]
 pub struct TagLink {
     pub label: String,
-    pub path: String,
+    /// The browse page for the tag, which exists only for tags of listed claims: a withdrawn
+    /// claim keeps its page and its tags, but feeds no facet, so its tags are words, not links.
+    pub path: Option<String>,
 }
 
 /// A project claim in a list.
@@ -271,7 +273,7 @@ pub fn card(network: &Network, claim: &Claim) -> Card {
             .iter()
             .map(|tag| TagLink {
                 label: tag.clone(),
-                path: tag_path(tag),
+                path: claim.is_listed().then(|| tag_path(tag)),
             })
             .collect(),
         image: claim.record.media.as_ref().and_then(|media| {

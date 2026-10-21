@@ -227,7 +227,7 @@
         {%- if card.tags | length > 0 %}
         <section class="dw-panel">
             <h2 class="dw-panel__title">Tags</h2>
-            <div class="dw-panel__body"><ul class="dw-tags">{% for tag in card.tags %}<li><a href="{{ get_url(path=tag.path, trailing_slash=true) | safe }}">{{ tag.label }}</a></li>{% endfor %}</ul></div>
+            <div class="dw-panel__body"><ul class="dw-tags">{% for tag in card.tags %}<li>{% if tag.path %}<a href="{{ get_url(path=tag.path, trailing_slash=true) | safe }}">{{ tag.label }}</a>{% else %}<span>{{ tag.label }}</span>{% endif %}</li>{% endfor %}</ul></div>
         </section>
         {%- endif %}
     </aside>
