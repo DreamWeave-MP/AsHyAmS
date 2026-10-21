@@ -237,3 +237,13 @@ note = "Reads, strips and repairs saves"
 url = "https://dreamweave-mp.github.io/TES3Merge/"
 added = "2026-10-21"
 note = "Merges a load order's records into a patch, a port of NullCascade's TES3Merge"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/truetype/"
+added = "2026-10-21"
+note = "TrueType fonts read in JSL: names, metrics, character maps, kerning and outlines"
+
+[[source]]
+url = "https://dreamweave-mp.github.io/dream_propaganda/"
+added = "2026-10-21"
+note = "OPERATION: BUILD SOMETHING, DreamWeave's recruitment posters, drawn by Jess"
