@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-esm-3927a6fa",
+  "index_url": "https://dreamweave-mp.github.io/esm/dreamweave.json",
+  "site_name": "esm",
+  "site_url": "https://dreamweave-mp.github.io/esm/",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/esm/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6ad91ace-39b\"",
+    "last_modified": "Wed, 21 Oct 2026 20:04:30 GMT"
+  },
+  "index_sha256": "17a7bdb116a2573d9c1254593d8fbb5cec46374ee20c678b364457b805543fc4",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-10-21T20:38:07Z",
+  "last_attempt": "2026-10-21T20:38:07Z",
+  "last_success": "2026-10-21T20:38:07Z"
+}

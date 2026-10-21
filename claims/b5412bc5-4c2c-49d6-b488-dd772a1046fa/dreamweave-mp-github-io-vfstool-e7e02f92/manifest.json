@@ -1,11 +1,11 @@
 {
-  "schema_version": "2",
+  "schema_version": "3",
   "document": "project",
-  "generator": "DreamWeave Mod Template 5.0.0",
+  "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
     "id": "b5412bc5-4c2c-49d6-b488-dd772a1046fa",
     "name": "vfstool_lib",
-    "summary": "OpenMW's virtual file system as a Rust library: provider stacks, conflict and provenance reports, locks, materialization, and the @dream/vfs Luau module.",
+    "summary": "OpenMW's virtual file system as a Jess package in Luau: provider stacks, conflict and provenance reports, locks and materialization.",
     "type": "library",
     "status": "active",
     "versioning": "numeric",
@@ -13,7 +13,7 @@
     "license": "MIT OR Apache-2.0",
     "tags": [
       "OpenMW",
-      "Rust",
+      "Jess",
       "Luau",
       "VFS"
     ],
@@ -24,8 +24,6 @@
       }
     ],
     "links": {
-      "crate": "https://crates.io/crates/vfstool_lib",
-      "documentation": "https://dreamweave-mp.github.io/vfstool/docs/api/",
       "donate": "https://ko-fi.com/magicaldave",
       "issues": "https://github.com/DreamWeave-MP/vfstool/issues",
       "page": "https://dreamweave-mp.github.io/vfstool/lib/",
@@ -42,11 +40,134 @@
     ]
   },
   "channels": {
+    "development": {
+      "version": "2.0.1-dev.8"
+    },
     "stable": {
-      "version": "1.0.0"
+      "version": "2.0.0"
     }
   },
   "releases": [
+    {
+      "version": "2.0.1-dev.8",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/vfstool",
+        "release": "development",
+        "revision": "61aa282b2a273800a55ee0b202c52718a3d7ab67"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "vfstool_lib",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.vfs-2.0.1-dev.8.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 121900,
+          "digests": {
+            "sha256": "e5932bf8c81e71dad4cddbe0113d1cbd762e791f0b475d39eff6b3a39ef78b1d"
+          },
+          "jess": {
+            "package": "org.dreamweave.vfs",
+            "jess_api": "1",
+            "content_digest": "b759cfd9a2bef38b8d7ed11764500203a79a7864078ccac3c55c0be9060258ac",
+            "dependencies": {
+              "org.dreamweave.dream-archive": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/development/org.dreamweave.vfs-2.0.1-dev.8.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "2.0.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/vfstool",
+        "tag": "vfstool_lib-2.0.0",
+        "revision": "7050b6f37bd793ef0a08539ef46245688cd0e47e"
+      },
+      "notes": {
+        "summary": "vfstool_lib is the Jess package org.dreamweave.vfs, written in Luau; the Rust crate continues on the rust branch at 1.0.0.",
+        "breaking": [
+          "The library is the Jess package `org.dreamweave.vfs`, module `@vfs`, installed with jess rather than Cargo. The Rust crate `vfstool_lib` stays at 1.0.0 on crates.io and on this repository's `rust` branch, and is no longer developed on main."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "vfstool_lib",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.vfs-2.0.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 121894,
+          "digests": {
+            "sha256": "66df02c8b706cc1a2579bb956521d4cfca970d4b9216a23028f51a6a20018401"
+          },
+          "jess": {
+            "package": "org.dreamweave.vfs",
+            "jess_api": "1",
+            "content_digest": "b501db857f2b619c32963763173330348ea57602f1e53303a487fa6025994fab",
+            "dependencies": {
+              "org.dreamweave.dream-archive": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool_lib-2.0.0/org.dreamweave.vfs-2.0.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
     {
       "version": "1.0.0",
       "channel": "stable",
@@ -54,7 +175,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "1.0.0",
+        "tag": "vfstool_lib-1.0.0",
         "revision": "1a4193604e822f0e79cd1ae8da560d200157b556"
       },
       "notes": {
@@ -135,7 +256,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-1.0.0.crate",
+              "url": "https://static.crates.io/crates/nil/vfstool_lib-1.0.0.crate",
               "kind": "publisher"
             }
           ],
@@ -150,7 +271,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.10.4",
+        "tag": "vfstool_lib-0.10.4",
         "revision": "dada4ea5bc37c1febc99217d20d7400849e95396"
       },
       "notes": {
@@ -190,7 +311,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.10.4.crate",
+              "url": "https://static.crates.io/crates/nil/vfstool_lib-0.10.4.crate",
               "kind": "publisher"
             }
           ],
@@ -205,7 +326,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.10.3",
+        "tag": "vfstool_lib-0.10.3",
         "revision": "14c4cb6885884a5b759736929bc75e0a6d20c7c1"
       },
       "notes": {
@@ -245,7 +366,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.10.3.crate",
+              "url": "https://static.crates.io/crates/nil/vfstool_lib-0.10.3.crate",
               "kind": "publisher"
             }
           ],
@@ -260,7 +381,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.10.2",
+        "tag": "vfstool_lib-0.10.2",
         "revision": "7ec4c060b6a504fb9fbfe4b665e884718e1cb408"
       },
       "notes": {
@@ -299,7 +420,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.10.2.crate",
+              "url": "https://static.crates.io/crates/nil/vfstool_lib-0.10.2.crate",
               "kind": "publisher"
             }
           ],
@@ -314,7 +435,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.10.1",
+        "tag": "vfstool_lib-0.10.1",
         "revision": "d00c04d5dd3499b122de7b1c6ae5de589eec1839"
       },
       "notes": {
@@ -356,7 +477,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.10.1.crate",
+              "url": "https://static.crates.io/crates/nil/vfstool_lib-0.10.1.crate",
               "kind": "publisher"
             }
           ],
@@ -371,7 +492,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.10.0",
+        "tag": "vfstool_lib-0.10.0",
         "revision": "5de3318eaa8e98bd416beea65df725e625bbee7b"
       },
       "notes": {
@@ -413,7 +534,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.10.0.crate",
+              "url": "https://static.crates.io/crates/nil/vfstool_lib-0.10.0.crate",
               "kind": "publisher"
             }
           ],
@@ -428,7 +549,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.9.1",
+        "tag": "vfstool_lib-0.9.1",
         "revision": "3beebe557589f50c982dd57dbe6d572c095572da"
       },
       "notes": {
@@ -472,7 +593,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.9.1.crate",
+              "url": "https://static.crates.io/crates/nil/vfstool_lib-0.9.1.crate",
               "kind": "publisher"
             }
           ],
@@ -487,7 +608,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.9.0",
+        "tag": "vfstool_lib-0.9.0",
         "revision": "d840a0f222c5eed097aba6e20472799fe8551693"
       },
       "notes": {
@@ -542,7 +663,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.9.0.crate",
+              "url": "https://static.crates.io/crates/nil/vfstool_lib-0.9.0.crate",
               "kind": "publisher"
             }
           ],
@@ -557,7 +678,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.2.3",
+        "tag": "vfstool_lib-0.2.3",
         "revision": "93532af372c53b45dee34c8f32f45a037c3a2bbe"
       },
       "notes": {
@@ -596,7 +717,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.2.3.crate",
+              "url": "https://static.crates.io/crates/nil/vfstool_lib-0.2.3.crate",
               "kind": "publisher"
             }
           ],
@@ -611,7 +732,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.2.1",
+        "tag": "vfstool_lib-0.2.1",
         "revision": "f897022e02798365fa7405872c8ea9e6cf97ba64"
       },
       "notes": {
@@ -650,7 +771,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.2.1.crate",
+              "url": "https://static.crates.io/crates/nil/vfstool_lib-0.2.1.crate",
               "kind": "publisher"
             }
           ],
@@ -665,7 +786,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.2.0",
+        "tag": "vfstool_lib-0.2.0",
         "revision": "97b8b72e1e3f1eddaa91d0766cbd0015dc775a50"
       },
       "notes": {
@@ -707,7 +828,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.2.0.crate",
+              "url": "https://static.crates.io/crates/nil/vfstool_lib-0.2.0.crate",
               "kind": "publisher"
             }
           ],
@@ -722,7 +843,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.1.0"
+        "tag": "vfstool_lib-0.1.0"
       },
       "notes": {
         "summary": "First release: OpenMW's virtual file system from ordered data directories and BSA and BA2 archives.",
@@ -765,7 +886,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.1.0.crate",
+              "url": "https://static.crates.io/crates/nil/vfstool_lib-0.1.0.crate",
               "kind": "publisher"
             }
           ],

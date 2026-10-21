@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "Magick",
+    "url": "https://dreamweave-mp.github.io/magick/"
+  },
+  "projects": [
+    {
+      "id": "4aefcc8f-913f-48f5-8980-2326173a7288",
+      "name": "Magick",
+      "summary": "A pure-Luau raster toolkit for Jess: PNG, BMP and TGA, atlases, gradients, masks and filters.",
+      "type": "library",
+      "jess_package": "org.dreamweave.magick",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/magick/home/",
+      "manifest": "https://dreamweave-mp.github.io/magick/dreamweave/projects/4aefcc8f-913f-48f5-8980-2326173a7288.json",
+      "manifest_sha256": "e35ff97c8b2f20c9d8d3d8c450a37aa44ee0142ba9570c57f8b8e3d1b8b42679",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.3-dev.6",
+        "stable": "0.1.2"
+      }
+    }
+  ]
+}

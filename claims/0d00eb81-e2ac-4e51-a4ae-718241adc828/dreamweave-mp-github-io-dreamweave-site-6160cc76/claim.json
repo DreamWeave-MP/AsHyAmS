@@ -1,0 +1,30 @@
+{
+  "project": "0d00eb81-e2ac-4e51-a4ae-718241adc828",
+  "origin": "dreamweave-mp-github-io-dreamweave-site-6160cc76",
+  "entry": {
+    "id": "0d00eb81-e2ac-4e51-a4ae-718241adc828",
+    "name": "DreamWeave Site",
+    "summary": "The static site generator every DreamWeave site, and Jess's own documentation, is built with.",
+    "type": "tool",
+    "jess_package": "org.dreamweave.site",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/dreamweave-site/home/",
+    "manifest": "https://dreamweave-mp.github.io/dreamweave-site/dreamweave/projects/0d00eb81-e2ac-4e51-a4ae-718241adc828.json",
+    "manifest_sha256": "ed611cf3e67be41f6306f6434b2469ae52f65d9788ceed7745002a0422218259",
+    "updated": "2026-10-21",
+    "channels": {
+      "development": "0.1.2-dev.7",
+      "stable": "0.1.1"
+    }
+  },
+  "advertised_sha256": "ed611cf3e67be41f6306f6434b2469ae52f65d9788ceed7745002a0422218259",
+  "ingested_sha256": "ed611cf3e67be41f6306f6434b2469ae52f65d9788ceed7745002a0422218259",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-10-21T20:38:07Z",
+  "last_changed": "2026-10-21T20:38:07Z",
+  "last_attempt": "2026-10-21T20:38:07Z",
+  "last_success": "2026-10-21T20:38:07Z"
+}

@@ -1,7 +1,7 @@
 {
-  "schema_version": "2",
+  "schema_version": "3",
   "document": "index",
-  "generator": "DreamWeave Mod Template 5.0.0",
+  "generator": "DreamWeave Mod Template 0.3.0",
   "site": {
     "name": "S3LightFixes",
     "url": "https://dreamweave-mp.github.io/S3LightFixes/"
@@ -12,14 +12,15 @@
       "name": "S3LightFixes",
       "summary": "Generate a plugin that retunes every light in your OpenMW load order: color, radius, duration and flicker, from one command.",
       "type": "tool",
+      "jess_package": "org.dreamweave.s3lightfixes",
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3LightFixes/home/",
       "manifest": "https://dreamweave-mp.github.io/S3LightFixes/dreamweave/projects/55e873c9-1ddc-4b13-b59a-0eb790bb2565.json",
-      "manifest_sha256": "e57c1f2c5a22a13f7ace2e4ff256d1c7313829dbb21afeb956b0efdc667f4a96",
-      "updated": "2026-09-30",
+      "manifest_sha256": "e1e4a7822b39bf3ade920f6bc3ecf49446577ac9e8f973eb1615a1cbfcf8d362",
+      "updated": "2026-10-21",
       "channels": {
-        "development": "0.4.61-dev.3",
-        "stable": "0.4.6"
+        "development": "1.0.1-dev.7",
+        "stable": "0.4.53"
       }
     }
   ]

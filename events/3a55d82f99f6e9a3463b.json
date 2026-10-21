@@ -1,0 +1,387 @@
+{
+  "id": "3a55d82f99f6e9a3463b",
+  "kind": "changed",
+  "project": "b5412bc5-4c2c-49d6-b488-dd772a1046fa",
+  "origin": "dreamweave-mp-github-io-vfstool-e7e02f92",
+  "name": "vfstool_lib",
+  "observed_at": "2026-10-21T20:38:07Z",
+  "before": "5d63a06617bbfbc63c45878bdff36af2a9d49153a8e533bd388d6cc9ad1b1bd1",
+  "after": "cb0f6c89c2376f2c6cb22d713e334e3164da7dd3a268e2a8be91366b16acdb8c",
+  "changes": [
+    {
+      "change": "project-field",
+      "field": "summary",
+      "before": "OpenMW's virtual file system as a Rust library: provider stacks, conflict and provenance reports, locks, materialization, and the @dream/vfs Luau module.",
+      "after": "OpenMW's virtual file system as a Jess package in Luau: provider stacks, conflict and provenance reports, locks and materialization."
+    },
+    {
+      "change": "tags",
+      "added": [
+        "Jess"
+      ],
+      "removed": [
+        "Rust"
+      ]
+    },
+    {
+      "change": "link",
+      "link": "crate",
+      "before": "https://crates.io/crates/vfstool_lib",
+      "after": null
+    },
+    {
+      "change": "link",
+      "link": "documentation",
+      "before": "https://dreamweave-mp.github.io/vfstool/docs/api/",
+      "after": null
+    },
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": null,
+      "after": "2.0.1-dev.8",
+      "changes": []
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "1.0.0",
+      "after": "2.0.0",
+      "changes": [
+        {
+          "change": "artifact-added",
+          "artifact": "jpk",
+          "filename": "org.dreamweave.vfs-2.0.0.jpk",
+          "size": 121894,
+          "sha256": "66df02c8b706cc1a2579bb956521d4cfca970d4b9216a23028f51a6a20018401"
+        },
+        {
+          "change": "artifact-removed",
+          "artifact": "crate",
+          "filename": "vfstool_lib-1.0.0.crate"
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "2.0.1-dev.8",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "2.0.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "notes": {
+        "summary": "vfstool_lib is the Jess package org.dreamweave.vfs, written in Luau; the Rust crate continues on the rust branch at 1.0.0.",
+        "breaking": [
+          "The library is the Jess package `org.dreamweave.vfs`, module `@vfs`, installed with jess rather than Cargo. The Rust crate `vfstool_lib` stays at 1.0.0 on crates.io and on this repository's `rust` branch, and is no longer developed on main."
+        ]
+      }
+    },
+    {
+      "change": "release-amended",
+      "version": "1.0.0",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/vfstool_lib-1.0.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-1.0.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "1.0.0",
+          "after": "vfstool_lib-1.0.0"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.10.4",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/vfstool_lib-0.10.4.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.10.4.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.10.4",
+          "after": "vfstool_lib-0.10.4"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.10.3",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/vfstool_lib-0.10.3.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.10.3.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.10.3",
+          "after": "vfstool_lib-0.10.3"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.10.2",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/vfstool_lib-0.10.2.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.10.2.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.10.2",
+          "after": "vfstool_lib-0.10.2"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.10.1",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/vfstool_lib-0.10.1.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.10.1.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.10.1",
+          "after": "vfstool_lib-0.10.1"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.10.0",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/vfstool_lib-0.10.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.10.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.10.0",
+          "after": "vfstool_lib-0.10.0"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.9.1",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/vfstool_lib-0.9.1.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.9.1.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.9.1",
+          "after": "vfstool_lib-0.9.1"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.9.0",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/vfstool_lib-0.9.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.9.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.9.0",
+          "after": "vfstool_lib-0.9.0"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.2.3",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/vfstool_lib-0.2.3.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.2.3.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.2.3",
+          "after": "vfstool_lib-0.2.3"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.2.1",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/vfstool_lib-0.2.1.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.2.1.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.2.1",
+          "after": "vfstool_lib-0.2.1"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.2.0",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/vfstool_lib-0.2.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.2.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.2.0",
+          "after": "vfstool_lib-0.2.0"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.0",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/vfstool_lib-0.1.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/vfstool_lib/vfstool_lib-0.1.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.0",
+          "after": "vfstool_lib-0.1.0"
+        }
+      ]
+    }
+  ]
+}

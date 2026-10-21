@@ -1,7 +1,7 @@
 {
-  "schema_version": "2",
+  "schema_version": "3",
   "document": "project",
-  "generator": "DreamWeave Mod Template 5.0.0",
+  "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
     "id": "34fc442a-5060-4b77-8c64-ca5ea9861a10",
     "name": "vfstool",
@@ -14,7 +14,8 @@
     "tags": [
       "OpenMW",
       "Morrowind",
-      "Rust",
+      "Jess",
+      "Luau",
       "VFS",
       "Command line"
     ],
@@ -25,8 +26,6 @@
       }
     ],
     "links": {
-      "crate": "https://crates.io/crates/vfstool",
-      "documentation": "https://dreamweave-mp.github.io/vfstool/docs/",
       "donate": "https://ko-fi.com/magicaldave",
       "issues": "https://github.com/DreamWeave-MP/vfstool/issues",
       "page": "https://dreamweave-mp.github.io/vfstool/home/",
@@ -56,42 +55,25 @@
   },
   "channels": {
     "development": {
-      "version": "1.0.2-dev.0"
+      "version": "2.0.1-dev.8"
     },
     "stable": {
-      "version": "1.0.1"
+      "version": "2.0.0"
     }
   },
   "releases": [
     {
-      "version": "1.0.2-dev.0",
+      "version": "2.0.1-dev.8",
       "channel": "development",
-      "date": "2026-09-30",
+      "date": "2026-10-21",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
         "release": "development",
-        "revision": "95f540233de85051ee06cd47025987d3367ad327"
+        "revision": "61aa282b2a273800a55ee0b202c52718a3d7ab67"
       },
       "runtimes": {},
-      "platforms": [
-        {
-          "os": "windows",
-          "arch": "x86_64"
-        },
-        {
-          "os": "macos",
-          "arch": "aarch64"
-        },
-        {
-          "os": "macos",
-          "arch": "x86_64"
-        },
-        {
-          "os": "linux",
-          "arch": "x86_64"
-        }
-      ],
+      "platforms": [],
       "provides": [],
       "relationships": [],
       "components": [
@@ -111,84 +93,90 @@
       "critical_extensions": [],
       "artifacts": [
         {
-          "id": "windows-x64",
-          "format": "binary",
-          "filename": "vfstool-Windows-X64.zip",
-          "media_type": "application/zip",
-          "size": 1532254,
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.vfstool-2.0.1-dev.8.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 61077,
           "digests": {
-            "sha256": "43d00210fdaf697aa9eb8995580e7ba2057e1545ebe00b6b71c0c827c53a0204"
+            "sha256": "ed2e490dd28d660d8e044dcd5f3becb15e6d7e838a650ea89cd63321080171e7"
           },
-          "platform": {
-            "os": "windows",
-            "arch": "x86_64"
+          "jess": {
+            "package": "org.dreamweave.vfstool",
+            "jess_api": "1",
+            "content_digest": "25d0c6f683ce6088ab12e5f2629173530ecabe72b48bef8d769d178e6395a650",
+            "dependencies": {
+              "org.dreamweave.openmw-config": "4",
+              "org.dreamweave.vfs": "2"
+            }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/development/vfstool-Windows-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/development/org.dreamweave.vfstool-2.0.1-dev.8.jpk",
               "kind": "publisher"
             }
           ],
           "signatures": []
-        },
+        }
+      ]
+    },
+    {
+      "version": "2.0.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/vfstool",
+        "tag": "vfstool-2.0.0",
+        "revision": "7050b6f37bd793ef0a08539ef46245688cd0e47e"
+      },
+      "notes": {
+        "summary": "vfstool is a Jess package, written in Luau; the Rust program continues on the rust branch at 1.0.1.",
+        "breaking": [
+          "The tool is the Jess package `org.dreamweave.vfstool`, run through jess rather than as a downloaded binary. The Rust program stays at 1.0.1 on its GitHub releases, crates.io and this repository's `rust` branch, and is no longer developed on main."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
         {
-          "id": "macos-arm64",
-          "format": "binary",
-          "filename": "vfstool-macOS-ARM64.zip",
-          "media_type": "application/zip",
-          "size": 1728860,
+          "id": "main",
+          "name": "vfstool",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.vfstool-2.0.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 61071,
           "digests": {
-            "sha256": "0eeb71fa1673411d557bc92df502bb0511382c2e3fd89c6fd3a7810f4ad6c605"
+            "sha256": "4d8a14fffcbb1ab7dcc1c75afd3629ad28e86b75960453fb2f1286c9340f010b"
           },
-          "platform": {
-            "os": "macos",
-            "arch": "aarch64"
-          },
-          "sources": [
-            {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/development/vfstool-macOS-ARM64.zip",
-              "kind": "publisher"
+          "jess": {
+            "package": "org.dreamweave.vfstool",
+            "jess_api": "1",
+            "content_digest": "76d49ff1220dbe340c28eeca9592017ec6e39ec3e42f57029cceb71169d2e95a",
+            "dependencies": {
+              "org.dreamweave.openmw-config": "4",
+              "org.dreamweave.vfs": "2"
             }
-          ],
-          "signatures": []
-        },
-        {
-          "id": "macos-x64",
-          "format": "binary",
-          "filename": "vfstool-macOS-X64.zip",
-          "media_type": "application/zip",
-          "size": 1830900,
-          "digests": {
-            "sha256": "27c494dab63536b03593cee4ebccc71f30cbb8fee9de5506dcb817bf86c353f4"
-          },
-          "platform": {
-            "os": "macos",
-            "arch": "x86_64"
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/development/vfstool-macOS-X64.zip",
-              "kind": "publisher"
-            }
-          ],
-          "signatures": []
-        },
-        {
-          "id": "linux-x64",
-          "format": "binary",
-          "filename": "vfstool-Linux-X64.zip",
-          "media_type": "application/zip",
-          "size": 1942797,
-          "digests": {
-            "sha256": "09ba2d50bfd80586b5deb0cf38e228a5d5921bfeb615519098d45c61ed642a5e"
-          },
-          "platform": {
-            "os": "linux",
-            "arch": "x86_64"
-          },
-          "sources": [
-            {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/development/vfstool-Linux-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-2.0.0/org.dreamweave.vfstool-2.0.0.jpk",
               "kind": "publisher"
             }
           ],
@@ -203,7 +191,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "1.0.1",
+        "tag": "vfstool-1.0.1",
         "revision": "c44b792938a1c38468e91b2c41eedd60d9f23d37"
       },
       "notes": {
@@ -265,7 +253,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/1.0.1/vfstool-Windows-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-1.0.1/vfstool-Windows-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -286,7 +274,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/1.0.1/vfstool-macOS-ARM64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-1.0.1/vfstool-macOS-ARM64.zip",
               "kind": "publisher"
             }
           ],
@@ -307,7 +295,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/1.0.1/vfstool-macOS-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-1.0.1/vfstool-macOS-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -328,7 +316,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/1.0.1/vfstool-Linux-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-1.0.1/vfstool-Linux-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -343,7 +331,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "1.0.0",
+        "tag": "vfstool-1.0.0",
         "revision": "1a4193604e822f0e79cd1ae8da560d200157b556"
       },
       "notes": {
@@ -430,7 +418,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/1.0.0/vfstool-Windows-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-1.0.0/vfstool-Windows-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -451,7 +439,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/1.0.0/vfstool-macOS-ARM64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-1.0.0/vfstool-macOS-ARM64.zip",
               "kind": "publisher"
             }
           ],
@@ -472,7 +460,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/1.0.0/vfstool-macOS-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-1.0.0/vfstool-macOS-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -493,7 +481,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/1.0.0/vfstool-Linux-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-1.0.0/vfstool-Linux-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -508,7 +496,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.10.4",
+        "tag": "vfstool-0.10.4",
         "revision": "dada4ea5bc37c1febc99217d20d7400849e95396"
       },
       "notes": {
@@ -569,7 +557,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.4/vfstool-Windows-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.4/vfstool-Windows-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -590,7 +578,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.4/vfstool-macOS-ARM64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.4/vfstool-macOS-ARM64.zip",
               "kind": "publisher"
             }
           ],
@@ -611,7 +599,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.4/vfstool-macOS-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.4/vfstool-macOS-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -632,7 +620,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.4/vfstool-Linux-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.4/vfstool-Linux-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -647,7 +635,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.10.3",
+        "tag": "vfstool-0.10.3",
         "revision": "14c4cb6885884a5b759736929bc75e0a6d20c7c1"
       },
       "notes": {
@@ -707,7 +695,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.3/vfstool-Windows-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.3/vfstool-Windows-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -728,7 +716,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.3/vfstool-macOS-ARM64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.3/vfstool-macOS-ARM64.zip",
               "kind": "publisher"
             }
           ],
@@ -749,7 +737,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.3/vfstool-macOS-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.3/vfstool-macOS-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -770,7 +758,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.3/vfstool-Linux-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.3/vfstool-Linux-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -785,7 +773,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.10.2",
+        "tag": "vfstool-0.10.2",
         "revision": "7ec4c060b6a504fb9fbfe4b665e884718e1cb408"
       },
       "notes": {
@@ -845,7 +833,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.2/vfstool-Windows-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.2/vfstool-Windows-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -866,7 +854,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.2/vfstool-macOS-ARM64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.2/vfstool-macOS-ARM64.zip",
               "kind": "publisher"
             }
           ],
@@ -887,7 +875,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.2/vfstool-macOS-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.2/vfstool-macOS-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -908,7 +896,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.2/vfstool-Linux-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.2/vfstool-Linux-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -923,7 +911,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.10.1",
+        "tag": "vfstool-0.10.1",
         "revision": "d00c04d5dd3499b122de7b1c6ae5de589eec1839"
       },
       "notes": {
@@ -986,7 +974,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.1/vfstool-Windows-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.1/vfstool-Windows-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -1007,7 +995,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.1/vfstool-macOS-ARM64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.1/vfstool-macOS-ARM64.zip",
               "kind": "publisher"
             }
           ],
@@ -1028,7 +1016,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.1/vfstool-macOS-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.1/vfstool-macOS-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -1049,7 +1037,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.1/vfstool-Linux-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.1/vfstool-Linux-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -1064,7 +1052,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.10.0",
+        "tag": "vfstool-0.10.0",
         "revision": "5de3318eaa8e98bd416beea65df725e625bbee7b"
       },
       "notes": {
@@ -1124,7 +1112,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.0/vfstool-Windows-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.0/vfstool-Windows-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -1145,7 +1133,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.0/vfstool-macOS-ARM64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.0/vfstool-macOS-ARM64.zip",
               "kind": "publisher"
             }
           ],
@@ -1166,7 +1154,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.0/vfstool-macOS-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.0/vfstool-macOS-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -1187,7 +1175,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.10.0/vfstool-Linux-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.10.0/vfstool-Linux-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -1202,7 +1190,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.9.1",
+        "tag": "vfstool-0.9.1",
         "revision": "3beebe557589f50c982dd57dbe6d572c095572da"
       },
       "notes": {
@@ -1262,7 +1250,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.9.1/vfstool-Windows-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.9.1/vfstool-Windows-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -1283,7 +1271,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.9.1/vfstool-macOS-ARM64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.9.1/vfstool-macOS-ARM64.zip",
               "kind": "publisher"
             }
           ],
@@ -1304,7 +1292,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.9.1/vfstool-macOS-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.9.1/vfstool-macOS-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -1319,7 +1307,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
-        "tag": "0.9.0",
+        "tag": "vfstool-0.9.0",
         "revision": "d840a0f222c5eed097aba6e20472799fe8551693"
       },
       "notes": {
@@ -1397,7 +1385,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.9.0/vfstool-Windows-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.9.0/vfstool-Windows-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -1418,7 +1406,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.9.0/vfstool-macOS-ARM64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.9.0/vfstool-macOS-ARM64.zip",
               "kind": "publisher"
             }
           ],
@@ -1439,7 +1427,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.9.0/vfstool-macOS-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.9.0/vfstool-macOS-X64.zip",
               "kind": "publisher"
             }
           ],
@@ -1460,7 +1448,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/0.9.0/vfstool-Linux-X64.zip",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-0.9.0/vfstool-Linux-X64.zip",
               "kind": "publisher"
             }
           ],

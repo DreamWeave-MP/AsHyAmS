@@ -1,0 +1,30 @@
+{
+  "project": "817cd62f-bacb-4786-815c-fb47ab2fe80a",
+  "origin": "dreamweave-mp-github-io-dreamweave-theme-7891c6c0",
+  "entry": {
+    "id": "817cd62f-bacb-4786-815c-fb47ab2fe80a",
+    "name": "DreamWeave Theme",
+    "summary": "Every template, stylesheet, font, image and script a DreamWeave site is presented with, as one Jess package.",
+    "type": "assets",
+    "jess_package": "org.dreamweave.theme",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/dreamweave-theme/home/",
+    "manifest": "https://dreamweave-mp.github.io/dreamweave-theme/dreamweave/projects/817cd62f-bacb-4786-815c-fb47ab2fe80a.json",
+    "manifest_sha256": "38898a3ec1752da33cbbef6be53bfeb6a5e0178fe8a0523d1f2208510bcc9317",
+    "updated": "2026-10-21",
+    "channels": {
+      "development": "0.2.1-dev.6",
+      "stable": "0.2.0"
+    }
+  },
+  "advertised_sha256": "38898a3ec1752da33cbbef6be53bfeb6a5e0178fe8a0523d1f2208510bcc9317",
+  "ingested_sha256": "38898a3ec1752da33cbbef6be53bfeb6a5e0178fe8a0523d1f2208510bcc9317",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-10-21T20:38:07Z",
+  "last_changed": "2026-10-21T20:38:07Z",
+  "last_attempt": "2026-10-21T20:38:07Z",
+  "last_success": "2026-10-21T20:38:07Z"
+}

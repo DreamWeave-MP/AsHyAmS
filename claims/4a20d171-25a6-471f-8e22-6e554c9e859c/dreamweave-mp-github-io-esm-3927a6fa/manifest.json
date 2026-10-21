@@ -1,0 +1,156 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "4a20d171-25a6-471f-8e22-6e554c9e859c",
+    "name": "esm",
+    "summary": "Morrowind and OpenMW plugins and saves, the ESM record stream, read and written raw-preserving, as a Jess package in Luau.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/esm/issues",
+      "page": "https://dreamweave-mp.github.io/esm/home/",
+      "source": "https://github.com/DreamWeave-MP/esm"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.6"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.6",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/esm",
+        "release": "development",
+        "revision": "0101466f12353d62b2215239ad815887675d5f82"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "esm",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.esm-0.1.1-dev.6.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 151996,
+          "digests": {
+            "sha256": "f4359ab086dd3db37c06536ede62c23c749eb0e958b14958a6e41b1955977785"
+          },
+          "jess": {
+            "package": "org.dreamweave.esm",
+            "jess_api": "1",
+            "content_digest": "73d8b75bb95709ae0100e0e17a7b864753803dcdd2819339df07915e0587c0ba",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/esm/releases/download/development/org.dreamweave.esm-0.1.1-dev.6.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/esm",
+        "tag": "esm-0.1.0",
+        "revision": "6128ac3ba9809e6d29430afbbaa91a11c7d014da"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "esm",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.esm-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 151990,
+          "digests": {
+            "sha256": "2d139f7a5af74d9730ee8ebc4469ba32cfe0924b5aa54db037d9ff91e6db0b3a"
+          },
+          "jess": {
+            "package": "org.dreamweave.esm",
+            "jess_api": "1",
+            "content_digest": "9556ec3f108f888c6d93cab21ca3937f3b96b048dfa75693f270be6882c4c72f",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/esm/releases/download/esm-0.1.0/org.dreamweave.esm-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

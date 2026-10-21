@@ -1,7 +1,7 @@
 {
-  "schema_version": "2",
+  "schema_version": "3",
   "document": "index",
-  "generator": "DreamWeave Mod Template 5.0.0",
+  "generator": "DreamWeave Mod Template 0.3.0",
   "site": {
     "name": "DreamWeave Mod Template",
     "url": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/"
@@ -15,11 +15,27 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/home/",
       "manifest": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave/projects/4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90.json",
-      "manifest_sha256": "283d9bccf44186a396f40c28ad06fc0e4f04f7e43b5864d8c4be43991ec658f8",
-      "updated": "2026-09-30",
+      "manifest_sha256": "dd9d360cde12ad0dc4bb425d58702745de5a0a053b933275aeb7055ad5dd6524",
+      "updated": "2026-10-21",
       "channels": {
-        "development": "1.1.1-dev.0",
-        "stable": "1.1.0"
+        "development": "1.1.1-dev.82",
+        "stable": "1.0.0"
+      }
+    },
+    {
+      "id": "74143198-50bf-434b-938e-816699a5d0a4",
+      "name": "DreamWeave Mod Template",
+      "summary": "The DreamWeave Mod Template's build tool: validates, builds, releases and records a DreamWeave site's projects, through jess.",
+      "type": "tool",
+      "jess_package": "org.dreamweave.mod-template",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/template/",
+      "manifest": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave/projects/74143198-50bf-434b-938e-816699a5d0a4.json",
+      "manifest_sha256": "74ef4e8f7b418082522a465d7836261681849e028c7872eb77547c8a26ca3b0b",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.3.2-dev.82",
+        "stable": "0.3.0"
       }
     },
     {
@@ -30,10 +46,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/simplified/",
       "manifest": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave/projects/9b7e3f21-6c4d-4a8b-b1e2-3f5a7c9d0e14.json",
-      "manifest_sha256": "d007513831ee2da1af4833999590cc3f8a92615a121ca9f9873f1417cc46be87",
-      "updated": "2026-09-30",
+      "manifest_sha256": "73c24538290eddcba9a5a21574ec0fee9a21e1e2a6fb56e07c68f44e8fe80e26",
+      "updated": "2026-10-21",
       "channels": {
-        "development": "1.0.1-dev.0",
+        "development": "1.0.1-dev.82",
         "stable": "1.0.0"
       }
     }

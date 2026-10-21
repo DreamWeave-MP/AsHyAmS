@@ -1,0 +1,155 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "4aefcc8f-913f-48f5-8980-2326173a7288",
+    "name": "Magick",
+    "summary": "A pure-Luau raster toolkit for Jess: PNG, BMP and TGA, atlases, gradients, masks and filters.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/magick/issues",
+      "page": "https://dreamweave-mp.github.io/magick/home/",
+      "source": "https://github.com/DreamWeave-MP/magick"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.3-dev.6"
+    },
+    "stable": {
+      "version": "0.1.2"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.3-dev.6",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/magick",
+        "release": "development",
+        "revision": "c645b8a0ba26ae38a20851de80b15b0fb844d2fe"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "Magick",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.magick-0.1.3-dev.6.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 77869,
+          "digests": {
+            "sha256": "9811c74191573e11fb8e03fa66b58c29132a0bc44f041bc89e66f1b2d9cdf151"
+          },
+          "jess": {
+            "package": "org.dreamweave.magick",
+            "jess_api": "1",
+            "content_digest": "d45ee54174c9c4701ae3032a2a337a008c13af92eab33f239358cd27f5ca8e0c",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/magick/releases/download/development/org.dreamweave.magick-0.1.3-dev.6.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.2",
+      "channel": "stable",
+      "date": "2026-10-19",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/magick",
+        "tag": "magick-0.1.2",
+        "revision": "15e7977045927481a82d9ea9333baab63729b729"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "Magick",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.magick-0.1.2.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 77863,
+          "digests": {
+            "sha256": "5abad13ac9fbd5f1982363cc7645af0bcef4a276ed0d8bd0b69839a9ee4a136c"
+          },
+          "jess": {
+            "package": "org.dreamweave.magick",
+            "jess_api": "1",
+            "content_digest": "9fe109d661f8251021f1fe8ae7a7b1c3f4ae4cb09ac00b4143e412e5199220c5",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/magick/releases/download/magick-0.1.2/org.dreamweave.magick-0.1.2.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,18 +1,18 @@
 {
-  "schema_version": "2",
+  "schema_version": "3",
   "document": "project",
-  "generator": "DreamWeave Mod Template 5.0.0",
+  "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
     "id": "a8ec99fb-1938-42cc-8b9f-87994e046594",
     "name": "dream_archive",
-    "summary": "Read, extract and write Bethesda BSA and BA2 archives in pure Rust, from Morrowind to Starfield, with a Luau module for scripts.",
+    "summary": "Read, extract and write Bethesda BSA and BA2 archives, from Morrowind to Starfield, as a Jess package in Luau.",
     "type": "library",
     "status": "active",
     "versioning": "numeric",
     "game": "morrowind",
     "license": "MIT OR Apache-2.0",
     "tags": [
-      "Rust",
+      "Jess",
       "Luau",
       "BSA",
       "BA2",
@@ -26,8 +26,6 @@
       }
     ],
     "links": {
-      "crate": "https://crates.io/crates/dream_archive",
-      "documentation": "https://dreamweave-mp.github.io/dream_archive/docs/",
       "donate": "https://ko-fi.com/magicaldave",
       "issues": "https://github.com/DreamWeave-MP/dream_archive/issues",
       "page": "https://dreamweave-mp.github.io/dream_archive/home/",
@@ -38,11 +36,130 @@
     "credits": []
   },
   "channels": {
+    "development": {
+      "version": "2.0.1-dev.7"
+    },
     "stable": {
-      "version": "1.1.0"
+      "version": "2.0.0"
     }
   },
   "releases": [
+    {
+      "version": "2.0.1-dev.7",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archive",
+        "release": "development",
+        "revision": "5fa0eb1042203fffcb491f658f9375a05c8fd720"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_archive",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.dream-archive-2.0.1-dev.7.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 261438,
+          "digests": {
+            "sha256": "ab2f473e5838b7df3ff0f9dd39184dccb9e4462e1fc0da9b8ecbe867242fcd3b"
+          },
+          "jess": {
+            "package": "org.dreamweave.dream-archive",
+            "jess_api": "1",
+            "content_digest": "015dac19c9806932bb3ce66522450382d18e6f7778c0bc57551dba5d597924dd",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream_archive/releases/download/development/org.dreamweave.dream-archive-2.0.1-dev.7.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "2.0.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream_archive",
+        "tag": "dream_archive-2.0.0",
+        "revision": "7af9ffda382883ac72038a23518cf79509d77900"
+      },
+      "notes": {
+        "summary": "dream_archive is a Jess package, written in Luau; the Rust crate continues on the rust branch at 1.1.0.",
+        "breaking": [
+          "The library is the Jess package `org.dreamweave.dream-archive`, module `@dream-archive`, installed with jess rather than Cargo. The Rust crate `dream_archive` stays at 1.1.0 on crates.io and on this repository's `rust` branch, and is no longer developed on main."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream_archive",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.dream-archive-2.0.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 261432,
+          "digests": {
+            "sha256": "281c27bf86a2b9ea14dc9baa4959a9a9d213784332acfefcc9a9a9e623035730"
+          },
+          "jess": {
+            "package": "org.dreamweave.dream-archive",
+            "jess_api": "1",
+            "content_digest": "2542758bf2af0319bcecca13eb44158c43b87733d207eb02f13d647412ee9dc1",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dream_archive/releases/download/dream_archive-2.0.0/org.dreamweave.dream-archive-2.0.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
     {
       "version": "1.1.0",
       "channel": "stable",
@@ -50,7 +167,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archive",
-        "tag": "1.1.0",
+        "tag": "dream_archive-1.1.0",
         "revision": "6cf4005005b596751006c41f9cfd3de5bb354059"
       },
       "notes": {
@@ -92,7 +209,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/dream_archive/dream_archive-1.1.0.crate",
+              "url": "https://static.crates.io/crates/nil/dream_archive-1.1.0.crate",
               "kind": "publisher"
             }
           ],
@@ -107,12 +224,11 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archive",
-        "tag": "1.0.0",
+        "tag": "dream_archive-1.0.0",
         "revision": "94f37c74ce288470e3b99b7885937bdd778b8fa8"
       },
       "notes": {
         "summary": "First stable release: the Luau binding is an l3i extension providing @dream/archive, every archive family looks entries up by hash, and lookups and zlib reads allocate less.",
-        "migration": "Compose `dream_archive::luau::ArchiveExtension` into the host's l3i `RuntimePlan`. A host that\nstill wants the `dreamArchive` global adds\n`RuntimePolicy::compat_global(\"@dream/archive\", \"dreamArchive\")`.\n[Embedding Luau](https://dreamweave-mp.github.io/dream_archive/docs/luau-hosts/#from-0-2) lists\nwhat scripts must change.\n",
         "added": [
           "`get_by_hash`, `get_id_by_hash` and `contains_hash` on every archive family, `get_id` by path, and `HashFields::from_numeric`.",
           "`archive:readInto(entry, buffer, offset)` in Luau decodes a member straight into a `buffer`, and `archive:getByHash` and `archive:containsHash` take the family's hash shape.",
@@ -141,7 +257,8 @@
           "Luau entry hashes are integers: `entry.hash` and `entry.folderHash` replace the old tables and fields, with `hashHex` and `folderHashHex` for the hex spelling. BA2 hashes are `directoryHash`, `fileHash` and `extensionHash`; sizes and offsets are `size`, `storedSize` and `offset` on every format.",
           "Luau integer arguments must be exact: `readEntry(1.5)` is an error instead of a rounded read.",
           "`bsa::Error::InvalidFileRecordFlags` is gone. Nothing returned it: both flag bits of a TES4 file record are read as the format defines them."
-        ]
+        ],
+        "migration": "Compose `dream_archive::luau::ArchiveExtension` into the host's l3i `RuntimePlan`. A host that\nstill wants the `dreamArchive` global adds\n`RuntimePolicy::compat_global(\"@dream/archive\", \"dreamArchive\")`.\nThat release's Embedding Luau page listed what scripts must change; the Luau port's\ndocumentation replaces it.\n"
       },
       "runtimes": {},
       "platforms": [],
@@ -174,7 +291,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/dream_archive/dream_archive-1.0.0.crate",
+              "url": "https://static.crates.io/crates/nil/dream_archive-1.0.0.crate",
               "kind": "publisher"
             }
           ],
@@ -189,7 +306,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archive",
-        "tag": "0.2.3",
+        "tag": "dream_archive-0.2.3",
         "revision": "3eaa4d22a03a4869a1a77f6c6d81aa4ba93c122b"
       },
       "notes": {
@@ -228,7 +345,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.2.3.crate",
+              "url": "https://static.crates.io/crates/nil/dream_archive-0.2.3.crate",
               "kind": "publisher"
             }
           ],
@@ -243,7 +360,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archive",
-        "tag": "0.2.2",
+        "tag": "dream_archive-0.2.2",
         "revision": "335dd75d1459cf183cf70a1e66a222c0b77a2cb8"
       },
       "notes": {
@@ -285,7 +402,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.2.2.crate",
+              "url": "https://static.crates.io/crates/nil/dream_archive-0.2.2.crate",
               "kind": "publisher"
             }
           ],
@@ -300,7 +417,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archive",
-        "tag": "0.2.0",
+        "tag": "dream_archive-0.2.0",
         "revision": "891a4dbde55644a1e4a5dbda8759c4c89fd04b3e"
       },
       "notes": {
@@ -345,7 +462,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.2.0.crate",
+              "url": "https://static.crates.io/crates/nil/dream_archive-0.2.0.crate",
               "kind": "publisher"
             }
           ],
@@ -360,7 +477,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archive",
-        "tag": "0.1.6",
+        "tag": "dream_archive-0.1.6",
         "revision": "49ec1cf1cb2be0ce0485c8e2fbc56d17e51a1a97"
       },
       "notes": {
@@ -399,7 +516,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.6.crate",
+              "url": "https://static.crates.io/crates/nil/dream_archive-0.1.6.crate",
               "kind": "publisher"
             }
           ],
@@ -414,7 +531,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archive",
-        "tag": "0.1.5",
+        "tag": "dream_archive-0.1.5",
         "revision": "275004ee08097937f1e0fffe143f6a4937da904f"
       },
       "notes": {
@@ -453,7 +570,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.5.crate",
+              "url": "https://static.crates.io/crates/nil/dream_archive-0.1.5.crate",
               "kind": "publisher"
             }
           ],
@@ -468,7 +585,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archive",
-        "tag": "0.1.4",
+        "tag": "dream_archive-0.1.4",
         "revision": "f62c6b2bd38cf6529176e5fb5b6e35185d2ba7d8"
       },
       "notes": {
@@ -507,7 +624,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.4.crate",
+              "url": "https://static.crates.io/crates/nil/dream_archive-0.1.4.crate",
               "kind": "publisher"
             }
           ],
@@ -522,7 +639,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archive",
-        "tag": "0.1.3",
+        "tag": "dream_archive-0.1.3",
         "revision": "31b8a298bd652c5f3edb6db6c7d0d52e05176216"
       },
       "notes": {
@@ -561,7 +678,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.3.crate",
+              "url": "https://static.crates.io/crates/nil/dream_archive-0.1.3.crate",
               "kind": "publisher"
             }
           ],
@@ -576,7 +693,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archive",
-        "tag": "0.1.2",
+        "tag": "dream_archive-0.1.2",
         "revision": "c07c7f65e0ff3af347aaa1d02a7409f49e23692a"
       },
       "notes": {
@@ -619,7 +736,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.2.crate",
+              "url": "https://static.crates.io/crates/nil/dream_archive-0.1.2.crate",
               "kind": "publisher"
             }
           ],
@@ -634,7 +751,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archive",
-        "tag": "0.1.1",
+        "tag": "dream_archive-0.1.1",
         "revision": "fe966096a85ffcdcef91da53158b58b73a1abb57"
       },
       "notes": {
@@ -681,7 +798,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.1.crate",
+              "url": "https://static.crates.io/crates/nil/dream_archive-0.1.1.crate",
               "kind": "publisher"
             }
           ],
@@ -696,7 +813,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archive",
-        "tag": "0.1.0",
+        "tag": "dream_archive-0.1.0",
         "revision": "0ee5dcba6cdf732d629f3f1bbd1890470375eb58"
       },
       "notes": {
@@ -743,7 +860,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.0.crate",
+              "url": "https://static.crates.io/crates/nil/dream_archive-0.1.0.crate",
               "kind": "publisher"
             }
           ],

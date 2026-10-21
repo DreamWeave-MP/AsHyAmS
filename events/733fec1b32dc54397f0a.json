@@ -1,0 +1,673 @@
+{
+  "id": "733fec1b32dc54397f0a",
+  "kind": "changed",
+  "project": "3aaf4fe0-616f-41a3-b520-306eda9347b0",
+  "origin": "dreamweave-mp-github-io-openmw-config-6147a97f",
+  "name": "openmw-config",
+  "observed_at": "2026-10-21T20:38:07Z",
+  "before": "5ee478e709caeca77147b6ad09a412f4294430590034e3ce68f222f61ce0191c",
+  "after": "a3e60167dbbc6395f9c8087ea2637544459c37dd5855391cf1a33459d014df20",
+  "changes": [
+    {
+      "change": "project-field",
+      "field": "summary",
+      "before": "Read, compose and write OpenMW's openmw.cfg chains from Rust, or from Lua embedded in a Rust host.",
+      "after": "Read, compose and write OpenMW's openmw.cfg chains, as a Jess package in Luau."
+    },
+    {
+      "change": "tags",
+      "added": [
+        "Jess",
+        "Luau"
+      ],
+      "removed": [
+        "Lua",
+        "Rust"
+      ]
+    },
+    {
+      "change": "link",
+      "link": "crate",
+      "before": "https://crates.io/crates/openmw-config",
+      "after": null
+    },
+    {
+      "change": "link",
+      "link": "documentation",
+      "before": "https://dreamweave-mp.github.io/Openmw_Config/docs/",
+      "after": null
+    },
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": null,
+      "after": "4.0.1-dev.6",
+      "changes": []
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "3.0.2",
+      "after": "4.0.0",
+      "changes": [
+        {
+          "change": "relationship-removed",
+          "kind": "recommends",
+          "target": {
+            "name": "vfstool_lib",
+            "url": "https://crates.io/crates/vfstool_lib"
+          },
+          "version": null
+        },
+        {
+          "change": "artifact-added",
+          "artifact": "jpk",
+          "filename": "org.dreamweave.openmw-config-4.0.0.jpk",
+          "size": 24702,
+          "sha256": "741f6da8530e3e8b280799b3836aa29163d4436c118595b97d6d063cbfe235c0"
+        },
+        {
+          "change": "artifact-removed",
+          "artifact": "crate",
+          "filename": "openmw-config-3.0.2.crate"
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "4.0.1-dev.6",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "4.0.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "notes": {
+        "summary": "openmw-config is a Jess package, written in Luau; the Rust crate continues on the rust branch at 3.0.2.",
+        "breaking": [
+          "The library is the Jess package `org.dreamweave.openmw-config`, module `@openmw-config`, installed with jess rather than Cargo. The Rust crate `openmw-config` stays at 3.0.2 on crates.io and on this repository's `rust` branch, and is no longer developed on main."
+        ]
+      }
+    },
+    {
+      "change": "release-amended",
+      "version": "3.0.2",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-3.0.2.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-3.0.2.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "3.0.2",
+          "after": "openmw_config-3.0.2"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "3.0.1",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-3.0.1.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-3.0.1.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "3.0.1",
+          "after": "openmw_config-3.0.1"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "2.0.1",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-2.0.1.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-2.0.1.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "2.0.1",
+          "after": "openmw_config-2.0.1"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "2.0.0",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-2.0.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-2.0.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "2.0.0",
+          "after": "openmw_config-2.0.0"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "1.1.0",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-1.1.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.1.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "1.1.0",
+          "after": "openmw_config-1.1.0"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "1.0.5",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-1.0.5.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.5.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "1.0.5",
+          "after": "openmw_config-1.0.5"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "1.0.4",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-1.0.4.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.4.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "1.0.4",
+          "after": "openmw_config-1.0.4"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "1.0.3",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-1.0.3.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.3.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "1.0.3",
+          "after": "openmw_config-1.0.3"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "1.0.2",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-1.0.2.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.2.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "1.0.2",
+          "after": "openmw_config-1.0.2"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "1.0.1",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-1.0.1.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.1.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "1.0.1",
+          "after": "openmw_config-1.0.1"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "1.0.0",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-1.0.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "1.0.0",
+          "after": "openmw_config-1.0.0"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.93",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-0.1.93.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.93.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.93",
+          "after": "openmw_config-0.1.93"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.92",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-0.1.92.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.92.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.92",
+          "after": "openmw_config-0.1.92"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.91",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-0.1.91.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.91.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.91",
+          "after": "openmw_config-0.1.91"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.9",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-0.1.9.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.9.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.9",
+          "after": "openmw_config-0.1.9"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.8",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-0.1.8.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.8.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.8",
+          "after": "openmw_config-0.1.8"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.7",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-0.1.7.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.7.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.7",
+          "after": "openmw_config-0.1.7"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.5",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-0.1.5.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.5.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.5",
+          "after": "openmw_config-0.1.5"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.4",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-0.1.4.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.4.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.4",
+          "after": "openmw_config-0.1.4"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.3",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-0.1.3.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.3.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.3",
+          "after": "openmw_config-0.1.3"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.2",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-0.1.2.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.2.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.2",
+          "after": "openmw_config-0.1.2"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.1",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-0.1.1.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.1.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.1",
+          "after": "openmw_config-0.1.1"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.0",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/openmw-config-0.1.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.0",
+          "after": "openmw_config-0.1.0"
+        }
+      ]
+    }
+  ]
+}

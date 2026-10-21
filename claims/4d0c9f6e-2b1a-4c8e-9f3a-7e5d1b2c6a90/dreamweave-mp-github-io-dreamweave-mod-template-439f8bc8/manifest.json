@@ -1,7 +1,7 @@
 {
-  "schema_version": "2",
+  "schema_version": "3",
   "document": "project",
-  "generator": "DreamWeave Mod Template 5.0.0",
+  "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
     "id": "4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90",
     "name": "Candlelight",
@@ -80,7 +80,7 @@
   },
   "channels": {
     "development": {
-      "version": "1.1.1-dev.0"
+      "version": "1.1.1-dev.82"
     },
     "stable": {
       "version": "1.1.0"
@@ -88,14 +88,14 @@
   },
   "releases": [
     {
-      "version": "1.1.1-dev.0",
+      "version": "1.1.1-dev.82",
       "channel": "development",
-      "date": "2026-09-30",
+      "date": "2026-10-21",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
         "release": "dev-build",
-        "revision": "b25333b803bf6ff5fdb87b413215794356af32df"
+        "revision": "7b2e16c564bd276559ad2a93b0ac21ad57afe0b0"
       },
       "runtimes": {
         "openmw": ">=0.49"
@@ -200,21 +200,6 @@
               "config": false,
               "requires_content": []
             },
-            "tamriel-rebuilt": {
-              "data_directories": [
-                "."
-              ],
-              "content_files": [
-                "Candlelight - TR.omwscripts"
-              ],
-              "groundcover_files": [],
-              "fallback_archives": [],
-              "fallback_entries": {},
-              "config": false,
-              "requires_content": [
-                "TR_Mainland.esm"
-              ]
-            },
             "flames-2k": {
               "data_directories": [
                 "."
@@ -236,6 +221,21 @@
               "fallback_entries": {},
               "config": false,
               "requires_content": []
+            },
+            "tamriel-rebuilt": {
+              "data_directories": [
+                "."
+              ],
+              "content_files": [
+                "Candlelight - TR.omwscripts"
+              ],
+              "groundcover_files": [],
+              "fallback_archives": [],
+              "fallback_entries": {},
+              "config": false,
+              "requires_content": [
+                "TR_Mainland.esm"
+              ]
             }
           },
           "requires_content": [
@@ -260,14 +260,13 @@
           "format": "fomod",
           "filename": "candlelight.zip",
           "media_type": "application/zip",
-          "size": 300180,
+          "size": 284067,
           "digests": {
-            "sha256": "5d2b2112c0eb8baca6ebe39f063b60d8f08e69a0fe688c8ae30cde8548319716"
+            "sha256": "ec0dc2dd68142bec931f0ccd35a2a24873af705a8ce43af9b01b99c6e5644532"
           },
           "layout": {
             "release_document": "dreamweave.release.json",
-            "documentation": "candlelight-Documentation/index.html",
-            "installer": "fomod/ModuleConfig.xml"
+            "documentation": "candlelight-Documentation/index.html"
           },
           "sources": [
             {
@@ -291,7 +290,6 @@
       },
       "notes": {
         "summary": "Tamriel Rebuilt support and a texture choice.",
-        "migration": "Install Tallow before updating. Candlelight 1.1 refuses to start without it.",
         "added": [
           "Tamriel Rebuilt patch component.",
           "2K and 4K flame textures."
@@ -302,6 +300,7 @@
         "fixed": [
           "Lights inside interiors no longer dim during storms."
         ],
+        "migration": "Install Tallow before updating. Candlelight 1.1 refuses to start without it.",
         "known_issues": [
           "Lights in cells loaded during a weather transition update one frame late."
         ]
@@ -409,21 +408,6 @@
               "config": false,
               "requires_content": []
             },
-            "tamriel-rebuilt": {
-              "data_directories": [
-                "."
-              ],
-              "content_files": [
-                "Candlelight - TR.omwscripts"
-              ],
-              "groundcover_files": [],
-              "fallback_archives": [],
-              "fallback_entries": {},
-              "config": false,
-              "requires_content": [
-                "TR_Mainland.esm"
-              ]
-            },
             "flames-2k": {
               "data_directories": [
                 "."
@@ -445,6 +429,21 @@
               "fallback_entries": {},
               "config": false,
               "requires_content": []
+            },
+            "tamriel-rebuilt": {
+              "data_directories": [
+                "."
+              ],
+              "content_files": [
+                "Candlelight - TR.omwscripts"
+              ],
+              "groundcover_files": [],
+              "fallback_archives": [],
+              "fallback_entries": {},
+              "config": false,
+              "requires_content": [
+                "TR_Mainland.esm"
+              ]
             }
           },
           "requires_content": [
@@ -609,21 +608,6 @@
               "config": false,
               "requires_content": []
             },
-            "tamriel-rebuilt": {
-              "data_directories": [
-                "."
-              ],
-              "content_files": [
-                "Candlelight - TR.omwscripts"
-              ],
-              "groundcover_files": [],
-              "fallback_archives": [],
-              "fallback_entries": {},
-              "config": false,
-              "requires_content": [
-                "TR_Mainland.esm"
-              ]
-            },
             "flames-2k": {
               "data_directories": [
                 "."
@@ -645,6 +629,21 @@
               "fallback_entries": {},
               "config": false,
               "requires_content": []
+            },
+            "tamriel-rebuilt": {
+              "data_directories": [
+                "."
+              ],
+              "content_files": [
+                "Candlelight - TR.omwscripts"
+              ],
+              "groundcover_files": [],
+              "fallback_archives": [],
+              "fallback_entries": {},
+              "config": false,
+              "requires_content": [
+                "TR_Mainland.esm"
+              ]
             }
           },
           "requires_content": [

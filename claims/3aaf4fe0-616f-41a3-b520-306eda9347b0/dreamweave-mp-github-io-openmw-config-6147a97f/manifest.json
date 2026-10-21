@@ -1,11 +1,11 @@
 {
-  "schema_version": "2",
+  "schema_version": "3",
   "document": "project",
-  "generator": "DreamWeave Mod Template 5.0.0",
+  "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
     "id": "3aaf4fe0-616f-41a3-b520-306eda9347b0",
     "name": "openmw-config",
-    "summary": "Read, compose and write OpenMW's openmw.cfg chains from Rust, or from Lua embedded in a Rust host.",
+    "summary": "Read, compose and write OpenMW's openmw.cfg chains, as a Jess package in Luau.",
     "type": "library",
     "status": "active",
     "versioning": "numeric",
@@ -13,8 +13,8 @@
     "license": "MIT OR Apache-2.0",
     "tags": [
       "OpenMW",
-      "Rust",
-      "Lua",
+      "Jess",
+      "Luau",
       "Configuration"
     ],
     "maintainers": [
@@ -24,8 +24,6 @@
       }
     ],
     "links": {
-      "crate": "https://crates.io/crates/openmw-config",
-      "documentation": "https://dreamweave-mp.github.io/Openmw_Config/docs/",
       "donate": "https://ko-fi.com/magicaldave",
       "issues": "https://github.com/DreamWeave-MP/Openmw_Config/issues",
       "page": "https://dreamweave-mp.github.io/Openmw_Config/home/",
@@ -43,11 +41,130 @@
     ]
   },
   "channels": {
+    "development": {
+      "version": "4.0.1-dev.6"
+    },
     "stable": {
-      "version": "3.0.2"
+      "version": "4.0.0"
     }
   },
   "releases": [
+    {
+      "version": "4.0.1-dev.6",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "release": "development",
+        "revision": "a59c164e838e275fbddb09d4971ebe4cac824506"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.openmw-config-4.0.1-dev.6.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 24710,
+          "digests": {
+            "sha256": "1904a14109aaa0c110e0fd11d4a65e7bbffce63cbd0d64f24198d45ee750c590"
+          },
+          "jess": {
+            "package": "org.dreamweave.openmw-config",
+            "jess_api": "1",
+            "content_digest": "56771cca890afbd631cfc34ecce40c9586e38586105b8387534c98b1ed4c0086",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/Openmw_Config/releases/download/development/org.dreamweave.openmw-config-4.0.1-dev.6.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "4.0.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "openmw_config-4.0.0",
+        "revision": "e68e98fd5c598014e8e49400cb4ccfb7c64a82be"
+      },
+      "notes": {
+        "summary": "openmw-config is a Jess package, written in Luau; the Rust crate continues on the rust branch at 3.0.2.",
+        "breaking": [
+          "The library is the Jess package `org.dreamweave.openmw-config`, module `@openmw-config`, installed with jess rather than Cargo. The Rust crate `openmw-config` stays at 3.0.2 on crates.io and on this repository's `rust` branch, and is no longer developed on main."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.openmw-config-4.0.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 24702,
+          "digests": {
+            "sha256": "741f6da8530e3e8b280799b3836aa29163d4436c118595b97d6d063cbfe235c0"
+          },
+          "jess": {
+            "package": "org.dreamweave.openmw-config",
+            "jess_api": "1",
+            "content_digest": "6dcb1c58d78004821234dfef5fc37f3c1a6de5d19cea8731ce4212322f159d20",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/Openmw_Config/releases/download/openmw_config-4.0.0/org.dreamweave.openmw-config-4.0.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
     {
       "version": "3.0.2",
       "channel": "stable",
@@ -55,7 +172,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "3.0.2",
+        "tag": "openmw_config-3.0.2",
         "revision": "b387ae5467f3caf441326ad9d5abcf49d1ed5228"
       },
       "notes": {
@@ -102,7 +219,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-3.0.2.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-3.0.2.crate",
               "kind": "publisher"
             }
           ],
@@ -117,7 +234,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "3.0.1",
+        "tag": "openmw_config-3.0.1",
         "revision": "b6d79ee6b08b22d47c819736473ec6e5ca7e07f5"
       },
       "notes": {
@@ -186,7 +303,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-3.0.1.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-3.0.1.crate",
               "kind": "publisher"
             }
           ],
@@ -201,7 +318,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "2.0.1",
+        "tag": "openmw_config-2.0.1",
         "revision": "e3be59d64d23767ddd0016577069101af694e97c"
       },
       "notes": {
@@ -251,7 +368,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-2.0.1.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-2.0.1.crate",
               "kind": "publisher"
             }
           ],
@@ -266,15 +383,15 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "2.0.0",
+        "tag": "openmw_config-2.0.0",
         "revision": "5174a11b245b78a347c296eb798ab484e0125457"
       },
       "notes": {
         "summary": "The Lua bindings run on Luau.",
-        "migration": "Add `mlua` to your own dependencies with the runtime you embed, and keep `features = [\"lua\"]` on\nthis crate:\n\n```toml\nopenmw-config = { version = \"2\", features = [\"lua\"] }\nmlua = { version = \"0.12\", default-features = false, features = [\"luau\"] }\n```\n",
         "breaking": [
           "The bindings build against `mlua` 0.12 and the `lua` feature no longer selects a Lua runtime: the host application picks one through its own `mlua` dependency. `standalone-lua` selects Luau for this crate's tests and docs. The Lua API itself is unchanged."
-        ]
+        ],
+        "migration": "Add `mlua` to your own dependencies with the runtime you embed, and keep `features = [\"lua\"]` on\nthis crate:\n\n```toml\nopenmw-config = { version = \"2\", features = [\"lua\"] }\nmlua = { version = \"0.12\", default-features = false, features = [\"luau\"] }\n```\n"
       },
       "runtimes": {},
       "platforms": [],
@@ -314,7 +431,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-2.0.0.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-2.0.0.crate",
               "kind": "publisher"
             }
           ],
@@ -329,7 +446,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "1.1.0",
+        "tag": "openmw_config-1.1.0",
         "revision": "d71116c60e9a8125c83a832a5b447b672109b8ac"
       },
       "notes": {
@@ -380,7 +497,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.1.0.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-1.1.0.crate",
               "kind": "publisher"
             }
           ],
@@ -395,7 +512,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "1.0.5",
+        "tag": "openmw_config-1.0.5",
         "revision": "69e5390afd54cf239de6d96cd4f08f8524bc72a4"
       },
       "notes": {
@@ -444,7 +561,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.5.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-1.0.5.crate",
               "kind": "publisher"
             }
           ],
@@ -459,7 +576,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "1.0.4",
+        "tag": "openmw_config-1.0.4",
         "revision": "9c01c85295265fea52cc4d96551018dd7c414fc8"
       },
       "notes": {
@@ -508,7 +625,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.4.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-1.0.4.crate",
               "kind": "publisher"
             }
           ],
@@ -523,7 +640,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "1.0.3",
+        "tag": "openmw_config-1.0.3",
         "revision": "977bf593ba3754ee9fe334484b4621df08a9a5d4"
       },
       "notes": {
@@ -570,7 +687,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.3.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-1.0.3.crate",
               "kind": "publisher"
             }
           ],
@@ -585,7 +702,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "1.0.2",
+        "tag": "openmw_config-1.0.2",
         "revision": "098dc4059a3e06f4015d37877f194d4544698331"
       },
       "notes": {
@@ -636,7 +753,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.2.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-1.0.2.crate",
               "kind": "publisher"
             }
           ],
@@ -651,7 +768,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "1.0.1",
+        "tag": "openmw_config-1.0.1",
         "revision": "0927f5b6b3611cc179024c3ee1c16e49c0627666"
       },
       "notes": {
@@ -719,7 +836,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.1.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-1.0.1.crate",
               "kind": "publisher"
             }
           ],
@@ -731,14 +848,14 @@
       "version": "1.0.0",
       "channel": "stable",
       "date": "2026-04-19",
+      "status": "yanked",
       "yanked": {
         "reason": "Yanked on crates.io.",
         "replacement": "1.0.1"
       },
-      "status": "yanked",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "1.0.0"
+        "tag": "openmw_config-1.0.0"
       },
       "notes": {
         "summary": "The 1.0 release, published under MIT OR Apache-2.0."
@@ -781,7 +898,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-1.0.0.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-1.0.0.crate",
               "kind": "publisher"
             }
           ],
@@ -796,7 +913,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "0.1.93",
+        "tag": "openmw_config-0.1.93",
         "revision": "1994d84a490201e57a96153971a6bd2386ed55de"
       },
       "notes": {
@@ -847,7 +964,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.93.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-0.1.93.crate",
               "kind": "publisher"
             }
           ],
@@ -862,7 +979,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "0.1.92",
+        "tag": "openmw_config-0.1.92",
         "revision": "79abc964481650125f01689cbc08d4e004bf689e"
       },
       "notes": {
@@ -909,7 +1026,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.92.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-0.1.92.crate",
               "kind": "publisher"
             }
           ],
@@ -924,7 +1041,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "0.1.91",
+        "tag": "openmw_config-0.1.91",
         "revision": "a5f323483a2ce74a246b8036a94ee9fcb47489af"
       },
       "notes": {
@@ -970,7 +1087,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.91.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-0.1.91.crate",
               "kind": "publisher"
             }
           ],
@@ -985,7 +1102,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "0.1.9",
+        "tag": "openmw_config-0.1.9",
         "revision": "7faa483017cbbf6d06c258b708636b012c7b2791"
       },
       "notes": {
@@ -1031,7 +1148,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.9.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-0.1.9.crate",
               "kind": "publisher"
             }
           ],
@@ -1046,7 +1163,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "0.1.8",
+        "tag": "openmw_config-0.1.8",
         "revision": "2fa2fd5b69f9d827882c8b84514499d0497b4c48"
       },
       "notes": {
@@ -1092,7 +1209,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.8.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-0.1.8.crate",
               "kind": "publisher"
             }
           ],
@@ -1107,7 +1224,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "0.1.7"
+        "tag": "openmw_config-0.1.7"
       },
       "notes": {
         "changed": [
@@ -1152,7 +1269,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.7.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-0.1.7.crate",
               "kind": "publisher"
             }
           ],
@@ -1167,7 +1284,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "0.1.5"
+        "tag": "openmw_config-0.1.5"
       },
       "notes": {
         "fixed": [
@@ -1212,7 +1329,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.5.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-0.1.5.crate",
               "kind": "publisher"
             }
           ],
@@ -1227,7 +1344,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "0.1.4"
+        "tag": "openmw_config-0.1.4"
       },
       "notes": {
         "changed": [
@@ -1273,7 +1390,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.4.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-0.1.4.crate",
               "kind": "publisher"
             }
           ],
@@ -1288,7 +1405,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "0.1.3",
+        "tag": "openmw_config-0.1.3",
         "revision": "63d568b5d7ffefee83d98946face3a411e65c5e1"
       },
       "notes": {
@@ -1334,7 +1451,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.3.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-0.1.3.crate",
               "kind": "publisher"
             }
           ],
@@ -1349,7 +1466,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "0.1.2",
+        "tag": "openmw_config-0.1.2",
         "revision": "8ae8253f7373eae012c26e27faf887f24a1f5326"
       },
       "notes": {
@@ -1396,7 +1513,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.2.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-0.1.2.crate",
               "kind": "publisher"
             }
           ],
@@ -1411,7 +1528,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "0.1.1",
+        "tag": "openmw_config-0.1.1",
         "revision": "67558979890f9760efd7b3e89ae580cc461b5532"
       },
       "notes": {
@@ -1469,7 +1586,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.1.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-0.1.1.crate",
               "kind": "publisher"
             }
           ],
@@ -1484,7 +1601,7 @@
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
-        "tag": "0.1.0"
+        "tag": "openmw_config-0.1.0"
       },
       "notes": {
         "summary": "First release: read an openmw.cfg chain into one configuration."
@@ -1527,7 +1644,7 @@
           },
           "sources": [
             {
-              "url": "https://static.crates.io/crates/openmw-config/openmw-config-0.1.0.crate",
+              "url": "https://static.crates.io/crates/nil/openmw-config-0.1.0.crate",
               "kind": "publisher"
             }
           ],

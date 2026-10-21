@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "DreamWeave Site",
+    "url": "https://dreamweave-mp.github.io/dreamweave-site/"
+  },
+  "projects": [
+    {
+      "id": "0d00eb81-e2ac-4e51-a4ae-718241adc828",
+      "name": "DreamWeave Site",
+      "summary": "The static site generator every DreamWeave site, and Jess's own documentation, is built with.",
+      "type": "tool",
+      "jess_package": "org.dreamweave.site",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/dreamweave-site/home/",
+      "manifest": "https://dreamweave-mp.github.io/dreamweave-site/dreamweave/projects/0d00eb81-e2ac-4e51-a4ae-718241adc828.json",
+      "manifest_sha256": "ed611cf3e67be41f6306f6434b2469ae52f65d9788ceed7745002a0422218259",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.2-dev.7",
+        "stable": "0.1.1"
+      }
+    }
+  ]
+}

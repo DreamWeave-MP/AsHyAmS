@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-openmw-install-b7dcb9ec",
+  "index_url": "https://dreamweave-mp.github.io/openmw-install/dreamweave.json",
+  "site_name": "openmw-install",
+  "site_url": "https://dreamweave-mp.github.io/openmw-install/",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/openmw-install/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6ad91ac3-400\"",
+    "last_modified": "Wed, 21 Oct 2026 20:04:19 GMT"
+  },
+  "index_sha256": "1539807f4e726b4bca63c6c1bd191263a2726e165427cf9bfc77234d1611ded8",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-10-21T20:38:07Z",
+  "last_attempt": "2026-10-21T20:38:07Z",
+  "last_success": "2026-10-21T20:38:07Z"
+}

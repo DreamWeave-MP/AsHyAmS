@@ -1,7 +1,7 @@
 {
-  "schema_version": "2",
+  "schema_version": "3",
   "document": "index",
-  "generator": "DreamWeave Mod Template 5.0.0",
+  "generator": "DreamWeave Mod Template 0.3.0",
   "site": {
     "name": "openmw-config",
     "url": "https://dreamweave-mp.github.io/Openmw_Config/"
@@ -10,15 +10,17 @@
     {
       "id": "3aaf4fe0-616f-41a3-b520-306eda9347b0",
       "name": "openmw-config",
-      "summary": "Read, compose and write OpenMW's openmw.cfg chains from Rust, or from Lua embedded in a Rust host.",
+      "summary": "Read, compose and write OpenMW's openmw.cfg chains, as a Jess package in Luau.",
       "type": "library",
+      "jess_package": "org.dreamweave.openmw-config",
       "status": "active",
       "page": "https://dreamweave-mp.github.io/Openmw_Config/home/",
       "manifest": "https://dreamweave-mp.github.io/Openmw_Config/dreamweave/projects/3aaf4fe0-616f-41a3-b520-306eda9347b0.json",
-      "manifest_sha256": "5ee478e709caeca77147b6ad09a412f4294430590034e3ce68f222f61ce0191c",
-      "updated": "2026-09-30",
+      "manifest_sha256": "a3e60167dbbc6395f9c8087ea2637544459c37dd5855391cf1a33459d014df20",
+      "updated": "2026-10-21",
       "channels": {
-        "stable": "3.0.2"
+        "development": "4.0.1-dev.6",
+        "stable": "0.1.0"
       }
     }
   ]

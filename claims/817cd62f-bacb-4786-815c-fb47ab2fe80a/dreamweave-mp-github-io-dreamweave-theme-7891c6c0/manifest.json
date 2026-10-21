@@ -1,0 +1,156 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "817cd62f-bacb-4786-815c-fb47ab2fe80a",
+    "name": "DreamWeave Theme",
+    "summary": "Every template, stylesheet, font, image and script a DreamWeave site is presented with, as one Jess package.",
+    "type": "assets",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "license": "MIT OR Apache-2.0",
+    "tags": [
+      "Jess",
+      "Luau"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/dreamweave-theme/issues",
+      "page": "https://dreamweave-mp.github.io/dreamweave-theme/home/",
+      "source": "https://github.com/DreamWeave-MP/dreamweave-theme"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.2.1-dev.6"
+    },
+    "stable": {
+      "version": "0.2.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.2.1-dev.6",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dreamweave-theme",
+        "release": "development",
+        "revision": "48cd1f4d430c91d8b08c3b48a30dc1823d02c313"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DreamWeave Theme",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.theme-0.2.1-dev.6.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 332809,
+          "digests": {
+            "sha256": "30744b3edda74bf990c880950775c66c9f2b51a1a42b3e4fd7abfbe213481902"
+          },
+          "jess": {
+            "package": "org.dreamweave.theme",
+            "jess_api": "1",
+            "content_digest": "dba975ac5efb793421fd9c44c12773157cbcd8ca97f59cf927066e5b6090c6a2",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dreamweave-theme/releases/download/development/org.dreamweave.theme-0.2.1-dev.6.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "channel": "stable",
+      "date": "2026-10-19",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dreamweave-theme",
+        "tag": "theme-0.2.0",
+        "revision": "949aacc17484e5f0fb550cd68b2768039516751a"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DreamWeave Theme",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.theme-0.2.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 332521,
+          "digests": {
+            "sha256": "4de27968cf2245937cf40a1eadb7b0eccdfb2de9cb04d97757ccb921b06e7da4"
+          },
+          "jess": {
+            "package": "org.dreamweave.theme",
+            "jess_api": "1",
+            "content_digest": "764dae524a028a2734220399dc7cbc8e8593f86ba06b34ecc5fc576c5073480c",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dreamweave-theme/releases/download/theme-0.2.0/org.dreamweave.theme-0.2.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

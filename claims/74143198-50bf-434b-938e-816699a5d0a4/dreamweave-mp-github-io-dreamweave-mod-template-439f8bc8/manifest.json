@@ -1,0 +1,228 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "74143198-50bf-434b-938e-816699a5d0a4",
+    "name": "DreamWeave Mod Template",
+    "summary": "The DreamWeave Mod Template's build tool: validates, builds, releases and records a DreamWeave site's projects, through jess.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template/issues",
+      "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/template/",
+      "source": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.3.2-dev.82"
+    },
+    "stable": {
+      "version": "0.3.1"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.3.2-dev.82",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
+        "release": "dev-build",
+        "revision": "7b2e16c564bd276559ad2a93b0ac21ad57afe0b0"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DreamWeave Mod Template",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.mod-template-0.3.2-dev.82.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 180488,
+          "digests": {
+            "sha256": "9627d802aeef4962da692b074453a1a74a7ed2705bfd049783d183399d54cf07"
+          },
+          "jess": {
+            "package": "org.dreamweave.mod-template",
+            "jess_api": "1",
+            "content_digest": "8c257f4db5b04e9592163a80286236303f86eca1c89ff1e67f6978e9cea5e60a",
+            "dependencies": {
+              "org.dreamweave.magick": "=0.1.2",
+              "org.dreamweave.site": "=0.1.1",
+              "org.dreamweave.theme": "=0.2.0",
+              "org.dreamweave.vfs": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template/releases/download/dev-build/org.dreamweave.mod-template-0.3.2-dev.82.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.3.1",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
+        "tag": "template-0.3.1",
+        "revision": "2b4d7631387a8c439edae4384e00fa15b57f039e"
+      },
+      "notes": {
+        "summary": "A development build is named by the last number bumped under every versioning scheme: a decimal project's 1.0.0 is followed by 1.0.1-dev.N, a Jess version, never 1.0.01-dev.N."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DreamWeave Mod Template",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.mod-template-0.3.1.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 180481,
+          "digests": {
+            "sha256": "4a360ce3345ed26224003773f0f8b1520eb4966364859f15fe7d11048b786c62"
+          },
+          "jess": {
+            "package": "org.dreamweave.mod-template",
+            "jess_api": "1",
+            "content_digest": "c665584d180967801958bf26ce5fad271b32193c91406605082ef79b96502c84",
+            "dependencies": {
+              "org.dreamweave.magick": "=0.1.2",
+              "org.dreamweave.site": "=0.1.1",
+              "org.dreamweave.theme": "=0.2.0",
+              "org.dreamweave.vfs": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template/releases/download/template-0.3.1/org.dreamweave.mod-template-0.3.1.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "channel": "stable",
+      "date": "2026-10-19",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
+        "tag": "template-0.3.0",
+        "revision": "e161e24e055ee44a7deff0be6184a95bb9feef2a"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DreamWeave Mod Template",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.mod-template-0.3.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 180365,
+          "digests": {
+            "sha256": "5540eb01a8fd7f6746d4f118f8c129088540f05b275b860c8d99c2ac6b07361e"
+          },
+          "jess": {
+            "package": "org.dreamweave.mod-template",
+            "jess_api": "1",
+            "content_digest": "88cf661aa324ed1b3e634a73720e7cf7097d65a065433a99d24774512e04eb85",
+            "dependencies": {
+              "org.dreamweave.magick": "=0.1.2",
+              "org.dreamweave.site": "=0.1.1",
+              "org.dreamweave.theme": "=0.2.0",
+              "org.dreamweave.vfs": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template/releases/download/template-0.3.0/org.dreamweave.mod-template-0.3.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

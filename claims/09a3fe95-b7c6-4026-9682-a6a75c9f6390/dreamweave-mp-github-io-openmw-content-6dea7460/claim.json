@@ -1,0 +1,30 @@
+{
+  "project": "09a3fe95-b7c6-4026-9682-a6a75c9f6390",
+  "origin": "dreamweave-mp-github-io-openmw-content-6dea7460",
+  "entry": {
+    "id": "09a3fe95-b7c6-4026-9682-a6a75c9f6390",
+    "name": "openmw-content",
+    "summary": "A load order's content files, opened in order through esm: which file each entry resolves to, its masters, and what failed, as a Jess package in Luau.",
+    "type": "library",
+    "jess_package": "org.dreamweave.openmw-content",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/openmw-content/home/",
+    "manifest": "https://dreamweave-mp.github.io/openmw-content/dreamweave/projects/09a3fe95-b7c6-4026-9682-a6a75c9f6390.json",
+    "manifest_sha256": "7f07c29759539049d7128fe1ffc1c4ec391ccb87cc1ad3d665d463081da688d8",
+    "updated": "2026-10-21",
+    "channels": {
+      "development": "0.1.1-dev.6",
+      "stable": "0.1.0"
+    }
+  },
+  "advertised_sha256": "7f07c29759539049d7128fe1ffc1c4ec391ccb87cc1ad3d665d463081da688d8",
+  "ingested_sha256": "7f07c29759539049d7128fe1ffc1c4ec391ccb87cc1ad3d665d463081da688d8",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-10-21T20:38:07Z",
+  "last_changed": "2026-10-21T20:38:07Z",
+  "last_attempt": "2026-10-21T20:38:07Z",
+  "last_success": "2026-10-21T20:38:07Z"
+}

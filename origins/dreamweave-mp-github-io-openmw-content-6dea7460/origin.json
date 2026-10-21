@@ -1,0 +1,23 @@
+{
+  "id": "dreamweave-mp-github-io-openmw-content-6dea7460",
+  "index_url": "https://dreamweave-mp.github.io/openmw-content/dreamweave.json",
+  "site_name": "openmw-content",
+  "site_url": "https://dreamweave-mp.github.io/openmw-content/",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "sources": [
+    "https://dreamweave-mp.github.io/openmw-content/"
+  ],
+  "redirects": [],
+  "validators": {
+    "etag": "\"6ad91ac4-3f9\"",
+    "last_modified": "Wed, 21 Oct 2026 20:04:20 GMT"
+  },
+  "index_sha256": "b1513782c5321891743ac10fcbc79fdde0002836da6fec9ccba74c531676c8c2",
+  "health": "healthy",
+  "problem": null,
+  "issues": [],
+  "previous": [],
+  "first_observed": "2026-10-21T20:38:07Z",
+  "last_attempt": "2026-10-21T20:38:07Z",
+  "last_success": "2026-10-21T20:38:07Z"
+}

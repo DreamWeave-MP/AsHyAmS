@@ -1,0 +1,11 @@
+{
+  "id": "9d2da7da36ffae1e50b4",
+  "kind": "observed",
+  "project": "4aefcc8f-913f-48f5-8980-2326173a7288",
+  "origin": "dreamweave-mp-github-io-magick-e9b07a6b",
+  "name": "Magick",
+  "observed_at": "2026-10-21T20:38:07Z",
+  "before": null,
+  "after": "e35ff97c8b2f20c9d8d3d8c450a37aa44ee0142ba9570c57f8b8e3d1b8b42679",
+  "changes": []
+}

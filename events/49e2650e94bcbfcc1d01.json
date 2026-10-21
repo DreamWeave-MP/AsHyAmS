@@ -1,0 +1,391 @@
+{
+  "id": "49e2650e94bcbfcc1d01",
+  "kind": "changed",
+  "project": "a8ec99fb-1938-42cc-8b9f-87994e046594",
+  "origin": "dreamweave-mp-github-io-dream-archive-49534853",
+  "name": "dream_archive",
+  "observed_at": "2026-10-21T20:38:07Z",
+  "before": "853250a0de6c83b7e8a8f9d7460b0b3529ab8ea19c500f9ea37a3abba919cd7c",
+  "after": "66781dde8d398d3ba1e2d0e80e1a56e3a6e348999e0f8263cc28acce4289f727",
+  "changes": [
+    {
+      "change": "project-field",
+      "field": "summary",
+      "before": "Read, extract and write Bethesda BSA and BA2 archives in pure Rust, from Morrowind to Starfield, with a Luau module for scripts.",
+      "after": "Read, extract and write Bethesda BSA and BA2 archives, from Morrowind to Starfield, as a Jess package in Luau."
+    },
+    {
+      "change": "tags",
+      "added": [
+        "Jess"
+      ],
+      "removed": [
+        "Rust"
+      ]
+    },
+    {
+      "change": "link",
+      "link": "crate",
+      "before": "https://crates.io/crates/dream_archive",
+      "after": null
+    },
+    {
+      "change": "link",
+      "link": "documentation",
+      "before": "https://dreamweave-mp.github.io/dream_archive/docs/",
+      "after": null
+    },
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": null,
+      "after": "2.0.1-dev.7",
+      "changes": []
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "1.1.0",
+      "after": "2.0.0",
+      "changes": [
+        {
+          "change": "artifact-added",
+          "artifact": "jpk",
+          "filename": "org.dreamweave.dream-archive-2.0.0.jpk",
+          "size": 261432,
+          "sha256": "281c27bf86a2b9ea14dc9baa4959a9a9d213784332acfefcc9a9a9e623035730"
+        },
+        {
+          "change": "artifact-removed",
+          "artifact": "crate",
+          "filename": "dream_archive-1.1.0.crate"
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "2.0.1-dev.7",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "2.0.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "notes": {
+        "summary": "dream_archive is a Jess package, written in Luau; the Rust crate continues on the rust branch at 1.1.0.",
+        "breaking": [
+          "The library is the Jess package `org.dreamweave.dream-archive`, module `@dream-archive`, installed with jess rather than Cargo. The Rust crate `dream_archive` stays at 1.1.0 on crates.io and on this repository's `rust` branch, and is no longer developed on main."
+        ]
+      }
+    },
+    {
+      "change": "release-amended",
+      "version": "1.1.0",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/dream_archive-1.1.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/dream_archive/dream_archive-1.1.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "1.1.0",
+          "after": "dream_archive-1.1.0"
+        }
+      ]
+    },
+    {
+      "change": "release-notes",
+      "version": "1.0.0"
+    },
+    {
+      "change": "release-amended",
+      "version": "1.0.0",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/dream_archive-1.0.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/dream_archive/dream_archive-1.0.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "1.0.0",
+          "after": "dream_archive-1.0.0"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.2.3",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/dream_archive-0.2.3.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.2.3.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.2.3",
+          "after": "dream_archive-0.2.3"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.2.2",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/dream_archive-0.2.2.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.2.2.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.2.2",
+          "after": "dream_archive-0.2.2"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.2.0",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/dream_archive-0.2.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.2.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.2.0",
+          "after": "dream_archive-0.2.0"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.6",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/dream_archive-0.1.6.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.6.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.6",
+          "after": "dream_archive-0.1.6"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.5",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/dream_archive-0.1.5.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.5.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.5",
+          "after": "dream_archive-0.1.5"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.4",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/dream_archive-0.1.4.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.4.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.4",
+          "after": "dream_archive-0.1.4"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.3",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/dream_archive-0.1.3.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.3.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.3",
+          "after": "dream_archive-0.1.3"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.2",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/dream_archive-0.1.2.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.2.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.2",
+          "after": "dream_archive-0.1.2"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.1",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/dream_archive-0.1.1.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.1.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.1",
+          "after": "dream_archive-0.1.1"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.1.0",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/nil/dream_archive-0.1.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "crate",
+          "url": "https://static.crates.io/crates/dream_archive/dream_archive-0.1.0.crate",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.1.0",
+          "after": "dream_archive-0.1.0"
+        }
+      ]
+    }
+  ]
+}

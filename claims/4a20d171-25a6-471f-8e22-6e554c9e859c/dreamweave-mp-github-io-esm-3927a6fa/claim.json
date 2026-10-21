@@ -1,0 +1,30 @@
+{
+  "project": "4a20d171-25a6-471f-8e22-6e554c9e859c",
+  "origin": "dreamweave-mp-github-io-esm-3927a6fa",
+  "entry": {
+    "id": "4a20d171-25a6-471f-8e22-6e554c9e859c",
+    "name": "esm",
+    "summary": "Morrowind and OpenMW plugins and saves, the ESM record stream, read and written raw-preserving, as a Jess package in Luau.",
+    "type": "library",
+    "jess_package": "org.dreamweave.esm",
+    "status": "active",
+    "page": "https://dreamweave-mp.github.io/esm/home/",
+    "manifest": "https://dreamweave-mp.github.io/esm/dreamweave/projects/4a20d171-25a6-471f-8e22-6e554c9e859c.json",
+    "manifest_sha256": "f23554d4d32403ef892089308f5c8247d86d567d3db50f4dd396a9807175c3fc",
+    "updated": "2026-10-21",
+    "channels": {
+      "development": "0.1.1-dev.6",
+      "stable": "0.1.0"
+    }
+  },
+  "advertised_sha256": "f23554d4d32403ef892089308f5c8247d86d567d3db50f4dd396a9807175c3fc",
+  "ingested_sha256": "f23554d4d32403ef892089308f5c8247d86d567d3db50f4dd396a9807175c3fc",
+  "rejected": null,
+  "health": "current",
+  "problem": null,
+  "media": null,
+  "first_observed": "2026-10-21T20:38:07Z",
+  "last_changed": "2026-10-21T20:38:07Z",
+  "last_attempt": "2026-10-21T20:38:07Z",
+  "last_success": "2026-10-21T20:38:07Z"
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "openmw-install",
+    "url": "https://dreamweave-mp.github.io/openmw-install/"
+  },
+  "projects": [
+    {
+      "id": "34eff1d9-fd7e-4c17-bf34-cdb8bf3ad546",
+      "name": "openmw-install",
+      "summary": "An OpenMW installation, opened: its configuration chain, its virtual file system and its content list, with activation and saving, as a Jess package in Luau.",
+      "type": "library",
+      "jess_package": "org.dreamweave.openmw-install",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/openmw-install/home/",
+      "manifest": "https://dreamweave-mp.github.io/openmw-install/dreamweave/projects/34eff1d9-fd7e-4c17-bf34-cdb8bf3ad546.json",
+      "manifest_sha256": "60371faba76c5927bec33ffb3b5e64966e4269d7c8c5312766a4e53b51aed8f7",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.1-dev.6",
+        "stable": "0.1.0"
+      }
+    }
+  ]
+}

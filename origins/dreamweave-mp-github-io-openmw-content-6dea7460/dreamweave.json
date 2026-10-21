@@ -1,0 +1,27 @@
+{
+  "schema_version": "3",
+  "document": "index",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "site": {
+    "name": "openmw-content",
+    "url": "https://dreamweave-mp.github.io/openmw-content/"
+  },
+  "projects": [
+    {
+      "id": "09a3fe95-b7c6-4026-9682-a6a75c9f6390",
+      "name": "openmw-content",
+      "summary": "A load order's content files, opened in order through esm: which file each entry resolves to, its masters, and what failed, as a Jess package in Luau.",
+      "type": "library",
+      "jess_package": "org.dreamweave.openmw-content",
+      "status": "active",
+      "page": "https://dreamweave-mp.github.io/openmw-content/home/",
+      "manifest": "https://dreamweave-mp.github.io/openmw-content/dreamweave/projects/09a3fe95-b7c6-4026-9682-a6a75c9f6390.json",
+      "manifest_sha256": "7f07c29759539049d7128fe1ffc1c4ec391ccb87cc1ad3d665d463081da688d8",
+      "updated": "2026-10-21",
+      "channels": {
+        "development": "0.1.1-dev.6",
+        "stable": "0.1.0"
+      }
+    }
+  ]
+}

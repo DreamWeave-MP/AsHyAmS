@@ -1,0 +1,160 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "09a3fe95-b7c6-4026-9682-a6a75c9f6390",
+    "name": "openmw-content",
+    "summary": "A load order's content files, opened in order through esm: which file each entry resolves to, its masters, and what failed, as a Jess package in Luau.",
+    "type": "library",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau",
+      "OpenMW"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/openmw-content/issues",
+      "page": "https://dreamweave-mp.github.io/openmw-content/home/",
+      "source": "https://github.com/DreamWeave-MP/openmw-content"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.1-dev.6"
+    },
+    "stable": {
+      "version": "0.1.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.1-dev.6",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/openmw-content",
+        "release": "development",
+        "revision": "8d56ce62c023297b1b16b00b1cb10b995a7f1c10"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-content",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.openmw-content-0.1.1-dev.6.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 15647,
+          "digests": {
+            "sha256": "c7a25f443e2f818ca7244e9b5632983b8af39186b95bd717600c99440b36a33d"
+          },
+          "jess": {
+            "package": "org.dreamweave.openmw-content",
+            "jess_api": "1",
+            "content_digest": "c073d11a7d2f94fd6ce873e8b8e0d83c98f9b40f9124dbf3f1d4c7a16a4cd999",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/openmw-content/releases/download/development/org.dreamweave.openmw-content-0.1.1-dev.6.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/openmw-content",
+        "tag": "openmw_content-0.1.0",
+        "revision": "a3096e310f6264e115d6154ade1c2fe116108ef2"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-content",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.openmw-content-0.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 15641,
+          "digests": {
+            "sha256": "16bf4aead793f6d48459db7a55081bad722c656aa73b6ffeadc32caf1f02469d"
+          },
+          "jess": {
+            "package": "org.dreamweave.openmw-content",
+            "jess_api": "1",
+            "content_digest": "e3b97afa3214cd00d409b1878f9edeced100e5916aa260e70574bedb288bf833",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/openmw-content/releases/download/openmw_content-0.1.0/org.dreamweave.openmw-content-0.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

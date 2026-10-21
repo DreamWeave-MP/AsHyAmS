@@ -1,0 +1,521 @@
+{
+  "id": "c3c10a88d98c65d9b04a",
+  "kind": "changed",
+  "project": "55e873c9-1ddc-4b13-b59a-0eb790bb2565",
+  "origin": "dreamweave-mp-github-io-s3lightfixes-bb9d2c5d",
+  "name": "S3LightFixes",
+  "observed_at": "2026-10-21T20:38:07Z",
+  "before": "e57c1f2c5a22a13f7ace2e4ff256d1c7313829dbb21afeb956b0efdc667f4a96",
+  "after": "e1e4a7822b39bf3ade920f6bc3ecf49446577ac9e8f973eb1615a1cbfcf8d362",
+  "changes": [
+    {
+      "change": "tags",
+      "added": [
+        "Jess",
+        "Luau"
+      ],
+      "removed": [
+        "PortMaster",
+        "Rust"
+      ]
+    },
+    {
+      "change": "link",
+      "link": "documentation",
+      "before": "https://dreamweave-mp.github.io/S3LightFixes/docs/",
+      "after": null
+    },
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.4.61-dev.3",
+      "after": "1.0.1-dev.7",
+      "changes": [
+        {
+          "change": "platforms",
+          "added": [],
+          "removed": [
+            "linux/x86_64",
+            "macos/aarch64",
+            "macos/x86_64",
+            "windows/x86_64"
+          ]
+        },
+        {
+          "change": "artifact-added",
+          "artifact": "jpk",
+          "filename": "org.dreamweave.s3lightfixes-1.0.1-dev.7.jpk",
+          "size": 73991,
+          "sha256": "2419385b179dced3e6c95013c236b7d4440dbeb3fb8c4e8002028d495aa9432d"
+        },
+        {
+          "change": "artifact-removed",
+          "artifact": "windows-x64",
+          "filename": "s3lightfixes-Windows-X64.zip"
+        },
+        {
+          "change": "artifact-removed",
+          "artifact": "macos-arm64",
+          "filename": "s3lightfixes-macOS-ARM64.zip"
+        },
+        {
+          "change": "artifact-removed",
+          "artifact": "macos-x64",
+          "filename": "s3lightfixes-macOS-X64.zip"
+        },
+        {
+          "change": "artifact-removed",
+          "artifact": "linux-x64",
+          "filename": "s3lightfixes-Linux-X64.zip"
+        },
+        {
+          "change": "artifact-removed",
+          "artifact": "android-arm64",
+          "filename": "s3lightfixes-Android-ARM64.zip"
+        },
+        {
+          "change": "artifact-removed",
+          "artifact": "linux-arm64-portmaster",
+          "filename": "s3lightfixes-Portmaster-ARM64.zip"
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.4.6",
+      "after": "1.0.0",
+      "changes": [
+        {
+          "change": "platforms",
+          "added": [],
+          "removed": [
+            "linux/x86_64",
+            "macos/aarch64",
+            "macos/x86_64",
+            "windows/x86_64"
+          ]
+        },
+        {
+          "change": "artifact-added",
+          "artifact": "jpk",
+          "filename": "org.dreamweave.s3lightfixes-1.0.0.jpk",
+          "size": 73985,
+          "sha256": "daa4dfe1fc0cb5191f66b10f8a07dd6d9c6b61c1deb3488386ddecc663fd33dd"
+        },
+        {
+          "change": "artifact-removed",
+          "artifact": "windows-x64",
+          "filename": "s3lightfixes-Windows-X64.zip"
+        },
+        {
+          "change": "artifact-removed",
+          "artifact": "macos-arm64",
+          "filename": "s3lightfixes-macOS-ARM64.zip"
+        },
+        {
+          "change": "artifact-removed",
+          "artifact": "macos-x64",
+          "filename": "s3lightfixes-macOS-X64.zip"
+        },
+        {
+          "change": "artifact-removed",
+          "artifact": "linux-x64",
+          "filename": "s3lightfixes-Linux-X64.zip"
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "1.0.1-dev.7",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "1.0.0",
+      "channel": "stable",
+      "date": "2026-10-21",
+      "status": "available",
+      "notes": {
+        "summary": "S3LightFixes is a Jess package, written in Luau; the Rust program continues on the rust branch at 0.5.0.",
+        "breaking": [
+          "The tool is the Jess package `org.dreamweave.s3lightfixes`, run through jess rather than as a downloaded binary, so the per-platform downloads, the PortMaster build and the AUR package end with 0.5.0. The Rust program stays on its GitHub releases and this repository's `rust` branch, and is no longer developed on main."
+        ]
+      }
+    },
+    {
+      "change": "release-amended",
+      "version": "0.4.6",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "windows-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.6/s3lightfixes-Windows-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "windows-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.6/s3lightfixes-Windows-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "macos-arm64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.6/s3lightfixes-macOS-ARM64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "macos-arm64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.6/s3lightfixes-macOS-ARM64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "macos-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.6/s3lightfixes-macOS-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "macos-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.6/s3lightfixes-macOS-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "linux-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.6/s3lightfixes-Linux-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "linux-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.6/s3lightfixes-Linux-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.4.6",
+          "after": "s3lightfixes-0.4.6"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.4.58",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "windows-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.58/s3lightfixes-Windows-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "windows-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.58/s3lightfixes-Windows-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "macos-arm64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.58/s3lightfixes-macOS-ARM64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "macos-arm64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.58/s3lightfixes-macOS-ARM64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "macos-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.58/s3lightfixes-macOS-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "macos-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.58/s3lightfixes-macOS-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "linux-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.58/s3lightfixes-Linux-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "linux-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.58/s3lightfixes-Linux-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.4.58",
+          "after": "s3lightfixes-0.4.58"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.4.57",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "windows-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.57/s3lightfixes-Windows-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "windows-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.57/s3lightfixes-Windows-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "macos-arm64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.57/s3lightfixes-macOS-ARM64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "macos-arm64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.57/s3lightfixes-macOS-ARM64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "macos-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.57/s3lightfixes-macOS-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "macos-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.57/s3lightfixes-macOS-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "linux-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.57/s3lightfixes-Linux-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "linux-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.57/s3lightfixes-Linux-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.4.57",
+          "after": "s3lightfixes-0.4.57"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.4.56",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "windows-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.56/s3lightfixes-Windows-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "windows-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.56/s3lightfixes-Windows-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "macos-arm64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.56/s3lightfixes-macOS-ARM64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "macos-arm64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.56/s3lightfixes-macOS-ARM64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "macos-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.56/s3lightfixes-macOS-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "macos-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.56/s3lightfixes-macOS-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "linux-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.56/s3lightfixes-Linux-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "linux-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.56/s3lightfixes-Linux-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.4.56",
+          "after": "s3lightfixes-0.4.56"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.4.55",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "windows-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.55/s3lightfixes-Windows-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "windows-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.55/s3lightfixes-Windows-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "macos-arm64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.55/s3lightfixes-macOS-ARM64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "macos-arm64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.55/s3lightfixes-macOS-ARM64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "macos-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.55/s3lightfixes-macOS-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "macos-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.55/s3lightfixes-macOS-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "linux-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.55/s3lightfixes-Linux-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "linux-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.55/s3lightfixes-Linux-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.4.55",
+          "after": "s3lightfixes-0.4.55"
+        }
+      ]
+    },
+    {
+      "change": "release-amended",
+      "version": "0.4.53",
+      "channel": "stable",
+      "changes": [
+        {
+          "change": "artifact-source-added",
+          "artifact": "windows-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.53/s3lightfixes-Windows-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "windows-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.53/s3lightfixes-Windows-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "macos-arm64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.53/s3lightfixes-macOS-ARM64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "macos-arm64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.53/s3lightfixes-macOS-ARM64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "macos-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.53/s3lightfixes-macOS-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "macos-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.53/s3lightfixes-macOS-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-added",
+          "artifact": "linux-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-0.4.53/s3lightfixes-Linux-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "artifact-source-removed",
+          "artifact": "linux-x64",
+          "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/0.4.53/s3lightfixes-Linux-X64.zip",
+          "kind": "publisher"
+        },
+        {
+          "change": "source-revision",
+          "field": "tag",
+          "before": "0.4.53",
+          "after": "s3lightfixes-0.4.53"
+        }
+      ]
+    },
+    {
+      "change": "release-removed",
+      "version": "0.4.61-dev.3",
+      "channel": "development"
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "schema_version": "3",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.3.0",
+  "project": {
+    "id": "0d00eb81-e2ac-4e51-a4ae-718241adc828",
+    "name": "DreamWeave Site",
+    "summary": "The static site generator every DreamWeave site, and Jess's own documentation, is built with.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess",
+      "Luau"
+    ],
+    "maintainers": [
+      {
+        "name": "DreamWeave",
+        "url": "https://github.com/DreamWeave-MP"
+      }
+    ],
+    "links": {
+      "issues": "https://github.com/DreamWeave-MP/dreamweave-site/issues",
+      "page": "https://dreamweave-mp.github.io/dreamweave-site/home/",
+      "source": "https://github.com/DreamWeave-MP/dreamweave-site"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "development": {
+      "version": "0.1.2-dev.7"
+    },
+    "stable": {
+      "version": "0.1.1"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.1.2-dev.7",
+      "channel": "development",
+      "date": "2026-10-21",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dreamweave-site",
+        "release": "development",
+        "revision": "568d8a59175a9ca8bb219653d9538caff9fb6ee6"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DreamWeave Site",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.site-0.1.2-dev.7.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 115301,
+          "digests": {
+            "sha256": "2fc86c94708d44d6b00063dea440d021e71c89db979c4750f54315c705c62e65"
+          },
+          "jess": {
+            "package": "org.dreamweave.site",
+            "jess_api": "1",
+            "content_digest": "3fd8976766017b625f9bd12543d77150820e38aff00130830d7317413dd6f9ab",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dreamweave-site/releases/download/development/org.dreamweave.site-0.1.2-dev.7.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.1",
+      "channel": "stable",
+      "date": "2026-10-19",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dreamweave-site",
+        "tag": "site-0.1.1",
+        "revision": "0ee750b79b137e184282bd84c52a100d91d746cc"
+      },
+      "notes": {
+        "summary": "First release published as a DreamWeave project."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DreamWeave Site",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.site-0.1.1.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 115294,
+          "digests": {
+            "sha256": "b922b403f8ed33384f861df12a52d7a8a4afdd4b1d6494ce0992bce97f5da412"
+          },
+          "jess": {
+            "package": "org.dreamweave.site",
+            "jess_api": "1",
+            "content_digest": "d2d4af2903e741bf046ead35361609644c4272c588668988327937a5cdd1d071",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dreamweave-site/releases/download/site-0.1.1/org.dreamweave.site-0.1.1.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}
