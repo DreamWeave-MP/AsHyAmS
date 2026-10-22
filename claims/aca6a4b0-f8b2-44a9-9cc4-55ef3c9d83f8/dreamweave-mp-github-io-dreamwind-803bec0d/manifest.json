@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.2.1-dev.3"
+      "version": "0.2.1-dev.4"
     },
     "stable": {
       "version": "0.2.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.2.1-dev.3",
+      "version": "0.2.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-22",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dreamwind",
         "release": "development",
-        "revision": "9428258a271e6c3187a39562cb495e37d6736da0"
+        "revision": "be5ae0152a51b14f0814b8ba9dd4c1750bf9c1a7"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.dreamwind-0.2.1-dev.3.jpk",
+          "filename": "org.dreamweave.dreamwind-0.2.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 9691,
           "digests": {
-            "sha256": "1a4194dcac0f191fabca6574bb29f0e67846c03073f743096700b06d8fedaf0e"
+            "sha256": "3b0a5f4d21cb3f1913e3bcd5f85ff916eff54128f9149cd30f44c59d2f63d7ba"
           },
           "jess": {
             "package": "org.dreamweave.dreamwind",
             "jess_api": "1",
-            "content_digest": "fa294f5a9ae364cbf38705f7892ca6c09217d54d88e715d97279ea593366551a",
+            "content_digest": "18918c3300e8cf7fc64f4ae320e703a47d32944236344f229193803e6c846162",
             "dependencies": {
               "org.dreamweave.add-vanilla-refs": "0.1",
               "org.dreamweave.doctor": "0.1",
@@ -110,7 +110,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dreamwind/releases/download/development/org.dreamweave.dreamwind-0.2.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/dreamwind/releases/download/development/org.dreamweave.dreamwind-0.2.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],
