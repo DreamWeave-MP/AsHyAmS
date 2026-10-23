@@ -31,7 +31,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.3"
+      "version": "0.1.1-dev.4"
     },
     "stable": {
       "version": "0.1.0"
@@ -39,14 +39,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.3",
+      "version": "0.1.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_propaganda",
         "release": "development",
-        "revision": "c3b0e50885b9816c7a884cc4d96c1cea88a7b46c"
+        "revision": "6c48a31a1a082cbe75001e7b2a7fd137941a3502"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,16 +71,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.dream-propaganda-0.1.1-dev.3.jpk",
+          "filename": "org.dreamweave.dream-propaganda-0.1.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 70224,
+          "size": 76873,
           "digests": {
-            "sha256": "1503eb168d6c787c1515e8567ebd3c815eab3fea762ce48eaea7e316a77befbd"
+            "sha256": "b6fbb7e51b01408311fff172e8edefe6278c4536199555e4f1aca98452339497"
           },
           "jess": {
             "package": "org.dreamweave.dream-propaganda",
             "jess_api": "1",
-            "content_digest": "3edee2442bbc8d1a313a8d5eb2fd2fbe1d74bef9e0c0c71db7edc0c47d2ef386",
+            "content_digest": "3850077b4b7fd9a66a0bbb80b0aecbc0d22f0c5ced662d92d3cb20ae6db72036",
             "dependencies": {
               "org.dreamweave.magick": "0.1.3",
               "org.dreamweave.truetype": "0.1"
@@ -88,7 +88,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dream_propaganda/releases/download/development/org.dreamweave.dream-propaganda-0.1.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/dream_propaganda/releases/download/development/org.dreamweave.dream-propaganda-0.1.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],
