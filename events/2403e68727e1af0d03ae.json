@@ -1,0 +1,84 @@
+{
+  "id": "2403e68727e1af0d03ae",
+  "kind": "changed",
+  "project": "3aaf4fe0-616f-41a3-b520-306eda9347b0",
+  "origin": "dreamweave-mp-github-io-openmw-config-6147a97f",
+  "name": "openmw-config",
+  "observed_at": "2026-10-23T21:26:57Z",
+  "before": "894e6e44915294117922f40d74234ecd2230eb4b51c96b94c018de7507fd8c3f",
+  "after": "97576c0d10b9438d12ace8cb38625117dbef6985718c59225632ad1996c1e1ea",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "4.0.1-dev.7",
+      "after": "4.2.1-dev.13",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 24710,
+          "after": 28809
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "4.0.0",
+      "after": "4.2.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 24702,
+          "after": 28802
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "4.2.1-dev.13",
+      "channel": "development",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "4.2.0",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": {
+        "summary": "`locate` takes the fallbacks it would read from the process, so a tool's tests never find the machine's own OpenMW configuration.",
+        "added": [
+          "`locate(given, fallbacks)`: `fallbacks` is `{ environment, own }`, OPENMW_CONFIG's value and OpenMW's own configuration folder, standing in for this process's. A test passes `{}` to have neither; without it they are read from the process, as in 4.1.0."
+        ]
+      }
+    },
+    {
+      "change": "release-added",
+      "version": "4.1.0",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": {
+        "summary": "Finds OpenMW's own configuration again, as the Rust crate did: `locate` takes a named file or folder, else OPENMW_CONFIG, else the openmw.cfg in OpenMW's user folder.",
+        "added": [
+          "`userFolders()`: the folders OpenMW's `?userconfig?` and `?userdata?` tokens name on this platform, worked out as OpenMW does: Documents\\My Games\\OpenMW on Windows (the Documents known folder, wherever it was moved), Library/Preferences/openmw and Library/Application Support/openmw on macOS, and the XDG folders elsewhere. Pass them to `new` as `tokens`. Empty without the process.environment capability.",
+          "`locate(given)`: the openmw.cfg a tool reads, `given` (a file, or a folder holding one under any capitalization), else OPENMW_CONFIG, else OpenMW's own. Nil and why when there is none.",
+          "`@openmw-config/user`: the per-platform rules as a function of a platform description, for a caller describing another platform."
+        ],
+        "known_issues": [
+          "`userFolders` and `locate`'s fallbacks need jess 0.2.1 or later, whose runtime says which platform it runs on and where Documents is."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "4.0.1-dev.7",
+      "channel": "development"
+    }
+  ]
+}

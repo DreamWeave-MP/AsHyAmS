@@ -42,22 +42,22 @@
   },
   "channels": {
     "development": {
-      "version": "4.0.1-dev.7"
+      "version": "4.2.1-dev.13"
     },
     "stable": {
-      "version": "4.0.0"
+      "version": "4.2.0"
     }
   },
   "releases": [
     {
-      "version": "4.0.1-dev.7",
+      "version": "4.2.1-dev.13",
       "channel": "development",
       "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
         "release": "development",
-        "revision": "1becdce907a6859eedf63e0193af33f4673837af"
+        "revision": "35a132ac3381e698db7e726eaa599766a1a78eee"
       },
       "runtimes": {},
       "platforms": [],
@@ -82,21 +82,148 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.openmw-config-4.0.1-dev.7.jpk",
+          "filename": "org.dreamweave.openmw-config-4.2.1-dev.13.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 24710,
+          "size": 28809,
           "digests": {
-            "sha256": "c14559dfb8fa8fc3274d237a2d28724236363071b3f80d656df1f3ecad7aa386"
+            "sha256": "86700fcf21db98dadcc86f8886b6dc3f390bd01a105dbb8a5d0319571b34e6d0"
           },
           "jess": {
             "package": "org.dreamweave.openmw-config",
             "jess_api": "1",
-            "content_digest": "52f1ee80cad09efe3e4da6c220173a16e011bd07ff9d52e063287c7942edaefa",
+            "content_digest": "70b730c6c09b8d6a33c1471d060fe4ac1f78336077690ea4c5db624076310722",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/Openmw_Config/releases/download/development/org.dreamweave.openmw-config-4.0.1-dev.7.jpk",
+              "url": "https://github.com/DreamWeave-MP/Openmw_Config/releases/download/development/org.dreamweave.openmw-config-4.2.1-dev.13.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "4.2.0",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "openmw_config-4.2.0",
+        "revision": "57745390d1bde26c44c529cc964e3bd94aa79f8e"
+      },
+      "notes": {
+        "summary": "`locate` takes the fallbacks it would read from the process, so a tool's tests never find the machine's own OpenMW configuration.",
+        "added": [
+          "`locate(given, fallbacks)`: `fallbacks` is `{ environment, own }`, OPENMW_CONFIG's value and OpenMW's own configuration folder, standing in for this process's. A test passes `{}` to have neither; without it they are read from the process, as in 4.1.0."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.openmw-config-4.2.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 28802,
+          "digests": {
+            "sha256": "d90b667ff0791baf86de6926ee198ae31a94f5c5ea7fbdb38d5f59e7451254c4"
+          },
+          "jess": {
+            "package": "org.dreamweave.openmw-config",
+            "jess_api": "1",
+            "content_digest": "1a84e63664f790aee1f7f16fcb23a1f511b0458028dc3b8c78737954a197328f",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/Openmw_Config/releases/download/openmw_config-4.2.0/org.dreamweave.openmw-config-4.2.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "4.1.0",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
+        "tag": "openmw_config-4.1.0",
+        "revision": "1ead19295693300169272c5cfcf5765f982ee09f"
+      },
+      "notes": {
+        "summary": "Finds OpenMW's own configuration again, as the Rust crate did: `locate` takes a named file or folder, else OPENMW_CONFIG, else the openmw.cfg in OpenMW's user folder.",
+        "added": [
+          "`userFolders()`: the folders OpenMW's `?userconfig?` and `?userdata?` tokens name on this platform, worked out as OpenMW does: Documents\\My Games\\OpenMW on Windows (the Documents known folder, wherever it was moved), Library/Preferences/openmw and Library/Application Support/openmw on macOS, and the XDG folders elsewhere. Pass them to `new` as `tokens`. Empty without the process.environment capability.",
+          "`locate(given)`: the openmw.cfg a tool reads, `given` (a file, or a folder holding one under any capitalization), else OPENMW_CONFIG, else OpenMW's own. Nil and why when there is none.",
+          "`@openmw-config/user`: the per-platform rules as a function of a platform description, for a caller describing another platform."
+        ],
+        "known_issues": [
+          "`userFolders` and `locate`'s fallbacks need jess 0.2.1 or later, whose runtime says which platform it runs on and where Documents is."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-config",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.openmw-config-4.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 28324,
+          "digests": {
+            "sha256": "d8d2f88483d7b3eaa2fb62563657f85b4b63811f8ffda589bf4c19f74b368521"
+          },
+          "jess": {
+            "package": "org.dreamweave.openmw-config",
+            "jess_api": "1",
+            "content_digest": "2160e87ed902e4f66e1e407f7fc8992cb0241f3123b65b9e3e515737525dbd42",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/Openmw_Config/releases/download/openmw_config-4.1.0/org.dreamweave.openmw-config-4.1.0.jpk",
               "kind": "publisher"
             }
           ],
