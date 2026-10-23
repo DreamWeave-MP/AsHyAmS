@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.3"
+      "version": "0.1.1-dev.4"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.3",
+      "version": "0.1.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/nif",
         "release": "development",
-        "revision": "a91c82bd0ed710dabfa9d0aa515e593480547c9c"
+        "revision": "2d3028ccec849201b8f738ab00ffa7820ea211b4"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,21 +72,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.nif-0.1.1-dev.3.jpk",
+          "filename": "org.dreamweave.nif-0.1.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 1094017,
           "digests": {
-            "sha256": "be04f671fad1103b2a2ac0f718de4a8fe0b362437f504e59dbbb557cd8151677"
+            "sha256": "9b622cc432aa3cb8c490a909a0fe93a8c0ad881c0a18f98e1d828c0df0c5fb0d"
           },
           "jess": {
             "package": "org.dreamweave.nif",
             "jess_api": "1",
-            "content_digest": "1971e477900f7258a694dbfaf685de73a7304674627623363dc3ab4fce32e456",
+            "content_digest": "e24302565708c5a99fd417a7ae7231afb87cc6134c9c891a0de102c0163c9da3",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/nif/releases/download/development/org.dreamweave.nif-0.1.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/nif/releases/download/development/org.dreamweave.nif-0.1.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],

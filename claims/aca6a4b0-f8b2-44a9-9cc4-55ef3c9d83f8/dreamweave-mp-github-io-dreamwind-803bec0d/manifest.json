@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.2.1-dev.4"
+      "version": "0.2.1-dev.5"
     },
     "stable": {
       "version": "0.2.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.2.1-dev.4",
+      "version": "0.2.1-dev.5",
       "channel": "development",
-      "date": "2026-10-22",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dreamwind",
         "release": "development",
-        "revision": "be5ae0152a51b14f0814b8ba9dd4c1750bf9c1a7"
+        "revision": "18409f9aa1b5f663b442b30047762286d6e75601"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.dreamwind-0.2.1-dev.4.jpk",
+          "filename": "org.dreamweave.dreamwind-0.2.1-dev.5.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 9691,
           "digests": {
-            "sha256": "3b0a5f4d21cb3f1913e3bcd5f85ff916eff54128f9149cd30f44c59d2f63d7ba"
+            "sha256": "ad9d2cb3af51eeba12b4464b058b5db0d0b32dc1082633400f9f56c9b5fdbb07"
           },
           "jess": {
             "package": "org.dreamweave.dreamwind",
             "jess_api": "1",
-            "content_digest": "18918c3300e8cf7fc64f4ae320e703a47d32944236344f229193803e6c846162",
+            "content_digest": "11988a83f5b5209f1a4638ffae762628cc62e26b33b6084a8bf8e9ac6f0d108d",
             "dependencies": {
               "org.dreamweave.add-vanilla-refs": "0.1",
               "org.dreamweave.doctor": "0.1",
@@ -110,7 +110,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dreamwind/releases/download/development/org.dreamweave.dreamwind-0.2.1-dev.4.jpk",
+              "url": "https://github.com/DreamWeave-MP/dreamwind/releases/download/development/org.dreamweave.dreamwind-0.2.1-dev.5.jpk",
               "kind": "publisher"
             }
           ],

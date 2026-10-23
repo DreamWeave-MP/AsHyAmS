@@ -1,0 +1,32 @@
+{
+  "id": "556eac4507007939c922",
+  "kind": "changed",
+  "project": "70f3f079-226d-48ac-be5a-73fb327eb7c0",
+  "origin": "dreamweave-mp-github-io-doom-c2974404",
+  "name": "DOOM for Jess",
+  "observed_at": "2026-10-23T20:23:35Z",
+  "before": "3c005cc41be54806686a21fec479b1f6a23db629346c2384891e57e38b6cfed3",
+  "after": "4792df39f08fa2e4e1943c20e3289fd1ea04ce7272ac2df3b079b0fa6278a4e0",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.4",
+      "after": "0.1.1-dev.5",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.5",
+      "channel": "development",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.4",
+      "channel": "development"
+    }
+  ]
+}

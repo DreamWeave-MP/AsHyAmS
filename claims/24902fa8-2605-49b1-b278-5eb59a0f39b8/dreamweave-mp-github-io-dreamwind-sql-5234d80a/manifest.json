@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.2-dev.3"
+      "version": "0.1.2-dev.4"
     },
     "stable": {
       "version": "0.1.1"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.2-dev.3",
+      "version": "0.1.2-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dreamwind-sql",
         "release": "development",
-        "revision": "bdd44b4885a3856538fd3ae7e5226508f732a574"
+        "revision": "389fcd6d25c313a21152b9b7ebc51d7d71bac2be"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.dreamwind-sql-0.1.2-dev.3.jpk",
+          "filename": "org.dreamweave.dreamwind-sql-0.1.2-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 63190,
           "digests": {
-            "sha256": "24dc5818c6c6beb13cf7dbdc26e65c5e9dc08abba5089f25237df4b5fd1be468"
+            "sha256": "c4e2e469266cce2082f612707f605960b51dfaf355b0cfde11c711a3b996a706"
           },
           "jess": {
             "package": "org.dreamweave.dreamwind-sql",
             "jess_api": "1",
-            "content_digest": "a95984249810c772927c914c69e7ac277345693c2351b8428698791fd95f6333",
+            "content_digest": "8ef8619233e121aad1da3eab5946d0760600a04db271ed66d024c3b360460af0",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.jessql": "0.1.1",
@@ -90,7 +90,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dreamwind-sql/releases/download/development/org.dreamweave.dreamwind-sql-0.1.2-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/dreamwind-sql/releases/download/development/org.dreamweave.dreamwind-sql-0.1.2-dev.4.jpk",
               "kind": "publisher"
             }
           ],

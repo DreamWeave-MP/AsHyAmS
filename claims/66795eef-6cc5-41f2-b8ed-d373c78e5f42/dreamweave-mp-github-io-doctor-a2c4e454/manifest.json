@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.3"
+      "version": "0.1.1-dev.4"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.3",
+      "version": "0.1.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/doctor",
         "release": "development",
-        "revision": "19b314937da0a0e760bb32a36abe7fe81cc3f667"
+        "revision": "ac0b7e6708540e5281a231ecde33504446ec858f"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.doctor-0.1.1-dev.3.jpk",
+          "filename": "org.dreamweave.doctor-0.1.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 43076,
+          "size": 43077,
           "digests": {
-            "sha256": "82d5d2046a81be959492943a9b2a9ad83ed611510fc251172d8611277b318463"
+            "sha256": "1933319fb04b51679b928230dbad87f55a8c3c2a56bea1ecb4f8508fcbe2df8f"
           },
           "jess": {
             "package": "org.dreamweave.doctor",
             "jess_api": "1",
-            "content_digest": "42470a25f9e39f7a96365cd45b38a047cf49639fc07a357ac54ce67e50913e7c",
+            "content_digest": "1a18f77fa8e87a20ca2d12ce3b6d48548f29644df71476e0c5607bbfebdb5a24",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.openmw-content": "0.1",
@@ -92,7 +92,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/doctor/releases/download/development/org.dreamweave.doctor-0.1.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/doctor/releases/download/development/org.dreamweave.doctor-0.1.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],

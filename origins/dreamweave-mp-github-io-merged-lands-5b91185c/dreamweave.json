@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "index",
   "generator": "DreamWeave Mod Template 0.3.0",
   "site": {
@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/merged-lands/home/",
       "manifest": "https://dreamweave-mp.github.io/merged-lands/dreamweave/projects/79933d87-68dd-4476-945a-906e5a6f4f44.json",
-      "manifest_sha256": "b7f55fff8b4f347a53027ffe9273937e3633af1cc9b4d2bfd8a79f4f6c704235",
-      "updated": "2026-10-21",
+      "manifest_sha256": "519231e25c2e8a2ce2f43c13e4f4cb156c00ec0b06ad284beadec48122c187b6",
+      "updated": "2026-10-23",
       "channels": {
-        "development": "0.1.1-dev.3",
+        "development": "0.1.1-dev.4",
         "stable": "0.1.0"
       }
     }

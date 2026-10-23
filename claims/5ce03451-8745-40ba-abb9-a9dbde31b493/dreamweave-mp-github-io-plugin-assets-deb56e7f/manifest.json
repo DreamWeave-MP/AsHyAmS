@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.3"
+      "version": "0.1.1-dev.4"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.3",
+      "version": "0.1.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/plugin-assets",
         "release": "development",
-        "revision": "94f8a6d41521849a4ef95fd041ad6ea2a8d135f5"
+        "revision": "f5642b34b65ea5cf4deaca05f8e07c605df8d0e9"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.plugin-assets-0.1.1-dev.3.jpk",
+          "filename": "org.dreamweave.plugin-assets-0.1.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 74356,
           "digests": {
-            "sha256": "3e3f59decfde43ee099ef15de43c86eb2fd41ddae01bd79995c7aaf5e84d5e50"
+            "sha256": "931f8523b098923cb21a188a7dbf9e31d53cd99f2ab4bcca02d3a33c2af85198"
           },
           "jess": {
             "package": "org.dreamweave.plugin-assets",
             "jess_api": "1",
-            "content_digest": "65671c7ddccb60caccc1924e4ad158a3e064a9b840511427b10d50caa7781df5",
+            "content_digest": "c59f24c85fd3cf1ad6e535ecc3dcb03ddbf312b1b7385e656a41f35e8ca69773",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.nif-assets": "0.1",
@@ -90,7 +90,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/plugin-assets/releases/download/development/org.dreamweave.plugin-assets-0.1.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/plugin-assets/releases/download/development/org.dreamweave.plugin-assets-0.1.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],

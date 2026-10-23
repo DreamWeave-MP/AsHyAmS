@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -31,7 +31,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.4-dev.9"
+      "version": "0.1.4-dev.10"
     },
     "stable": {
       "version": "0.1.3"
@@ -39,14 +39,14 @@
   },
   "releases": [
     {
-      "version": "0.1.4-dev.9",
+      "version": "0.1.4-dev.10",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/magick",
         "release": "development",
-        "revision": "932bf21333107e8df21f5fe9e721cff87e693c22"
+        "revision": "c2866a559cf33a893eb676f16601d9286268850e"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.magick-0.1.4-dev.9.jpk",
+          "filename": "org.dreamweave.magick-0.1.4-dev.10.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 92749,
+          "size": 92750,
           "digests": {
-            "sha256": "b6a5f92620947302c3bede70423e438b7d77c2854f49804e882264bca91db587"
+            "sha256": "48bbf888e82481c7c2cdfaf8238b445a82c94400cb0068b870971e6544530a69"
           },
           "jess": {
             "package": "org.dreamweave.magick",
             "jess_api": "1",
-            "content_digest": "792e0d7b8e4fe84797cdcea7fee52814cbd9de59005c14b8005de917916ca424",
+            "content_digest": "adb2d14dd806f3ba796493a965b4be770706b7abaf374f19265aba56ccbb2795",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/magick/releases/download/development/org.dreamweave.magick-0.1.4-dev.9.jpk",
+              "url": "https://github.com/DreamWeave-MP/magick/releases/download/development/org.dreamweave.magick-0.1.4-dev.10.jpk",
               "kind": "publisher"
             }
           ],

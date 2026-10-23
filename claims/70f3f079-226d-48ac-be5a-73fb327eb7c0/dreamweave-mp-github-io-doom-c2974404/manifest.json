@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.4"
+      "version": "0.1.1-dev.5"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.4",
+      "version": "0.1.1-dev.5",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/doom",
         "release": "development",
-        "revision": "e603f8c1619b5d6ba748020e1d4c1236e7c18a10"
+        "revision": "6f8818a3f4ced1b306b1a8d7c2604c2d242ae6b0"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,21 +72,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.doom-0.1.1-dev.4.jpk",
+          "filename": "org.dreamweave.doom-0.1.1-dev.5.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 251410,
           "digests": {
-            "sha256": "6836069763c1951e767be6e2debed944ecbab6ee9344df5e86967e76cbea68e5"
+            "sha256": "169f90ad6459ac6351dbdf42306df9303967fecae611ad5545b3ca2a2b31eed4"
           },
           "jess": {
             "package": "org.dreamweave.doom",
             "jess_api": "1",
-            "content_digest": "82b55ea60ba6c235b7837ea262742ca771bbfc2d3fc5451d083de55e991cdf5a",
+            "content_digest": "c0378f5d270ad9ee57042427b5b89fbb2058ced7c5e70d0a72661818681a6e05",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/doom/releases/download/development/org.dreamweave.doom-0.1.1-dev.4.jpk",
+              "url": "https://github.com/DreamWeave-MP/doom/releases/download/development/org.dreamweave.doom-0.1.1-dev.5.jpk",
               "kind": "publisher"
             }
           ],

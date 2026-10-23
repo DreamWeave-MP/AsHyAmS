@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "index",
   "generator": "DreamWeave Mod Template 0.3.0",
   "site": {
@@ -15,10 +15,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/home/",
       "manifest": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave/projects/4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90.json",
-      "manifest_sha256": "374c77948abc1d3baafc168330eafa5091292cbf49f5dfcb4b9f917a5bbedc1b",
-      "updated": "2026-10-21",
+      "manifest_sha256": "faffc1b4a93de6eda1550263d8f5422f8a4fbefaf73ea9c9e87c5099745fe6fe",
+      "updated": "2026-10-23",
       "channels": {
-        "development": "1.1.1-dev.85",
+        "development": "1.1.1-dev.88",
         "stable": "1.0.0"
       }
     },
@@ -31,10 +31,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/template/",
       "manifest": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave/projects/74143198-50bf-434b-938e-816699a5d0a4.json",
-      "manifest_sha256": "8b782d07405ab62e46ce8e4a50a4055646ae70fcdcc508908c32da028b0e7cca",
-      "updated": "2026-10-21",
+      "manifest_sha256": "24685375281b530a9c0afb4d85f8e6d505baf330f058e27a2600903f4072bf27",
+      "updated": "2026-10-23",
       "channels": {
-        "development": "0.3.3-dev.85",
+        "development": "0.4.1-dev.88",
         "stable": "0.3.0"
       }
     },
@@ -46,10 +46,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/simplified/",
       "manifest": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave/projects/9b7e3f21-6c4d-4a8b-b1e2-3f5a7c9d0e14.json",
-      "manifest_sha256": "1d5d276c57bb121dd31b066d830ab02eda137c2badfc989cde0e5ca10f06973f",
-      "updated": "2026-10-21",
+      "manifest_sha256": "e4f75e56694ef715dfb8f232afe2345be2fde9e6f293f5e968cb7398727dc40a",
+      "updated": "2026-10-23",
       "channels": {
-        "development": "1.0.1-dev.85",
+        "development": "1.0.1-dev.88",
         "stable": "1.0.0"
       }
     }

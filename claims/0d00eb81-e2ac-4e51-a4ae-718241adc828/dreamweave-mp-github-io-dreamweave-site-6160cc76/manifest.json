@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -31,7 +31,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.2-dev.7"
+      "version": "0.1.2-dev.8"
     },
     "stable": {
       "version": "0.1.1"
@@ -39,14 +39,14 @@
   },
   "releases": [
     {
-      "version": "0.1.2-dev.7",
+      "version": "0.1.2-dev.8",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dreamweave-site",
         "release": "development",
-        "revision": "568d8a59175a9ca8bb219653d9538caff9fb6ee6"
+        "revision": "e1e9a3c89456f91ff34f1f63696665f17754f8bf"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.site-0.1.2-dev.7.jpk",
+          "filename": "org.dreamweave.site-0.1.2-dev.8.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 115301,
+          "size": 115300,
           "digests": {
-            "sha256": "2fc86c94708d44d6b00063dea440d021e71c89db979c4750f54315c705c62e65"
+            "sha256": "15c0a8cbb80b913b0555794b5f6524d1bccfc6cee382511cc6dfff613a90f7db"
           },
           "jess": {
             "package": "org.dreamweave.site",
             "jess_api": "1",
-            "content_digest": "3fd8976766017b625f9bd12543d77150820e38aff00130830d7317413dd6f9ab",
+            "content_digest": "3e0d55fa8fdae0d0fdf4296714ccca665c3c5bfa1d4926bdcbbe326151796603",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dreamweave-site/releases/download/development/org.dreamweave.site-0.1.2-dev.7.jpk",
+              "url": "https://github.com/DreamWeave-MP/dreamweave-site/releases/download/development/org.dreamweave.site-0.1.2-dev.8.jpk",
               "kind": "publisher"
             }
           ],

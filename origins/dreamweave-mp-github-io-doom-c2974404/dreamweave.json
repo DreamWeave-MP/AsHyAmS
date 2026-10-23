@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "index",
   "generator": "DreamWeave Mod Template 0.3.0",
   "site": {
@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/doom/home/",
       "manifest": "https://dreamweave-mp.github.io/doom/dreamweave/projects/70f3f079-226d-48ac-be5a-73fb327eb7c0.json",
-      "manifest_sha256": "3c005cc41be54806686a21fec479b1f6a23db629346c2384891e57e38b6cfed3",
-      "updated": "2026-10-21",
+      "manifest_sha256": "4792df39f08fa2e4e1943c20e3289fd1ea04ce7272ac2df3b079b0fa6278a4e0",
+      "updated": "2026-10-23",
       "channels": {
-        "development": "0.1.1-dev.4",
+        "development": "0.1.1-dev.5",
         "stable": "0.1.0"
       }
     }

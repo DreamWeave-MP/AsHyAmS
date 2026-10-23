@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -31,7 +31,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.7-dev.3"
+      "version": "0.1.7-dev.4"
     },
     "stable": {
       "version": "0.1.6"
@@ -39,14 +39,14 @@
   },
   "releases": [
     {
-      "version": "0.1.7-dev.3",
+      "version": "0.1.7-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/jessql",
         "release": "development",
-        "revision": "2d1ec8a1b0c03cd2d2879eab3c7a52824528fc25"
+        "revision": "1f5367bdeeae73497f493d361291fd204f4ae293"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.jessql-0.1.7-dev.3.jpk",
+          "filename": "org.dreamweave.jessql-0.1.7-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 75631,
           "digests": {
-            "sha256": "7ce2567113a5a63128a8cc924a9c28b83010c46ddd79838b5b9a0a5e01c7bccb"
+            "sha256": "38455cdd36db9db4ce6c7721bf3721968c8ccc7f41a6ac7769b840aa9004bd0b"
           },
           "jess": {
             "package": "org.dreamweave.jessql",
             "jess_api": "1",
-            "content_digest": "6534beec56284360eb8df6740292ce9178a77d6ac3bfacdc042335cf589745ff",
+            "content_digest": "1e8ca395e027cc551d9247d895fa0c9529ba4580880d727bf3dd80d12bf36b14",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/jessql/releases/download/development/org.dreamweave.jessql-0.1.7-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/jessql/releases/download/development/org.dreamweave.jessql-0.1.7-dev.4.jpk",
               "kind": "publisher"
             }
           ],

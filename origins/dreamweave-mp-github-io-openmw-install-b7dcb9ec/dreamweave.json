@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "index",
   "generator": "DreamWeave Mod Template 0.3.0",
   "site": {
@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/openmw-install/home/",
       "manifest": "https://dreamweave-mp.github.io/openmw-install/dreamweave/projects/34eff1d9-fd7e-4c17-bf34-cdb8bf3ad546.json",
-      "manifest_sha256": "60371faba76c5927bec33ffb3b5e64966e4269d7c8c5312766a4e53b51aed8f7",
-      "updated": "2026-10-21",
+      "manifest_sha256": "9dc9550a785212c7125dd4cd07278e50e0185e0191a0dbcc092a0827299fa74e",
+      "updated": "2026-10-23",
       "channels": {
-        "development": "0.1.1-dev.6",
+        "development": "0.1.1-dev.7",
         "stable": "0.1.0"
       }
     }

@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -31,22 +31,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.3.3-dev.85"
+      "version": "0.4.1-dev.88"
     },
     "stable": {
-      "version": "0.3.2"
+      "version": "0.4.0"
     }
   },
   "releases": [
     {
-      "version": "0.3.3-dev.85",
+      "version": "0.4.1-dev.88",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
         "release": "dev-build",
-        "revision": "9f306f4d2750dbceba35fc11ef1d26a34e4b72f0"
+        "revision": "ae7f18aeaad14473b8834172ff02144089240fff"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,16 +71,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.mod-template-0.3.3-dev.85.jpk",
+          "filename": "org.dreamweave.mod-template-0.4.1-dev.88.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 180492,
+          "size": 185569,
           "digests": {
-            "sha256": "689c95633846f22df714f8625e5c8732e5ce19e9ee5aa1473c03ed89fdc573cc"
+            "sha256": "987be0f2301f5b07437752a98017e206002e2b2b50b6fb3e0926e659d44a30dd"
           },
           "jess": {
             "package": "org.dreamweave.mod-template",
             "jess_api": "1",
-            "content_digest": "af89e1570a7f10169f1757842e449e8e2a070f451ddc337c193c2fdcaf645e71",
+            "content_digest": "515b8493f3044698abd080fd1cda3f7fd2e9910ea14d66dfb77c2312173fbc96",
             "dependencies": {
               "org.dreamweave.magick": "0.1.2",
               "org.dreamweave.site": "=0.1.1",
@@ -90,7 +90,76 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template/releases/download/dev-build/org.dreamweave.mod-template-0.3.3-dev.85.jpk",
+              "url": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template/releases/download/dev-build/org.dreamweave.mod-template-0.4.1-dev.88.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.4.0",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
+        "tag": "template-0.4.0",
+        "revision": "dd60cd17c7b28abb8c912909db10c519224bad9d"
+      },
+      "notes": {
+        "summary": "Every protocol document is written at schema_version 4, and a Jess package can release an application: a packed workspace and an executable per platform, which jess install installs.",
+        "added": [
+          "`[package] application` in mod.toml releases a jpk project as an application too: CI packs it into dist/application with the jess image, named by StroggForge's jess_application input, and the release records the .jsw as a jsw artifact with its jess_workspace block and each platform's executable as a zipped binary artifact."
+        ],
+        "breaking": [
+          "Sites are written at protocol schema_version 4, which jess reads from 0.2.0 on: an older jess can't sync packages from a site built with this release."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DreamWeave Mod Template",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.mod-template-0.4.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 185562,
+          "digests": {
+            "sha256": "413c4ef2bf9ac05312fdc66e60685f172bf491b17d4fd11d8d49bbdd66fc4a08"
+          },
+          "jess": {
+            "package": "org.dreamweave.mod-template",
+            "jess_api": "1",
+            "content_digest": "82bfe25be2eea1e163efc393c14bb3769579e1f6b03d70207135d4b42dac9f75",
+            "dependencies": {
+              "org.dreamweave.magick": "0.1.2",
+              "org.dreamweave.site": "=0.1.1",
+              "org.dreamweave.theme": "=0.2.0",
+              "org.dreamweave.vfs": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template/releases/download/template-0.4.0/org.dreamweave.mod-template-0.4.0.jpk",
               "kind": "publisher"
             }
           ],

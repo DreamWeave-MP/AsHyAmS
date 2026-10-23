@@ -1,0 +1,32 @@
+{
+  "id": "37fbc46b7ff049ba4a2a",
+  "kind": "changed",
+  "project": "5ce03451-8745-40ba-abb9-a9dbde31b493",
+  "origin": "dreamweave-mp-github-io-plugin-assets-deb56e7f",
+  "name": "plugin-assets",
+  "observed_at": "2026-10-23T20:23:35Z",
+  "before": "3617ac9e8a9d54d49c6d08d3556defdfc3970686da5cfb6bd96371be6893e10f",
+  "after": "66a4d85812d2fb20d379d661b1e99789a38d072a59acae2f5e020eb68391d87e",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.3",
+      "after": "0.1.1-dev.4",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.4",
+      "channel": "development",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.3",
+      "channel": "development"
+    }
+  ]
+}

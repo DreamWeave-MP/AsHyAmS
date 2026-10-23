@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.3"
+      "version": "0.1.1-dev.4"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.3",
+      "version": "0.1.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/tes3-saves",
         "release": "development",
-        "revision": "3fd1bdf83e8f4964277e09512831cf36c409520b"
+        "revision": "675a4b20b5fadfcba43c62fd8db6302d22740b5c"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.tes3-saves-0.1.1-dev.3.jpk",
+          "filename": "org.dreamweave.tes3-saves-0.1.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 197532,
+          "size": 197540,
           "digests": {
-            "sha256": "1dc9f1a6cd10bae764515948d1b881d7e1d0dc1ad595912a807c06a61e5409cc"
+            "sha256": "4251b508c6e48beff8fc6a2e0c87779c21adcc4c20a5d353fc37e4f006d04185"
           },
           "jess": {
             "package": "org.dreamweave.tes3-saves",
             "jess_api": "1",
-            "content_digest": "34cc0913204d3da165d7160f6e0dea2dedd49d08f2ee6a984f1c557bc0ecd7a3",
+            "content_digest": "23bc14817a8b61d609340843fc04cf9bd543f646c8b97e108ebf97b18b8ac334",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.openmw-install": "0.1"
@@ -89,7 +89,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/tes3-saves/releases/download/development/org.dreamweave.tes3-saves-0.1.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/tes3-saves/releases/download/development/org.dreamweave.tes3-saves-0.1.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],

@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.3"
+      "version": "0.1.1-dev.4"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.3",
+      "version": "0.1.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/merge-to-master",
         "release": "development",
-        "revision": "66b0a8949f520ab42e4045c0e4cf3360763cfe7f"
+        "revision": "349fbf464c6c67dda97515fcc381bba080c83661"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.merge-to-master-0.1.1-dev.3.jpk",
+          "filename": "org.dreamweave.merge-to-master-0.1.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 54076,
           "digests": {
-            "sha256": "30d39f929b1949756db6ee2bfeb97963990d8eb9d5e71ea985b27e3e1096dcf5"
+            "sha256": "8635b73916aadd33cffb28ab394191e3d9b3423762594a68c1aa1bf9c75e052f"
           },
           "jess": {
             "package": "org.dreamweave.merge-to-master",
             "jess_api": "1",
-            "content_digest": "b49c21bb579d8e83d7d10a91b60a1247758c3f402f27a9337df5a83b71569343",
+            "content_digest": "1874a096b8cb36440bbe2b43c8826b6e98ed510abbdabb49b5b39eb6f1c95101",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.tes3conv": "0.1"
@@ -89,7 +89,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/merge-to-master/releases/download/development/org.dreamweave.merge-to-master-0.1.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/merge-to-master/releases/download/development/org.dreamweave.merge-to-master-0.1.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],

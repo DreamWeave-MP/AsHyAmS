@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -31,7 +31,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.3"
+      "version": "0.1.1-dev.4"
     },
     "stable": {
       "version": "0.1.0"
@@ -39,14 +39,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.3",
+      "version": "0.1.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/codecs-lab",
         "release": "development",
-        "revision": "8ccd12f342313992c4817218ad0390a70ba20a30"
+        "revision": "8a825e4b0c127f6ffa42da1486383c7ef107a24d"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.codecs-lab-0.1.1-dev.3.jpk",
+          "filename": "org.dreamweave.codecs-lab-0.1.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 11966,
           "digests": {
-            "sha256": "f20dacff5ff2b84bd83b283c6608eea368d837d6fa1904084f4fec19caaee171"
+            "sha256": "1b68867d140abb9404dfa1dfa4ec8066b4b529ab686dd5ff23c6c3fa9aa804fb"
           },
           "jess": {
             "package": "org.dreamweave.codecs-lab",
             "jess_api": "1",
-            "content_digest": "a419164edfd66896865ebb9330c3036d87114a1eb4e6a1d29c30c9be8caffcb2",
+            "content_digest": "98a3d62da2241c9eb434fe0ccf994850d1da54f26a094dbc47cd66ccdc68f799",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/codecs-lab/releases/download/development/org.dreamweave.codecs-lab-0.1.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/codecs-lab/releases/download/development/org.dreamweave.codecs-lab-0.1.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],

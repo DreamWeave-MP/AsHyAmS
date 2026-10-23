@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.6.1-dev.3"
+      "version": "0.6.1-dev.4"
     },
     "stable": {
       "version": "0.6.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.6.1-dev.3",
+      "version": "0.6.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/openmw-workbench",
         "release": "development",
-        "revision": "6a12213f7f660780fc4658f7b29ee6dab8dce412"
+        "revision": "377bd94f8a2d18194494b6478f10602db6a5af63"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.openmw-workbench-0.6.1-dev.3.jpk",
+          "filename": "org.dreamweave.openmw-workbench-0.6.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 150924,
           "digests": {
-            "sha256": "f984e62200509e5a3a47aeff5e35f0731944eb8a36109ba1adbcb55d94de40ea"
+            "sha256": "917ed63d9118bf7ef2a6854b36433890f6d4df38e08c3fe732e4cd536ef9f5e2"
           },
           "jess": {
             "package": "org.dreamweave.openmw-workbench",
             "jess_api": "1",
-            "content_digest": "d5de5bdf6b629b1e4f7c5cfa2f34bb0970dcb24e93bce35c5a0bc856c7d59760",
+            "content_digest": "77cd45fb1b0e7c0b0bbbcef785035fc8eda2f31bfe7a52e7b5461563b9074234",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.jessql": "0.1.4",
@@ -92,7 +92,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/openmw-workbench/releases/download/development/org.dreamweave.openmw-workbench-0.6.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/openmw-workbench/releases/download/development/org.dreamweave.openmw-workbench-0.6.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],

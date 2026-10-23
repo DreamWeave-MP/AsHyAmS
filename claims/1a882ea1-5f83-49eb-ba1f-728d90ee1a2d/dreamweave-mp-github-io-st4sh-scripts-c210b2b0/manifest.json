@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.2-dev.3"
+      "version": "0.1.2-dev.4"
     },
     "stable": {
       "version": "0.1.1"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.2-dev.3",
+      "version": "0.1.2-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/st4sh-scripts",
         "release": "development",
-        "revision": "bdcc82d4066eb5b938976a4b26fdabb793415289"
+        "revision": "724661b0c94c7d9b5b38097f2eb6e9f0d00b5822"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,23 +72,23 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.st4sh-scripts-0.1.2-dev.3.jpk",
+          "filename": "org.dreamweave.st4sh-scripts-0.1.2-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 861163,
           "digests": {
-            "sha256": "0c89514c4670a52fc04fad1f2964da2e60c9321b24061cd3dc976e1d703ec2c6"
+            "sha256": "d52af0e975d000c77eec322a64d12a7c3c1fea1ccdda0c476d11749b88b66daf"
           },
           "jess": {
             "package": "org.dreamweave.st4sh-scripts",
             "jess_api": "1",
-            "content_digest": "0bb6a1455eff174e1a43672c20c00ce964b15bd0030b0a4c6b3a4e74a713a0d0",
+            "content_digest": "04b262cb8832e352a4314a5800b408a9eb026c973f9b4d66423f28914cc7c876",
             "dependencies": {
               "org.dreamweave.magick": "^0.1.2"
             }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/st4sh-scripts/releases/download/development/org.dreamweave.st4sh-scripts-0.1.2-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/st4sh-scripts/releases/download/development/org.dreamweave.st4sh-scripts-0.1.2-dev.4.jpk",
               "kind": "publisher"
             }
           ],

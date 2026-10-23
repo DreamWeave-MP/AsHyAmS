@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.6"
+      "version": "0.1.1-dev.7"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.6",
+      "version": "0.1.1-dev.7",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/esm",
         "release": "development",
-        "revision": "0101466f12353d62b2215239ad815887675d5f82"
+        "revision": "3ba401afd58f8ef2d331f25ea94a0b02f39d8d5f"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,21 +72,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.esm-0.1.1-dev.6.jpk",
+          "filename": "org.dreamweave.esm-0.1.1-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 151996,
           "digests": {
-            "sha256": "f4359ab086dd3db37c06536ede62c23c749eb0e958b14958a6e41b1955977785"
+            "sha256": "add1f9bdfef70df3d9e5b04791353327cbe3031891267b065f8bb0f206626622"
           },
           "jess": {
             "package": "org.dreamweave.esm",
             "jess_api": "1",
-            "content_digest": "73d8b75bb95709ae0100e0e17a7b864753803dcdd2819339df07915e0587c0ba",
+            "content_digest": "03db23a7c6079ad62bd91cffab3d43b49d230c39c3d39deb105ee5a7b85b3b49",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/esm/releases/download/development/org.dreamweave.esm-0.1.1-dev.6.jpk",
+              "url": "https://github.com/DreamWeave-MP/esm/releases/download/development/org.dreamweave.esm-0.1.1-dev.7.jpk",
               "kind": "publisher"
             }
           ],

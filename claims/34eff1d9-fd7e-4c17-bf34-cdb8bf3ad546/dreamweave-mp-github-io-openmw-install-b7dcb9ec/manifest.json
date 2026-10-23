@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.6"
+      "version": "0.1.1-dev.7"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.6",
+      "version": "0.1.1-dev.7",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/openmw-install",
         "release": "development",
-        "revision": "820d9114f6aaf32b4749cbc3d61f1f916afa5bfb"
+        "revision": "d6cc717e07f4a9c4943f21f213d00f83f230c7e8"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.openmw-install-0.1.1-dev.6.jpk",
+          "filename": "org.dreamweave.openmw-install-0.1.1-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 11224,
           "digests": {
-            "sha256": "339b94cd17227b1ea25b855122f795f2e05fc2b5d47a14613a63ccea0ba54b5d"
+            "sha256": "d1ccf33e713f18589460a14245eee25260dd5bead3ca5f1326f311d62cd067bd"
           },
           "jess": {
             "package": "org.dreamweave.openmw-install",
             "jess_api": "1",
-            "content_digest": "1cac284ba3f5ee4235f3c87f7f9fd38568182b270cfeda96f4cf4a29ab65250c",
+            "content_digest": "12eba85436b485afbde0c46099efbc8e3df95fd293db65126a765b0500357893",
             "dependencies": {
               "org.dreamweave.openmw-config": "4",
               "org.dreamweave.vfs": "2"
@@ -89,7 +89,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/openmw-install/releases/download/development/org.dreamweave.openmw-install-0.1.1-dev.6.jpk",
+              "url": "https://github.com/DreamWeave-MP/openmw-install/releases/download/development/org.dreamweave.openmw-install-0.1.1-dev.7.jpk",
               "kind": "publisher"
             }
           ],

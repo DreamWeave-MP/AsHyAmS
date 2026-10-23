@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "index",
   "generator": "DreamWeave Mod Template 0.3.0",
   "site": {
@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/doctor/home/",
       "manifest": "https://dreamweave-mp.github.io/doctor/dreamweave/projects/66795eef-6cc5-41f2-b8ed-d373c78e5f42.json",
-      "manifest_sha256": "316d3a4e3b2bb2e873c760e9d0c170a6bedf0fd6e66b8bd81f095a9dc6b51f49",
-      "updated": "2026-10-21",
+      "manifest_sha256": "571f51f28d0880cec0e8ac0fe1d6cd4b06a5945a5ebe94545321427de3f7513c",
+      "updated": "2026-10-23",
       "channels": {
-        "development": "0.1.1-dev.3",
+        "development": "0.1.1-dev.4",
         "stable": "0.1.0"
       }
     }

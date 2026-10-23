@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.3"
+      "version": "0.1.1-dev.4"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.3",
+      "version": "0.1.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/merged-lands",
         "release": "development",
-        "revision": "b7213cd46316da5098166d05829bd32064a1aa53"
+        "revision": "cbd793a4d681ac665a34d2284da4d88a0d357e79"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.merged-lands-0.1.1-dev.3.jpk",
+          "filename": "org.dreamweave.merged-lands-0.1.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 118419,
+          "size": 118420,
           "digests": {
-            "sha256": "d27b405ae0264eeb1dbf85080da49b6bd71938cbc6fda67a396f691720a4d5db"
+            "sha256": "d4e12a91cfd642fbae9670c2de561c8267fee7490b5c217cfd9a3bf2f593de82"
           },
           "jess": {
             "package": "org.dreamweave.merged-lands",
             "jess_api": "1",
-            "content_digest": "8a2eca7d47403f349fee6a53cd00f4c196efaa103ba0900acebcd778f75615be",
+            "content_digest": "1787cc2a37ae0ea95a7719990cc9ba7876a9e81d35cbea67cc90846f1cc35a41",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.openmw-content": "0.1",
@@ -90,7 +90,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/merged-lands/releases/download/development/org.dreamweave.merged-lands-0.1.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/merged-lands/releases/download/development/org.dreamweave.merged-lands-0.1.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],

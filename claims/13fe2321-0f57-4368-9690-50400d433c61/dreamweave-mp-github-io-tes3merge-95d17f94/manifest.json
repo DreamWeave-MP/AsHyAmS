@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -38,7 +38,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.3"
+      "version": "0.1.1-dev.4"
     },
     "stable": {
       "version": "0.1.0"
@@ -46,14 +46,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.3",
+      "version": "0.1.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/tes3merge",
         "release": "development",
-        "revision": "6b0467d159104473e29a297702f42cef5c6688ce"
+        "revision": "30407191d45d03e2641d03679cc016f81d672e46"
       },
       "runtimes": {},
       "platforms": [],
@@ -78,16 +78,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.tes3merge-0.1.1-dev.3.jpk",
+          "filename": "org.dreamweave.tes3merge-0.1.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 46197,
+          "size": 46198,
           "digests": {
-            "sha256": "6a9521efa6f3685998e19cc7dd4e0e8149f3ebc4046ed57011207faa80d137a0"
+            "sha256": "13e51e3e387dc4d2e003757f5f24a1313f852ff19627b32020e0b2fc37ebce4c"
           },
           "jess": {
             "package": "org.dreamweave.tes3merge",
             "jess_api": "1",
-            "content_digest": "58ec3349a0b1ab0e3db28f16496ed723096c75ebd56fb2e27361ff044883e412",
+            "content_digest": "cd8438d5248f528760be7da4ff2e02152c566ff12d2685b931d1380d5f83f4a9",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.openmw-content": "0.1",
@@ -96,7 +96,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/tes3merge/releases/download/development/org.dreamweave.tes3merge-0.1.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/tes3merge/releases/download/development/org.dreamweave.tes3merge-0.1.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],

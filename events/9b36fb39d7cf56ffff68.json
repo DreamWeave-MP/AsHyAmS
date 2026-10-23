@@ -1,0 +1,32 @@
+{
+  "id": "9b36fb39d7cf56ffff68",
+  "kind": "changed",
+  "project": "6b0fec20-c982-440d-87a4-15aa83a3c680",
+  "origin": "dreamweave-mp-github-io-jessql-368f5bd1",
+  "name": "JessQL",
+  "observed_at": "2026-10-23T20:23:35Z",
+  "before": "3399dd7468f7a73fc02beffb30bbca3a3a394aa5869c823378913a7fdd91a88a",
+  "after": "263d0bec6a3961866f43fe03a0938c9d52be3400553f4adaf96099a2c20a0fd7",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.7-dev.3",
+      "after": "0.1.7-dev.4",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.7-dev.4",
+      "channel": "development",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.7-dev.3",
+      "channel": "development"
+    }
+  ]
+}

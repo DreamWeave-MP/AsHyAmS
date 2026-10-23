@@ -1,0 +1,32 @@
+{
+  "id": "e38a889d13d1de64a392",
+  "kind": "changed",
+  "project": "e20f98cb-26dd-4bfa-8c4e-e9f7e2c6db1f",
+  "origin": "dreamweave-mp-github-io-dream-scene-cbcdb352",
+  "name": "dream-scene",
+  "observed_at": "2026-10-23T20:23:35Z",
+  "before": "11bff517bd809d04a56f29e90125926f04c0ce09ea399aeeba134d3b442e6ccf",
+  "after": "7e9d4a36aa3a466ad4f0d940dc1ee7d11dc4d954d0142994006943cd4ce17b0a",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.3",
+      "after": "0.1.1-dev.4",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.4",
+      "channel": "development",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.3",
+      "channel": "development"
+    }
+  ]
+}

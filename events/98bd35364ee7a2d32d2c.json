@@ -1,0 +1,39 @@
+{
+  "id": "98bd35364ee7a2d32d2c",
+  "kind": "changed",
+  "project": "0921f076-a7ea-4c32-82a6-a57040fe866e",
+  "origin": "dreamweave-mp-github-io-tes3-saves-add03e37",
+  "name": "tes3-saves",
+  "observed_at": "2026-10-23T20:23:35Z",
+  "before": "5d8ded9d3421a99982b0a6c2e0ae9ee5aa6163e24015586f9434bff259b6b0be",
+  "after": "7b09b625c7bf62b6ae85da9ba3f61100b72fbea39df3754c3203b3f6ca6873ee",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.3",
+      "after": "0.1.1-dev.4",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 197532,
+          "after": 197540
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.4",
+      "channel": "development",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.3",
+      "channel": "development"
+    }
+  ]
+}

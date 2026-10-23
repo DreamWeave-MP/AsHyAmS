@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.3"
+      "version": "0.1.1-dev.4"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.3",
+      "version": "0.1.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archivetool",
         "release": "development",
-        "revision": "a77498479773419619b4bf0a03ac4b15e9aaff81"
+        "revision": "8cfcafe95ebd38921b654c019517420beaedec69"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,23 +72,23 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.dream-archivetool-0.1.1-dev.3.jpk",
+          "filename": "org.dreamweave.dream-archivetool-0.1.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 90440,
           "digests": {
-            "sha256": "065bed8862aa64fb0158ba3cb9f7cabef4ae65cca02eddd02d27159bda6adc9d"
+            "sha256": "435f36710ad006d643653fcef622a7d6ead3ee7d4eab5448f5ea5f92d19d8ab5"
           },
           "jess": {
             "package": "org.dreamweave.dream-archivetool",
             "jess_api": "1",
-            "content_digest": "5d49bdc761a308a41d0c2fc924886e40c41559ef1d452abb98f85a512fd2b753",
+            "content_digest": "031445d1738d2ec266ce1d36d45c983e7b4f0ea24f517de1411cb6047cee2d22",
             "dependencies": {
               "org.dreamweave.dream-archive": "2"
             }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dream_archivetool/releases/download/development/org.dreamweave.dream-archivetool-0.1.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/dream_archivetool/releases/download/development/org.dreamweave.dream-archivetool-0.1.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],

@@ -1,0 +1,128 @@
+{
+  "id": "bcbd98fb9b4242fc7a82",
+  "kind": "changed",
+  "project": "34fc442a-5060-4b77-8c64-ca5ea9861a10",
+  "origin": "dreamweave-mp-github-io-vfstool-e7e02f92",
+  "name": "vfstool",
+  "observed_at": "2026-10-23T20:23:35Z",
+  "before": "2a05d4ee331a670ba5a896663fd405706e7098e6d919799cae232e6a36a69f3d",
+  "after": "0e9932435ad3ce8cb8881bcb79da1c2af1d8c4ea2838f5f83962e7795691237a",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "2.0.1-dev.8",
+      "after": "2.0.2-dev.12",
+      "changes": [
+        {
+          "change": "platforms",
+          "added": [
+            "linux/x86_64",
+            "macos/aarch64",
+            "macos/x86_64",
+            "windows/x86_64"
+          ],
+          "removed": []
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 61077,
+          "after": 62367
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "2.0.0",
+      "after": "2.0.1",
+      "changes": [
+        {
+          "change": "platforms",
+          "added": [
+            "linux/x86_64",
+            "macos/aarch64",
+            "macos/x86_64",
+            "windows/x86_64"
+          ],
+          "removed": []
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 61071,
+          "after": 62357
+        },
+        {
+          "change": "artifact-added",
+          "artifact": "jsw",
+          "filename": "vfstool-2.0.1.jsw",
+          "size": 471955,
+          "sha256": "0d56410a49dc34e06cd21c2454cf9a1fa689500757c623ddcd919c5d92a96f49"
+        },
+        {
+          "change": "artifact-added",
+          "artifact": "windows-x64",
+          "filename": "vfstool-Windows-X64.zip",
+          "size": 21351467,
+          "sha256": "9041a1d6abe8c94bf2ee4f595e46ebcf7539ecc75cefd68c4e797719640e39f3"
+        },
+        {
+          "change": "artifact-added",
+          "artifact": "macos-x64",
+          "filename": "vfstool-macOS-X64.zip",
+          "size": 22355872,
+          "sha256": "2a49ee7c0a53f66cc77ce8c60b2e343f1d55029e4e9628b70307bafcfded454b"
+        },
+        {
+          "change": "artifact-added",
+          "artifact": "macos-arm64",
+          "filename": "vfstool-macOS-ARM64.zip",
+          "size": 20284034,
+          "sha256": "3e2bf4915a3169f2d5e726baedf13b7720952ec9922ef155b664ec815471874b"
+        },
+        {
+          "change": "artifact-added",
+          "artifact": "linux-x64",
+          "filename": "vfstool-Linux-X64.zip",
+          "size": 23018715,
+          "sha256": "64ff1c46e306d40e02aa0456e452028a6a22916de04c885d9bb114f44c822dc9"
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "2.0.2-dev.12",
+      "channel": "development",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "2.0.1",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": {
+        "summary": "vfstool ships as a program again: `jess install org.dreamweave.vfstool`, or a download that runs without jess for Windows, macOS and Linux.",
+        "added": [
+          "The release carries vfstool as an application: `vfstool.jsw`, the package and everything it runs packed into one file, which `jess install org.dreamweave.vfstool` installs onto your PATH.",
+          "A standalone `vfstool` for Windows x86_64, macOS x86_64 and ARM64, and Linux x86_64: jess carrying vfstool, zipped, needing nothing installed."
+        ],
+        "fixed": [
+          "`vfstool help`, `--help` and `-h` print the commands and options instead of a note about the test suite, and running vfstool with no command points at them."
+        ],
+        "known_issues": [
+          "vfstool doesn't look for `openmw.cfg` in OpenMW's default location: name it, or the folder holding it, with `--config` or `OPENMW_CONFIG`."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "2.0.1-dev.8",
+      "channel": "development"
+    }
+  ]
+}

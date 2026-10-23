@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.3"
+      "version": "0.1.1-dev.4"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.3",
+      "version": "0.1.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/tes3conv",
         "release": "development",
-        "revision": "91261372c5de0c4976563f39d454902da0922e74"
+        "revision": "3089c5dd450dd961d714b01e3e831618458927d5"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,23 +72,23 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.tes3conv-0.1.1-dev.3.jpk",
+          "filename": "org.dreamweave.tes3conv-0.1.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 135469,
           "digests": {
-            "sha256": "9de03a8aa748c6dee77515a7249bbdca538d220e318872c56749625d5c98a61b"
+            "sha256": "8325ec906bd97284d9a58ce8a7083b38a61c3f2ce49b5d3ae9e6f35b31388d00"
           },
           "jess": {
             "package": "org.dreamweave.tes3conv",
             "jess_api": "1",
-            "content_digest": "94ce0407ded48e7d63e77382341d37bff65be34aef497de3a08190c91af41e75",
+            "content_digest": "d6735e53d90894bce3db94cd1245e78bc29415f70a3440c09e8e738f86c40f88",
             "dependencies": {
               "org.dreamweave.esm": "0.1"
             }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/tes3conv/releases/download/development/org.dreamweave.tes3conv-0.1.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/tes3conv/releases/download/development/org.dreamweave.tes3conv-0.1.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],

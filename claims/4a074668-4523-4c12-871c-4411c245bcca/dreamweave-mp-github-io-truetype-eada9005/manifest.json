@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -31,7 +31,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.3"
+      "version": "0.1.1-dev.4"
     },
     "stable": {
       "version": "0.1.0"
@@ -39,14 +39,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.3",
+      "version": "0.1.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/truetype",
         "release": "development",
-        "revision": "111b678cc8f756d7d690a252624d6bc49b8be7d5"
+        "revision": "1409807eb959368190f21ca9843fa3558e6b6835"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.truetype-0.1.1-dev.3.jpk",
+          "filename": "org.dreamweave.truetype-0.1.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 25595,
           "digests": {
-            "sha256": "a2580eafa74ad497f480b948c1f87970513a24e770a09661d0615dd09aad05ef"
+            "sha256": "573f4885ed841f79095e79bd471d750eff273fd4701841330ad1daa1b510941f"
           },
           "jess": {
             "package": "org.dreamweave.truetype",
             "jess_api": "1",
-            "content_digest": "4d6ba73144a5724669a20549583713c232425f4a8a92fe6c55d31933ceb5debb",
+            "content_digest": "733cd4c802002b6bb6039672775669f6a6a8d91b5c4b2b0986bc7426c23e0bb8",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/truetype/releases/download/development/org.dreamweave.truetype-0.1.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/truetype/releases/download/development/org.dreamweave.truetype-0.1.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],

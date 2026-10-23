@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.3"
+      "version": "0.1.1-dev.4"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.3",
+      "version": "0.1.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream-ini",
         "release": "development",
-        "revision": "690a89969e02ea1e5abda77c8c683e9bdc762772"
+        "revision": "4a8b4cabbfa61bb3b3ddc13c5881cf2ffb32618f"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,21 +72,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.dream-ini-0.1.1-dev.3.jpk",
+          "filename": "org.dreamweave.dream-ini-0.1.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 22783,
           "digests": {
-            "sha256": "0f1134f4f0ffff4f6ad8722863f7d79cb5c1f163a042fe0c4d3edb54d0003e8e"
+            "sha256": "1a00a53f2c099995a8a611f33d44bf21e286958bc1e1a579b422de432738bb47"
           },
           "jess": {
             "package": "org.dreamweave.dream-ini",
             "jess_api": "1",
-            "content_digest": "fee8f8bfeaf942a6ca73438d69a34b8ed94cadc00df1dea4f7fbef319b21e236",
+            "content_digest": "a7a14b02aa2c5a3fb61f0656e0de1a62946fe4b4737d530e77490775127ebef1",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/development/org.dreamweave.dream-ini-0.1.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/development/org.dreamweave.dream-ini-0.1.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],

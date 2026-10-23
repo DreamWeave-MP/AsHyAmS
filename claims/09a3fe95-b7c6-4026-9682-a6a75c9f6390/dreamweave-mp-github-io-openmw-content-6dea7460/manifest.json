@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.6"
+      "version": "0.1.1-dev.7"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.6",
+      "version": "0.1.1-dev.7",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/openmw-content",
         "release": "development",
-        "revision": "8d56ce62c023297b1b16b00b1cb10b995a7f1c10"
+        "revision": "14fa63a23c5b339de5e5654608dd3ad0bd783d88"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,23 +72,23 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.openmw-content-0.1.1-dev.6.jpk",
+          "filename": "org.dreamweave.openmw-content-0.1.1-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 15647,
           "digests": {
-            "sha256": "c7a25f443e2f818ca7244e9b5632983b8af39186b95bd717600c99440b36a33d"
+            "sha256": "d3e41286acb1f34d9551b04cf45ec34dc2f8e7324e7da093e6c6cf1a676c1b2e"
           },
           "jess": {
             "package": "org.dreamweave.openmw-content",
             "jess_api": "1",
-            "content_digest": "c073d11a7d2f94fd6ce873e8b8e0d83c98f9b40f9124dbf3f1d4c7a16a4cd999",
+            "content_digest": "6f66c9b35c19d9ef3f20a93e8576abf0044cbdcbb42a3252bd3c2d7ba8304fe9",
             "dependencies": {
               "org.dreamweave.esm": "0.1"
             }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/openmw-content/releases/download/development/org.dreamweave.openmw-content-0.1.1-dev.6.jpk",
+              "url": "https://github.com/DreamWeave-MP/openmw-content/releases/download/development/org.dreamweave.openmw-content-0.1.1-dev.7.jpk",
               "kind": "publisher"
             }
           ],

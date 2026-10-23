@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -31,7 +31,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.2.2-dev.3"
+      "version": "0.2.2-dev.4"
     },
     "stable": {
       "version": "0.2.1"
@@ -39,14 +39,14 @@
   },
   "releases": [
     {
-      "version": "0.2.2-dev.3",
+      "version": "0.2.2-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream-ecs",
         "release": "development",
-        "revision": "f1bedadb249d4e2277bb2a6f27d11d00ed69da2d"
+        "revision": "00adcf1b554f4b9f0d916a164a5cafbba060238d"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,23 +71,23 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.ecs-0.2.2-dev.3.jpk",
+          "filename": "org.dreamweave.ecs-0.2.2-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 70445,
           "digests": {
-            "sha256": "52d768f93d2fb9f0bccf3d3f6f15da05766e91ba62964d85c56734ab9a672732"
+            "sha256": "4ea20cf8cea00f4d014dec57545f7547c02ecd80f6f7e6e17e24c5e67c24e547"
           },
           "jess": {
             "package": "org.dreamweave.ecs",
             "jess_api": "1",
-            "content_digest": "26a49af1b42b9d8617eb92da6c6b44eeff6e6ce8d16ad0666a8ac6c6397083c6",
+            "content_digest": "61e82f3d096c071a625c76f57dceaace6250a06093c677fd7ae17227547bafd4",
             "dependencies": {
               "org.dreamweave.jessql": "0.1.6"
             }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dream-ecs/releases/download/development/org.dreamweave.ecs-0.2.2-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/dream-ecs/releases/download/development/org.dreamweave.ecs-0.2.2-dev.4.jpk",
               "kind": "publisher"
             }
           ],

@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -42,7 +42,7 @@
   },
   "channels": {
     "development": {
-      "version": "4.0.1-dev.6"
+      "version": "4.0.1-dev.7"
     },
     "stable": {
       "version": "4.0.0"
@@ -50,14 +50,14 @@
   },
   "releases": [
     {
-      "version": "4.0.1-dev.6",
+      "version": "4.0.1-dev.7",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
         "release": "development",
-        "revision": "a59c164e838e275fbddb09d4971ebe4cac824506"
+        "revision": "1becdce907a6859eedf63e0193af33f4673837af"
       },
       "runtimes": {},
       "platforms": [],
@@ -82,21 +82,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.openmw-config-4.0.1-dev.6.jpk",
+          "filename": "org.dreamweave.openmw-config-4.0.1-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 24710,
           "digests": {
-            "sha256": "1904a14109aaa0c110e0fd11d4a65e7bbffce63cbd0d64f24198d45ee750c590"
+            "sha256": "c14559dfb8fa8fc3274d237a2d28724236363071b3f80d656df1f3ecad7aa386"
           },
           "jess": {
             "package": "org.dreamweave.openmw-config",
             "jess_api": "1",
-            "content_digest": "56771cca890afbd631cfc34ecce40c9586e38586105b8387534c98b1ed4c0086",
+            "content_digest": "52f1ee80cad09efe3e4da6c220173a16e011bd07ff9d52e063287c7942edaefa",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/Openmw_Config/releases/download/development/org.dreamweave.openmw-config-4.0.1-dev.6.jpk",
+              "url": "https://github.com/DreamWeave-MP/Openmw_Config/releases/download/development/org.dreamweave.openmw-config-4.0.1-dev.7.jpk",
               "kind": "publisher"
             }
           ],

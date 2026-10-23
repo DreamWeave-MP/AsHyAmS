@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "index",
   "generator": "DreamWeave Mod Template 0.3.0",
   "site": {
@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/tes3-saves/home/",
       "manifest": "https://dreamweave-mp.github.io/tes3-saves/dreamweave/projects/0921f076-a7ea-4c32-82a6-a57040fe866e.json",
-      "manifest_sha256": "5d8ded9d3421a99982b0a6c2e0ae9ee5aa6163e24015586f9434bff259b6b0be",
-      "updated": "2026-10-21",
+      "manifest_sha256": "7b09b625c7bf62b6ae85da9ba3f61100b72fbea39df3754c3203b3f6ca6873ee",
+      "updated": "2026-10-23",
       "channels": {
-        "development": "0.1.1-dev.3",
+        "development": "0.1.1-dev.4",
         "stable": "0.1.0"
       }
     }

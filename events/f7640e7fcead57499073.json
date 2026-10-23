@@ -1,0 +1,32 @@
+{
+  "id": "f7640e7fcead57499073",
+  "kind": "changed",
+  "project": "aa093a63-c0e6-45e8-bc81-75f076e7c8b3",
+  "origin": "dreamweave-mp-github-io-tes3conv-1b9e2285",
+  "name": "tes3conv",
+  "observed_at": "2026-10-23T20:23:35Z",
+  "before": "d5114c55253af5579ed4e0859ec807238478618a85a3a22f1c3e3765141f18e8",
+  "after": "6e517e865fce62e26ed35e333ac61551bdc2a35fa1d9e1c4c27a1ed15be8e32f",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.3",
+      "after": "0.1.1-dev.4",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.4",
+      "channel": "development",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.3",
+      "channel": "development"
+    }
+  ]
+}

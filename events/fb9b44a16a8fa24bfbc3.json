@@ -1,0 +1,32 @@
+{
+  "id": "fb9b44a16a8fa24bfbc3",
+  "kind": "changed",
+  "project": "79c1c987-d68a-48a2-a3b9-5addce404eb9",
+  "origin": "dreamweave-mp-github-io-dream-ini-11f42276",
+  "name": "dream-ini",
+  "observed_at": "2026-10-23T20:23:35Z",
+  "before": "022cdb51e15ac9d6690aa94debadfc47655a027bf05106c0ac1c7440c24f916e",
+  "after": "3af95739c96b10412d23ed062d4a9c74ba7b7128c02ea2094d18635a11ecd3f5",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.3",
+      "after": "0.1.1-dev.4",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.4",
+      "channel": "development",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.3",
+      "channel": "development"
+    }
+  ]
+}

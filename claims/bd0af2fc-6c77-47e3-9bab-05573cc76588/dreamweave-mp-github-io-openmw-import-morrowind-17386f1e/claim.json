@@ -10,21 +10,21 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/openmw-import-morrowind/home/",
     "manifest": "https://dreamweave-mp.github.io/openmw-import-morrowind/dreamweave/projects/bd0af2fc-6c77-47e3-9bab-05573cc76588.json",
-    "manifest_sha256": "2a31463bb321cc0c49ee40f85e6209634f5acc760fbea726181cba2669bd5e29",
-    "updated": "2026-10-21",
+    "manifest_sha256": "92b10be22027b3472039eb5f94d8e02dcf3196ad2b279753fc4db86d735daa42",
+    "updated": "2026-10-23",
     "channels": {
-      "development": "0.1.1-dev.3",
+      "development": "0.1.1-dev.4",
       "stable": "0.1.0"
     }
   },
-  "advertised_sha256": "2a31463bb321cc0c49ee40f85e6209634f5acc760fbea726181cba2669bd5e29",
-  "ingested_sha256": "2a31463bb321cc0c49ee40f85e6209634f5acc760fbea726181cba2669bd5e29",
+  "advertised_sha256": "92b10be22027b3472039eb5f94d8e02dcf3196ad2b279753fc4db86d735daa42",
+  "ingested_sha256": "92b10be22027b3472039eb5f94d8e02dcf3196ad2b279753fc4db86d735daa42",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-10-21T21:31:59Z",
-  "last_changed": "2026-10-21T21:31:59Z",
-  "last_attempt": "2026-10-23T18:04:43Z",
-  "last_success": "2026-10-23T18:04:43Z"
+  "last_changed": "2026-10-23T20:23:35Z",
+  "last_attempt": "2026-10-23T20:23:35Z",
+  "last_success": "2026-10-23T20:23:35Z"
 }

@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.3"
+      "version": "0.1.1-dev.4"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.3",
+      "version": "0.1.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/starwind",
         "release": "development",
-        "revision": "5a6b27ca6964e3f48bf2bab8d764b808aec9688d"
+        "revision": "c75102f84ba4b3b09222c216ef8782fb5367593f"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.starwind-0.1.1-dev.3.jpk",
+          "filename": "org.dreamweave.starwind-0.1.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 119343,
           "digests": {
-            "sha256": "ad7b3aed32dd9f7000a32a70975e1666d14e63dec7defcbfab7c28e3b9c78064"
+            "sha256": "9cf750d5709b9afeb1725566df15d75179abe3485990ab70df1b5f8caeb04fc8"
           },
           "jess": {
             "package": "org.dreamweave.starwind",
             "jess_api": "1",
-            "content_digest": "56c23eec66b66c6d284a355316ac38c31316588c7aedcebb086a4559549e57c9",
+            "content_digest": "67b2dd324b241a1d70eaafea30ee2ea685a83f55fd401d0265d07538b14c0fcf",
             "dependencies": {
               "org.dreamweave.add-vanilla-refs": "0.1",
               "org.dreamweave.esm": "0.1",
@@ -91,7 +91,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/starwind/releases/download/development/org.dreamweave.starwind-0.1.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/starwind/releases/download/development/org.dreamweave.starwind-0.1.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],

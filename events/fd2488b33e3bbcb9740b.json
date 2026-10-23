@@ -1,0 +1,39 @@
+{
+  "id": "fd2488b33e3bbcb9740b",
+  "kind": "changed",
+  "project": "79933d87-68dd-4476-945a-906e5a6f4f44",
+  "origin": "dreamweave-mp-github-io-merged-lands-5b91185c",
+  "name": "merged-lands",
+  "observed_at": "2026-10-23T20:23:35Z",
+  "before": "b7f55fff8b4f347a53027ffe9273937e3633af1cc9b4d2bfd8a79f4f6c704235",
+  "after": "519231e25c2e8a2ce2f43c13e4f4cb156c00ec0b06ad284beadec48122c187b6",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.3",
+      "after": "0.1.1-dev.4",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 118419,
+          "after": 118420
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.4",
+      "channel": "development",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.3",
+      "channel": "development"
+    }
+  ]
+}

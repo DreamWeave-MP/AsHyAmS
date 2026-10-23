@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -37,7 +37,7 @@
   },
   "channels": {
     "development": {
-      "version": "2.0.1-dev.7"
+      "version": "2.0.1-dev.8"
     },
     "stable": {
       "version": "2.0.0"
@@ -45,14 +45,14 @@
   },
   "releases": [
     {
-      "version": "2.0.1-dev.7",
+      "version": "2.0.1-dev.8",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archive",
         "release": "development",
-        "revision": "5fa0eb1042203fffcb491f658f9375a05c8fd720"
+        "revision": "dd55b517c6678acaf4b0f8ab57d9a0b9707aff23"
       },
       "runtimes": {},
       "platforms": [],
@@ -77,21 +77,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.dream-archive-2.0.1-dev.7.jpk",
+          "filename": "org.dreamweave.dream-archive-2.0.1-dev.8.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 261438,
           "digests": {
-            "sha256": "ab2f473e5838b7df3ff0f9dd39184dccb9e4462e1fc0da9b8ecbe867242fcd3b"
+            "sha256": "0859aca8b46e4781b1d62ab32f46f97d1bfd46596fdb8d09ef15f34da120f1fd"
           },
           "jess": {
             "package": "org.dreamweave.dream-archive",
             "jess_api": "1",
-            "content_digest": "015dac19c9806932bb3ce66522450382d18e6f7778c0bc57551dba5d597924dd",
+            "content_digest": "a42ddc56924a5f57c0f5bc957aa5422dda6da5ecdc296a3821f654e5db339245",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dream_archive/releases/download/development/org.dreamweave.dream-archive-2.0.1-dev.7.jpk",
+              "url": "https://github.com/DreamWeave-MP/dream_archive/releases/download/development/org.dreamweave.dream-archive-2.0.1-dev.8.jpk",
               "kind": "publisher"
             }
           ],

@@ -1,5 +1,5 @@
 {
-  "schema_version": "3",
+  "schema_version": "4",
   "document": "project",
   "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.3"
+      "version": "0.1.1-dev.4"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.3",
+      "version": "0.1.1-dev.4",
       "channel": "development",
-      "date": "2026-10-21",
+      "date": "2026-10-23",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/add-vanilla-refs",
         "release": "development",
-        "revision": "360c9c8be3180855b2c30341d8c61d7239015360"
+        "revision": "f66265d4f7d32458936304c09c0fb6400b5d6187"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.add-vanilla-refs-0.1.1-dev.3.jpk",
+          "filename": "org.dreamweave.add-vanilla-refs-0.1.1-dev.4.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 44075,
           "digests": {
-            "sha256": "c12432bcdfde9bd2bb6fb434bdcd29627bc64d17777899c74a7da7fb53976819"
+            "sha256": "0e41911249c3b2ff7e611bfdab998f71e5a1b1589aaa07ce4859d41fcbde089d"
           },
           "jess": {
             "package": "org.dreamweave.add-vanilla-refs",
             "jess_api": "1",
-            "content_digest": "8ef12762dfb166b7744c5fc7be733e4f8d3b79d04a292bf2b2cee7973d5b0638",
+            "content_digest": "5cb10003d53e968c0fd03a1aa44bc222f9eb8ad2038c0a62c799292934f8fa4d",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.tes3conv": "0.1"
@@ -89,7 +89,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/add-vanilla-refs/releases/download/development/org.dreamweave.add-vanilla-refs-0.1.1-dev.3.jpk",
+              "url": "https://github.com/DreamWeave-MP/add-vanilla-refs/releases/download/development/org.dreamweave.add-vanilla-refs-0.1.1-dev.4.jpk",
               "kind": "publisher"
             }
           ],

@@ -1,0 +1,32 @@
+{
+  "id": "26c94aad93785cb0ebfb",
+  "kind": "changed",
+  "project": "9ff24c72-d67c-44d1-9af4-4c102dff10ef",
+  "origin": "dreamweave-mp-github-io-nif-assets-a8b8135f",
+  "name": "nif-assets",
+  "observed_at": "2026-10-23T20:23:35Z",
+  "before": "6bc2c3a49327f8031096502d74944598ad4ce9c7f981f2655f6d5f186d9d2799",
+  "after": "867844293eb9f8288bd82ecd6eedae9f5f60ca8b9ab92852b9769eca21b97ec4",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.3",
+      "after": "0.1.1-dev.4",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.4",
+      "channel": "development",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.3",
+      "channel": "development"
+    }
+  ]
+}
