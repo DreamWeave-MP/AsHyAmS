@@ -33,22 +33,26 @@ static MANIFEST_SCHEMA_2: LazyLock<jsonschema::Validator> =
     LazyLock::new(|| compile(include_str!("../../schemas/modManifest-2.schema.json")));
 static MANIFEST_SCHEMA_3: LazyLock<jsonschema::Validator> =
     LazyLock::new(|| compile(include_str!("../../schemas/modManifest-3.schema.json")));
+static INDEX_SCHEMA_4: LazyLock<jsonschema::Validator> =
+    LazyLock::new(|| compile(include_str!("../../schemas/dreamweave-index-4.schema.json")));
+static MANIFEST_SCHEMA_4: LazyLock<jsonschema::Validator> =
+    LazyLock::new(|| compile(include_str!("../../schemas/modManifest-4.schema.json")));
 
 /// The published schema for the version a document says it is; `read` has already refused any
 /// other version.
 fn index_schema(version: &str) -> &'static jsonschema::Validator {
-    if version == "2" {
-        &INDEX_SCHEMA_2
-    } else {
-        &INDEX_SCHEMA_3
+    match version {
+        "2" => &INDEX_SCHEMA_2,
+        "3" => &INDEX_SCHEMA_3,
+        _ => &INDEX_SCHEMA_4,
     }
 }
 
 fn manifest_schema(version: &str) -> &'static jsonschema::Validator {
-    if version == "2" {
-        &MANIFEST_SCHEMA_2
-    } else {
-        &MANIFEST_SCHEMA_3
+    match version {
+        "2" => &MANIFEST_SCHEMA_2,
+        "3" => &MANIFEST_SCHEMA_3,
+        _ => &MANIFEST_SCHEMA_4,
     }
 }
 
@@ -404,12 +408,19 @@ pub fn manifest_rules(manifest: &Manifest) -> Vec<String> {
         );
     }
 
-    // One project publishes one Jess package: every jpk artifact names the same id.
+    // One project publishes one Jess package: every jpk artifact names the same id, and every
+    // jsw artifact names it as the package its application is named for.
     let packages: BTreeSet<&PackageId> = manifest
         .releases
         .iter()
         .flat_map(|release| release.artifacts.iter())
-        .filter_map(|artifact| artifact.jess.as_ref().map(|jess| &jess.package))
+        .filter_map(|artifact| {
+            let package = artifact.jess.as_ref().map(|jess| &jess.package);
+            package.or(artifact
+                .jess_workspace
+                .as_ref()
+                .map(|application| &application.package))
+        })
         .collect();
     if packages.len() > 1 {
         problems.push(format!(
@@ -456,6 +467,69 @@ pub fn manifest_rules(manifest: &Manifest) -> Vec<String> {
         }
     }
     problems
+}
+
+/// A Jess application's release is one jsw artifact, and only a jsw artifact says what it holds;
+/// `seen` counts the ones so far, this one included. Its block has to add up: its id is a package
+/// id, its default is one of the targets it exports, its commands run targets it exports, and
+/// every target's package, and the package it is named for, is one it holds. The schema checks
+/// the shapes; this checks they agree.
+fn application_rules(
+    artifact: &super::Artifact,
+    seen: usize,
+    release: &str,
+    problems: &mut Vec<String>,
+) {
+    let at = format!("{release}: artifact {}", artifact.id);
+    if artifact.is_application() != artifact.jess_workspace.is_some() {
+        problems.push(format!(
+            "{at}: a jsw artifact carries a jess_workspace block, and only a jsw artifact does"
+        ));
+    }
+    let Some(application) = &artifact.jess_workspace else {
+        return;
+    };
+    if seen > 1 {
+        problems.push(format!(
+            "{release}: two jsw artifacts; a Jess application's release has one"
+        ));
+    }
+    if !is_package_id(&application.package.0) {
+        problems.push(format!(
+            "{at}: {} is not a Jess package id (lowercase words joined by dots)",
+            application.package
+        ));
+    }
+    if !application.packages.contains_key(&application.package.0) {
+        problems.push(format!(
+            "{at}: the application is named for {}, which it doesn't hold",
+            application.package
+        ));
+    }
+    if let Some(default) = &application.default
+        && !application.targets.contains(default)
+    {
+        problems.push(format!(
+            "{at}: the default target {default} is not one it exports"
+        ));
+    }
+    for (command, target) in &application.commands {
+        if !application.targets.contains(target) {
+            problems.push(format!(
+                "{at}: command {command} runs {target}, which it doesn't export"
+            ));
+        }
+    }
+    for target in &application.targets {
+        let package = target
+            .split_once(':')
+            .map_or(target.as_str(), |(package, _)| package);
+        if !application.packages.contains_key(package) {
+            problems.push(format!(
+                "{at}: it exports {target}, and holds no package {package}"
+            ));
+        }
+    }
 }
 
 fn release_rules(release: &super::Release, scheme: Scheme, at: &str, problems: &mut Vec<String>) {
@@ -558,7 +632,7 @@ fn component_rules(release: &super::Release, at: &str, problems: &mut Vec<String
 
     let mut artifact_ids = BTreeSet::new();
     let mut program_platforms = BTreeSet::new();
-    let mut packages = 0;
+    let (mut packages, mut applications) = (0, 0);
     for artifact in &release.artifacts {
         if !artifact_ids.insert(artifact.id.as_str()) {
             problems.push(format!("{at}: artifact {} is listed twice", artifact.id));
@@ -591,6 +665,8 @@ fn component_rules(release: &super::Release, at: &str, problems: &mut Vec<String
                 ));
             }
         }
+        applications += usize::from(artifact.jess_workspace.is_some());
+        application_rules(artifact, applications, at, problems);
         // A program release has one binary artifact per platform and variant, and its
         // `platforms` lists every desktop one. Android and handheld builds are only on artifacts.
         if let (true, Some(platform)) = (artifact.is_program(), &artifact.platform) {
@@ -633,6 +709,7 @@ mod tests {
     const CANDLELIGHT: &str = include_str!("../../tests/fixtures/mod-template/candlelight.json");
     const SITE_GENERATOR: &str = include_str!("../../tests/fixtures/jess/site-generator.json");
     const WORDS: &str = include_str!("../../tests/fixtures/jess/words.json");
+    const GREETER: &str = include_str!("../../tests/fixtures/jess/greeter.json");
     const TALLOW: &str = include_str!("../../tests/fixtures/mod-template/tallow.json");
 
     fn value(text: &str) -> Value {
@@ -681,11 +758,11 @@ mod tests {
             }
         );
         let mut future = value(INDEX);
-        future["schema_version"] = "4".into();
+        future["schema_version"] = "5".into();
         future["some_new_field"] = true.into();
         assert_eq!(
             parse_index(&bytes(&future)).unwrap_err(),
-            Problem::UnsupportedVersion("4".to_owned())
+            Problem::UnsupportedVersion("5".to_owned())
         );
     }
 
@@ -744,6 +821,79 @@ mod tests {
                 .iter()
                 .any(|problem| problem.contains("depends on itself"))
         );
+    }
+
+    #[test]
+    fn version_4_adds_jess_applications_and_version_3_refuses_them() {
+        let greeter = parse_manifest(GREETER.as_bytes()).unwrap();
+        let release = &greeter.releases[0];
+        let application = release
+            .artifacts
+            .iter()
+            .find(|artifact| artifact.is_application())
+            .unwrap();
+        assert!(!application.is_package() && !application.is_program());
+        let block = application.jess_workspace.as_ref().unwrap();
+        assert_eq!(block.package.0, "org.example.greeter");
+        assert_eq!(block.commands["greet"], "org.example.greeter:greet");
+        assert_eq!(block.packages["org.example.words"].version, "1.2.0");
+        assert_eq!(
+            release
+                .artifacts
+                .iter()
+                .filter(|artifact| artifact.is_program())
+                .count(),
+            1,
+            "an application's executables are plain binary artifacts"
+        );
+
+        // The same document under version 3 fails its schema: jsw is a version 4 format.
+        let mut older = value(GREETER);
+        older["schema_version"] = "3".into();
+        assert!(matches!(
+            parse_manifest(&bytes(&older)).unwrap_err(),
+            Problem::Schema(_)
+        ));
+        // A jsw artifact without its block is a schema error.
+        let mut bare = value(GREETER);
+        bare["releases"][0]["artifacts"][1]
+            .as_object_mut()
+            .unwrap()
+            .remove("jess_workspace");
+        assert!(matches!(
+            parse_manifest(&bytes(&bare)).unwrap_err(),
+            Problem::Schema(_)
+        ));
+        // An application named for another package than the project's breaks the protocol.
+        let mut other = value(GREETER);
+        other["releases"][0]["artifacts"][1]["jess_workspace"]["package"] =
+            "org.example.words".into();
+        let problems = protocol_problems(&other);
+        assert!(
+            problems
+                .iter()
+                .any(|problem| problem.contains("one project is one package")),
+            "{problems:?}"
+        );
+        // Its block has to add up: a default it doesn't export, a command running a target it
+        // doesn't export, a target in a package it doesn't hold.
+        let mut loose = value(GREETER);
+        let block = &mut loose["releases"][0]["artifacts"][1]["jess_workspace"];
+        block["default"] = "org.example.greeter:wave".into();
+        block["commands"]["wave"] = "org.example.greeter:wave".into();
+        block["targets"] =
+            serde_json::json!(["org.example.greeter:greet", "org.example.style:shout"]);
+        let problems = protocol_problems(&loose);
+        for expected in [
+            "the default target org.example.greeter:wave is not one it exports",
+            "command wave runs org.example.greeter:wave, which it doesn't export",
+            "it exports org.example.style:shout, and holds no package org.example.style",
+        ] {
+            assert!(
+                problems.iter().any(|problem| problem.contains(expected)),
+                "{expected}: {problems:?}"
+            );
+        }
     }
 
     #[test]

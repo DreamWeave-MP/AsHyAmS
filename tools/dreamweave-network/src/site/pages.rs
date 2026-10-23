@@ -15,9 +15,10 @@ use super::{
     Front, Writer,
     format::{origin_label, plural, short_digest, site_address, slug, time_label},
     views::{
-        self, Card, EventRow, Fact, Link, NotesView, PackageRow, PackageVersionView,
-        RelationshipGroup, ReleaseRow, ReleaseView, ReverseItem, SectionView, Stat, TagLink, card,
-        event_row, package_row, package_version_view,
+        self, ApplicationVersionView, Card, EventRow, Fact, Link, NotesView, PackageRow,
+        PackageVersionView, RelationshipGroup, ReleaseRow, ReleaseView, ReverseItem, SectionView,
+        Stat, TagLink, application_version_view, card, event_row, package_row,
+        package_version_view,
     },
 };
 use crate::{
@@ -1942,6 +1943,7 @@ struct PackageView {
     notice: Option<String>,
     problem: Option<String>,
     versions: Vec<PackageVersionView>,
+    applications: Vec<ApplicationVersionView>,
     others: Vec<PackageRow>,
     conflict: Option<PackageConflictView>,
     withdrawn: bool,
@@ -2080,6 +2082,12 @@ fn package_pages(writer: &mut Writer, network: &Network) -> Result<()> {
                 .versions
                 .iter()
                 .map(|version| package_version_view(network, claim, version))
+                .collect(),
+            applications: claim
+                .package
+                .applications
+                .iter()
+                .map(|version| application_version_view(network, claim, version))
                 .collect(),
             others: network
                 .packages

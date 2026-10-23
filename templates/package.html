@@ -25,6 +25,32 @@
             <p>{% if view.conflict.same_bytes %}Every version shared with the other site{{ view.others | length | pluralize }} names the same digests: mirrored bytes.{% else %}The other site{{ view.others | length | pluralize }} list{% if view.others | length == 1 %}s{% endif %} this id with {% if view.conflict.shared_versions > 0 %}different digests for a version both list{% else %}no version in common{% endif %}.{% endif %} See <a href="{{ get_url(path=row.identity_path, trailing_slash=true) | safe }}">every claim for this id</a>.</p>
         </aside>
         {%- endif %}
+        {%- if view.applications | length > 0 %}
+        <section class="dw-section" aria-labelledby="applications-title">
+            {{ net::section_head(number="00", title="Application", note="Releases that carry the package as a Jess application: a packed workspace with its targets and every package it runs, pinned, which Jess installs onto a PATH. Newest first, as the manifest lists them.", id="applications-title") }}
+            {%- for version in view.applications %}
+            <article class="dw-release{% if version.status == 'yanked' %} dw-release--yanked{% endif %}" id="app-{{ version.version | slugify }}">
+                <h3>{{ version.version }} {{ net::status(token=version.status) }}{% if version.current %} <span class="dw-badge dw-badge--ok">current</span>{% endif %} <small class="net-muted">{{ version.channel }}{% if version.date %} · released {{ version.date }}{% endif %}</small></h3>
+                {%- if version.yanked_reason %}<p class="dw-callout dw-callout--warning">Yanked by the publisher: {{ version.yanked_reason }}{% if version.replacement %} Replacement: {{ version.replacement }}.{% endif %}</p>{% endif %}
+                {%- if version.deprecated_reason %}<p class="dw-callout dw-callout--warning">Deprecated by the publisher: {{ version.deprecated_reason }}{% if version.replacement %} Replacement: {{ version.replacement }}.{% endif %}</p>{% endif %}
+                {%- if version.current %}<p><code>jess install {{ row.id }}</code></p>{% endif %}
+                <dl class="dw-record">
+                    <dt>Built-in package</dt><dd>{{ version.builtin }}<br><small class="net-muted">The Jess it was packed for: a Jess whose built-in package is compatible runs it.</small></dd>
+                    {%- if version.default %}<dt>Default target</dt><dd><code>{{ version.default }}</code></dd>{% endif %}
+                </dl>
+                {%- if version.commands | length > 0 %}
+                <h4 class="net-subhead">Commands</h4>
+                {{ net::facts(items=version.commands) }}
+                {%- endif %}
+                <h4 class="net-subhead">Packages it holds</h4>
+                {{ net::facts(items=version.packages) }}
+                <p class="net-fine">Pinned by the publisher, each to its content digest. Not requirements: nothing here resolves them.</p>
+                {{ net::artifact(artifact=version.artifact, release=version, primary=version.current) }}
+            </article>
+            {%- endfor %}
+        </section>
+        {%- endif %}
+        {%- if view.versions | length > 0 %}
         <section class="dw-section" aria-labelledby="versions-title">
             {{ net::section_head(number="01", title="Versions", note="Every release of the project that is a JPK, newest first, as its manifest lists them. Yanked and deprecated versions stay listed and say why. The archive downloads from the publisher; this index never serves or verifies it.", id="versions-title") }}
             {%- for version in view.versions %}
@@ -45,6 +71,7 @@
             </article>
             {%- endfor %}
         </section>
+        {%- endif %}
         {%- if view.others | length > 0 %}
         <section class="dw-section" aria-labelledby="others-title">
             {{ net::section_head(number="02", title="The same id elsewhere", id="others-title") }}

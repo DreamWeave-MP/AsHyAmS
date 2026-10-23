@@ -21,7 +21,7 @@ use dreamweave_network::{
 use serde_json::{Value, json};
 use support::{
     Server,
-    sites::{Site, candlelight, config, program, refresh, site_generator, tallow, words},
+    sites::{Site, candlelight, config, greeter, program, refresh, site_generator, tallow, words},
 };
 
 const FIRST: &str = "2026-09-27T12:00:00Z";
@@ -141,6 +141,7 @@ async fn a_fixture_network_with_every_state_builds_a_site() {
         program(),
         site_generator(),
         words(),
+        greeter(),
     ]);
     let mut impostor = tallow();
     impostor["project"]["name"] = "Tallow (another site's claim)".into();
@@ -170,6 +171,7 @@ async fn a_fixture_network_with_every_state_builds_a_site() {
         program(),
         site_generator(),
         words(),
+        greeter(),
     ]);
     let mut invalid = glass;
     invalid["channels"]["stable"]["version"] = "9.9.9".into();
@@ -184,7 +186,7 @@ async fn a_fixture_network_with_every_state_builds_a_site() {
     assert_eq!(network.conflicts.len(), 2);
     assert_eq!(network.package_conflicts.len(), 1);
     assert!(network.package_conflicts[0].same_bytes);
-    assert_eq!(network.listed_packages().len(), 3);
+    assert_eq!(network.listed_packages().len(), 4);
     let healths: Vec<ClaimHealth> = network
         .claims
         .values()

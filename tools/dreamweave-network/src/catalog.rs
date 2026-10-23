@@ -22,7 +22,7 @@ use serde::Serialize;
 use crate::{
     events,
     network::{Current, Network, PackageClaim, PackageKey, Resolution},
-    packages::{PackageId, PackageVersion},
+    packages::{ApplicationVersion, PackageId, PackageVersion},
     protocol::{ProjectId, RelationshipKind},
     state::{ClaimHealth, ClaimKey, Event, OriginHealth},
 };
@@ -203,6 +203,10 @@ pub struct PackageRecord {
     /// The newest version the publisher offers for new installs.
     pub current: Option<String>,
     pub versions: Vec<PackageVersion>,
+    /// The releases that carry the package as a Jess application (`schema_version` 4), newest
+    /// first. Absent when there are none.
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub applications: Vec<ApplicationVersion>,
     pub conflict: bool,
     pub network_page: String,
     pub project_page: String,
@@ -405,6 +409,7 @@ fn package_record(network: &Network, claim: &PackageClaim, index: &IndexInfo) ->
         last_success: record.last_success.clone(),
         current: claim.current().map(|version| version.version.clone()),
         versions: claim.package.versions.clone(),
+        applications: claim.package.applications.clone(),
         conflict: claim.conflict,
         network_page: format!("{}/{}", index.url.trim_end_matches('/'), claim.path()),
         project_page: format!("{}/{}", index.url.trim_end_matches('/'), project.path()),

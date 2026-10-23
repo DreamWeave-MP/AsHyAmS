@@ -1,5 +1,5 @@
-//! The DreamWeave protocol documents this index reads, `schema_version` "2" and "3", as typed
-//! Rust.
+//! The DreamWeave protocol documents this index reads, `schema_version` "2", "3" and "4", as
+//! typed Rust.
 //!
 //! These types are the boundary between untrusted bytes and everything else. They are only ever
 //! built by [`parse`], after the vendored JSON Schema and the protocol's own rules have accepted
@@ -7,8 +7,10 @@
 //! field is an error, so `deny_unknown_fields` is the specification talking, not caution.
 //!
 //! Version "3" added one thing to "2": a release's artifact may be a Jess package, `format`
-//! `jpk` with a `jess` block, and an index entry may name the package a project publishes. A
-//! "2" document is read with the same types; the parser refuses it the "3" fields.
+//! `jpk` with a `jess` block, and an index entry may name the package a project publishes.
+//! Version "4" added one thing to "3": a release's artifact may be a Jess application, `format`
+//! `jsw` with a `jess_workspace` block. An older document is read with the same types; its
+//! version's schema refuses it the newer fields.
 
 pub mod parse;
 
@@ -19,11 +21,12 @@ use serde_json::Value;
 
 use crate::version::{Scheme, Version};
 
-/// The protocol versions this index reads. "3" added Jess packages to "2" and changed nothing
-/// else, so one set of types reads both; what "3" added is refused in a "2" document.
-pub const SCHEMA_VERSIONS: [&str; 2] = ["2", "3"];
+/// The protocol versions this index reads. Each added one thing to the one before and changed
+/// nothing else, so one set of types reads them all; what a newer one added is refused in an
+/// older document.
+pub const SCHEMA_VERSIONS: [&str; 3] = ["2", "3", "4"];
 /// The newest protocol version this index reads: the one its own messages name.
-pub const SCHEMA_VERSION: &str = "3";
+pub const SCHEMA_VERSION: &str = "4";
 
 pub fn reads_schema_version(version: &str) -> bool {
     SCHEMA_VERSIONS.contains(&version)
@@ -571,6 +574,10 @@ pub struct Artifact {
     /// absent otherwise.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub jess: Option<JessPackage>,
+    /// For a `jsw` artifact: the Jess application inside (`schema_version` 4). Required for
+    /// `jsw`, absent otherwise.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub jess_workspace: Option<JessWorkspace>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub layout: Option<Layout>,
     pub sources: Vec<ArtifactSource>,
@@ -580,8 +587,11 @@ pub struct Artifact {
 pub const BINARY_FORMAT: &str = "binary";
 pub const CRATE_FORMAT: &str = "crate";
 pub const JPK_FORMAT: &str = "jpk";
+pub const JSW_FORMAT: &str = "jsw";
 /// The media type of a JPK archive, as a manifest and a publisher's server name it.
 pub const JPK_MEDIA_TYPE: &str = "application/vnd.jess.jpk";
+/// The media type of a packed Jess workspace.
+pub const JSW_MEDIA_TYPE: &str = "application/vnd.jess.jsw";
 
 impl Artifact {
     pub fn is_program(&self) -> bool {
@@ -595,6 +605,11 @@ impl Artifact {
 
     pub fn is_crate(&self) -> bool {
         self.format == CRATE_FORMAT
+    }
+
+    /// A Jess application, a packed workspace: installed by Jess, never by a DreamWeave client.
+    pub fn is_application(&self) -> bool {
+        self.format == JSW_FORMAT
     }
 }
 
@@ -615,6 +630,31 @@ pub struct JessPackage {
     pub jess_api: String,
     pub content_digest: String,
     pub dependencies: BTreeMap<String, String>,
+}
+
+/// What a `jsw` artifact holds, as its publisher states it: the package that names the
+/// application, the version of Jess's built-in package it was packed against, the targets
+/// (`<package>:<target>`) it exports and runs by default, the command names they declare, and
+/// every package it holds, pinned. The packages are a frozen set, not requirements: shown, never
+/// resolved, and never edges in this index's graph.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct JessWorkspace {
+    pub package: PackageId,
+    pub builtin: String,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub default: Option<String>,
+    pub targets: Vec<String>,
+    pub commands: BTreeMap<String, String>,
+    pub packages: BTreeMap<String, PinnedPackage>,
+}
+
+/// A package a Jess application holds: exactly this version, with this content digest.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct PinnedPackage {
+    pub version: String,
+    pub content_digest: String,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]

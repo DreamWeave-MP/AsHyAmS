@@ -1146,7 +1146,15 @@ pub fn package_row(network: &Network, claim: &network::PackageClaim) -> PackageR
         project_name: claim.package.name.clone(),
         project_path: project.path(),
         summary: claim.package.summary.clone(),
-        current: claim.current().map(|version| version.version.clone()),
+        current: claim
+            .current()
+            .map(|version| version.version.clone())
+            .or_else(|| {
+                claim
+                    .package
+                    .current_application()
+                    .map(|version| version.version.clone())
+            }),
         jess_api: claim.current().map(|version| version.jess_api.clone()),
         versions: claim.package.versions.len(),
         yanked: claim
@@ -1215,6 +1223,74 @@ pub fn package_version_view(
             .iter()
             .map(|(id, requirement)| {
                 let fact = Fact::code(id, requirement.clone());
+                if published.contains(id.as_str()) {
+                    fact.path(format!("packages/{id}/"))
+                } else {
+                    fact
+                }
+            })
+            .collect(),
+        artifact: artifact_view(&version.artifact),
+    }
+}
+
+#[derive(Debug, Clone, Serialize)]
+pub struct ApplicationVersionView {
+    pub version: String,
+    pub channel: String,
+    pub status: String,
+    pub current: bool,
+    pub yanked_reason: Option<String>,
+    pub deprecated_reason: Option<String>,
+    pub replacement: Option<String>,
+    pub date: Option<String>,
+    pub builtin: String,
+    pub default: Option<String>,
+    /// Command name → the target it runs.
+    pub commands: Vec<Fact>,
+    /// Package id → the exact version it pins. Pins, not requirements: never resolved here.
+    pub packages: Vec<Fact>,
+    pub artifact: ArtifactView,
+}
+
+pub fn application_version_view(
+    network: &Network,
+    claim: &network::PackageClaim,
+    version: &crate::packages::ApplicationVersion,
+) -> ApplicationVersionView {
+    let published: BTreeSet<&str> = network
+        .listed_packages()
+        .into_iter()
+        .map(|listed| listed.key.id.0.as_str())
+        .collect();
+    let notice = version.yanked.as_ref().or(version.deprecated.as_ref());
+    ApplicationVersionView {
+        version: version.version.clone(),
+        channel: version.channel.clone(),
+        status: version.status.token().to_owned(),
+        current: claim
+            .package
+            .current_application()
+            .is_some_and(|current| current.version == version.version),
+        yanked_reason: version.yanked.as_ref().map(|notice| notice.reason.clone()),
+        deprecated_reason: version
+            .deprecated
+            .as_ref()
+            .map(|notice| notice.reason.clone()),
+        replacement: notice.and_then(|notice| notice.replacement.clone()),
+        date: version.date.clone(),
+        builtin: version.builtin.clone(),
+        default: version.default.clone(),
+        commands: version
+            .commands
+            .iter()
+            .map(|(command, target)| Fact::code(command, target.clone()))
+            .collect(),
+        packages: version
+            .packages
+            .iter()
+            .map(|(id, pinned)| {
+                let fact = Fact::code(id, format!("={}", pinned.version));
                 if published.contains(id.as_str()) {
                     fact.path(format!("packages/{id}/"))
                 } else {

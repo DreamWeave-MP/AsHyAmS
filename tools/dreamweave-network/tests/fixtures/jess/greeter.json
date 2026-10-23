@@ -1,0 +1,154 @@
+{
+  "schema_version": "4",
+  "document": "project",
+  "generator": "DreamWeave Mod Template 0.4.0",
+  "project": {
+    "id": "1b2c3d4e-5f6a-4b7c-8d9e-0f1a2b3c4d5e",
+    "name": "Greeter",
+    "summary": "A fixture: this application does not exist.",
+    "type": "tool",
+    "status": "active",
+    "versioning": "numeric",
+    "game": "morrowind",
+    "tags": [
+      "Jess"
+    ],
+    "maintainers": [],
+    "links": {
+      "issues": "https://github.com/example/greeter/issues",
+      "page": "https://example.org/greeter/home/",
+      "source": "https://github.com/example/greeter"
+    },
+    "integrations": {},
+    "media": [],
+    "credits": []
+  },
+  "channels": {
+    "stable": {
+      "version": "0.2.0"
+    }
+  },
+  "releases": [
+    {
+      "version": "0.2.0",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/example/greeter",
+        "tag": "greeter-0.2.0",
+        "revision": "1123456789abcdef0123456789abcdef01234567"
+      },
+      "runtimes": {},
+      "platforms": [
+        {
+          "os": "linux",
+          "arch": "x86_64"
+        }
+      ],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "org.example.greeter",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.example.greeter-0.2.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 2048,
+          "digests": {
+            "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+          },
+          "jess": {
+            "package": "org.example.greeter",
+            "jess_api": "1",
+            "content_digest": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "dependencies": {
+              "org.example.words": "^1.2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/example/greeter/releases/download/greeter-0.2.0/org.example.greeter-0.2.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "jsw",
+          "format": "jsw",
+          "filename": "greeter-0.2.0.jsw",
+          "media_type": "application/vnd.jess.jsw",
+          "size": 8192,
+          "digests": {
+            "sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+          },
+          "jess_workspace": {
+            "package": "org.example.greeter",
+            "builtin": "0.1.0",
+            "default": "org.example.greeter:greet",
+            "targets": [
+              "org.example.greeter:greet"
+            ],
+            "commands": {
+              "greet": "org.example.greeter:greet"
+            },
+            "packages": {
+              "org.example.greeter": {
+                "version": "0.2.0",
+                "content_digest": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+              },
+              "org.example.words": {
+                "version": "1.2.0",
+                "content_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              }
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/example/greeter/releases/download/greeter-0.2.0/greeter-0.2.0.jsw",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-x64",
+          "format": "binary",
+          "filename": "greeter-Linux-X64.zip",
+          "media_type": "application/zip",
+          "size": 22000000,
+          "digests": {
+            "sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/example/greeter/releases/download/greeter-0.2.0/greeter-Linux-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    }
+  ]
+}

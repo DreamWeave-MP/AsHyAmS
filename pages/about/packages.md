@@ -9,7 +9,7 @@ kind = "reference"
 
 [Jess](https://github.com/DreamWeave-MP/jess) packages are JPK archives: Luau applications and
 libraries, among them the generator and the template every DreamWeave site is built with. Under
-protocol `schema_version` `"3"` a Jess package is a DreamWeave project like any mod or program:
+protocol `schema_version` `"3"` and later a Jess package is a DreamWeave project like any mod or program:
 one repository, one site, one `mod.toml`, releases tagged and recorded by the Mod Template. What
 makes it a package is its releases: each carries one artifact of `format` `jpk`, and that
 artifact's `jess` block says which package it is.
@@ -47,6 +47,38 @@ Everything else about the release is what it is for any project: its date, chann
 `yanked` and `deprecated` state, sources, mirrors and Sigstore bundles. A yanked version stays
 listed and says why, so a lock that pins one still finds its facts.
 
+## The application
+
+Under `schema_version` `"4"` the same package may also be released as a Jess application: one
+artifact of `format` `jsw`, a packed Jess workspace holding the application's targets and every
+package they run, each pinned to its content digest. Its `media_type` is
+`application/vnd.jess.jsw`, and its `jess_workspace` block says what is inside:
+
+```json
+"jess_workspace": {
+  "package": "org.example.greeter",
+  "builtin": "0.1.0",
+  "default": "org.example.greeter:greet",
+  "targets": ["org.example.greeter:greet"],
+  "commands": { "greet": "org.example.greeter:greet" },
+  "packages": {
+    "org.example.greeter": { "version": "0.2.0", "content_digest": "…" },
+    "org.example.words": { "version": "1.2.0", "content_digest": "…" }
+  }
+}
+```
+
+`package` names the same package the project's `jpk` releases are, so the application belongs to
+the same claim: a project that publishes only the application is still that package's claim, with
+no JPK versions. A release has at most one `jsw` artifact, and only a `jsw` artifact has the block.
+The block has to add up: its default and its commands run targets it exports, and it holds the
+package of every target it exports and the package it is named for. Its executables, one per
+platform, are ordinary `binary` artifacts, shown with the release like any program's.
+
+`packages` is a frozen set the publisher pinned, not requirements. It is shown on the package's
+page, and it never enters the dependency graph. `jess install <id>` reads the manifest, takes the
+newest application release its Jess can run (by `builtin`), and installs it.
+
 ## What the index does with it
 
 Nothing new. The manifest is a claim's last good manifest, kept with the same rule as every other:
@@ -74,7 +106,7 @@ Everything the index holds about packages is also one file,
 [`dreamweave-network-jess-packages-1.schema.json`](../../schemas/dreamweave-network-jess-packages-1.schema.json).
 It is a discovery file, not a registry. For every package claim it carries the site, the project,
 the manifest URL, the digest of the manifest the index copied from, the index's freshness marks,
-and the versions copied unchanged.
+and the versions copied unchanged, with its application releases as `applications` when it has any.
 
 A client uses it to answer one question: which site publishes this id. Then it reads that site's
 manifest, which is the authority, picks a version under its own rules, downloads the archive from a

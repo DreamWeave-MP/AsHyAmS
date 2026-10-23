@@ -267,6 +267,112 @@
         }
       }
     },
+    "application_version": {
+      "description": "One release of the project as a Jess application (protocol schema_version 4): what its jsw artifact's jess_workspace block says it runs and holds, and the packed workspace. The packages it holds are pins, not requirements.",
+      "type": "object",
+      "required": [
+        "version",
+        "channel",
+        "status",
+        "builtin",
+        "targets",
+        "commands",
+        "packages",
+        "artifact"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "$ref": "#/$defs/version"
+        },
+        "channel": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "available",
+            "yanked",
+            "deprecated"
+          ]
+        },
+        "yanked": {
+          "$ref": "#/$defs/notice"
+        },
+        "deprecated": {
+          "$ref": "#/$defs/notice"
+        },
+        "date": {
+          "$ref": "#/$defs/date"
+        },
+        "builtin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "default": {
+          "type": "string",
+          "minLength": 1
+        },
+        "targets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "commands": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "packages": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": [
+              "version",
+              "content_digest"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "content_digest": {
+                "$ref": "#/$defs/hex64"
+              }
+            }
+          }
+        },
+        "artifact": {
+          "description": "The jsw artifact as the manifest lists it, copied unchanged.",
+          "type": "object",
+          "required": [
+            "id",
+            "format",
+            "filename",
+            "media_type",
+            "size",
+            "digests",
+            "jess_workspace",
+            "sources",
+            "signatures"
+          ],
+          "properties": {
+            "format": {
+              "const": "jsw"
+            },
+            "media_type": {
+              "const": "application/vnd.jess.jsw"
+            }
+          }
+        }
+      }
+    },
     "package_claim": {
       "description": "One site's publication of one Jess package: the releases of its project that are the package, copied from its manifest, with where that came from and how fresh this index's copy is.",
       "type": "object",
@@ -356,10 +462,18 @@
         },
         "versions": {
           "type": "array",
-          "minItems": 1,
           "items": {
             "$ref": "#/$defs/package_version"
-          }
+          },
+          "description": "The releases that are the package as a JPK. Empty only for a package published solely as an application."
+        },
+        "applications": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/application_version"
+          },
+          "description": "The releases that carry the package as a Jess application, a jsw. Absent when there are none."
         },
         "conflict": {
           "type": "boolean"
@@ -370,7 +484,21 @@
         "project_page": {
           "$ref": "#/$defs/url"
         }
-      }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "versions": {
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "required": [
+            "applications"
+          ]
+        }
+      ]
     },
     "conflict": {
       "type": "object",

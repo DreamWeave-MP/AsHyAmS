@@ -83,6 +83,7 @@ pub fn format_label(format: &str) -> String {
         "fomod" => "FOMOD + BAIN".to_owned(),
         "binary" => "program".to_owned(),
         "jpk" => "Jess package".to_owned(),
+        "jsw" => "Jess application".to_owned(),
         "crate" => "Rust crate".to_owned(),
         other => other.to_owned(),
     }
