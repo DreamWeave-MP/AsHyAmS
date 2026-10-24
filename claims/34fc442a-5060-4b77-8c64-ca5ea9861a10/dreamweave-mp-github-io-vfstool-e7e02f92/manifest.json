@@ -55,22 +55,22 @@
   },
   "channels": {
     "development": {
-      "version": "2.0.2-dev.12"
+      "version": "2.1.1-dev.15"
     },
     "stable": {
-      "version": "2.0.1"
+      "version": "2.1.0"
     }
   },
   "releases": [
     {
-      "version": "2.0.2-dev.12",
+      "version": "2.1.1-dev.15",
       "channel": "development",
-      "date": "2026-10-23",
+      "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
         "release": "development",
-        "revision": "633818c29e5aa9c8d4c1668af612e73bb10169c0"
+        "revision": "8780b1037e47bc95ef7af87e810971a2eb96c305"
       },
       "runtimes": {},
       "platforms": [
@@ -112,24 +112,235 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.vfstool-2.0.2-dev.12.jpk",
+          "filename": "org.dreamweave.vfstool-2.1.1-dev.15.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 62367,
+          "size": 62069,
           "digests": {
-            "sha256": "31c03610960e0108b464df48cb370dface87f537614e67dbea5247e525456c9c"
+            "sha256": "2b07119cfe0e0ac7c0802f0f7d89285e7881f08c921765761a6e3007270c6dc3"
           },
           "jess": {
             "package": "org.dreamweave.vfstool",
             "jess_api": "1",
-            "content_digest": "1831fac5c4e42c83bd0d578e4b552fe07a3348dd0c45e0bd2714c885e324d5c5",
+            "content_digest": "e0a5461874446bbe1478039796b3ceafb69d1f759c07cb24a1edc8355b4877b1",
             "dependencies": {
-              "org.dreamweave.openmw-config": "4",
+              "org.dreamweave.openmw-config": "4.2",
               "org.dreamweave.vfs": "2"
             }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/development/org.dreamweave.vfstool-2.0.2-dev.12.jpk",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/development/org.dreamweave.vfstool-2.1.1-dev.15.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "2.1.0",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/vfstool",
+        "tag": "vfstool-2.1.0",
+        "revision": "1eae7ab127b54b2e89e51266e46a907113d242da"
+      },
+      "notes": {
+        "summary": "vfstool finds OpenMW's own configuration again, as the Rust program did.",
+        "fixed": [
+          "With neither `--config` nor OPENMW_CONFIG, vfstool reads the openmw.cfg in the folder OpenMW keeps its own in on this platform: Documents\\My Games\\OpenMW on Windows, wherever Documents was moved, Library/Preferences/openmw on macOS, and the XDG config folder elsewhere. Its `?userconfig?` and `?userdata?` are OpenMW's own folders. Needs jess 0.2.1 or later; the standalone downloads carry it."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [
+        {
+          "os": "windows",
+          "arch": "x86_64"
+        },
+        {
+          "os": "macos",
+          "arch": "x86_64"
+        },
+        {
+          "os": "macos",
+          "arch": "aarch64"
+        },
+        {
+          "os": "linux",
+          "arch": "x86_64"
+        }
+      ],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "vfstool",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.vfstool-2.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 62060,
+          "digests": {
+            "sha256": "314590d8841e4fbd3c6f240ca8457d7b4648e8334124399e85629c5f55e2c20b"
+          },
+          "jess": {
+            "package": "org.dreamweave.vfstool",
+            "jess_api": "1",
+            "content_digest": "eb05850223448c7d80c4723490c02a31dc3842e72ce0969019d15fd8c858ca09",
+            "dependencies": {
+              "org.dreamweave.openmw-config": "4.2",
+              "org.dreamweave.vfs": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-2.1.0/org.dreamweave.vfstool-2.1.0.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "jsw",
+          "format": "jsw",
+          "filename": "vfstool-2.1.0.jsw",
+          "media_type": "application/vnd.jess.jsw",
+          "size": 475758,
+          "digests": {
+            "sha256": "4fee62bbe250d338b08cf4f258a015450037b3f5d7e943fd54323e803462e68c"
+          },
+          "jess_workspace": {
+            "package": "org.dreamweave.vfstool",
+            "builtin": "0.1.0",
+            "default": "org.dreamweave.vfstool:vfstool",
+            "targets": [
+              "org.dreamweave.vfstool:vfstool"
+            ],
+            "commands": {
+              "vfstool": "org.dreamweave.vfstool:vfstool"
+            },
+            "packages": {
+              "org.dreamweave.dream-archive": {
+                "content_digest": "2542758bf2af0319bcecca13eb44158c43b87733d207eb02f13d647412ee9dc1",
+                "version": "2.0.0"
+              },
+              "org.dreamweave.openmw-config": {
+                "content_digest": "1a84e63664f790aee1f7f16fcb23a1f511b0458028dc3b8c78737954a197328f",
+                "version": "4.2.0"
+              },
+              "org.dreamweave.vfs": {
+                "content_digest": "b501db857f2b619c32963763173330348ea57602f1e53303a487fa6025994fab",
+                "version": "2.0.0"
+              },
+              "org.dreamweave.vfstool": {
+                "content_digest": "eb05850223448c7d80c4723490c02a31dc3842e72ce0969019d15fd8c858ca09",
+                "version": "2.1.0"
+              }
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-2.1.0/vfstool-2.1.0.jsw",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "windows-x64",
+          "format": "binary",
+          "filename": "vfstool-Windows-X64.zip",
+          "media_type": "application/zip",
+          "size": 21367046,
+          "digests": {
+            "sha256": "9fd98175b93bc7d2ea22bd9606c1ef5ab66d8d1098c8ce895100cf5a381d5730"
+          },
+          "platform": {
+            "os": "windows",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-2.1.0/vfstool-Windows-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-x64",
+          "format": "binary",
+          "filename": "vfstool-macOS-X64.zip",
+          "media_type": "application/zip",
+          "size": 22381552,
+          "digests": {
+            "sha256": "84ad5ed450ed2a6248d44bbc36b076ec5819e9c1708b5061b73b5685db6c394f"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-2.1.0/vfstool-macOS-X64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "macos-arm64",
+          "format": "binary",
+          "filename": "vfstool-macOS-ARM64.zip",
+          "media_type": "application/zip",
+          "size": 20318178,
+          "digests": {
+            "sha256": "671b4364b95066a733a03d6f5ae5f951763cd258a7150ce6a3798dca6a057b33"
+          },
+          "platform": {
+            "os": "macos",
+            "arch": "aarch64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-2.1.0/vfstool-macOS-ARM64.zip",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        },
+        {
+          "id": "linux-x64",
+          "format": "binary",
+          "filename": "vfstool-Linux-X64.zip",
+          "media_type": "application/zip",
+          "size": 23029654,
+          "digests": {
+            "sha256": "7ef1c8cb9a1d505f66eeb40da43132b1e266a38cef083820b733102bf3e817e2"
+          },
+          "platform": {
+            "os": "linux",
+            "arch": "x86_64"
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/vfstool-2.1.0/vfstool-Linux-X64.zip",
               "kind": "publisher"
             }
           ],

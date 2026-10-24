@@ -1,0 +1,32 @@
+{
+  "id": "cfdf4ab2315a6c8efdc5",
+  "kind": "changed",
+  "project": "6f2d395b-2cc9-4bc7-9ba9-d1e73d0dadb6",
+  "origin": "dreamweave-mp-github-io-add-vanilla-refs-4c01b15a",
+  "name": "add-vanilla-refs",
+  "observed_at": "2026-10-24T03:01:45Z",
+  "before": "8f449a2005e607c60631e0f5a210ca30e4f0b8c31c038dc72658b4ab6864ac41",
+  "after": "00854c3958512b323837559bd21f27a0325f1f99d33f40afb43c53ecd022340d",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.4",
+      "after": "0.1.1-dev.5",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.5",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.4",
+      "channel": "development"
+    }
+  ]
+}

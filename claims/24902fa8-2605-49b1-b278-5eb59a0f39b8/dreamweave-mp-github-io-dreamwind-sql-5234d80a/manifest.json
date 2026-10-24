@@ -32,22 +32,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.2-dev.4"
+      "version": "0.2.1-dev.7"
     },
     "stable": {
-      "version": "0.1.1"
+      "version": "0.2.0"
     }
   },
   "releases": [
     {
-      "version": "0.1.2-dev.4",
+      "version": "0.2.1-dev.7",
       "channel": "development",
-      "date": "2026-10-23",
+      "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dreamwind-sql",
         "release": "development",
-        "revision": "389fcd6d25c313a21152b9b7ebc51d7d71bac2be"
+        "revision": "b32ebd58093fe60b6a0c11e2017bc7980c339998"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,25 +72,96 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.dreamwind-sql-0.1.2-dev.4.jpk",
+          "filename": "org.dreamweave.dreamwind-sql-0.2.1-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 63190,
+          "size": 78008,
           "digests": {
-            "sha256": "c4e2e469266cce2082f612707f605960b51dfaf355b0cfde11c711a3b996a706"
+            "sha256": "3d53ae87e364c84699b2590736850fb0458aff6b65bb454754f23daa7dcd97bc"
           },
           "jess": {
             "package": "org.dreamweave.dreamwind-sql",
             "jess_api": "1",
-            "content_digest": "8ef8619233e121aad1da3eab5946d0760600a04db271ed66d024c3b360460af0",
+            "content_digest": "e375e60e7c93d71d1c5d7c5e2c3452ecc67a9fa1fb05d0d146cc156feeca4171",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.jessql": "0.1.1",
-              "org.dreamweave.nif": "0.1"
+              "org.dreamweave.nif": "0.1",
+              "org.dreamweave.openmw-config": "4.2",
+              "org.dreamweave.openmw-install": "0.1"
             }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dreamwind-sql/releases/download/development/org.dreamweave.dreamwind-sql-0.1.2-dev.4.jpk",
+              "url": "https://github.com/DreamWeave-MP/dreamwind-sql/releases/download/development/org.dreamweave.dreamwind-sql-0.2.1-dev.7.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dreamwind-sql",
+        "tag": "dreamwind_sql-0.2.0",
+        "revision": "b76ad7c3e8e8b0682f40ccfc06cfed5bd780f653"
+      },
+      "notes": {
+        "summary": "SQL over a whole load order, and a command that runs it: `dreamwind-sql \"SELECT ...\"`.",
+        "added": [
+          "`content.plugins`: the load order's content files in order, with what OpenMW loads each as (`esm`, `scripts`) and how many records an ESM file has.",
+          "`content.records`: every record of every ESM content file, with its file's name and place in the load order. A file is read only when a query reaches it, and a WHERE on `plugin` or `load_index` reads that file alone.",
+          "The `dreamwind-sql` command and `commands.query`: a query over the load order `--config` names, else OPENMW_CONFIG's, else OpenMW's own, with `--plugin` and `--nif` for single files, printed as a table, JSON or YAML. The VFS is built only when a query reads `vfs.files`."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dreamwind-sql",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.dreamwind-sql-0.2.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 78002,
+          "digests": {
+            "sha256": "af01b84ce1033e2697a75d4d5a796971538ab685a891eee416ed8d5b1561d631"
+          },
+          "jess": {
+            "package": "org.dreamweave.dreamwind-sql",
+            "jess_api": "1",
+            "content_digest": "460ecf92436d74425f5bbe3c5768b9d021cbc99cdd2aa317217e3105bb93fb0b",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.jessql": "0.1.1",
+              "org.dreamweave.nif": "0.1",
+              "org.dreamweave.openmw-config": "4.2",
+              "org.dreamweave.openmw-install": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dreamwind-sql/releases/download/dreamwind_sql-0.2.0/org.dreamweave.dreamwind-sql-0.2.0.jpk",
               "kind": "publisher"
             }
           ],

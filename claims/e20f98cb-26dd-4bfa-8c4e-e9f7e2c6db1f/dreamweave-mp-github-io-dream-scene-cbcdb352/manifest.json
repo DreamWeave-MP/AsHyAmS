@@ -31,7 +31,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.4"
+      "version": "0.1.1-dev.5"
     },
     "stable": {
       "version": "0.1.0"
@@ -39,14 +39,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.4",
+      "version": "0.1.1-dev.5",
       "channel": "development",
-      "date": "2026-10-23",
+      "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream-scene",
         "release": "development",
-        "revision": "18bf50a892af776c732cc5f583183900847f23cf"
+        "revision": "bb636497edd3ae6a59ef2bf3665605f73ac38da4"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.scene-0.1.1-dev.4.jpk",
+          "filename": "org.dreamweave.scene-0.1.1-dev.5.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 61238,
           "digests": {
-            "sha256": "37a19bfb99e7f717376b2003a7fedb4472aec732e1c97af91eacaacf712711dc"
+            "sha256": "011dd572d4d0103999f349ed3cf6465f335bc98d03588c67afe053c85791ec3d"
           },
           "jess": {
             "package": "org.dreamweave.scene",
             "jess_api": "1",
-            "content_digest": "3529579db06a7cc80991059e9bea4703842806518c8c325483abe879c9e00bb9",
+            "content_digest": "341fdf6597070a3531275767832f65227814a43f49df0a0943d6ec1758560b5f",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dream-scene/releases/download/development/org.dreamweave.scene-0.1.1-dev.4.jpk",
+              "url": "https://github.com/DreamWeave-MP/dream-scene/releases/download/development/org.dreamweave.scene-0.1.1-dev.5.jpk",
               "kind": "publisher"
             }
           ],

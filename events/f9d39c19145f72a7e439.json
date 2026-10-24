@@ -1,0 +1,32 @@
+{
+  "id": "f9d39c19145f72a7e439",
+  "kind": "changed",
+  "project": "bd0af2fc-6c77-47e3-9bab-05573cc76588",
+  "origin": "dreamweave-mp-github-io-openmw-import-morrowind-17386f1e",
+  "name": "openmw-import-morrowind",
+  "observed_at": "2026-10-24T03:01:45Z",
+  "before": "92b10be22027b3472039eb5f94d8e02dcf3196ad2b279753fc4db86d735daa42",
+  "after": "cedde0651ee78235fdeb47026cd302d6d5009d55ec866dca0e8b42587c9beaab",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.4",
+      "after": "0.1.1-dev.5",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.5",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.4",
+      "channel": "development"
+    }
+  ]
+}

@@ -32,22 +32,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.4"
+      "version": "0.1.2-dev.7"
     },
     "stable": {
-      "version": "0.1.0"
+      "version": "0.1.1"
     }
   },
   "releases": [
     {
-      "version": "0.1.1-dev.4",
+      "version": "0.1.2-dev.7",
       "channel": "development",
-      "date": "2026-10-23",
+      "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/merged-lands",
         "release": "development",
-        "revision": "cbd793a4d681ac665a34d2284da4d88a0d357e79"
+        "revision": "dfaaf37e104881371785f626573b468fa9840d74"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,25 +72,92 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.merged-lands-0.1.1-dev.4.jpk",
+          "filename": "org.dreamweave.merged-lands-0.1.2-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 118420,
+          "size": 118750,
           "digests": {
-            "sha256": "d4e12a91cfd642fbae9670c2de561c8267fee7490b5c217cfd9a3bf2f593de82"
+            "sha256": "2aad71291713b300ffb1747bcb5a1b697f0cd5c835510f10788540f68de15f9f"
           },
           "jess": {
             "package": "org.dreamweave.merged-lands",
             "jess_api": "1",
-            "content_digest": "1787cc2a37ae0ea95a7719990cc9ba7876a9e81d35cbea67cc90846f1cc35a41",
+            "content_digest": "ad2c8f7205554cf3076a90ae5a55bbde27ad1a4f03a1a126d4aee71b43bbbe17",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
+              "org.dreamweave.openmw-config": "4.2",
               "org.dreamweave.openmw-content": "0.1",
               "org.dreamweave.openmw-install": "0.1"
             }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/merged-lands/releases/download/development/org.dreamweave.merged-lands-0.1.1-dev.4.jpk",
+              "url": "https://github.com/DreamWeave-MP/merged-lands/releases/download/development/org.dreamweave.merged-lands-0.1.2-dev.7.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.1",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/merged-lands",
+        "tag": "merged_lands-0.1.1",
+        "revision": "600d0ef8421fabaa690c329c9b995724e06326ea"
+      },
+      "notes": {
+        "summary": "Merged Lands finds OpenMW's own configuration when none is named, as the original does.",
+        "added": [
+          "With neither `--config` nor OPENMW_CONFIG, the openmw.cfg in the folder OpenMW keeps its own in on this platform: Documents\\My Games\\OpenMW on Windows, wherever Documents was moved, Library/Preferences/openmw on macOS, and the XDG config folder elsewhere. Its `?userconfig?` and `?userdata?` are OpenMW's own folders. Needs jess 0.2.1 or later."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "merged-lands",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.merged-lands-0.1.1.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 118745,
+          "digests": {
+            "sha256": "85e708eea077ea21f64a46b2d65585aeddcf85638a12439be6dd87c2a8cf9a54"
+          },
+          "jess": {
+            "package": "org.dreamweave.merged-lands",
+            "jess_api": "1",
+            "content_digest": "74d7bba64e9aee7ec890d0b2cfa7d3c2118330f678fd4a05c002fe47e42c57ad",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.openmw-config": "4.2",
+              "org.dreamweave.openmw-content": "0.1",
+              "org.dreamweave.openmw-install": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/merged-lands/releases/download/merged_lands-0.1.1/org.dreamweave.merged-lands-0.1.1.jpk",
               "kind": "publisher"
             }
           ],

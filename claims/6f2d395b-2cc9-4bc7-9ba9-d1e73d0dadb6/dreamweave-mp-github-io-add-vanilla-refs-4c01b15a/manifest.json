@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.4"
+      "version": "0.1.1-dev.5"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.4",
+      "version": "0.1.1-dev.5",
       "channel": "development",
-      "date": "2026-10-23",
+      "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/add-vanilla-refs",
         "release": "development",
-        "revision": "f66265d4f7d32458936304c09c0fb6400b5d6187"
+        "revision": "24a060e3e86924628838bbc5aecee18c5c4df677"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.add-vanilla-refs-0.1.1-dev.4.jpk",
+          "filename": "org.dreamweave.add-vanilla-refs-0.1.1-dev.5.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 44075,
           "digests": {
-            "sha256": "0e41911249c3b2ff7e611bfdab998f71e5a1b1589aaa07ce4859d41fcbde089d"
+            "sha256": "e69feab887e765deb1d4d3485b7110cce3aff4beaedc1a14b0d61c11036533ac"
           },
           "jess": {
             "package": "org.dreamweave.add-vanilla-refs",
             "jess_api": "1",
-            "content_digest": "5cb10003d53e968c0fd03a1aa44bc222f9eb8ad2038c0a62c799292934f8fa4d",
+            "content_digest": "af4344119fe0360dbd0c7852a3118654f5a30ba337b6528578febeaf1ad75575",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.tes3conv": "0.1"
@@ -89,7 +89,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/add-vanilla-refs/releases/download/development/org.dreamweave.add-vanilla-refs-0.1.1-dev.4.jpk",
+              "url": "https://github.com/DreamWeave-MP/add-vanilla-refs/releases/download/development/org.dreamweave.add-vanilla-refs-0.1.1-dev.5.jpk",
               "kind": "publisher"
             }
           ],

@@ -1,0 +1,66 @@
+{
+  "id": "cecf174517d44c1c304d",
+  "kind": "changed",
+  "project": "79933d87-68dd-4476-945a-906e5a6f4f44",
+  "origin": "dreamweave-mp-github-io-merged-lands-5b91185c",
+  "name": "merged-lands",
+  "observed_at": "2026-10-24T03:01:45Z",
+  "before": "519231e25c2e8a2ce2f43c13e4f4cb156c00ec0b06ad284beadec48122c187b6",
+  "after": "7c45f73f431bc4147106c0822b6cf0d7a1cb5cfd36507c21a46a0aea81105194",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.4",
+      "after": "0.1.2-dev.7",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 118420,
+          "after": 118750
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.1.0",
+      "after": "0.1.1",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 118413,
+          "after": 118745
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.2-dev.7",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": {
+        "summary": "Merged Lands finds OpenMW's own configuration when none is named, as the original does.",
+        "added": [
+          "With neither `--config` nor OPENMW_CONFIG, the openmw.cfg in the folder OpenMW keeps its own in on this platform: Documents\\My Games\\OpenMW on Windows, wherever Documents was moved, Library/Preferences/openmw on macOS, and the XDG config folder elsewhere. Its `?userconfig?` and `?userdata?` are OpenMW's own folders. Needs jess 0.2.1 or later."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.4",
+      "channel": "development"
+    }
+  ]
+}

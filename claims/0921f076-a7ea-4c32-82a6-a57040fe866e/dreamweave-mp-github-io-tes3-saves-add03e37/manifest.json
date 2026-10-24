@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.4"
+      "version": "0.1.1-dev.5"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.4",
+      "version": "0.1.1-dev.5",
       "channel": "development",
-      "date": "2026-10-23",
+      "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/tes3-saves",
         "release": "development",
-        "revision": "675a4b20b5fadfcba43c62fd8db6302d22740b5c"
+        "revision": "7494f3e55beed717af56dcb9b780aec5fdada22c"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.tes3-saves-0.1.1-dev.4.jpk",
+          "filename": "org.dreamweave.tes3-saves-0.1.1-dev.5.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 197540,
           "digests": {
-            "sha256": "4251b508c6e48beff8fc6a2e0c87779c21adcc4c20a5d353fc37e4f006d04185"
+            "sha256": "57aac3db1b94ff1bde7814830e39a19ec55b78b6528ad8f8fd9471b249cf6fa6"
           },
           "jess": {
             "package": "org.dreamweave.tes3-saves",
             "jess_api": "1",
-            "content_digest": "23bc14817a8b61d609340843fc04cf9bd543f646c8b97e108ebf97b18b8ac334",
+            "content_digest": "f1f8afda9c63dbd09adc84946a4866c98373f0227fda18b23791a2db3903ee46",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.openmw-install": "0.1"
@@ -89,7 +89,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/tes3-saves/releases/download/development/org.dreamweave.tes3-saves-0.1.1-dev.4.jpk",
+              "url": "https://github.com/DreamWeave-MP/tes3-saves/releases/download/development/org.dreamweave.tes3-saves-0.1.1-dev.5.jpk",
               "kind": "publisher"
             }
           ],

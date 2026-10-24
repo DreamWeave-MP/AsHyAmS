@@ -1,0 +1,126 @@
+{
+  "id": "54221e809ed6d659da8f",
+  "kind": "changed",
+  "project": "aca6a4b0-f8b2-44a9-9cc4-55ef3c9d83f8",
+  "origin": "dreamweave-mp-github-io-dreamwind-803bec0d",
+  "name": "DreamWind",
+  "observed_at": "2026-10-24T03:01:45Z",
+  "before": "9f6d645a7967a7c0ffd55aa2c1992f5b28b518971da54ad334c8d0fb79aee34a",
+  "after": "81e632d6f1b12cb6e01511edf35ba12de5e4bbe54cc53bc6501fb7a77212c7da",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.2.1-dev.5",
+      "after": "0.3.1-dev.8",
+      "changes": [
+        {
+          "change": "platforms",
+          "added": [
+            "linux/x86_64",
+            "macos/aarch64",
+            "macos/x86_64",
+            "windows/x86_64"
+          ],
+          "removed": []
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 9691,
+          "after": 9899
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.2.0",
+      "after": "0.3.0",
+      "changes": [
+        {
+          "change": "platforms",
+          "added": [
+            "linux/x86_64",
+            "macos/aarch64",
+            "macos/x86_64",
+            "windows/x86_64"
+          ],
+          "removed": []
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 9685,
+          "after": 9893
+        },
+        {
+          "change": "artifact-added",
+          "artifact": "jsw",
+          "filename": "dreamwind-0.3.0.jsw",
+          "size": 3557553,
+          "sha256": "31bdd6f37b1536fc76684df5eebfd85a3dd5776fef49fbb43258688e0450ce04"
+        },
+        {
+          "change": "artifact-added",
+          "artifact": "windows-x64",
+          "filename": "dreamwind-Windows-X64.zip",
+          "size": 24448845,
+          "sha256": "424c69f13ee860d64135bfb6ba65dd0eddc3b49fbc496964d2c19b10680d677e"
+        },
+        {
+          "change": "artifact-added",
+          "artifact": "macos-x64",
+          "filename": "dreamwind-macOS-X64.zip",
+          "size": 25461748,
+          "sha256": "88e9b9048c854b620a71208fd73b08641e3d81e25eea315f12a4e2e24d19b68a"
+        },
+        {
+          "change": "artifact-added",
+          "artifact": "macos-arm64",
+          "filename": "dreamwind-macOS-ARM64.zip",
+          "size": 23422438,
+          "sha256": "b11efb70460c3faa78ad51ef0c0ad49b3a7c3e097b5caacedd747fc2a8b192a4"
+        },
+        {
+          "change": "artifact-added",
+          "artifact": "linux-x64",
+          "filename": "dreamwind-Linux-X64.zip",
+          "size": 26111453,
+          "sha256": "ac5f9b6e24414d06ca1173543ae26aca114eb622ce8356f4fcc34844cd59e47b"
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.3.1-dev.8",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.3.0",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": {
+        "summary": "DreamWind ships as a program: a download for Windows, macOS and Linux that runs without jess, or `jess install org.dreamweave.dreamwind`. It gains `sql` and `workbench`, and its tools find OpenMW's own configuration.",
+        "added": [
+          "DreamWind is released as an application: `dreamwind.jsw`, which `jess install org.dreamweave.dreamwind` installs onto your PATH, and a standalone `dreamwind` for Windows x86_64, macOS x86_64 and ARM64, and Linux x86_64.",
+          "`dreamwind sql`: SQL over a load order's content files and records, its VFS, a plugin, and a NIF, printed as a table, JSON or YAML (dreamwind-sql 0.2).",
+          "`dreamwind workbench`: a review of an OpenMW Lua mod's scripts against OpenMW's Lua API (openmw-workbench 0.7)."
+        ],
+        "changed": [
+          "vfstool, doctor, tes3merge, merged-lands and s3lightfixes read OpenMW's own openmw.cfg when neither `--config` nor OPENMW_CONFIG names one."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.2.1-dev.5",
+      "channel": "development"
+    }
+  ]
+}

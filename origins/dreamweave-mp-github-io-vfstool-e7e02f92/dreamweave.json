@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/vfstool/home/",
       "manifest": "https://dreamweave-mp.github.io/vfstool/dreamweave/projects/34fc442a-5060-4b77-8c64-ca5ea9861a10.json",
-      "manifest_sha256": "0e9932435ad3ce8cb8881bcb79da1c2af1d8c4ea2838f5f83962e7795691237a",
-      "updated": "2026-10-23",
+      "manifest_sha256": "32b67068f2b955af2806e3caf2a0420e382dbcd11f51794b319c9e96f367ab6e",
+      "updated": "2026-10-24",
       "channels": {
-        "development": "2.0.2-dev.12",
+        "development": "2.1.1-dev.15",
         "stable": "0.9.0"
       }
     },
@@ -32,10 +32,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/vfstool/lib/",
       "manifest": "https://dreamweave-mp.github.io/vfstool/dreamweave/projects/b5412bc5-4c2c-49d6-b488-dd772a1046fa.json",
-      "manifest_sha256": "eb5323155a58fd9a93d789e098a0ab9fdb6186b2090e603ce1b085239a13997d",
-      "updated": "2026-10-23",
+      "manifest_sha256": "01a458bae1413a4fe28945ed0931dfffedaa84535fa29a39c797cf731266ed9b",
+      "updated": "2026-10-24",
       "channels": {
-        "development": "2.0.1-dev.12",
+        "development": "2.0.1-dev.15",
         "stable": "0.1.0"
       }
     }

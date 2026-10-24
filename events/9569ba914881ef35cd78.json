@@ -1,0 +1,67 @@
+{
+  "id": "9569ba914881ef35cd78",
+  "kind": "changed",
+  "project": "f8c45ec3-cbbf-4bec-9202-859088a8c0a0",
+  "origin": "dreamweave-mp-github-io-openmw-workbench-26e79167",
+  "name": "openmw-workbench",
+  "observed_at": "2026-10-24T03:01:45Z",
+  "before": "82a104783f6a1aa1242397d7ebc80dc9a2bb8f395f540b22031fcb9dd440329f",
+  "after": "8f674b1c7236a64a6b99238d7788a0b4f29300d99df60d4bca4dd538c7bffd2e",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.6.1-dev.4",
+      "after": "0.7.1-dev.7",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 150924,
+          "after": 156645
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.6.0",
+      "after": "0.7.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 150918,
+          "after": 156642
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.7.1-dev.7",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.7.0",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": {
+        "summary": "The workbench has a command: `openmw-workbench [folder...]` reviews an OpenMW Lua mod's scripts.",
+        "added": [
+          "The `openmw-workbench` command: a review of the Lua mod in each folder, the working directory when none is named, as text or JSON, with `--profile` and `--content`. It exits 1 when the review found an error, so CI can stop on one.",
+          "`@openmw-install/workbench/commands`: the same review as a typed request and a typed result."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.6.1-dev.4",
+      "channel": "development"
+    }
+  ]
+}

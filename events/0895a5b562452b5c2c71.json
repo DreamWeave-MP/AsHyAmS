@@ -1,0 +1,66 @@
+{
+  "id": "0895a5b562452b5c2c71",
+  "kind": "changed",
+  "project": "55e873c9-1ddc-4b13-b59a-0eb790bb2565",
+  "origin": "dreamweave-mp-github-io-s3lightfixes-bb9d2c5d",
+  "name": "S3LightFixes",
+  "observed_at": "2026-10-24T03:01:45Z",
+  "before": "f04da200049f2ec7c236bfb44a0def03b2cd1538f72248fcfd36535971bf9c75",
+  "after": "b92cae806a3f28ba9e80e67894fd08af714f2b271b4c9a09847c43b9c53c9361",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "1.0.1-dev.8",
+      "after": "1.1.1-dev.11",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 73991,
+          "after": 74419
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "1.0.0",
+      "after": "1.1.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 73985,
+          "after": 74413
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "1.1.1-dev.11",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "1.1.0",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": {
+        "summary": "S3LightFixes finds OpenMW's own configuration when none is named, as the original does.",
+        "added": [
+          "With neither `--config` nor OPENMW_CONFIG, the openmw.cfg in the folder OpenMW keeps its own in on this platform: Documents\\My Games\\OpenMW on Windows, wherever Documents was moved, Library/Preferences/openmw on macOS, and the XDG config folder elsewhere. Its `?userconfig?` and `?userdata?` are OpenMW's own folders. Needs jess 0.2.1 or later."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "1.0.1-dev.8",
+      "channel": "development"
+    }
+  ]
+}

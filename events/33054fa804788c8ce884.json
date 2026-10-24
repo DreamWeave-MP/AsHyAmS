@@ -1,0 +1,66 @@
+{
+  "id": "33054fa804788c8ce884",
+  "kind": "changed",
+  "project": "13fe2321-0f57-4368-9690-50400d433c61",
+  "origin": "dreamweave-mp-github-io-tes3merge-95d17f94",
+  "name": "tes3merge",
+  "observed_at": "2026-10-24T03:01:45Z",
+  "before": "8ab5acf79f7ee4d6798c29b7078780ac942cc12e0c06c058ab0d2620936af930",
+  "after": "5f9b1fe2a03e7d0a7aca03879a674069c57f4d51153eb4cad438d64c9113e7b6",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.4",
+      "after": "0.1.2-dev.7",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 46198,
+          "after": 46089
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.1.0",
+      "after": "0.1.1",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 46191,
+          "after": 46088
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.2-dev.7",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": {
+        "summary": "The merge finds OpenMW's own configuration when none is named.",
+        "added": [
+          "With neither `--config` nor OPENMW_CONFIG, the openmw.cfg in the folder OpenMW keeps its own in on this platform: Documents\\My Games\\OpenMW on Windows, wherever Documents was moved, Library/Preferences/openmw on macOS, and the XDG config folder elsewhere. Its `?userconfig?` and `?userdata?` are OpenMW's own folders. Needs jess 0.2.1 or later."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.4",
+      "channel": "development"
+    }
+  ]
+}

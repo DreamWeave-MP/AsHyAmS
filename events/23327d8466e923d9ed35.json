@@ -1,0 +1,68 @@
+{
+  "id": "23327d8466e923d9ed35",
+  "kind": "changed",
+  "project": "24902fa8-2605-49b1-b278-5eb59a0f39b8",
+  "origin": "dreamweave-mp-github-io-dreamwind-sql-5234d80a",
+  "name": "dreamwind-sql",
+  "observed_at": "2026-10-24T03:01:45Z",
+  "before": "8f32b7836a00af4ad79ec1200fd5fad9c53228af6f0e4a5cfed739293edf9554",
+  "after": "86f1610982cc83fb061ce78805047823e2192279ef0cf2c27b13cfcfe587017a",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.2-dev.4",
+      "after": "0.2.1-dev.7",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 63190,
+          "after": 78008
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.1.1",
+      "after": "0.2.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 63184,
+          "after": 78002
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.2.1-dev.7",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.2.0",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": {
+        "summary": "SQL over a whole load order, and a command that runs it: `dreamwind-sql \"SELECT ...\"`.",
+        "added": [
+          "`content.plugins`: the load order's content files in order, with what OpenMW loads each as (`esm`, `scripts`) and how many records an ESM file has.",
+          "`content.records`: every record of every ESM content file, with its file's name and place in the load order. A file is read only when a query reaches it, and a WHERE on `plugin` or `load_index` reads that file alone.",
+          "The `dreamwind-sql` command and `commands.query`: a query over the load order `--config` names, else OPENMW_CONFIG's, else OpenMW's own, with `--plugin` and `--nif` for single files, printed as a table, JSON or YAML. The VFS is built only when a query reads `vfs.files`."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.2-dev.4",
+      "channel": "development"
+    }
+  ]
+}

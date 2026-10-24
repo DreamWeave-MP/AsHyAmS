@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/openmw-import-morrowind/home/",
       "manifest": "https://dreamweave-mp.github.io/openmw-import-morrowind/dreamweave/projects/bd0af2fc-6c77-47e3-9bab-05573cc76588.json",
-      "manifest_sha256": "92b10be22027b3472039eb5f94d8e02dcf3196ad2b279753fc4db86d735daa42",
-      "updated": "2026-10-23",
+      "manifest_sha256": "cedde0651ee78235fdeb47026cd302d6d5009d55ec866dca0e8b42587c9beaab",
+      "updated": "2026-10-24",
       "channels": {
-        "development": "0.1.1-dev.4",
+        "development": "0.1.1-dev.5",
         "stable": "0.1.0"
       }
     }

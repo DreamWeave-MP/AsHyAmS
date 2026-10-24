@@ -1,0 +1,66 @@
+{
+  "id": "973e19db046a5908a7df",
+  "kind": "changed",
+  "project": "66795eef-6cc5-41f2-b8ed-d373c78e5f42",
+  "origin": "dreamweave-mp-github-io-doctor-a2c4e454",
+  "name": "doctor",
+  "observed_at": "2026-10-24T03:01:45Z",
+  "before": "571f51f28d0880cec0e8ac0fe1d6cd4b06a5945a5ebe94545321427de3f7513c",
+  "after": "3384f15b909d4e4b18192390492fc5c76f2452f1af39acc588eb8439e411286b",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.4",
+      "after": "0.1.2-dev.7",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 43077,
+          "after": 42896
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.1.0",
+      "after": "0.1.1",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 43071,
+          "after": 42891
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.2-dev.7",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": {
+        "summary": "The doctor finds OpenMW's own configuration when none is named.",
+        "added": [
+          "With neither `--config` nor OPENMW_CONFIG, the openmw.cfg in the folder OpenMW keeps its own in on this platform: Documents\\My Games\\OpenMW on Windows, wherever Documents was moved, Library/Preferences/openmw on macOS, and the XDG config folder elsewhere. Its `?userconfig?` and `?userdata?` are OpenMW's own folders. Needs jess 0.2.1 or later."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.4",
+      "channel": "development"
+    }
+  ]
+}

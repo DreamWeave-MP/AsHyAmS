@@ -1,0 +1,32 @@
+{
+  "id": "f8ceffcadd4505bd2aff",
+  "kind": "changed",
+  "project": "14eca538-2918-4b4f-90ae-80b764a62e57",
+  "origin": "dreamweave-mp-github-io-starwind-aaae7355",
+  "name": "starwind",
+  "observed_at": "2026-10-24T03:01:45Z",
+  "before": "cc720cc485cf919981a842ed487d97037ef843c83cd8f3b8d5981f5cf1ce5eae",
+  "after": "7a6c55422e7980935a0c12222cf1d46d5e1c45c5ebb57915156ed7175bb445fb",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.4",
+      "after": "0.1.1-dev.5",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.5",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.4",
+      "channel": "development"
+    }
+  ]
+}

@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/openmw-install/home/",
       "manifest": "https://dreamweave-mp.github.io/openmw-install/dreamweave/projects/34eff1d9-fd7e-4c17-bf34-cdb8bf3ad546.json",
-      "manifest_sha256": "9dc9550a785212c7125dd4cd07278e50e0185e0191a0dbcc092a0827299fa74e",
-      "updated": "2026-10-23",
+      "manifest_sha256": "34199c389c4db22553eaa7a554ee751b110ce1ac8b6581b23ffeff0676892314",
+      "updated": "2026-10-24",
       "channels": {
-        "development": "0.1.1-dev.7",
+        "development": "0.1.1-dev.8",
         "stable": "0.1.0"
       }
     }

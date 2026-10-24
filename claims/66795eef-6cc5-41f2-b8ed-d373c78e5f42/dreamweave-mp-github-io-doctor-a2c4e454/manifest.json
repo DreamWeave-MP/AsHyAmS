@@ -32,22 +32,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.4"
+      "version": "0.1.2-dev.7"
     },
     "stable": {
-      "version": "0.1.0"
+      "version": "0.1.1"
     }
   },
   "releases": [
     {
-      "version": "0.1.1-dev.4",
+      "version": "0.1.2-dev.7",
       "channel": "development",
-      "date": "2026-10-23",
+      "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/doctor",
         "release": "development",
-        "revision": "ac0b7e6708540e5281a231ecde33504446ec858f"
+        "revision": "500bcbe50feaea7b03a6500c9be63756dec38f5b"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,18 +72,19 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.doctor-0.1.1-dev.4.jpk",
+          "filename": "org.dreamweave.doctor-0.1.2-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 43077,
+          "size": 42896,
           "digests": {
-            "sha256": "1933319fb04b51679b928230dbad87f55a8c3c2a56bea1ecb4f8508fcbe2df8f"
+            "sha256": "b0e29a13a1c609d15f997607b479bff7050ab08154cd4a0c4584230708ff9c54"
           },
           "jess": {
             "package": "org.dreamweave.doctor",
             "jess_api": "1",
-            "content_digest": "1a18f77fa8e87a20ca2d12ce3b6d48548f29644df71476e0c5607bbfebdb5a24",
+            "content_digest": "31f72217da4e26e660858a6558d8005164feb2cc77eed249aca14e7f0a576a41",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
+              "org.dreamweave.openmw-config": "4.2",
               "org.dreamweave.openmw-content": "0.1",
               "org.dreamweave.openmw-install": "0.1",
               "org.dreamweave.plugin-assets": "0.1",
@@ -92,7 +93,75 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/doctor/releases/download/development/org.dreamweave.doctor-0.1.1-dev.4.jpk",
+              "url": "https://github.com/DreamWeave-MP/doctor/releases/download/development/org.dreamweave.doctor-0.1.2-dev.7.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.1",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/doctor",
+        "tag": "doctor-0.1.1",
+        "revision": "3659755d6e1a8fd30e0fdd53a3e2022cc8dc5793"
+      },
+      "notes": {
+        "summary": "The doctor finds OpenMW's own configuration when none is named.",
+        "added": [
+          "With neither `--config` nor OPENMW_CONFIG, the openmw.cfg in the folder OpenMW keeps its own in on this platform: Documents\\My Games\\OpenMW on Windows, wherever Documents was moved, Library/Preferences/openmw on macOS, and the XDG config folder elsewhere. Its `?userconfig?` and `?userdata?` are OpenMW's own folders. Needs jess 0.2.1 or later."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "doctor",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.doctor-0.1.1.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 42891,
+          "digests": {
+            "sha256": "e0dffe7aa7b050b9854eff70d4e88ffdaa1db24b06d1e5d241b5069b6e9266f0"
+          },
+          "jess": {
+            "package": "org.dreamweave.doctor",
+            "jess_api": "1",
+            "content_digest": "25dfddb616b0b2c2ac20610b47e060f8458dac2db114f39ad20417bf1743d8c8",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.openmw-config": "4.2",
+              "org.dreamweave.openmw-content": "0.1",
+              "org.dreamweave.openmw-install": "0.1",
+              "org.dreamweave.plugin-assets": "0.1",
+              "org.dreamweave.tes3cmd": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/doctor/releases/download/doctor-0.1.1/org.dreamweave.doctor-0.1.1.jpk",
               "kind": "publisher"
             }
           ],

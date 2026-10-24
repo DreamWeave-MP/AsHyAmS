@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.4"
+      "version": "0.1.1-dev.5"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.4",
+      "version": "0.1.1-dev.5",
       "channel": "development",
-      "date": "2026-10-23",
+      "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archivetool",
         "release": "development",
-        "revision": "8cfcafe95ebd38921b654c019517420beaedec69"
+        "revision": "d1ca97dc4ddc7976c0bd7b6e460d9490eb0875cd"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,23 +72,23 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.dream-archivetool-0.1.1-dev.4.jpk",
+          "filename": "org.dreamweave.dream-archivetool-0.1.1-dev.5.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 90440,
           "digests": {
-            "sha256": "435f36710ad006d643653fcef622a7d6ead3ee7d4eab5448f5ea5f92d19d8ab5"
+            "sha256": "25f1199d76e41f3d7de24b2173783ef12196c335bdc64b78fe463ab4e5e82bc8"
           },
           "jess": {
             "package": "org.dreamweave.dream-archivetool",
             "jess_api": "1",
-            "content_digest": "031445d1738d2ec266ce1d36d45c983e7b4f0ea24f517de1411cb6047cee2d22",
+            "content_digest": "5ce58d82bc9c310c7acee04eba9d60fbf58f4df76be46d00008c6a30f7082817",
             "dependencies": {
               "org.dreamweave.dream-archive": "2"
             }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dream_archivetool/releases/download/development/org.dreamweave.dream-archivetool-0.1.1-dev.4.jpk",
+              "url": "https://github.com/DreamWeave-MP/dream_archivetool/releases/download/development/org.dreamweave.dream-archivetool-0.1.1-dev.5.jpk",
               "kind": "publisher"
             }
           ],

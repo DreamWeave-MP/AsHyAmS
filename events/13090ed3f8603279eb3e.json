@@ -1,0 +1,32 @@
+{
+  "id": "13090ed3f8603279eb3e",
+  "kind": "changed",
+  "project": "0d00eb81-e2ac-4e51-a4ae-718241adc828",
+  "origin": "dreamweave-mp-github-io-dreamweave-site-6160cc76",
+  "name": "DreamWeave Site",
+  "observed_at": "2026-10-24T03:01:45Z",
+  "before": "3d43bed1fdcc5e1ef1d47e103b4cbb04431cc954fbf74fedd6332c4174d5d5e4",
+  "after": "c568c83b7ac6d83dfb26df0335f10dfea4122ddc55f7e2c3b44d888379af0cd9",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.2-dev.8",
+      "after": "0.1.2-dev.9",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.2-dev.9",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.2-dev.8",
+      "channel": "development"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "id": "1ed93ba23fafe0509c79",
+  "kind": "changed",
+  "project": "34fc442a-5060-4b77-8c64-ca5ea9861a10",
+  "origin": "dreamweave-mp-github-io-vfstool-e7e02f92",
+  "name": "vfstool",
+  "observed_at": "2026-10-24T03:01:45Z",
+  "before": "0e9932435ad3ce8cb8881bcb79da1c2af1d8c4ea2838f5f83962e7795691237a",
+  "after": "32b67068f2b955af2806e3caf2a0420e382dbcd11f51794b319c9e96f367ab6e",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "2.0.2-dev.12",
+      "after": "2.1.1-dev.15",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 62367,
+          "after": 62069
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "2.0.1",
+      "after": "2.1.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 62357,
+          "after": 62060
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "jsw",
+          "before": 471955,
+          "after": 475758
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "windows-x64",
+          "before": 21351467,
+          "after": 21367046
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-x64",
+          "before": 22355872,
+          "after": 22381552
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-arm64",
+          "before": 20284034,
+          "after": 20318178
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-x64",
+          "before": 23018715,
+          "after": 23029654
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "2.1.1-dev.15",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "2.1.0",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "notes": {
+        "summary": "vfstool finds OpenMW's own configuration again, as the Rust program did.",
+        "fixed": [
+          "With neither `--config` nor OPENMW_CONFIG, vfstool reads the openmw.cfg in the folder OpenMW keeps its own in on this platform: Documents\\My Games\\OpenMW on Windows, wherever Documents was moved, Library/Preferences/openmw on macOS, and the XDG config folder elsewhere. Its `?userconfig?` and `?userdata?` are OpenMW's own folders. Needs jess 0.2.1 or later; the standalone downloads carry it."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "2.0.2-dev.12",
+      "channel": "development"
+    }
+  ]
+}

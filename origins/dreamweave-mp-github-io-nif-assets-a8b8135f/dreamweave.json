@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/nif-assets/home/",
       "manifest": "https://dreamweave-mp.github.io/nif-assets/dreamweave/projects/9ff24c72-d67c-44d1-9af4-4c102dff10ef.json",
-      "manifest_sha256": "867844293eb9f8288bd82ecd6eedae9f5f60ca8b9ab92852b9769eca21b97ec4",
-      "updated": "2026-10-23",
+      "manifest_sha256": "75bff91efe2a5b2ec37eea5e2ca9b602d08a749363d5014613df87487e2580a5",
+      "updated": "2026-10-24",
       "channels": {
-        "development": "0.1.1-dev.4",
+        "development": "0.1.1-dev.5",
         "stable": "0.1.0"
       }
     }

@@ -38,22 +38,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.4"
+      "version": "0.1.2-dev.7"
     },
     "stable": {
-      "version": "0.1.0"
+      "version": "0.1.1"
     }
   },
   "releases": [
     {
-      "version": "0.1.1-dev.4",
+      "version": "0.1.2-dev.7",
       "channel": "development",
-      "date": "2026-10-23",
+      "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/tes3merge",
         "release": "development",
-        "revision": "30407191d45d03e2641d03679cc016f81d672e46"
+        "revision": "27aec2cc1f20a6370f8e38ced93d18479b085a68"
       },
       "runtimes": {},
       "platforms": [],
@@ -78,25 +78,92 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.tes3merge-0.1.1-dev.4.jpk",
+          "filename": "org.dreamweave.tes3merge-0.1.2-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 46198,
+          "size": 46089,
           "digests": {
-            "sha256": "13e51e3e387dc4d2e003757f5f24a1313f852ff19627b32020e0b2fc37ebce4c"
+            "sha256": "906c50d949204bfbff5aa14dfdd1037e3c93ec19b6b248f8d5841adbd040c463"
           },
           "jess": {
             "package": "org.dreamweave.tes3merge",
             "jess_api": "1",
-            "content_digest": "cd8438d5248f528760be7da4ff2e02152c566ff12d2685b931d1380d5f83f4a9",
+            "content_digest": "e0f47eeb49cbb427448eeaf20e28348199c536855a596ffa7154d681bbecac93",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
+              "org.dreamweave.openmw-config": "4.2",
               "org.dreamweave.openmw-content": "0.1",
               "org.dreamweave.openmw-install": "0.1"
             }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/tes3merge/releases/download/development/org.dreamweave.tes3merge-0.1.1-dev.4.jpk",
+              "url": "https://github.com/DreamWeave-MP/tes3merge/releases/download/development/org.dreamweave.tes3merge-0.1.2-dev.7.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.1",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/tes3merge",
+        "tag": "tes3merge-0.1.1",
+        "revision": "b9c23622e7788bfbb703acb270bbad2394d7ced3"
+      },
+      "notes": {
+        "summary": "The merge finds OpenMW's own configuration when none is named.",
+        "added": [
+          "With neither `--config` nor OPENMW_CONFIG, the openmw.cfg in the folder OpenMW keeps its own in on this platform: Documents\\My Games\\OpenMW on Windows, wherever Documents was moved, Library/Preferences/openmw on macOS, and the XDG config folder elsewhere. Its `?userconfig?` and `?userdata?` are OpenMW's own folders. Needs jess 0.2.1 or later."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "tes3merge",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.tes3merge-0.1.1.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 46088,
+          "digests": {
+            "sha256": "3ad3244f8f8d5e8aa23d75ef87b7ae30728dea89bd5aa3d4233e2bf7debca13e"
+          },
+          "jess": {
+            "package": "org.dreamweave.tes3merge",
+            "jess_api": "1",
+            "content_digest": "01b98b9a3791aef34d52fd431a60aa759545f1a4c4b658727dd49340ad0de863",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.openmw-config": "4.2",
+              "org.dreamweave.openmw-content": "0.1",
+              "org.dreamweave.openmw-install": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/tes3merge/releases/download/tes3merge-0.1.1/org.dreamweave.tes3merge-0.1.1.jpk",
               "kind": "publisher"
             }
           ],

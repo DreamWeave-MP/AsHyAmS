@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/esm/home/",
       "manifest": "https://dreamweave-mp.github.io/esm/dreamweave/projects/4a20d171-25a6-471f-8e22-6e554c9e859c.json",
-      "manifest_sha256": "86048c7d3be0b92dcee5bc8f9bcee62c2ea479ae8005ea40f5ef5428fb227bc6",
-      "updated": "2026-10-23",
+      "manifest_sha256": "d53a1ff1b18e8c3234f738faa41f0ff582237a8a88e7387e9d4f27e2d512df1f",
+      "updated": "2026-10-24",
       "channels": {
-        "development": "0.1.1-dev.7",
+        "development": "0.1.1-dev.8",
         "stable": "0.1.0"
       }
     }

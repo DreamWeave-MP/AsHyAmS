@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/codecs-lab/home/",
       "manifest": "https://dreamweave-mp.github.io/codecs-lab/dreamweave/projects/d680cff4-488c-4670-a957-a02fa177b21b.json",
-      "manifest_sha256": "294a9ee71407afe2244d0d0c33f292c9cc17daec6d2402269ee1f836c9110a41",
-      "updated": "2026-10-23",
+      "manifest_sha256": "702e9f28e1aa89c96be5ba0752bac8a8c4224b13a51f90afe3732eec066f4774",
+      "updated": "2026-10-24",
       "channels": {
-        "development": "0.1.1-dev.4",
+        "development": "0.1.1-dev.5",
         "stable": "0.1.0"
       }
     }

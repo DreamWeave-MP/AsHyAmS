@@ -57,22 +57,22 @@
   },
   "channels": {
     "development": {
-      "version": "1.0.1-dev.8"
+      "version": "1.1.1-dev.11"
     },
     "stable": {
-      "version": "1.0.0"
+      "version": "1.1.0"
     }
   },
   "releases": [
     {
-      "version": "1.0.1-dev.8",
+      "version": "1.1.1-dev.11",
       "channel": "development",
-      "date": "2026-10-23",
+      "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/S3LightFixes",
         "release": "development",
-        "revision": "8325e43f6cae7a6795bf8fe508d2e21611e3f9e8"
+        "revision": "b0376199cf641b664b6c6774412dc5bec509a357"
       },
       "runtimes": {},
       "platforms": [],
@@ -97,25 +97,92 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.s3lightfixes-1.0.1-dev.8.jpk",
+          "filename": "org.dreamweave.s3lightfixes-1.1.1-dev.11.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 73991,
+          "size": 74419,
           "digests": {
-            "sha256": "2eb3b09e01ac4c2b6ebd679cfb3a6d6857aa9c839117dc94c4f3f9cd9bafddb3"
+            "sha256": "67dbfc18449efd1910045cd34fc70d1b4cfd6fab5b80727d73ca86a3dad52e2a"
           },
           "jess": {
             "package": "org.dreamweave.s3lightfixes",
             "jess_api": "1",
-            "content_digest": "0aff543bcd523a52ccc21176a7b3d9338abf7de9335d7f8004607802c63a1782",
+            "content_digest": "ed59a8d7ff31c52a21c9ec616c79a7802133341830526da6a36c9c54765b323c",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
+              "org.dreamweave.openmw-config": "4.2",
               "org.dreamweave.openmw-content": "0.1",
               "org.dreamweave.openmw-install": "0.1"
             }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/development/org.dreamweave.s3lightfixes-1.0.1-dev.8.jpk",
+              "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/development/org.dreamweave.s3lightfixes-1.1.1-dev.11.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "1.1.0",
+      "channel": "stable",
+      "date": "2026-10-23",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/S3LightFixes",
+        "tag": "s3lightfixes-1.1.0",
+        "revision": "1a608873d150b064ae96adecfdd9586bb01e0b48"
+      },
+      "notes": {
+        "summary": "S3LightFixes finds OpenMW's own configuration when none is named, as the original does.",
+        "added": [
+          "With neither `--config` nor OPENMW_CONFIG, the openmw.cfg in the folder OpenMW keeps its own in on this platform: Documents\\My Games\\OpenMW on Windows, wherever Documents was moved, Library/Preferences/openmw on macOS, and the XDG config folder elsewhere. Its `?userconfig?` and `?userdata?` are OpenMW's own folders. Needs jess 0.2.1 or later."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "S3LightFixes",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.s3lightfixes-1.1.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 74413,
+          "digests": {
+            "sha256": "a1d41dac5ffca9fb0192e64e2faaaccf6576e78a7a8862475b1668eae82461b0"
+          },
+          "jess": {
+            "package": "org.dreamweave.s3lightfixes",
+            "jess_api": "1",
+            "content_digest": "4bdabef4b5b7888ff531d172cf54a0a873bc542d16039e2c62c0bef00696b3e9",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.openmw-config": "4.2",
+              "org.dreamweave.openmw-content": "0.1",
+              "org.dreamweave.openmw-install": "0.1"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/s3lightfixes-1.1.0/org.dreamweave.s3lightfixes-1.1.0.jpk",
               "kind": "publisher"
             }
           ],

@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.4"
+      "version": "0.1.1-dev.5"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.4",
+      "version": "0.1.1-dev.5",
       "channel": "development",
-      "date": "2026-10-23",
+      "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/nif-assets",
         "release": "development",
-        "revision": "26bb66abdf36dca4fdfbcf4aa790f272fee20d5a"
+        "revision": "2b686a4389daff7b9dd94a0e4047ceccbbff220d"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.nif-assets-0.1.1-dev.4.jpk",
+          "filename": "org.dreamweave.nif-assets-0.1.1-dev.5.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 216866,
           "digests": {
-            "sha256": "edc91925d91191956cdf41be93b46eeab7b82b2ad5a01513b17f47487a0ead1d"
+            "sha256": "c3ae3eeb56c2570272a4912424035ad24e4915881712e3545eea070bf2916ec9"
           },
           "jess": {
             "package": "org.dreamweave.nif-assets",
             "jess_api": "1",
-            "content_digest": "a0439ab9fdfb3e0e067f5b6a97bae18d4c5170924f8d2d05f0f7e59d1de8e900",
+            "content_digest": "aa24a3a22a3631157345cfb7ecb667bc2ed536e29bfb42f47795c2c657203b1e",
             "dependencies": {
               "org.dreamweave.nif": "0.1",
               "org.dreamweave.vfs": "2"
@@ -89,7 +89,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/nif-assets/releases/download/development/org.dreamweave.nif-assets-0.1.1-dev.4.jpk",
+              "url": "https://github.com/DreamWeave-MP/nif-assets/releases/download/development/org.dreamweave.nif-assets-0.1.1-dev.5.jpk",
               "kind": "publisher"
             }
           ],

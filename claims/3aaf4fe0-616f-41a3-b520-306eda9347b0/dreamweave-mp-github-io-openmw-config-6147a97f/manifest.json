@@ -42,7 +42,7 @@
   },
   "channels": {
     "development": {
-      "version": "4.2.1-dev.13"
+      "version": "4.2.1-dev.14"
     },
     "stable": {
       "version": "4.2.0"
@@ -50,14 +50,14 @@
   },
   "releases": [
     {
-      "version": "4.2.1-dev.13",
+      "version": "4.2.1-dev.14",
       "channel": "development",
-      "date": "2026-10-23",
+      "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/Openmw_Config",
         "release": "development",
-        "revision": "35a132ac3381e698db7e726eaa599766a1a78eee"
+        "revision": "f0be0286231d3935553ec58683250d85597e0858"
       },
       "runtimes": {},
       "platforms": [],
@@ -82,21 +82,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.openmw-config-4.2.1-dev.13.jpk",
+          "filename": "org.dreamweave.openmw-config-4.2.1-dev.14.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 28809,
           "digests": {
-            "sha256": "86700fcf21db98dadcc86f8886b6dc3f390bd01a105dbb8a5d0319571b34e6d0"
+            "sha256": "c30ffa36665e504bd0d431669371872b501053b5389f34a2b3a622d6edce683e"
           },
           "jess": {
             "package": "org.dreamweave.openmw-config",
             "jess_api": "1",
-            "content_digest": "70b730c6c09b8d6a33c1471d060fe4ac1f78336077690ea4c5db624076310722",
+            "content_digest": "0869244f906420df1d84c096ca5b9f027c7904654c7036ee55ebc860b483f549",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/Openmw_Config/releases/download/development/org.dreamweave.openmw-config-4.2.1-dev.13.jpk",
+              "url": "https://github.com/DreamWeave-MP/Openmw_Config/releases/download/development/org.dreamweave.openmw-config-4.2.1-dev.14.jpk",
               "kind": "publisher"
             }
           ],
