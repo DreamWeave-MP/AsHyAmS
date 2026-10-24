@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/dream_archivetool/home/",
       "manifest": "https://dreamweave-mp.github.io/dream_archivetool/dreamweave/projects/29471f23-7ed9-43b9-b222-bcc597335ab5.json",
-      "manifest_sha256": "32b462b632923205aae107b7835629567e2a54041c75755720ae4c95893947d5",
+      "manifest_sha256": "5a4fbc1858f0462ac1b4e0bfa9c00bd1dfba10a2d9fd99c768d2f82a4407c7af",
       "updated": "2026-10-24",
       "channels": {
-        "development": "0.1.1-dev.5",
+        "development": "0.1.1-dev.6",
         "stable": "0.1.0"
       }
     }

@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.2-dev.7"
+      "version": "0.1.2-dev.8"
     },
     "stable": {
       "version": "0.1.1"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.2-dev.7",
+      "version": "0.1.2-dev.8",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/doctor",
         "release": "development",
-        "revision": "500bcbe50feaea7b03a6500c9be63756dec38f5b"
+        "revision": "d6dd106c12e0b5eb472f2485cff5a5da8443d45a"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.doctor-0.1.2-dev.7.jpk",
+          "filename": "org.dreamweave.doctor-0.1.2-dev.8.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 42896,
           "digests": {
-            "sha256": "b0e29a13a1c609d15f997607b479bff7050ab08154cd4a0c4584230708ff9c54"
+            "sha256": "d0338de78b65fb16f9704b0c8fe78ac6c4bc50ecb64e4a961365549bb0eed7fb"
           },
           "jess": {
             "package": "org.dreamweave.doctor",
             "jess_api": "1",
-            "content_digest": "31f72217da4e26e660858a6558d8005164feb2cc77eed249aca14e7f0a576a41",
+            "content_digest": "65366bd4287c0a60c7d5b4976e4d8edd65916429e4055b82ad24650036c15e95",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.openmw-config": "4.2",
@@ -93,7 +93,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/doctor/releases/download/development/org.dreamweave.doctor-0.1.2-dev.7.jpk",
+              "url": "https://github.com/DreamWeave-MP/doctor/releases/download/development/org.dreamweave.doctor-0.1.2-dev.8.jpk",
               "kind": "publisher"
             }
           ],

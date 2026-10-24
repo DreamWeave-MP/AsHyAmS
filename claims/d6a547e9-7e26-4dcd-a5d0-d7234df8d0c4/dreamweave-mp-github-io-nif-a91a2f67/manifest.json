@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.5"
+      "version": "0.1.1-dev.6"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.5",
+      "version": "0.1.1-dev.6",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/nif",
         "release": "development",
-        "revision": "d2d02f77b77aa66099e7333cc15790bb84363e29"
+        "revision": "e0df9396f182eb94b0a6913ddea1ee2a66f3477e"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,21 +72,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.nif-0.1.1-dev.5.jpk",
+          "filename": "org.dreamweave.nif-0.1.1-dev.6.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 1094017,
           "digests": {
-            "sha256": "9a19a1a7bf6b28bb51bb8a35e7066a5d6c510471789fa36ac9818372eb77cf5d"
+            "sha256": "9c5e80e75fea5027742ecf0a30e3aeae674c10e6de21c6c09693aaccdd0f3368"
           },
           "jess": {
             "package": "org.dreamweave.nif",
             "jess_api": "1",
-            "content_digest": "94ae55a5fb29eebd4308ba44975e9c3b6679efaa83a3fb623e145bc84b38b055",
+            "content_digest": "842d912b5c5aced0464d1e65ccc5216faf64d5eb444a0afa5b4e65b4cbb79cec",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/nif/releases/download/development/org.dreamweave.nif-0.1.1-dev.5.jpk",
+              "url": "https://github.com/DreamWeave-MP/nif/releases/download/development/org.dreamweave.nif-0.1.1-dev.6.jpk",
               "kind": "publisher"
             }
           ],

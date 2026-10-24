@@ -31,7 +31,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.7-dev.5"
+      "version": "0.1.7-dev.6"
     },
     "stable": {
       "version": "0.1.6"
@@ -39,14 +39,14 @@
   },
   "releases": [
     {
-      "version": "0.1.7-dev.5",
+      "version": "0.1.7-dev.6",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/jessql",
         "release": "development",
-        "revision": "1bb965685b01413a580351b5c7c3909d7ed2fa14"
+        "revision": "00234cf70302ffc7d0ca132507ea10bd39d8d698"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.jessql-0.1.7-dev.5.jpk",
+          "filename": "org.dreamweave.jessql-0.1.7-dev.6.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 75631,
           "digests": {
-            "sha256": "0f62849396752469c279812f56bbe7d3ac0b5a08f4aac0c2e3bfa92eb29596df"
+            "sha256": "d849dbc647f97473478ec481624840e6e3764be56216a13265347d6f5564188c"
           },
           "jess": {
             "package": "org.dreamweave.jessql",
             "jess_api": "1",
-            "content_digest": "c0602a8cbfa5a9efe58e94114dfe351fbaa9fea895844b9db657af1857197578",
+            "content_digest": "e8b967c060092a44d48dfd76b425bc980708573778266efb642f7bc89f877302",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/jessql/releases/download/development/org.dreamweave.jessql-0.1.7-dev.5.jpk",
+              "url": "https://github.com/DreamWeave-MP/jessql/releases/download/development/org.dreamweave.jessql-0.1.7-dev.6.jpk",
               "kind": "publisher"
             }
           ],

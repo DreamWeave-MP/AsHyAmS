@@ -1,0 +1,84 @@
+{
+  "id": "e66038c0837f924f0d3d",
+  "kind": "changed",
+  "project": "aca6a4b0-f8b2-44a9-9cc4-55ef3c9d83f8",
+  "origin": "dreamweave-mp-github-io-dreamwind-803bec0d",
+  "name": "DreamWind",
+  "observed_at": "2026-10-24T16:00:10Z",
+  "before": "81e632d6f1b12cb6e01511edf35ba12de5e4bbe54cc53bc6501fb7a77212c7da",
+  "after": "47abf252288f6c05a287591c596224c044ee3e5e683a1c01b6163b77be95be12",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.3.1-dev.8",
+      "after": "0.3.2-dev.12",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 9899,
+          "after": 9603
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.3.0",
+      "after": "0.3.1",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 9893,
+          "after": 9895
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "jsw",
+          "before": 3557553,
+          "after": 3557521
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "windows-x64",
+          "before": 24448845,
+          "after": 24448813
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-x64",
+          "before": 26111453,
+          "after": 26111421
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.3.2-dev.12",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.3.1",
+      "channel": "stable",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": {
+        "summary": "`dreamwind workbench` no longer reports `self.ATTACK_TYPE` and nearby's enum tables as engine-internal, and each platform's download goes to its own Nexus Mods file group.",
+        "fixed": [
+          "`dreamwind workbench` (openmw-workbench 0.7.1) treats `self.ATTACK_TYPE`, `nearby.NAVIGATOR_FLAGS`, `nearby.COLLISION_SHAPE_TYPE` and `nearby.FIND_PATH_STATUS` as the public API they are."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.3.1-dev.8",
+      "channel": "development"
+    }
+  ]
+}

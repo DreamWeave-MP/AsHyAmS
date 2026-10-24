@@ -1,0 +1,39 @@
+{
+  "id": "a2c7ec47b5840cfcf070",
+  "kind": "changed",
+  "project": "34eff1d9-fd7e-4c17-bf34-cdb8bf3ad546",
+  "origin": "dreamweave-mp-github-io-openmw-install-b7dcb9ec",
+  "name": "openmw-install",
+  "observed_at": "2026-10-24T16:00:10Z",
+  "before": "34199c389c4db22553eaa7a554ee751b110ce1ac8b6581b23ffeff0676892314",
+  "after": "419d1378a759ebad48569f6e6508668b203edf32a54d3992233bab430aeb0de5",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.8",
+      "after": "0.1.1-dev.9",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 11224,
+          "after": 11233
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.9",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.8",
+      "channel": "development"
+    }
+  ]
+}

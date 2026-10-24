@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/add-vanilla-refs/home/",
       "manifest": "https://dreamweave-mp.github.io/add-vanilla-refs/dreamweave/projects/6f2d395b-2cc9-4bc7-9ba9-d1e73d0dadb6.json",
-      "manifest_sha256": "00854c3958512b323837559bd21f27a0325f1f99d33f40afb43c53ecd022340d",
+      "manifest_sha256": "bf1c21d856712f8bdefadf260af37d6589a7c8a8324bd9bfd39644aae0eee55a",
       "updated": "2026-10-24",
       "channels": {
-        "development": "0.1.1-dev.5",
+        "development": "0.1.1-dev.6",
         "stable": "0.1.0"
       }
     }

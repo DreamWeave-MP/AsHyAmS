@@ -1,0 +1,66 @@
+{
+  "id": "3f5d0d6f00d5c076edfc",
+  "kind": "changed",
+  "project": "74143198-50bf-434b-938e-816699a5d0a4",
+  "origin": "dreamweave-mp-github-io-dreamweave-mod-template-439f8bc8",
+  "name": "DreamWeave Mod Template",
+  "observed_at": "2026-10-24T16:00:10Z",
+  "before": "24685375281b530a9c0afb4d85f8e6d505baf330f058e27a2600903f4072bf27",
+  "after": "e3f09d83b23e0cd5da77f25d402b710d468c6920337abef2ba3c4e8bc2a84eb6",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.4.1-dev.88",
+      "after": "0.4.2-dev.91",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 185569,
+          "after": 186311
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.4.0",
+      "after": "0.4.1",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 185562,
+          "after": 186304
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.4.2-dev.91",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.4.1",
+      "channel": "stable",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": {
+        "summary": "A Jess application goes to Nexus Mods as a program does, each platform's zip to its own file group, and a program can't name a mod's one file group.",
+        "fixed": [
+          "A project with `application`, or a `binary`, is refused `[nexusmods] file_group_id`, as the Python template refused a binary: its archives go to Nexus one file group per platform, from the `NEXUS_GROUP_IDS` secret, and StroggForge v68 uploads an application's that way. A crate is refused it too."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.4.1-dev.88",
+      "channel": "development"
+    }
+  ]
+}

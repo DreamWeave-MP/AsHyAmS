@@ -1,0 +1,39 @@
+{
+  "id": "faef0d0db2359cfbf68c",
+  "kind": "changed",
+  "project": "34fc442a-5060-4b77-8c64-ca5ea9861a10",
+  "origin": "dreamweave-mp-github-io-vfstool-e7e02f92",
+  "name": "vfstool",
+  "observed_at": "2026-10-24T16:00:10Z",
+  "before": "32b67068f2b955af2806e3caf2a0420e382dbcd11f51794b319c9e96f367ab6e",
+  "after": "350657025968ba27e8d56ef9ba30f15421af97f196e2c15762a2047b42503098",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "2.1.1-dev.15",
+      "after": "2.1.1-dev.16",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 62069,
+          "after": 62067
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "2.1.1-dev.16",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "2.1.1-dev.15",
+      "channel": "development"
+    }
+  ]
+}

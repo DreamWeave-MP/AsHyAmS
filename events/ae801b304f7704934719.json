@@ -1,0 +1,32 @@
+{
+  "id": "ae801b304f7704934719",
+  "kind": "changed",
+  "project": "81f77b59-4fc4-436d-a6e7-77157076405c",
+  "origin": "dreamweave-mp-github-io-dream-ecs-5f1ec54c",
+  "name": "dream-ecs",
+  "observed_at": "2026-10-24T16:00:10Z",
+  "before": "651014179526604fbfa4467befded8b9a316d56de62504495928725b9fe543d4",
+  "after": "3aee4ff74504dc83b376dfd44f5bc082a30c53625993b59d00594d05497707a4",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.2.2-dev.5",
+      "after": "0.2.2-dev.6",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.2.2-dev.6",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.2.2-dev.5",
+      "channel": "development"
+    }
+  ]
+}

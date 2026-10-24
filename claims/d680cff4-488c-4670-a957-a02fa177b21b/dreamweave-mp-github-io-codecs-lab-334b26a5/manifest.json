@@ -31,7 +31,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.5"
+      "version": "0.1.1-dev.6"
     },
     "stable": {
       "version": "0.1.0"
@@ -39,14 +39,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.5",
+      "version": "0.1.1-dev.6",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/codecs-lab",
         "release": "development",
-        "revision": "130c74b577512b96efecddd9afff64d3fb362f15"
+        "revision": "6d5ca49c5019f5f965808d60d4a2c2ffdb7c6d1a"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.codecs-lab-0.1.1-dev.5.jpk",
+          "filename": "org.dreamweave.codecs-lab-0.1.1-dev.6.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 11966,
           "digests": {
-            "sha256": "1bff22d9cec9bfc63aa64c9036c9331db6ca24584872b338f4f39864166e594e"
+            "sha256": "effc399d101b1434aa6067d1fa9ce8a5cf001e2e238831d3f4b55ac5a052c840"
           },
           "jess": {
             "package": "org.dreamweave.codecs-lab",
             "jess_api": "1",
-            "content_digest": "9e76519cbe55d914428b2ffa82b4c452506328605fbba13ae6bced873442c604",
+            "content_digest": "575133efd69891441069a33bd31113896b4817a489c5153e4c28825519f50f00",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/codecs-lab/releases/download/development/org.dreamweave.codecs-lab-0.1.1-dev.5.jpk",
+              "url": "https://github.com/DreamWeave-MP/codecs-lab/releases/download/development/org.dreamweave.codecs-lab-0.1.1-dev.6.jpk",
               "kind": "publisher"
             }
           ],

@@ -1,0 +1,32 @@
+{
+  "id": "f64aff4bdcd94ae9e833",
+  "kind": "changed",
+  "project": "d680cff4-488c-4670-a957-a02fa177b21b",
+  "origin": "dreamweave-mp-github-io-codecs-lab-334b26a5",
+  "name": "codecs-lab",
+  "observed_at": "2026-10-24T16:00:10Z",
+  "before": "702e9f28e1aa89c96be5ba0752bac8a8c4224b13a51f90afe3732eec066f4774",
+  "after": "87daee6409590b46dc680f42ca6130b9378449ef2833136b470b47f60df0b4cf",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.5",
+      "after": "0.1.1-dev.6",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.6",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.5",
+      "channel": "development"
+    }
+  ]
+}

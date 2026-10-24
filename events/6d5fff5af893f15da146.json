@@ -1,0 +1,39 @@
+{
+  "id": "6d5fff5af893f15da146",
+  "kind": "changed",
+  "project": "9b956581-d9f4-4a41-b46b-3e70dca1f086",
+  "origin": "dreamweave-mp-github-io-recast-luau-6283b4de",
+  "name": "recast-luau",
+  "observed_at": "2026-10-24T16:00:10Z",
+  "before": "f411b0004d75624f0cf8987136ded9cc00621d38ccdf65113d2e0b2b47e25e5f",
+  "after": "5f2dc15cc0e8c224b393d48ca604b047dc3a53f9815305b49ffa5004e94c1e84",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.2.1-dev.5",
+      "after": "0.2.1-dev.6",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 302048,
+          "after": 302061
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.2.1-dev.6",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.2.1-dev.5",
+      "channel": "development"
+    }
+  ]
+}

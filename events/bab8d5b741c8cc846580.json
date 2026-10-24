@@ -1,0 +1,32 @@
+{
+  "id": "bab8d5b741c8cc846580",
+  "kind": "changed",
+  "project": "66795eef-6cc5-41f2-b8ed-d373c78e5f42",
+  "origin": "dreamweave-mp-github-io-doctor-a2c4e454",
+  "name": "doctor",
+  "observed_at": "2026-10-24T16:00:10Z",
+  "before": "3384f15b909d4e4b18192390492fc5c76f2452f1af39acc588eb8439e411286b",
+  "after": "d55a96cd0e7e262d4661b6139aff4f3eac0627c78fa0ef249a1d1924cb6c3a35",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.2-dev.7",
+      "after": "0.1.2-dev.8",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.2-dev.8",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.2-dev.7",
+      "channel": "development"
+    }
+  ]
+}

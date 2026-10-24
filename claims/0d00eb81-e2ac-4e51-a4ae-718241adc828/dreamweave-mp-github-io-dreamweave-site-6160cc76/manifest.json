@@ -31,7 +31,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.2-dev.9"
+      "version": "0.1.2-dev.10"
     },
     "stable": {
       "version": "0.1.1"
@@ -39,14 +39,14 @@
   },
   "releases": [
     {
-      "version": "0.1.2-dev.9",
+      "version": "0.1.2-dev.10",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dreamweave-site",
         "release": "development",
-        "revision": "c3e9b85ddfa6beddff4a7183b709e00dbb7bf5cd"
+        "revision": "68040144096d1b7f743788fb9dad0e5d62d48062"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.site-0.1.2-dev.9.jpk",
+          "filename": "org.dreamweave.site-0.1.2-dev.10.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 115300,
+          "size": 115301,
           "digests": {
-            "sha256": "664edff8b230164e2ab5f8f128e714fce9c17077303c520ac6b373c4557cce0a"
+            "sha256": "ff25c4d64a74affb8b411aa883b9e271163b956cc5979200fd96c410c64e5e26"
           },
           "jess": {
             "package": "org.dreamweave.site",
             "jess_api": "1",
-            "content_digest": "22e3f81d2d0462ee09eab593990fca1d1e6859965a28d373cda803bda814d3bf",
+            "content_digest": "571083bd5c08711c33ea235d6eb709c9f919df8e6b2c4ca66a115e0241a4009a",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dreamweave-site/releases/download/development/org.dreamweave.site-0.1.2-dev.9.jpk",
+              "url": "https://github.com/DreamWeave-MP/dreamweave-site/releases/download/development/org.dreamweave.site-0.1.2-dev.10.jpk",
               "kind": "publisher"
             }
           ],

@@ -1,0 +1,69 @@
+{
+  "id": "198ce4670bbe7cd4c573",
+  "kind": "changed",
+  "project": "f8c45ec3-cbbf-4bec-9202-859088a8c0a0",
+  "origin": "dreamweave-mp-github-io-openmw-workbench-26e79167",
+  "name": "openmw-workbench",
+  "observed_at": "2026-10-24T16:00:10Z",
+  "before": "8f674b1c7236a64a6b99238d7788a0b4f29300d99df60d4bca4dd538c7bffd2e",
+  "after": "5ac56eb05ccf4803ac2e9eded34e7e4aa17d69fd2e523681c29fafb562e708b5",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.7.1-dev.7",
+      "after": "0.7.2-dev.11",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 156645,
+          "after": 156615
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.7.0",
+      "after": "0.7.1",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 156642,
+          "after": 156608
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.7.2-dev.11",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.7.1",
+      "channel": "stable",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": {
+        "summary": "`self.ATTACK_TYPE` and nearby's enum tables are public API, and the contract that says so is generated from OpenMW's source.",
+        "added": [
+          "`tools/contract.jsl` writes `src/contract.jsl` from an OpenMW source tree: the Lua API spec, the C++ that installs packages and engine handlers, the builtin manifests, and the builtin Lua. The contract had no generator; this one reproduces it, and lists as engine-internal only the members the review's own reading can meet."
+        ],
+        "fixed": [
+          "`self.ATTACK_TYPE`, `nearby.NAVIGATOR_FLAGS`, `nearby.COLLISION_SHAPE_TYPE` and `nearby.FIND_PATH_STATUS` are members, not engine-internal: the spec declares them as types without a field attaching them, and the C++ installs each on its package by that name. A review no longer warns that using them leans on undocumented API."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.7.1-dev.7",
+      "channel": "development"
+    }
+  ]
+}

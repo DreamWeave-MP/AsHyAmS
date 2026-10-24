@@ -31,22 +31,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.4.1-dev.88"
+      "version": "0.4.2-dev.91"
     },
     "stable": {
-      "version": "0.4.0"
+      "version": "0.4.1"
     }
   },
   "releases": [
     {
-      "version": "0.4.1-dev.88",
+      "version": "0.4.2-dev.91",
       "channel": "development",
-      "date": "2026-10-23",
+      "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
         "release": "dev-build",
-        "revision": "ae7f18aeaad14473b8834172ff02144089240fff"
+        "revision": "1d66843860baceed0408d4b0874d64ffc9316bac"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,16 +71,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.mod-template-0.4.1-dev.88.jpk",
+          "filename": "org.dreamweave.mod-template-0.4.2-dev.91.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 185569,
+          "size": 186311,
           "digests": {
-            "sha256": "987be0f2301f5b07437752a98017e206002e2b2b50b6fb3e0926e659d44a30dd"
+            "sha256": "a7103d69d9170bee50607e1b720d59da47914e923aa61e29fb8e3e9debe5dbb1"
           },
           "jess": {
             "package": "org.dreamweave.mod-template",
             "jess_api": "1",
-            "content_digest": "515b8493f3044698abd080fd1cda3f7fd2e9910ea14d66dfb77c2312173fbc96",
+            "content_digest": "7adead54f2294b7703b8b0900681f0b6e8794a5db669525de313cdb337369b2c",
             "dependencies": {
               "org.dreamweave.magick": "0.1.2",
               "org.dreamweave.site": "=0.1.1",
@@ -90,7 +90,73 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template/releases/download/dev-build/org.dreamweave.mod-template-0.4.1-dev.88.jpk",
+              "url": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template/releases/download/dev-build/org.dreamweave.mod-template-0.4.2-dev.91.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.4.1",
+      "channel": "stable",
+      "date": "2026-10-24",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
+        "tag": "template-0.4.1",
+        "revision": "f9978c61052bfd3d6e2413d9d31d2614280230bb"
+      },
+      "notes": {
+        "summary": "A Jess application goes to Nexus Mods as a program does, each platform's zip to its own file group, and a program can't name a mod's one file group.",
+        "fixed": [
+          "A project with `application`, or a `binary`, is refused `[nexusmods] file_group_id`, as the Python template refused a binary: its archives go to Nexus one file group per platform, from the `NEXUS_GROUP_IDS` secret, and StroggForge v68 uploads an application's that way. A crate is refused it too."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DreamWeave Mod Template",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.mod-template-0.4.1.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 186304,
+          "digests": {
+            "sha256": "6ccfa573ef36677928d8bef635a0fe85280152da240b6e32827142b525ccdfc3"
+          },
+          "jess": {
+            "package": "org.dreamweave.mod-template",
+            "jess_api": "1",
+            "content_digest": "877655399c457f38789136d2e2654853431de86ca14e8f242ce311a9d664162f",
+            "dependencies": {
+              "org.dreamweave.magick": "0.1.2",
+              "org.dreamweave.site": "=0.1.1",
+              "org.dreamweave.theme": "=0.2.0",
+              "org.dreamweave.vfs": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template/releases/download/template-0.4.1/org.dreamweave.mod-template-0.4.1.jpk",
               "kind": "publisher"
             }
           ],

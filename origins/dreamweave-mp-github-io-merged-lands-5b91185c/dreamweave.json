@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/merged-lands/home/",
       "manifest": "https://dreamweave-mp.github.io/merged-lands/dreamweave/projects/79933d87-68dd-4476-945a-906e5a6f4f44.json",
-      "manifest_sha256": "7c45f73f431bc4147106c0822b6cf0d7a1cb5cfd36507c21a46a0aea81105194",
+      "manifest_sha256": "f3a7192d47da32bc65b22921548dc3d5c19339c281aedb44ce4baf864f63f465",
       "updated": "2026-10-24",
       "channels": {
-        "development": "0.1.2-dev.7",
+        "development": "0.1.2-dev.8",
         "stable": "0.1.0"
       }
     }

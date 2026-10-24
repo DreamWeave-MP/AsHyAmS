@@ -1,0 +1,32 @@
+{
+  "id": "3dbd60679e8bc04b921c",
+  "kind": "changed",
+  "project": "9b7e3f21-6c4d-4a8b-b1e2-3f5a7c9d0e14",
+  "origin": "dreamweave-mp-github-io-dreamweave-mod-template-439f8bc8",
+  "name": "Tallow",
+  "observed_at": "2026-10-24T16:00:10Z",
+  "before": "e4f75e56694ef715dfb8f232afe2345be2fde9e6f293f5e968cb7398727dc40a",
+  "after": "2fe5e0f94370b87ab131bc37b1230b517d2efc59bc39070104b934c2c00f055f",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "1.0.1-dev.88",
+      "after": "1.0.1-dev.91",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "1.0.1-dev.91",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "1.0.1-dev.88",
+      "channel": "development"
+    }
+  ]
+}

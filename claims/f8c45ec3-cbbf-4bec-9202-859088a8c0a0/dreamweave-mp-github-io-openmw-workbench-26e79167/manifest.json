@@ -32,22 +32,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.7.1-dev.7"
+      "version": "0.7.2-dev.11"
     },
     "stable": {
-      "version": "0.7.0"
+      "version": "0.7.1"
     }
   },
   "releases": [
     {
-      "version": "0.7.1-dev.7",
+      "version": "0.7.2-dev.11",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/openmw-workbench",
         "release": "development",
-        "revision": "db4d28bf3381880f31a2bda678aefe16d1c5f3e3"
+        "revision": "02968310fdc99f8b81c479b53914079bd318bf2e"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.openmw-workbench-0.7.1-dev.7.jpk",
+          "filename": "org.dreamweave.openmw-workbench-0.7.2-dev.11.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 156645,
+          "size": 156615,
           "digests": {
-            "sha256": "546ddfeb15fc0ca898998327733d90bca8dfb56f856f9370d5160edc6b65008c"
+            "sha256": "1eb9eb99d9a01c75605cda0c22941f26c955c284372eaf4236a2f9d2faeda675"
           },
           "jess": {
             "package": "org.dreamweave.openmw-workbench",
             "jess_api": "1",
-            "content_digest": "db2af636c9d5dde0b4a6ec8866a7a063e49b5b77ae70955193279d3ad74fe022",
+            "content_digest": "d9bc384671846225a304c2a5a2ef2e50d0c49da04aab0a761a727169de57172c",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.jessql": "0.1.4",
@@ -92,7 +92,77 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/openmw-workbench/releases/download/development/org.dreamweave.openmw-workbench-0.7.1-dev.7.jpk",
+              "url": "https://github.com/DreamWeave-MP/openmw-workbench/releases/download/development/org.dreamweave.openmw-workbench-0.7.2-dev.11.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.7.1",
+      "channel": "stable",
+      "date": "2026-10-24",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/openmw-workbench",
+        "tag": "openmw_workbench-0.7.1",
+        "revision": "3cd3179fbdcdbb2e9a7766abfdf4a45c71f33e69"
+      },
+      "notes": {
+        "summary": "`self.ATTACK_TYPE` and nearby's enum tables are public API, and the contract that says so is generated from OpenMW's source.",
+        "added": [
+          "`tools/contract.jsl` writes `src/contract.jsl` from an OpenMW source tree: the Lua API spec, the C++ that installs packages and engine handlers, the builtin manifests, and the builtin Lua. The contract had no generator; this one reproduces it, and lists as engine-internal only the members the review's own reading can meet."
+        ],
+        "fixed": [
+          "`self.ATTACK_TYPE`, `nearby.NAVIGATOR_FLAGS`, `nearby.COLLISION_SHAPE_TYPE` and `nearby.FIND_PATH_STATUS` are members, not engine-internal: the spec declares them as types without a field attaching them, and the C++ installs each on its package by that name. A review no longer warns that using them leans on undocumented API."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "openmw-workbench",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.openmw-workbench-0.7.1.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 156608,
+          "digests": {
+            "sha256": "68f7ce20b3b065e4295991a4c140a4bf7357fc28c45637bffd579e0e0ed9bbf9"
+          },
+          "jess": {
+            "package": "org.dreamweave.openmw-workbench",
+            "jess_api": "1",
+            "content_digest": "35b939a3430810c00f45ae03fadfeda0805ec521a976fb662fc4f3666ef6597a",
+            "dependencies": {
+              "org.dreamweave.esm": "0.1",
+              "org.dreamweave.jessql": "0.1.4",
+              "org.dreamweave.nif": "0.1",
+              "org.dreamweave.tes3-saves": "0.1",
+              "org.dreamweave.vfs": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/openmw-workbench/releases/download/openmw_workbench-0.7.1/org.dreamweave.openmw-workbench-0.7.1.jpk",
               "kind": "publisher"
             }
           ],

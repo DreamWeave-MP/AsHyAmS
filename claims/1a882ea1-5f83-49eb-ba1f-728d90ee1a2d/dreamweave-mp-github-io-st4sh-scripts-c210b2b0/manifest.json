@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.2-dev.5"
+      "version": "0.1.2-dev.6"
     },
     "stable": {
       "version": "0.1.1"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.2-dev.5",
+      "version": "0.1.2-dev.6",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/st4sh-scripts",
         "release": "development",
-        "revision": "9f05458072f1003b855e11799b21efff7a9744b9"
+        "revision": "44cedecee176e8e6295fd72645477cc0e007e2a8"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,23 +72,23 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.st4sh-scripts-0.1.2-dev.5.jpk",
+          "filename": "org.dreamweave.st4sh-scripts-0.1.2-dev.6.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 861163,
           "digests": {
-            "sha256": "9cab7838b87ff8f32dab4898b13e2221fb04d13a260ea791042a3f2810f707e3"
+            "sha256": "9f5135efe27853343a46d15a9f5a4bf03f15b0589bb248b95894d5767d83afb3"
           },
           "jess": {
             "package": "org.dreamweave.st4sh-scripts",
             "jess_api": "1",
-            "content_digest": "59e9b1196228e99e55861b71a4c1197a390cccc821fbfd1b15a9762dde7356c7",
+            "content_digest": "189c240ee1f76479fbe7bb3008e1371f889409f377e5e6526e1b1b5d57e23797",
             "dependencies": {
               "org.dreamweave.magick": "^0.1.2"
             }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/st4sh-scripts/releases/download/development/org.dreamweave.st4sh-scripts-0.1.2-dev.5.jpk",
+              "url": "https://github.com/DreamWeave-MP/st4sh-scripts/releases/download/development/org.dreamweave.st4sh-scripts-0.1.2-dev.6.jpk",
               "kind": "publisher"
             }
           ],

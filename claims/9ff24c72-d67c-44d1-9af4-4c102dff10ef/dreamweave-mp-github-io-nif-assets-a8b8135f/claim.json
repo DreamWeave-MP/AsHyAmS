@@ -10,21 +10,21 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/nif-assets/home/",
     "manifest": "https://dreamweave-mp.github.io/nif-assets/dreamweave/projects/9ff24c72-d67c-44d1-9af4-4c102dff10ef.json",
-    "manifest_sha256": "75bff91efe2a5b2ec37eea5e2ca9b602d08a749363d5014613df87487e2580a5",
+    "manifest_sha256": "ad8a6d7b3579d55e63e15086a9c389bd1ab87415757751cfbb730e191653e8f2",
     "updated": "2026-10-24",
     "channels": {
-      "development": "0.1.1-dev.5",
+      "development": "0.1.1-dev.6",
       "stable": "0.1.0"
     }
   },
-  "advertised_sha256": "75bff91efe2a5b2ec37eea5e2ca9b602d08a749363d5014613df87487e2580a5",
-  "ingested_sha256": "75bff91efe2a5b2ec37eea5e2ca9b602d08a749363d5014613df87487e2580a5",
+  "advertised_sha256": "ad8a6d7b3579d55e63e15086a9c389bd1ab87415757751cfbb730e191653e8f2",
+  "ingested_sha256": "ad8a6d7b3579d55e63e15086a9c389bd1ab87415757751cfbb730e191653e8f2",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-10-21T21:31:59Z",
-  "last_changed": "2026-10-24T03:01:45Z",
-  "last_attempt": "2026-10-24T11:05:57Z",
-  "last_success": "2026-10-24T11:05:57Z"
+  "last_changed": "2026-10-24T16:00:10Z",
+  "last_attempt": "2026-10-24T16:00:10Z",
+  "last_success": "2026-10-24T16:00:10Z"
 }

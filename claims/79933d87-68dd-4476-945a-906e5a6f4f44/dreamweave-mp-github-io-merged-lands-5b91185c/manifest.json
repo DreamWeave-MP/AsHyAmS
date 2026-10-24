@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.2-dev.7"
+      "version": "0.1.2-dev.8"
     },
     "stable": {
       "version": "0.1.1"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.2-dev.7",
+      "version": "0.1.2-dev.8",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/merged-lands",
         "release": "development",
-        "revision": "dfaaf37e104881371785f626573b468fa9840d74"
+        "revision": "56801ef36c3d4df1136a8982916031a989efcdc2"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.merged-lands-0.1.2-dev.7.jpk",
+          "filename": "org.dreamweave.merged-lands-0.1.2-dev.8.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 118750,
           "digests": {
-            "sha256": "2aad71291713b300ffb1747bcb5a1b697f0cd5c835510f10788540f68de15f9f"
+            "sha256": "05896900e4efdbb561250e0a851e0325c6bc6929af534af21ab8681a6228611e"
           },
           "jess": {
             "package": "org.dreamweave.merged-lands",
             "jess_api": "1",
-            "content_digest": "ad2c8f7205554cf3076a90ae5a55bbde27ad1a4f03a1a126d4aee71b43bbbe17",
+            "content_digest": "4017795caa0814e72df14333067f4a5b49cd84252c8cfd7f0e0d2c2d91698cb7",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.openmw-config": "4.2",
@@ -91,7 +91,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/merged-lands/releases/download/development/org.dreamweave.merged-lands-0.1.2-dev.7.jpk",
+              "url": "https://github.com/DreamWeave-MP/merged-lands/releases/download/development/org.dreamweave.merged-lands-0.1.2-dev.8.jpk",
               "kind": "publisher"
             }
           ],

@@ -1,0 +1,32 @@
+{
+  "id": "cfabefd00768a73f4629",
+  "kind": "changed",
+  "project": "9efafc2e-98f1-4d72-87c7-fb3da5b435f3",
+  "origin": "dreamweave-mp-github-io-tes3cmd-1d73c327",
+  "name": "tes3cmd",
+  "observed_at": "2026-10-24T16:00:10Z",
+  "before": "1e8cfc9a8383c6f82b6c42d83e3e2d741f0c366f937078036a27e8cf0dc3b27f",
+  "after": "94f98bf235da6ae6c578a8795fbbc8c08a6937321b5157f73a2bfee2c524ff15",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.5",
+      "after": "0.1.1-dev.6",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.6",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.5",
+      "channel": "development"
+    }
+  ]
+}

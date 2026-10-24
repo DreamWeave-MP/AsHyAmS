@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.5"
+      "version": "0.1.1-dev.6"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.5",
+      "version": "0.1.1-dev.6",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream-ini",
         "release": "development",
-        "revision": "d47d8b4aa1ecce7fea93b647e76cc37109f91fb2"
+        "revision": "82d4f0e14c876f06b64ffa36d218faca9b977894"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,21 +72,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.dream-ini-0.1.1-dev.5.jpk",
+          "filename": "org.dreamweave.dream-ini-0.1.1-dev.6.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 22783,
           "digests": {
-            "sha256": "7f0cdc8f121fc2ca01e61415db49f2d6a65ed17bd2554c2235276e7cd37dc528"
+            "sha256": "ddd670e7ff955322cb61a2eea356989ee6217858dff089a01eefff6e707527c6"
           },
           "jess": {
             "package": "org.dreamweave.dream-ini",
             "jess_api": "1",
-            "content_digest": "637c119ec401afaab66c165603f49db687d39653db18df1abef36764068361df",
+            "content_digest": "630a4b5459060bfb1a6161c7c7dacbca8cf3899208c3c200edf87f249e167137",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/development/org.dreamweave.dream-ini-0.1.1-dev.5.jpk",
+              "url": "https://github.com/DreamWeave-MP/dream-ini/releases/download/development/org.dreamweave.dream-ini-0.1.1-dev.6.jpk",
               "kind": "publisher"
             }
           ],

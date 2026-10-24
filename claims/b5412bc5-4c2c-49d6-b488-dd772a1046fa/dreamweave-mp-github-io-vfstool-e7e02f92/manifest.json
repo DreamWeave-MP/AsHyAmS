@@ -41,7 +41,7 @@
   },
   "channels": {
     "development": {
-      "version": "2.0.1-dev.15"
+      "version": "2.0.1-dev.16"
     },
     "stable": {
       "version": "2.0.0"
@@ -49,14 +49,14 @@
   },
   "releases": [
     {
-      "version": "2.0.1-dev.15",
+      "version": "2.0.1-dev.16",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
         "release": "development",
-        "revision": "8780b1037e47bc95ef7af87e810971a2eb96c305"
+        "revision": "eb03e709e839ab2c5bee4ecd0f581898b35f95ca"
       },
       "runtimes": {},
       "platforms": [],
@@ -81,23 +81,23 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.vfs-2.0.1-dev.15.jpk",
+          "filename": "org.dreamweave.vfs-2.0.1-dev.16.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 121901,
           "digests": {
-            "sha256": "ac38fd7b49be6e782cf629c37e1aa7e17cd98e6460c4d3fa7fbbbf920333571e"
+            "sha256": "4bd3fccec7a0a004e72e4e9789841b3658e0fbfbb855941fb82838242841ea99"
           },
           "jess": {
             "package": "org.dreamweave.vfs",
             "jess_api": "1",
-            "content_digest": "344075933a1db471c7748028b867926d689a3497d046d0657d62fd91a6416e03",
+            "content_digest": "c68f4978af52cd2b1f5ca85c5dc669c9bde420ac4f950f11779c0dc3e63e1b41",
             "dependencies": {
               "org.dreamweave.dream-archive": "2"
             }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/development/org.dreamweave.vfs-2.0.1-dev.15.jpk",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/development/org.dreamweave.vfs-2.0.1-dev.16.jpk",
               "kind": "publisher"
             }
           ],

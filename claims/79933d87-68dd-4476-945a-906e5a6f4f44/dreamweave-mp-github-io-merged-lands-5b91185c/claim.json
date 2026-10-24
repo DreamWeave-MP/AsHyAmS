@@ -10,21 +10,21 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/merged-lands/home/",
     "manifest": "https://dreamweave-mp.github.io/merged-lands/dreamweave/projects/79933d87-68dd-4476-945a-906e5a6f4f44.json",
-    "manifest_sha256": "7c45f73f431bc4147106c0822b6cf0d7a1cb5cfd36507c21a46a0aea81105194",
+    "manifest_sha256": "f3a7192d47da32bc65b22921548dc3d5c19339c281aedb44ce4baf864f63f465",
     "updated": "2026-10-24",
     "channels": {
-      "development": "0.1.2-dev.7",
+      "development": "0.1.2-dev.8",
       "stable": "0.1.0"
     }
   },
-  "advertised_sha256": "7c45f73f431bc4147106c0822b6cf0d7a1cb5cfd36507c21a46a0aea81105194",
-  "ingested_sha256": "7c45f73f431bc4147106c0822b6cf0d7a1cb5cfd36507c21a46a0aea81105194",
+  "advertised_sha256": "f3a7192d47da32bc65b22921548dc3d5c19339c281aedb44ce4baf864f63f465",
+  "ingested_sha256": "f3a7192d47da32bc65b22921548dc3d5c19339c281aedb44ce4baf864f63f465",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-10-21T21:31:59Z",
-  "last_changed": "2026-10-24T03:01:45Z",
-  "last_attempt": "2026-10-24T11:05:57Z",
-  "last_success": "2026-10-24T11:05:57Z"
+  "last_changed": "2026-10-24T16:00:10Z",
+  "last_attempt": "2026-10-24T16:00:10Z",
+  "last_success": "2026-10-24T16:00:10Z"
 }

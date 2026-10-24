@@ -1,0 +1,32 @@
+{
+  "id": "b40f448370a3e3cccf37",
+  "kind": "changed",
+  "project": "13fe2321-0f57-4368-9690-50400d433c61",
+  "origin": "dreamweave-mp-github-io-tes3merge-95d17f94",
+  "name": "tes3merge",
+  "observed_at": "2026-10-24T16:00:10Z",
+  "before": "5f9b1fe2a03e7d0a7aca03879a674069c57f4d51153eb4cad438d64c9113e7b6",
+  "after": "e2f1132a7c0c238221918ed9f0fa423a77225a152a2ff3291114f911e69a980e",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.2-dev.7",
+      "after": "0.1.2-dev.8",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.2-dev.8",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.2-dev.7",
+      "channel": "development"
+    }
+  ]
+}

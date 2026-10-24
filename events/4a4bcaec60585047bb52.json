@@ -1,0 +1,32 @@
+{
+  "id": "4a4bcaec60585047bb52",
+  "kind": "changed",
+  "project": "25a14f79-a94a-495c-80d6-d1e834c924c2",
+  "origin": "dreamweave-mp-github-io-merge-to-master-d0f7a01e",
+  "name": "merge-to-master",
+  "observed_at": "2026-10-24T16:00:10Z",
+  "before": "510f2e5ea1e8a595293818876bd427fa14b938f633cc8a84100fa1d98ad5aff7",
+  "after": "04da25cae367f9b0e514b2f5ab57f5e85c723447ee3b0c6ed9f8d59e3fb5caab",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.5",
+      "after": "0.1.1-dev.6",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.6",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.5",
+      "channel": "development"
+    }
+  ]
+}

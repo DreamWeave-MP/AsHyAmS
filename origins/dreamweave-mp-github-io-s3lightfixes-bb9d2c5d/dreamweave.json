@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/S3LightFixes/home/",
       "manifest": "https://dreamweave-mp.github.io/S3LightFixes/dreamweave/projects/55e873c9-1ddc-4b13-b59a-0eb790bb2565.json",
-      "manifest_sha256": "b92cae806a3f28ba9e80e67894fd08af714f2b271b4c9a09847c43b9c53c9361",
+      "manifest_sha256": "1efb86ad5517d72ee0a206eae6947550e0ccd7e806c010af35eb6b712f450342",
       "updated": "2026-10-24",
       "channels": {
-        "development": "1.1.1-dev.11",
+        "development": "1.1.1-dev.12",
         "stable": "0.4.53"
       }
     }

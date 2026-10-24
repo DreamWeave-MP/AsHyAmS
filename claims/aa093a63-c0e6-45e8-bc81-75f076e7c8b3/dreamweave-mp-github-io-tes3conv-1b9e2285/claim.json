@@ -10,21 +10,21 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/tes3conv/home/",
     "manifest": "https://dreamweave-mp.github.io/tes3conv/dreamweave/projects/aa093a63-c0e6-45e8-bc81-75f076e7c8b3.json",
-    "manifest_sha256": "ee4eb320309bdad1815164719a852fcd390715cd05e9825f128d8685100bc8b3",
+    "manifest_sha256": "23473da2ffff579278cf7d51175887c42017a94c893abeefde3497690397b8ce",
     "updated": "2026-10-24",
     "channels": {
-      "development": "0.1.1-dev.5",
+      "development": "0.1.1-dev.6",
       "stable": "0.1.0"
     }
   },
-  "advertised_sha256": "ee4eb320309bdad1815164719a852fcd390715cd05e9825f128d8685100bc8b3",
-  "ingested_sha256": "ee4eb320309bdad1815164719a852fcd390715cd05e9825f128d8685100bc8b3",
+  "advertised_sha256": "23473da2ffff579278cf7d51175887c42017a94c893abeefde3497690397b8ce",
+  "ingested_sha256": "23473da2ffff579278cf7d51175887c42017a94c893abeefde3497690397b8ce",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-10-21T21:31:59Z",
-  "last_changed": "2026-10-24T03:01:45Z",
-  "last_attempt": "2026-10-24T11:05:57Z",
-  "last_success": "2026-10-24T11:05:57Z"
+  "last_changed": "2026-10-24T16:00:10Z",
+  "last_attempt": "2026-10-24T16:00:10Z",
+  "last_success": "2026-10-24T16:00:10Z"
 }

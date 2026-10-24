@@ -10,21 +10,21 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/jessql/home/",
     "manifest": "https://dreamweave-mp.github.io/jessql/dreamweave/projects/6b0fec20-c982-440d-87a4-15aa83a3c680.json",
-    "manifest_sha256": "28668eff8007332872fbc303148fda21ea9910c33bc4a1dca7c5028b33753103",
+    "manifest_sha256": "ce465ceafce44a50aa05fe0090428e2fe2faa77cbf991b8bc3bc938ced1857f9",
     "updated": "2026-10-24",
     "channels": {
-      "development": "0.1.7-dev.5",
+      "development": "0.1.7-dev.6",
       "stable": "0.1.6"
     }
   },
-  "advertised_sha256": "28668eff8007332872fbc303148fda21ea9910c33bc4a1dca7c5028b33753103",
-  "ingested_sha256": "28668eff8007332872fbc303148fda21ea9910c33bc4a1dca7c5028b33753103",
+  "advertised_sha256": "ce465ceafce44a50aa05fe0090428e2fe2faa77cbf991b8bc3bc938ced1857f9",
+  "ingested_sha256": "ce465ceafce44a50aa05fe0090428e2fe2faa77cbf991b8bc3bc938ced1857f9",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-10-21T21:31:59Z",
-  "last_changed": "2026-10-24T03:01:45Z",
-  "last_attempt": "2026-10-24T11:05:57Z",
-  "last_success": "2026-10-24T11:05:57Z"
+  "last_changed": "2026-10-24T16:00:10Z",
+  "last_attempt": "2026-10-24T16:00:10Z",
+  "last_success": "2026-10-24T16:00:10Z"
 }

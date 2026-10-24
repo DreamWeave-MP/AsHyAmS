@@ -1,0 +1,32 @@
+{
+  "id": "80db0363be68aa16e3c8",
+  "kind": "changed",
+  "project": "1a882ea1-5f83-49eb-ba1f-728d90ee1a2d",
+  "origin": "dreamweave-mp-github-io-st4sh-scripts-c210b2b0",
+  "name": "st4sh-scripts",
+  "observed_at": "2026-10-24T16:00:10Z",
+  "before": "e99112c0e41018d67cfd6aaf7c830249377784d5c9e8743ec91d0b30ab839930",
+  "after": "153b08ee4bdf82c55d9ccca96040a711d26bc5b5666efde84b967f6acd360291",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.2-dev.5",
+      "after": "0.1.2-dev.6",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.2-dev.6",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.2-dev.5",
+      "channel": "development"
+    }
+  ]
+}

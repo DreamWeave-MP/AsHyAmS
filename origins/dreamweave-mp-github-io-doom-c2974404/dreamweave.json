@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/doom/home/",
       "manifest": "https://dreamweave-mp.github.io/doom/dreamweave/projects/70f3f079-226d-48ac-be5a-73fb327eb7c0.json",
-      "manifest_sha256": "7cd927e3bd9708fa47ea39b31a992a7b2f067b0d943220226a5f154953b52e6d",
+      "manifest_sha256": "47d21eb39b3b681a6f467191b1cbf76c8be671117cfd3ec1b0784cfa345f8675",
       "updated": "2026-10-24",
       "channels": {
-        "development": "0.1.1-dev.6",
+        "development": "0.1.1-dev.7",
         "stable": "0.1.0"
       }
     }

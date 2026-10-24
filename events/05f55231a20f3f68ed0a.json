@@ -1,0 +1,39 @@
+{
+  "id": "05f55231a20f3f68ed0a",
+  "kind": "changed",
+  "project": "55e873c9-1ddc-4b13-b59a-0eb790bb2565",
+  "origin": "dreamweave-mp-github-io-s3lightfixes-bb9d2c5d",
+  "name": "S3LightFixes",
+  "observed_at": "2026-10-24T16:00:10Z",
+  "before": "b92cae806a3f28ba9e80e67894fd08af714f2b271b4c9a09847c43b9c53c9361",
+  "after": "1efb86ad5517d72ee0a206eae6947550e0ccd7e806c010af35eb6b712f450342",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "1.1.1-dev.11",
+      "after": "1.1.1-dev.12",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 74419,
+          "after": 74421
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "1.1.1-dev.12",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "1.1.1-dev.11",
+      "channel": "development"
+    }
+  ]
+}

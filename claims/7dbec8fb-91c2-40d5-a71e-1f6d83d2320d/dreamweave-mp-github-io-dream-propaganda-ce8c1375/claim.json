@@ -10,21 +10,21 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/dream_propaganda/home/",
     "manifest": "https://dreamweave-mp.github.io/dream_propaganda/dreamweave/projects/7dbec8fb-91c2-40d5-a71e-1f6d83d2320d.json",
-    "manifest_sha256": "8fe280e6fb018843a0f27018842e91b58df30af60716b68dbea6e92587a3763b",
+    "manifest_sha256": "eb6d07a79e4e4fb1089b24538cb8cbdf31d3a6c5d1019da5e77528a1e8a1d46e",
     "updated": "2026-10-24",
     "channels": {
-      "development": "0.1.1-dev.6",
+      "development": "0.1.1-dev.7",
       "stable": "0.1.0"
     }
   },
-  "advertised_sha256": "8fe280e6fb018843a0f27018842e91b58df30af60716b68dbea6e92587a3763b",
-  "ingested_sha256": "8fe280e6fb018843a0f27018842e91b58df30af60716b68dbea6e92587a3763b",
+  "advertised_sha256": "eb6d07a79e4e4fb1089b24538cb8cbdf31d3a6c5d1019da5e77528a1e8a1d46e",
+  "ingested_sha256": "eb6d07a79e4e4fb1089b24538cb8cbdf31d3a6c5d1019da5e77528a1e8a1d46e",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-10-21T22:52:03Z",
-  "last_changed": "2026-10-24T03:01:45Z",
-  "last_attempt": "2026-10-24T11:05:57Z",
-  "last_success": "2026-10-24T11:05:57Z"
+  "last_changed": "2026-10-24T16:00:10Z",
+  "last_attempt": "2026-10-24T16:00:10Z",
+  "last_success": "2026-10-24T16:00:10Z"
 }

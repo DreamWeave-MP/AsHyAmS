@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.5"
+      "version": "0.1.1-dev.6"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.5",
+      "version": "0.1.1-dev.6",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/merge-to-master",
         "release": "development",
-        "revision": "657d7796356e5a32012058df68e627bb3c35f928"
+        "revision": "f27337c33e9f35fd682090f4b8b36f58441d864d"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.merge-to-master-0.1.1-dev.5.jpk",
+          "filename": "org.dreamweave.merge-to-master-0.1.1-dev.6.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 54076,
           "digests": {
-            "sha256": "dd35bc1fb2ba57745d7cb3f524fbbec84fd5fdded85b0db8a6b2ce3f74377d5c"
+            "sha256": "c38e61d50e60b17559420304e695b8e3df17cf73328cf646e7054dbc0b02bdbb"
           },
           "jess": {
             "package": "org.dreamweave.merge-to-master",
             "jess_api": "1",
-            "content_digest": "1df1049e2c004fc094934d4f7eec1fbcfb3477f664d0a426ad38ba62789c0edb",
+            "content_digest": "9eb9c94fe1f20875e7a30b3b5daaaec1f1bf305e69f0e67ec2ac4e8c4f3619df",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.tes3conv": "0.1"
@@ -89,7 +89,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/merge-to-master/releases/download/development/org.dreamweave.merge-to-master-0.1.1-dev.5.jpk",
+              "url": "https://github.com/DreamWeave-MP/merge-to-master/releases/download/development/org.dreamweave.merge-to-master-0.1.1-dev.6.jpk",
               "kind": "publisher"
             }
           ],

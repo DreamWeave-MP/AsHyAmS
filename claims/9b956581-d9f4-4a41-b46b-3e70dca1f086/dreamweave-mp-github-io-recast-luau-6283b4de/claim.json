@@ -10,21 +10,21 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/recast-luau/home/",
     "manifest": "https://dreamweave-mp.github.io/recast-luau/dreamweave/projects/9b956581-d9f4-4a41-b46b-3e70dca1f086.json",
-    "manifest_sha256": "f411b0004d75624f0cf8987136ded9cc00621d38ccdf65113d2e0b2b47e25e5f",
+    "manifest_sha256": "5f2dc15cc0e8c224b393d48ca604b047dc3a53f9815305b49ffa5004e94c1e84",
     "updated": "2026-10-24",
     "channels": {
-      "development": "0.2.1-dev.5",
+      "development": "0.2.1-dev.6",
       "stable": "0.2.0"
     }
   },
-  "advertised_sha256": "f411b0004d75624f0cf8987136ded9cc00621d38ccdf65113d2e0b2b47e25e5f",
-  "ingested_sha256": "f411b0004d75624f0cf8987136ded9cc00621d38ccdf65113d2e0b2b47e25e5f",
+  "advertised_sha256": "5f2dc15cc0e8c224b393d48ca604b047dc3a53f9815305b49ffa5004e94c1e84",
+  "ingested_sha256": "5f2dc15cc0e8c224b393d48ca604b047dc3a53f9815305b49ffa5004e94c1e84",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-10-21T21:31:59Z",
-  "last_changed": "2026-10-24T03:01:45Z",
-  "last_attempt": "2026-10-24T11:05:57Z",
-  "last_success": "2026-10-24T11:05:57Z"
+  "last_changed": "2026-10-24T16:00:10Z",
+  "last_attempt": "2026-10-24T16:00:10Z",
+  "last_success": "2026-10-24T16:00:10Z"
 }
