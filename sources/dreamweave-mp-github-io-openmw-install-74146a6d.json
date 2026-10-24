@@ -11,9 +11,9 @@
     },
     {
       "url": "https://dreamweave-mp.github.io/openmw-install/dreamweave.json",
-      "outcome": "a DreamWeave site index"
+      "outcome": "site index unchanged (HTTP 304)"
     }
   ],
-  "last_attempt": "2026-10-24T03:01:45Z",
-  "last_success": "2026-10-24T03:01:45Z"
+  "last_attempt": "2026-10-24T04:40:57Z",
+  "last_success": "2026-10-24T04:40:57Z"
 }
