@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.6"
+      "version": "0.1.1-dev.7"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.6",
+      "version": "0.1.1-dev.7",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/tes3cmd",
         "release": "development",
-        "revision": "6c0aff0330ae0385b7bc61f643d34e7dd28e690c"
+        "revision": "0fb3259d93b11df66e78dd2e4fde00d60c1fea50"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.tes3cmd-0.1.1-dev.6.jpk",
+          "filename": "org.dreamweave.tes3cmd-0.1.1-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 179920,
           "digests": {
-            "sha256": "d5a2f76ee9cd30782153b52f266f56a43ea8de588e5b1f51aa06af4897072ae3"
+            "sha256": "d5fa1e3f23716b06938295ca16e35e551e303a9c11c9171a9986511919172cb5"
           },
           "jess": {
             "package": "org.dreamweave.tes3cmd",
             "jess_api": "1",
-            "content_digest": "e236969f487ca99d21f5c90664927baee3178c926e915fdf1c9c0260fdbf9474",
+            "content_digest": "fcca95703227a1efa7d1dca0a249253a3eaabcb1b889e802d13e82baed6d7606",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.tes3-saves": "0.1"
@@ -89,7 +89,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/tes3cmd/releases/download/development/org.dreamweave.tes3cmd-0.1.1-dev.6.jpk",
+              "url": "https://github.com/DreamWeave-MP/tes3cmd/releases/download/development/org.dreamweave.tes3cmd-0.1.1-dev.7.jpk",
               "kind": "publisher"
             }
           ],

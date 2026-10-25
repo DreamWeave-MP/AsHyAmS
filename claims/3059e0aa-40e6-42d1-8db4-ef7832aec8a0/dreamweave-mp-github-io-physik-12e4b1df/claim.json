@@ -10,21 +10,21 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/physik/home/",
     "manifest": "https://dreamweave-mp.github.io/physik/dreamweave/projects/3059e0aa-40e6-42d1-8db4-ef7832aec8a0.json",
-    "manifest_sha256": "2b8affcce027b8540b49c1b36f73d729ecf3e6a551b6be047cf5c41cf082564e",
+    "manifest_sha256": "792f9d90f5cb4af948bdd90c7e5e5dcec6062de799ae0c42c81af7920e032f2f",
     "updated": "2026-10-24",
     "channels": {
-      "development": "0.3.3-dev.6",
+      "development": "0.3.3-dev.7",
       "stable": "0.3.2"
     }
   },
-  "advertised_sha256": "2b8affcce027b8540b49c1b36f73d729ecf3e6a551b6be047cf5c41cf082564e",
-  "ingested_sha256": "2b8affcce027b8540b49c1b36f73d729ecf3e6a551b6be047cf5c41cf082564e",
+  "advertised_sha256": "792f9d90f5cb4af948bdd90c7e5e5dcec6062de799ae0c42c81af7920e032f2f",
+  "ingested_sha256": "792f9d90f5cb4af948bdd90c7e5e5dcec6062de799ae0c42c81af7920e032f2f",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-10-21T21:31:59Z",
-  "last_changed": "2026-10-24T16:00:10Z",
-  "last_attempt": "2026-10-24T20:53:12Z",
-  "last_success": "2026-10-24T20:53:12Z"
+  "last_changed": "2026-10-25T04:45:46Z",
+  "last_attempt": "2026-10-25T04:45:46Z",
+  "last_success": "2026-10-25T04:45:46Z"
 }

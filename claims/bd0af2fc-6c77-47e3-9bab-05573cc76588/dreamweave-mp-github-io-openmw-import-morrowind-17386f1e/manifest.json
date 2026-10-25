@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.6"
+      "version": "0.1.1-dev.7"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.6",
+      "version": "0.1.1-dev.7",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/openmw-import-morrowind",
         "release": "development",
-        "revision": "5bed2d56898a2c0873c7ee1cdce710d5aa3cf5bb"
+        "revision": "e8ac8be1bfc501c7b79e68fe96b966c24c21f8ae"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.openmw-import-morrowind-0.1.1-dev.6.jpk",
+          "filename": "org.dreamweave.openmw-import-morrowind-0.1.1-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 64782,
           "digests": {
-            "sha256": "2ed307c39c3cbd7d11ec2e41b70cef30ecd3a6ebd214adaeabc4585a775734dd"
+            "sha256": "9df22b61954ddd13f7a50f5965b6e8226b29f67cc169d01e54e97b8c9772ffb7"
           },
           "jess": {
             "package": "org.dreamweave.openmw-import-morrowind",
             "jess_api": "1",
-            "content_digest": "73fe10c5cec57774aad3232aae7a2c59223c791a4c357aff82c687809a72ea0c",
+            "content_digest": "00533f7c6b4a243b376c443a7f0fe8b72c59d1cced5971b9c392b075df986e68",
             "dependencies": {
               "org.dreamweave.dream-ini": "0.1",
               "org.dreamweave.openmw-config": "4"
@@ -89,7 +89,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/openmw-import-morrowind/releases/download/development/org.dreamweave.openmw-import-morrowind-0.1.1-dev.6.jpk",
+              "url": "https://github.com/DreamWeave-MP/openmw-import-morrowind/releases/download/development/org.dreamweave.openmw-import-morrowind-0.1.1-dev.7.jpk",
               "kind": "publisher"
             }
           ],

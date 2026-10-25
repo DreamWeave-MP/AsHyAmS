@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.7"
+      "version": "0.1.1-dev.8"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.7",
+      "version": "0.1.1-dev.8",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/doom",
         "release": "development",
-        "revision": "03fb5f97e36a6cd513b7d033a25f938d36747d57"
+        "revision": "170fd8b4dfbb1c431b14e18d621a6bed09c17b58"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,21 +72,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.doom-0.1.1-dev.7.jpk",
+          "filename": "org.dreamweave.doom-0.1.1-dev.8.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 251410,
           "digests": {
-            "sha256": "d41f63fb580621129c3a697086a48c6b6291488e10c5bb8082646d9ce8fc0e8b"
+            "sha256": "bc7123b0aad3e42d8db8ba3c2110eb4003ac91d1adbaea02a82d6a691b28abf0"
           },
           "jess": {
             "package": "org.dreamweave.doom",
             "jess_api": "1",
-            "content_digest": "f7d1e5b91688ab552bbabc1ce1a369153041fd79cdd0504d09ed21d7da296d4d",
+            "content_digest": "aa3f6f9d7f94ba038c1e2beb09663387ee903fb61aaf478f73406b8c7d592311",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/doom/releases/download/development/org.dreamweave.doom-0.1.1-dev.7.jpk",
+              "url": "https://github.com/DreamWeave-MP/doom/releases/download/development/org.dreamweave.doom-0.1.1-dev.8.jpk",
               "kind": "publisher"
             }
           ],

@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.9"
+      "version": "0.1.1-dev.10"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.9",
+      "version": "0.1.1-dev.10",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/openmw-install",
         "release": "development",
-        "revision": "eee8b1943d33a8952031e0023041138a043fc3b8"
+        "revision": "2ddad0648c52330af5b8902e8f9d2554aa137707"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.openmw-install-0.1.1-dev.9.jpk",
+          "filename": "org.dreamweave.openmw-install-0.1.1-dev.10.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 11233,
+          "size": 11225,
           "digests": {
-            "sha256": "85e4065f84f9214264e08deec2df932a7c1f1ba69c5ebb06b7636583283c12d4"
+            "sha256": "29cde5d1611bd8b0448b06db9dcd2b92ca220d4028b54f9d6f9f6119b9e2b853"
           },
           "jess": {
             "package": "org.dreamweave.openmw-install",
             "jess_api": "1",
-            "content_digest": "2bc6908d4e0bb8821147257380b0362bc8a646524e7c579860729deb1caca37f",
+            "content_digest": "81b200d454532f2c154de16e3a38e36c5d7ae30d7d9805f980b35e6088ff2c1b",
             "dependencies": {
               "org.dreamweave.openmw-config": "4",
               "org.dreamweave.vfs": "2"
@@ -89,7 +89,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/openmw-install/releases/download/development/org.dreamweave.openmw-install-0.1.1-dev.9.jpk",
+              "url": "https://github.com/DreamWeave-MP/openmw-install/releases/download/development/org.dreamweave.openmw-install-0.1.1-dev.10.jpk",
               "kind": "publisher"
             }
           ],

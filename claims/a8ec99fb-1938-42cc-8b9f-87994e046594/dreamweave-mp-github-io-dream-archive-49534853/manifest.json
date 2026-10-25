@@ -37,7 +37,7 @@
   },
   "channels": {
     "development": {
-      "version": "2.0.1-dev.10"
+      "version": "2.0.1-dev.11"
     },
     "stable": {
       "version": "2.0.0"
@@ -45,14 +45,14 @@
   },
   "releases": [
     {
-      "version": "2.0.1-dev.10",
+      "version": "2.0.1-dev.11",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream_archive",
         "release": "development",
-        "revision": "66af054c604ef7c44ab58ab8adc6180f5b4bb009"
+        "revision": "f7aefa4861b1f664d7680013a95db4429daf1968"
       },
       "runtimes": {},
       "platforms": [],
@@ -77,21 +77,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.dream-archive-2.0.1-dev.10.jpk",
+          "filename": "org.dreamweave.dream-archive-2.0.1-dev.11.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 261439,
           "digests": {
-            "sha256": "59270a461894e56cdcea81478d23b5829eda27c4b2061686e8ab9a88c3bdd767"
+            "sha256": "3fa016acf21c50581e8423611d66ed752fdc805d998f8a6d4ae82d48d7ce409e"
           },
           "jess": {
             "package": "org.dreamweave.dream-archive",
             "jess_api": "1",
-            "content_digest": "b7b4ca1bbf0d4d08b37e06508057ae753441b7bccb6959b4cd9666a6cd1cfd00",
+            "content_digest": "be6a53031e12c6cdc5e8a6b6f4879d3941fa43df158317f26ae1aa3deb29f4cc",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dream_archive/releases/download/development/org.dreamweave.dream-archive-2.0.1-dev.10.jpk",
+              "url": "https://github.com/DreamWeave-MP/dream_archive/releases/download/development/org.dreamweave.dream-archive-2.0.1-dev.11.jpk",
               "kind": "publisher"
             }
           ],

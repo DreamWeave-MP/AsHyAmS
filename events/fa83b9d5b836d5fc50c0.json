@@ -1,0 +1,32 @@
+{
+  "id": "fa83b9d5b836d5fc50c0",
+  "kind": "changed",
+  "project": "29471f23-7ed9-43b9-b222-bcc597335ab5",
+  "origin": "dreamweave-mp-github-io-dream-archivetool-563195a7",
+  "name": "dream-archivetool",
+  "observed_at": "2026-10-25T04:45:46Z",
+  "before": "5a4fbc1858f0462ac1b4e0bfa9c00bd1dfba10a2d9fd99c768d2f82a4407c7af",
+  "after": "00eee8580572fd1c3cfe7d38d09e31bd7ef6fe7bb8b0ef710e8ee897a11a10c9",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.6",
+      "after": "0.1.1-dev.7",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.7",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.6",
+      "channel": "development"
+    }
+  ]
+}

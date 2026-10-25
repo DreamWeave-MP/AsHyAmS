@@ -1,0 +1,32 @@
+{
+  "id": "a278dc00fc1d0aafba05",
+  "kind": "changed",
+  "project": "24902fa8-2605-49b1-b278-5eb59a0f39b8",
+  "origin": "dreamweave-mp-github-io-dreamwind-sql-5234d80a",
+  "name": "dreamwind-sql",
+  "observed_at": "2026-10-25T04:45:46Z",
+  "before": "e98e554cac5704a00d1f99cb376d5fb4d77ee5619e1be2191a3de25b21273fa0",
+  "after": "685f85eed9ebfcfa014b9ebeb925147a63c360e2ab9c23a9ac2528d114820dae",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.2.1-dev.8",
+      "after": "0.2.1-dev.9",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.2.1-dev.9",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.2.1-dev.8",
+      "channel": "development"
+    }
+  ]
+}

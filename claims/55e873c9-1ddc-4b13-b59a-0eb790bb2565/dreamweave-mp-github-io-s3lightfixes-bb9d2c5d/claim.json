@@ -10,21 +10,21 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/S3LightFixes/home/",
     "manifest": "https://dreamweave-mp.github.io/S3LightFixes/dreamweave/projects/55e873c9-1ddc-4b13-b59a-0eb790bb2565.json",
-    "manifest_sha256": "1efb86ad5517d72ee0a206eae6947550e0ccd7e806c010af35eb6b712f450342",
+    "manifest_sha256": "789996de756f0ec56841601685e9cc9af797aa44e863d0fcee003cbe5cf936f8",
     "updated": "2026-10-24",
     "channels": {
-      "development": "1.1.1-dev.12",
+      "development": "1.1.1-dev.13",
       "stable": "0.4.53"
     }
   },
-  "advertised_sha256": "1efb86ad5517d72ee0a206eae6947550e0ccd7e806c010af35eb6b712f450342",
-  "ingested_sha256": "1efb86ad5517d72ee0a206eae6947550e0ccd7e806c010af35eb6b712f450342",
+  "advertised_sha256": "789996de756f0ec56841601685e9cc9af797aa44e863d0fcee003cbe5cf936f8",
+  "ingested_sha256": "789996de756f0ec56841601685e9cc9af797aa44e863d0fcee003cbe5cf936f8",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-09-30T01:45:06Z",
-  "last_changed": "2026-10-24T16:00:10Z",
-  "last_attempt": "2026-10-24T20:53:12Z",
-  "last_success": "2026-10-24T20:53:12Z"
+  "last_changed": "2026-10-25T04:45:46Z",
+  "last_attempt": "2026-10-25T04:45:46Z",
+  "last_success": "2026-10-25T04:45:46Z"
 }

@@ -57,7 +57,7 @@
   },
   "channels": {
     "development": {
-      "version": "1.1.1-dev.12"
+      "version": "1.1.1-dev.13"
     },
     "stable": {
       "version": "1.1.0"
@@ -65,14 +65,14 @@
   },
   "releases": [
     {
-      "version": "1.1.1-dev.12",
+      "version": "1.1.1-dev.13",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/S3LightFixes",
         "release": "development",
-        "revision": "c7bc5079a49d27c0a470aef4b66e53e9159ff2b6"
+        "revision": "5fdc5f947aeec318db8df32b738312d6c90e8c67"
       },
       "runtimes": {},
       "platforms": [],
@@ -97,16 +97,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.s3lightfixes-1.1.1-dev.12.jpk",
+          "filename": "org.dreamweave.s3lightfixes-1.1.1-dev.13.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 74421,
+          "size": 74419,
           "digests": {
-            "sha256": "9fa2f9b132b2bf118465a185b3225868b2b2d2172f04f683ac89c25b0cee6447"
+            "sha256": "4c4cea67dcde80952c5aaab5f8bf0b0af0aaeb03aeaa85cb3a4477ab3c3b2da4"
           },
           "jess": {
             "package": "org.dreamweave.s3lightfixes",
             "jess_api": "1",
-            "content_digest": "db9c09acf48ebed3b164d7da79709168eda01e3b4bb21cb8c4b4e161f6de9e35",
+            "content_digest": "847dff597e81385d8e9590772c7ac6d4f181dd86239e3bbdc39adc8585acdbfe",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.openmw-config": "4.2",
@@ -116,7 +116,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/development/org.dreamweave.s3lightfixes-1.1.1-dev.12.jpk",
+              "url": "https://github.com/DreamWeave-MP/S3LightFixes/releases/download/development/org.dreamweave.s3lightfixes-1.1.1-dev.13.jpk",
               "kind": "publisher"
             }
           ],

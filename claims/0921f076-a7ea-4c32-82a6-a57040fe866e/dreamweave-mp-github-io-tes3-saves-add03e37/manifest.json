@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.6"
+      "version": "0.1.1-dev.7"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.6",
+      "version": "0.1.1-dev.7",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/tes3-saves",
         "release": "development",
-        "revision": "b839bb50e07f4b1ed87d31e74910cc2ebcdfdab8"
+        "revision": "91de7165218e4fb17b623ba6df6ae0e34a4b1f5f"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.tes3-saves-0.1.1-dev.6.jpk",
+          "filename": "org.dreamweave.tes3-saves-0.1.1-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 197540,
           "digests": {
-            "sha256": "59d06779fd542c0ed69be8fc7187c8238e464be247cd201c7d63501b978af90e"
+            "sha256": "eab4a4e5dc0bacbf1a8a30dfb4b27cb567bcd62d46e4ca275a2063931f4087ab"
           },
           "jess": {
             "package": "org.dreamweave.tes3-saves",
             "jess_api": "1",
-            "content_digest": "8fb75d45bf1fc34bc95401b87b940cb0df219b6f5d33de3faa36b75912095912",
+            "content_digest": "c0d4692483955aff20959cd4e1a02a820ecbdd4edcd86a6a474337c8999e0f84",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.openmw-install": "0.1"
@@ -89,7 +89,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/tes3-saves/releases/download/development/org.dreamweave.tes3-saves-0.1.1-dev.6.jpk",
+              "url": "https://github.com/DreamWeave-MP/tes3-saves/releases/download/development/org.dreamweave.tes3-saves-0.1.1-dev.7.jpk",
               "kind": "publisher"
             }
           ],

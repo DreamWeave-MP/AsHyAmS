@@ -31,7 +31,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.2.1-dev.6"
+      "version": "0.2.1-dev.7"
     },
     "stable": {
       "version": "0.2.0"
@@ -39,14 +39,14 @@
   },
   "releases": [
     {
-      "version": "0.2.1-dev.6",
+      "version": "0.2.1-dev.7",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/recast-luau",
         "release": "development",
-        "revision": "467e3d45d0a0cddba4747065e700a2569c1816e6"
+        "revision": "5ac054be146e220ef5a5ab7706fa05db0d73b172"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.recast-0.2.1-dev.6.jpk",
+          "filename": "org.dreamweave.recast-0.2.1-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 302061,
+          "size": 302048,
           "digests": {
-            "sha256": "d0bb862b12c619cad45f4d70ca5b2255326430c8900e518fa74cd52074748d06"
+            "sha256": "9210306468d337a7232cf5047c7c108d89a4f25faaabfbc8b48b6ebf13a53852"
           },
           "jess": {
             "package": "org.dreamweave.recast",
             "jess_api": "1",
-            "content_digest": "f79d2bd034856303b3f69483bec5947c4f16d03e3f3832771d00034e6163b259",
+            "content_digest": "41ac08b4caba13a660e689f55c43bcb54c2e7f848a83513141ad04c8a3874fd5",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/recast-luau/releases/download/development/org.dreamweave.recast-0.2.1-dev.6.jpk",
+              "url": "https://github.com/DreamWeave-MP/recast-luau/releases/download/development/org.dreamweave.recast-0.2.1-dev.7.jpk",
               "kind": "publisher"
             }
           ],

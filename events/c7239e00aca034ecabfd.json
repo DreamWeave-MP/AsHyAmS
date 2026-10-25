@@ -1,0 +1,39 @@
+{
+  "id": "c7239e00aca034ecabfd",
+  "kind": "changed",
+  "project": "4a20d171-25a6-471f-8e22-6e554c9e859c",
+  "origin": "dreamweave-mp-github-io-esm-3927a6fa",
+  "name": "esm",
+  "observed_at": "2026-10-25T04:45:46Z",
+  "before": "b44f667626f104fa674c8366052d8a2fc078bf378d231ac8ac15e12040139478",
+  "after": "b43891fd206745bca302360b01cc83019f49353175102900a7cb4d93792fd8c6",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.9",
+      "after": "0.1.1-dev.10",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 151996,
+          "after": 151997
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.10",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.9",
+      "channel": "development"
+    }
+  ]
+}

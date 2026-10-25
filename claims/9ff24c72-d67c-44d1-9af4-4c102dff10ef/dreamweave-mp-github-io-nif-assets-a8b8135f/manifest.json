@@ -32,22 +32,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.6"
+      "version": "0.1.2-dev.10"
     },
     "stable": {
-      "version": "0.1.0"
+      "version": "0.1.1"
     }
   },
   "releases": [
     {
-      "version": "0.1.1-dev.6",
+      "version": "0.1.2-dev.10",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/nif-assets",
         "release": "development",
-        "revision": "ac516935f7d9d86a25e99c43f386296e7d921f6d"
+        "revision": "7cce60b662c7503eedc00a6b608fc3a7765d4cb0"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.nif-assets-0.1.1-dev.6.jpk",
+          "filename": "org.dreamweave.nif-assets-0.1.2-dev.10.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 216866,
+          "size": 221003,
           "digests": {
-            "sha256": "ce1629a5f014d67932016f83fb65bc2e101d4d16d708d8b882e272d0c65d0aae"
+            "sha256": "4501198e6bbc875120377b7d64d417cfa4d7c21f203faa3592cfcae37f0330a5"
           },
           "jess": {
             "package": "org.dreamweave.nif-assets",
             "jess_api": "1",
-            "content_digest": "3d89958fce3a78bad14a9027c70411a551ead14337e0946ea7494a5e9d5c7425",
+            "content_digest": "92066858a5e75fdcb5df8781be357256c26c052fb671015e8c3d3b2791b88940",
             "dependencies": {
               "org.dreamweave.nif": "0.1",
               "org.dreamweave.vfs": "2"
@@ -89,7 +89,71 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/nif-assets/releases/download/development/org.dreamweave.nif-assets-0.1.1-dev.6.jpk",
+              "url": "https://github.com/DreamWeave-MP/nif-assets/releases/download/development/org.dreamweave.nif-assets-0.1.2-dev.10.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.1.1",
+      "channel": "stable",
+      "date": "2026-10-24",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/nif-assets",
+        "tag": "nif_assets-0.1.1",
+        "revision": "708c55f5e0ad7c9bd10c75c1c81c9133488474ef"
+      },
+      "notes": {
+        "summary": "A report on a whole mods folder no longer fails with `table overflow`: it is written a file at a time.",
+        "fixed": [
+          "`check`, `info` and `fix` write their report to standard output a file at a time, as the same text, so a run over tens of thousands of NIFs never builds its whole document as one string. Needs jess 0.2.2 or later, whose YAML and JSON writers no longer overflow a table on a document of millions of lines."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "nif-assets",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.nif-assets-0.1.1.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 220994,
+          "digests": {
+            "sha256": "9a09aa7e507a5fb480d774367c7a1e48c42fd189f881a791155761898e7ebfeb"
+          },
+          "jess": {
+            "package": "org.dreamweave.nif-assets",
+            "jess_api": "1",
+            "content_digest": "17194598fa0cf91d9e9b051e241c6607d4b0d6994b5db662fa7a0f7b13cca359",
+            "dependencies": {
+              "org.dreamweave.nif": "0.1",
+              "org.dreamweave.vfs": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/nif-assets/releases/download/nif_assets-0.1.1/org.dreamweave.nif-assets-0.1.1.jpk",
               "kind": "publisher"
             }
           ],

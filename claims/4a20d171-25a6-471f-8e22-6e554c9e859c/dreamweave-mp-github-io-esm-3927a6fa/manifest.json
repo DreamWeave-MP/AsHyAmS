@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.9"
+      "version": "0.1.1-dev.10"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.9",
+      "version": "0.1.1-dev.10",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/esm",
         "release": "development",
-        "revision": "9644fa590482b3ff0f54b7020e4c0eda9e65f7aa"
+        "revision": "c758ef8d0fc4d083520b8d38b2a63242853b09ca"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,21 +72,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.esm-0.1.1-dev.9.jpk",
+          "filename": "org.dreamweave.esm-0.1.1-dev.10.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 151996,
+          "size": 151997,
           "digests": {
-            "sha256": "887b0ef118a406dc5e42c5346f5d1109b3118dfaf0da8a90d651b0e8908e7140"
+            "sha256": "c6b2927ca4e0d030cd4a7e3aad25df97fd99850e127352b1f07446b91d086fa2"
           },
           "jess": {
             "package": "org.dreamweave.esm",
             "jess_api": "1",
-            "content_digest": "032b8a8c1efd90ceb8a28b213b556eb406a79e670d247cb9eab5a1fb8dd19bfb",
+            "content_digest": "0096e6e2591f50bd3dbf14cce9e57e92410e49e858e4125e42068da43a69b7f3",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/esm/releases/download/development/org.dreamweave.esm-0.1.1-dev.9.jpk",
+              "url": "https://github.com/DreamWeave-MP/esm/releases/download/development/org.dreamweave.esm-0.1.1-dev.10.jpk",
               "kind": "publisher"
             }
           ],

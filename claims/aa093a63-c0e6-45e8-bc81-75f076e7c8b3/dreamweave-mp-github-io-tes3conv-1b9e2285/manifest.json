@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.6"
+      "version": "0.1.1-dev.7"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.6",
+      "version": "0.1.1-dev.7",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/tes3conv",
         "release": "development",
-        "revision": "b8116ff9aea0c48f9f63858903c95a34237754e4"
+        "revision": "6507794f29be86058c391f5eba1a991883807d84"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,23 +72,23 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.tes3conv-0.1.1-dev.6.jpk",
+          "filename": "org.dreamweave.tes3conv-0.1.1-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 135469,
           "digests": {
-            "sha256": "9d41cca7091e0d34daa65f6673223795e82d6eed0d585397d93cec6b30b83709"
+            "sha256": "d61e9a761088e47a43b32001fa29adc1378ac8f485955c37b9b0fc8bd5ee9de3"
           },
           "jess": {
             "package": "org.dreamweave.tes3conv",
             "jess_api": "1",
-            "content_digest": "9d3d10a2fe66ffac748129af84a4088ebfa7c97832783f33c2d0ca9bdadf288d",
+            "content_digest": "80f641da56a97491e01e5e41da9b6b5db6b9750ec074fa41d347ef4753a475c9",
             "dependencies": {
               "org.dreamweave.esm": "0.1"
             }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/tes3conv/releases/download/development/org.dreamweave.tes3conv-0.1.1-dev.6.jpk",
+              "url": "https://github.com/DreamWeave-MP/tes3conv/releases/download/development/org.dreamweave.tes3conv-0.1.1-dev.7.jpk",
               "kind": "publisher"
             }
           ],

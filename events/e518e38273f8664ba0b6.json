@@ -1,0 +1,32 @@
+{
+  "id": "e518e38273f8664ba0b6",
+  "kind": "changed",
+  "project": "3aaf4fe0-616f-41a3-b520-306eda9347b0",
+  "origin": "dreamweave-mp-github-io-openmw-config-6147a97f",
+  "name": "openmw-config",
+  "observed_at": "2026-10-25T04:45:46Z",
+  "before": "051578ae2c82440d62b03b01292d6ef9ccf965f0f2b9b7f92f2b9fb65b08c730",
+  "after": "1615f7c644345e19f8984de66851583825f42c5ba0f2c4057fd0b7145c3b9ef0",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "4.2.1-dev.15",
+      "after": "4.2.1-dev.16",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "4.2.1-dev.16",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "4.2.1-dev.15",
+      "channel": "development"
+    }
+  ]
+}

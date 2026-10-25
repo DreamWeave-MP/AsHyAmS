@@ -1,0 +1,66 @@
+{
+  "id": "d711ae40b3c9751cbe2c",
+  "kind": "changed",
+  "project": "9ff24c72-d67c-44d1-9af4-4c102dff10ef",
+  "origin": "dreamweave-mp-github-io-nif-assets-a8b8135f",
+  "name": "nif-assets",
+  "observed_at": "2026-10-25T04:45:46Z",
+  "before": "ad8a6d7b3579d55e63e15086a9c389bd1ab87415757751cfbb730e191653e8f2",
+  "after": "e917fe04abb885502bd9320c67fc22affd1875581842135cc5d43b66c5e549bf",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.6",
+      "after": "0.1.2-dev.10",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 216866,
+          "after": 221003
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.1.0",
+      "after": "0.1.1",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 216853,
+          "after": 220994
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.2-dev.10",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1",
+      "channel": "stable",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": {
+        "summary": "A report on a whole mods folder no longer fails with `table overflow`: it is written a file at a time.",
+        "fixed": [
+          "`check`, `info` and `fix` write their report to standard output a file at a time, as the same text, so a run over tens of thousands of NIFs never builds its whole document as one string. Needs jess 0.2.2 or later, whose YAML and JSON writers no longer overflow a table on a document of millions of lines."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.6",
+      "channel": "development"
+    }
+  ]
+}

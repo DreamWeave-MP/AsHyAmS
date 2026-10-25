@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/jessql/home/",
       "manifest": "https://dreamweave-mp.github.io/jessql/dreamweave/projects/6b0fec20-c982-440d-87a4-15aa83a3c680.json",
-      "manifest_sha256": "ce465ceafce44a50aa05fe0090428e2fe2faa77cbf991b8bc3bc938ced1857f9",
+      "manifest_sha256": "218bda0c2da3c68fd71087998103f82b1bd7482b3be9b608a13ded642c22f3d9",
       "updated": "2026-10-24",
       "channels": {
-        "development": "0.1.7-dev.6",
+        "development": "0.1.7-dev.7",
         "stable": "0.1.6"
       }
     }

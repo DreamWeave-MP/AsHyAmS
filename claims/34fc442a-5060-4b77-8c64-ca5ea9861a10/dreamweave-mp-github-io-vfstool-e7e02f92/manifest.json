@@ -55,7 +55,7 @@
   },
   "channels": {
     "development": {
-      "version": "2.1.1-dev.16"
+      "version": "2.1.1-dev.17"
     },
     "stable": {
       "version": "2.1.0"
@@ -63,14 +63,14 @@
   },
   "releases": [
     {
-      "version": "2.1.1-dev.16",
+      "version": "2.1.1-dev.17",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/vfstool",
         "release": "development",
-        "revision": "eb03e709e839ab2c5bee4ecd0f581898b35f95ca"
+        "revision": "6229e3dd113798edc84c8724a8ac242b77d077ca"
       },
       "runtimes": {},
       "platforms": [
@@ -112,16 +112,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.vfstool-2.1.1-dev.16.jpk",
+          "filename": "org.dreamweave.vfstool-2.1.1-dev.17.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 62067,
+          "size": 62069,
           "digests": {
-            "sha256": "6f8b67b5b0c308c254e39e0827c5645d7a406502e001746131c05d3caceed354"
+            "sha256": "af4545dd151a1672dc9ef8d8cb2f9fd94e6be4b142cf7b1aec1f2de4f70447e4"
           },
           "jess": {
             "package": "org.dreamweave.vfstool",
             "jess_api": "1",
-            "content_digest": "e59c320f8e10e35af4a50f9ac05724da6496b2b7064e29236f5f7808150d453c",
+            "content_digest": "53cd88700b2ef48e2c625abfa737b74a7bb70a112ec61029ad787632a1a1deef",
             "dependencies": {
               "org.dreamweave.openmw-config": "4.2",
               "org.dreamweave.vfs": "2"
@@ -129,7 +129,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/development/org.dreamweave.vfstool-2.1.1-dev.16.jpk",
+              "url": "https://github.com/DreamWeave-MP/vfstool/releases/download/development/org.dreamweave.vfstool-2.1.1-dev.17.jpk",
               "kind": "publisher"
             }
           ],

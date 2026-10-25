@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/TES3Merge/home/",
       "manifest": "https://dreamweave-mp.github.io/TES3Merge/dreamweave/projects/13fe2321-0f57-4368-9690-50400d433c61.json",
-      "manifest_sha256": "e2f1132a7c0c238221918ed9f0fa423a77225a152a2ff3291114f911e69a980e",
+      "manifest_sha256": "99e7318749478d0d4a50e27105a0806572f782641b7e9f40520bd02cc6542479",
       "updated": "2026-10-24",
       "channels": {
-        "development": "0.1.2-dev.8",
+        "development": "0.1.2-dev.9",
         "stable": "0.1.0"
       }
     }

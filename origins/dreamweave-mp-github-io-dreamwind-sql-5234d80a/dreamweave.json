@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/dreamwind-sql/home/",
       "manifest": "https://dreamweave-mp.github.io/dreamwind-sql/dreamweave/projects/24902fa8-2605-49b1-b278-5eb59a0f39b8.json",
-      "manifest_sha256": "e98e554cac5704a00d1f99cb376d5fb4d77ee5619e1be2191a3de25b21273fa0",
+      "manifest_sha256": "685f85eed9ebfcfa014b9ebeb925147a63c360e2ab9c23a9ac2528d114820dae",
       "updated": "2026-10-24",
       "channels": {
-        "development": "0.2.1-dev.8",
+        "development": "0.2.1-dev.9",
         "stable": "0.1.1"
       }
     }

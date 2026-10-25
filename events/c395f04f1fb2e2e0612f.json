@@ -1,0 +1,96 @@
+{
+  "id": "c395f04f1fb2e2e0612f",
+  "kind": "changed",
+  "project": "aca6a4b0-f8b2-44a9-9cc4-55ef3c9d83f8",
+  "origin": "dreamweave-mp-github-io-dreamwind-803bec0d",
+  "name": "DreamWind",
+  "observed_at": "2026-10-25T04:45:46Z",
+  "before": "47abf252288f6c05a287591c596224c044ee3e5e683a1c01b6163b77be95be12",
+  "after": "02cdc878e1af2f0515fb795aea5e003ae69e2444cb7ef279a053cdcd58be63bc",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.3.2-dev.12",
+      "after": "0.3.3-dev.15",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 9603,
+          "after": 9609
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.3.1",
+      "after": "0.3.2",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 9895,
+          "after": 9898
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "jsw",
+          "before": 3557521,
+          "after": 3561665
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "windows-x64",
+          "before": 24448813,
+          "after": 24455005
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-x64",
+          "before": 25461748,
+          "after": 25465708
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "macos-arm64",
+          "before": 23422438,
+          "after": 23422422
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "linux-x64",
+          "before": 26111421,
+          "after": 26119661
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.3.3-dev.15",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.3.2",
+      "channel": "stable",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": {
+        "summary": "`dreamwind nif-assets check` over a whole mods folder no longer fails with `table overflow` while writing its report.",
+        "fixed": [
+          "`dreamwind nif-assets` (nif-assets 0.1.1) writes `check`, `info` and `fix` reports a file at a time, and the program is built on jess 0.2.2, whose JSON and YAML writers no longer overflow a table on a document of millions of lines."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.3.2-dev.12",
+      "channel": "development"
+    }
+  ]
+}

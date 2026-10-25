@@ -1,0 +1,32 @@
+{
+  "id": "360340a9d07325bfe1e0",
+  "kind": "changed",
+  "project": "d6a547e9-7e26-4dcd-a5d0-d7234df8d0c4",
+  "origin": "dreamweave-mp-github-io-nif-a91a2f67",
+  "name": "nif",
+  "observed_at": "2026-10-25T04:45:46Z",
+  "before": "9c46cfa68bfe3353ca1836fb690bcf4f5d59280d89ac09d377a0660136aa2e40",
+  "after": "0999fc1ee0a41b695900a12cba0f94c75a59331a0091ba0f17ada0432f2d8f84",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.6",
+      "after": "0.1.1-dev.7",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.7",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.6",
+      "channel": "development"
+    }
+  ]
+}

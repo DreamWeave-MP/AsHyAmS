@@ -1,0 +1,32 @@
+{
+  "id": "0769906a9c1b24954ac8",
+  "kind": "changed",
+  "project": "3059e0aa-40e6-42d1-8db4-ef7832aec8a0",
+  "origin": "dreamweave-mp-github-io-physik-12e4b1df",
+  "name": "physik",
+  "observed_at": "2026-10-25T04:45:46Z",
+  "before": "2b8affcce027b8540b49c1b36f73d729ecf3e6a551b6be047cf5c41cf082564e",
+  "after": "792f9d90f5cb4af948bdd90c7e5e5dcec6062de799ae0c42c81af7920e032f2f",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.3.3-dev.6",
+      "after": "0.3.3-dev.7",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "0.3.3-dev.7",
+      "channel": "development",
+      "date": "2026-10-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.3.3-dev.6",
+      "channel": "development"
+    }
+  ]
+}

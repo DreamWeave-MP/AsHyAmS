@@ -31,7 +31,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.2.2-dev.6"
+      "version": "0.2.2-dev.7"
     },
     "stable": {
       "version": "0.2.1"
@@ -39,14 +39,14 @@
   },
   "releases": [
     {
-      "version": "0.2.2-dev.6",
+      "version": "0.2.2-dev.7",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dream-ecs",
         "release": "development",
-        "revision": "2aeda88aecbb3fd2451987bb28856b7e20d43dd5"
+        "revision": "df39aa2c4db28fb52ca336749d956f2f017c783d"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,23 +71,23 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.ecs-0.2.2-dev.6.jpk",
+          "filename": "org.dreamweave.ecs-0.2.2-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 70445,
+          "size": 70453,
           "digests": {
-            "sha256": "fe55e8913547daeb7bfe09927598a69be15025d588bac4edda3d166699699962"
+            "sha256": "9cc21298a1f42098f1d9770b0e97ed4bff5b97655517dca2b28098193a35c1dc"
           },
           "jess": {
             "package": "org.dreamweave.ecs",
             "jess_api": "1",
-            "content_digest": "ca3b0d1bf6eba6199192142feb1c22474f0010c3d2771520313d31216b08404f",
+            "content_digest": "9d53f333558a18876fa89411a0d4915e08f0cc82352b73209c49175ae4461e31",
             "dependencies": {
               "org.dreamweave.jessql": "0.1.6"
             }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dream-ecs/releases/download/development/org.dreamweave.ecs-0.2.2-dev.6.jpk",
+              "url": "https://github.com/DreamWeave-MP/dream-ecs/releases/download/development/org.dreamweave.ecs-0.2.2-dev.7.jpk",
               "kind": "publisher"
             }
           ],

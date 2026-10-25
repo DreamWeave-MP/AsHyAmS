@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/tes3cmd/home/",
       "manifest": "https://dreamweave-mp.github.io/tes3cmd/dreamweave/projects/9efafc2e-98f1-4d72-87c7-fb3da5b435f3.json",
-      "manifest_sha256": "94f98bf235da6ae6c578a8795fbbc8c08a6937321b5157f73a2bfee2c524ff15",
+      "manifest_sha256": "b7b6f93f79c428c1df4a0b5a32e4fc90feb2a078fd8782e5fb2502d2d5169ec3",
       "updated": "2026-10-24",
       "channels": {
-        "development": "0.1.1-dev.6",
+        "development": "0.1.1-dev.7",
         "stable": "0.1.0"
       }
     }

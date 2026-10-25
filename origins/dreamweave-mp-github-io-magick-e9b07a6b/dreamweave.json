@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/magick/home/",
       "manifest": "https://dreamweave-mp.github.io/magick/dreamweave/projects/4aefcc8f-913f-48f5-8980-2326173a7288.json",
-      "manifest_sha256": "bb62d343329f05453585c3c8411b6c57fcadd9428a8ca7cbdb5ddc5da91448cf",
+      "manifest_sha256": "f2dab05b39997713f3cc07260327067c0a74556f85de88554f606a6814a82b1f",
       "updated": "2026-10-24",
       "channels": {
-        "development": "0.1.4-dev.12",
+        "development": "0.1.4-dev.13",
         "stable": "0.1.2"
       }
     }

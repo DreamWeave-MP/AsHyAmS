@@ -31,7 +31,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.6"
+      "version": "0.1.1-dev.7"
     },
     "stable": {
       "version": "0.1.0"
@@ -39,14 +39,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.6",
+      "version": "0.1.1-dev.7",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/truetype",
         "release": "development",
-        "revision": "49e2f3b06b021f8d8c38337a3f3d29b5c20c8d79"
+        "revision": "045652e7bd3f79dd441e6bb390bb0bfd4d43ca14"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.truetype-0.1.1-dev.6.jpk",
+          "filename": "org.dreamweave.truetype-0.1.1-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 25595,
           "digests": {
-            "sha256": "2f0bc35958e2ea251925a35dac942ff79f80fa8059c8f9781ad4c418c541432e"
+            "sha256": "68b8f5939268986fa4d9df8018782b768454f0bb7ad5ec0e7492dcaf8f28b642"
           },
           "jess": {
             "package": "org.dreamweave.truetype",
             "jess_api": "1",
-            "content_digest": "8223fd3c82af0c305f23afa26f9ea85dc7b741c3bb538b4f5043239f7d2c847e",
+            "content_digest": "0d82519bd5550b65da9757054bbedc447c597fe197a7732669de684e85ad2ca5",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/truetype/releases/download/development/org.dreamweave.truetype-0.1.1-dev.6.jpk",
+              "url": "https://github.com/DreamWeave-MP/truetype/releases/download/development/org.dreamweave.truetype-0.1.1-dev.7.jpk",
               "kind": "publisher"
             }
           ],

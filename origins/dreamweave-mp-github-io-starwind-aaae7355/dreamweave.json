@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/starwind/home/",
       "manifest": "https://dreamweave-mp.github.io/starwind/dreamweave/projects/14eca538-2918-4b4f-90ae-80b764a62e57.json",
-      "manifest_sha256": "573cd266677c793193839ff0d856ec33556a36101479bd0e36ad5a10f0c10ac3",
+      "manifest_sha256": "b61c4e7b03a28906d8cc5d9ccf0ad378657caa1b942b15ec987051d717ebc31e",
       "updated": "2026-10-24",
       "channels": {
-        "development": "0.1.1-dev.6",
+        "development": "0.1.1-dev.7",
         "stable": "0.1.0"
       }
     }

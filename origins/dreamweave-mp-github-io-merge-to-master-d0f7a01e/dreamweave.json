@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/merge-to-master/home/",
       "manifest": "https://dreamweave-mp.github.io/merge-to-master/dreamweave/projects/25a14f79-a94a-495c-80d6-d1e834c924c2.json",
-      "manifest_sha256": "04da25cae367f9b0e514b2f5ab57f5e85c723447ee3b0c6ed9f8d59e3fb5caab",
+      "manifest_sha256": "146baac45f84eede40237249cc7311675d6dbc331c564582a758b3cc8e962ee2",
       "updated": "2026-10-24",
       "channels": {
-        "development": "0.1.1-dev.6",
+        "development": "0.1.1-dev.7",
         "stable": "0.1.0"
       }
     }

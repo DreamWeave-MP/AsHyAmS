@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.6"
+      "version": "0.1.1-dev.7"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.6",
+      "version": "0.1.1-dev.7",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/starwind",
         "release": "development",
-        "revision": "a62e5f3ddb064f4a716bdc5d40bf47c59f5e72e2"
+        "revision": "1b8f89ebcabf03d03db6d39a19b98f346709f897"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.starwind-0.1.1-dev.6.jpk",
+          "filename": "org.dreamweave.starwind-0.1.1-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 119343,
           "digests": {
-            "sha256": "b9fbc2a7a23a19901469f26ecd10f4eabd77d14c63d0ac7519e80d9dea8687a1"
+            "sha256": "334b0992bdebc7cfd076983b3de936c5bd6469f56dc017eb83a9d580b29b8e22"
           },
           "jess": {
             "package": "org.dreamweave.starwind",
             "jess_api": "1",
-            "content_digest": "95a93a31cadca1e3102555ba820d2779244fe9ab268d720c392a86011d7df6f0",
+            "content_digest": "9180f50176d0481b419fcdaa8b4d866fc1fae759f102bb8db3e577be8d49d6b0",
             "dependencies": {
               "org.dreamweave.add-vanilla-refs": "0.1",
               "org.dreamweave.esm": "0.1",
@@ -91,7 +91,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/starwind/releases/download/development/org.dreamweave.starwind-0.1.1-dev.6.jpk",
+              "url": "https://github.com/DreamWeave-MP/starwind/releases/download/development/org.dreamweave.starwind-0.1.1-dev.7.jpk",
               "kind": "publisher"
             }
           ],

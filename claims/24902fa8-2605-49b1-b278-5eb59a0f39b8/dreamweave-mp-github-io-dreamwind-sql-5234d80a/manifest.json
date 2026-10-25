@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.2.1-dev.8"
+      "version": "0.2.1-dev.9"
     },
     "stable": {
       "version": "0.2.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.2.1-dev.8",
+      "version": "0.2.1-dev.9",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dreamwind-sql",
         "release": "development",
-        "revision": "d5c8f59424df421b1622ca04bbe0ee065f88c36f"
+        "revision": "c5ff11610f9859b73376855a7aabb878fe54cb9d"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,16 +72,16 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.dreamwind-sql-0.2.1-dev.8.jpk",
+          "filename": "org.dreamweave.dreamwind-sql-0.2.1-dev.9.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 78008,
           "digests": {
-            "sha256": "0309ad0da2aa0cb12ae39c17d3beca4aff476f89b61fb4a9b63bd04399431304"
+            "sha256": "19d7e48da9ff279fdeb0f8a64b5bb9b4299d6b69905434a6fa36385f1cd6c102"
           },
           "jess": {
             "package": "org.dreamweave.dreamwind-sql",
             "jess_api": "1",
-            "content_digest": "d45f9bcdfe1bb391d837896c3b1ef30d58e21693b5f527b5dc773cf253d7bb10",
+            "content_digest": "42014a2d0f36133b63c7e280a8374547ee00d47bd7024ffdb22a847ef96ca266",
             "dependencies": {
               "org.dreamweave.esm": "0.1",
               "org.dreamweave.jessql": "0.1.1",
@@ -92,7 +92,7 @@
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dreamwind-sql/releases/download/development/org.dreamweave.dreamwind-sql-0.2.1-dev.8.jpk",
+              "url": "https://github.com/DreamWeave-MP/dreamwind-sql/releases/download/development/org.dreamweave.dreamwind-sql-0.2.1-dev.9.jpk",
               "kind": "publisher"
             }
           ],

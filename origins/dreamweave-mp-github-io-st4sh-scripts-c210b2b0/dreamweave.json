@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/st4sh-scripts/home/",
       "manifest": "https://dreamweave-mp.github.io/st4sh-scripts/dreamweave/projects/1a882ea1-5f83-49eb-ba1f-728d90ee1a2d.json",
-      "manifest_sha256": "153b08ee4bdf82c55d9ccca96040a711d26bc5b5666efde84b967f6acd360291",
+      "manifest_sha256": "01f6eab22da20165f359f59c3d842714e85876ebe5a84c38b96aa49b39ddef68",
       "updated": "2026-10-24",
       "channels": {
-        "development": "0.1.2-dev.6",
+        "development": "0.1.2-dev.7",
         "stable": "0.1.1"
       }
     }

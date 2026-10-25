@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/recast-luau/home/",
       "manifest": "https://dreamweave-mp.github.io/recast-luau/dreamweave/projects/9b956581-d9f4-4a41-b46b-3e70dca1f086.json",
-      "manifest_sha256": "5f2dc15cc0e8c224b393d48ca604b047dc3a53f9815305b49ffa5004e94c1e84",
+      "manifest_sha256": "0d584d18862b24f8147583807af2b76547dc5ece5e45fed39934fb1758ca82ee",
       "updated": "2026-10-24",
       "channels": {
-        "development": "0.2.1-dev.6",
+        "development": "0.2.1-dev.7",
         "stable": "0.2.0"
       }
     }

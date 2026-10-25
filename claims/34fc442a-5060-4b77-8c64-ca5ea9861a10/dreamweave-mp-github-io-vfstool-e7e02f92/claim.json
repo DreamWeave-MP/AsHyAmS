@@ -10,15 +10,15 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/vfstool/home/",
     "manifest": "https://dreamweave-mp.github.io/vfstool/dreamweave/projects/34fc442a-5060-4b77-8c64-ca5ea9861a10.json",
-    "manifest_sha256": "350657025968ba27e8d56ef9ba30f15421af97f196e2c15762a2047b42503098",
+    "manifest_sha256": "1dc809c59d8c59b78ff2d1ce71c369f23d4b18c0926535d3166ebe19bcf2a069",
     "updated": "2026-10-24",
     "channels": {
-      "development": "2.1.1-dev.16",
+      "development": "2.1.1-dev.17",
       "stable": "0.9.0"
     }
   },
-  "advertised_sha256": "350657025968ba27e8d56ef9ba30f15421af97f196e2c15762a2047b42503098",
-  "ingested_sha256": "350657025968ba27e8d56ef9ba30f15421af97f196e2c15762a2047b42503098",
+  "advertised_sha256": "1dc809c59d8c59b78ff2d1ce71c369f23d4b18c0926535d3166ebe19bcf2a069",
+  "ingested_sha256": "1dc809c59d8c59b78ff2d1ce71c369f23d4b18c0926535d3166ebe19bcf2a069",
   "rejected": null,
   "health": "current",
   "problem": null,
@@ -29,7 +29,7 @@
     "problem": null
   },
   "first_observed": "2026-10-21T14:11:30Z",
-  "last_changed": "2026-10-24T16:00:10Z",
-  "last_attempt": "2026-10-24T20:53:12Z",
-  "last_success": "2026-10-24T20:53:12Z"
+  "last_changed": "2026-10-25T04:45:46Z",
+  "last_attempt": "2026-10-25T04:45:46Z",
+  "last_success": "2026-10-25T04:45:46Z"
 }

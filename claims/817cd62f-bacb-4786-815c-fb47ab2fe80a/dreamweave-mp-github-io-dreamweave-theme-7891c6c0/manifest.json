@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.2.1-dev.9"
+      "version": "0.2.1-dev.10"
     },
     "stable": {
       "version": "0.2.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.2.1-dev.9",
+      "version": "0.2.1-dev.10",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dreamweave-theme",
         "release": "development",
-        "revision": "1ea71bca6d06a65273a7abbe061b746d7be84b57"
+        "revision": "52b433b5252a17e4174982225f35a89a68ace604"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,21 +72,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.theme-0.2.1-dev.9.jpk",
+          "filename": "org.dreamweave.theme-0.2.1-dev.10.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 332809,
+          "size": 332811,
           "digests": {
-            "sha256": "4850b82a0caf81b9451234164b85c731bf57f8d22f1914d36bf062a3e781ea9d"
+            "sha256": "4a387a4322af5f2683b8bbf64e9842c98e2ef2365e192244dc0f6c194df66fb1"
           },
           "jess": {
             "package": "org.dreamweave.theme",
             "jess_api": "1",
-            "content_digest": "9f69822925309443341b8cc374cf0808d674832437600a0d226ac495f9c81605",
+            "content_digest": "4807c9a5d108a14de8f1d556a477f8353f4515ffd88e8dfafe123249b7b87988",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dreamweave-theme/releases/download/development/org.dreamweave.theme-0.2.1-dev.9.jpk",
+              "url": "https://github.com/DreamWeave-MP/dreamweave-theme/releases/download/development/org.dreamweave.theme-0.2.1-dev.10.jpk",
               "kind": "publisher"
             }
           ],

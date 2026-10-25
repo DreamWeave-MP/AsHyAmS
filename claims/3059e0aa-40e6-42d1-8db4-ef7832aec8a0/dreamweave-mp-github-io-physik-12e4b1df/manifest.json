@@ -31,7 +31,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.3.3-dev.6"
+      "version": "0.3.3-dev.7"
     },
     "stable": {
       "version": "0.3.2"
@@ -39,14 +39,14 @@
   },
   "releases": [
     {
-      "version": "0.3.3-dev.6",
+      "version": "0.3.3-dev.7",
       "channel": "development",
       "date": "2026-10-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/physik",
         "release": "development",
-        "revision": "4dfb655a2f088b383b0921c714dc4b98db72859c"
+        "revision": "53ac3960148aa09cfd8301d196b3ea73dd8473de"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.physik-0.3.3-dev.6.jpk",
+          "filename": "org.dreamweave.physik-0.3.3-dev.7.jpk",
           "media_type": "application/vnd.jess.jpk",
           "size": 91920,
           "digests": {
-            "sha256": "a3db245d7bfaacca19a2f44c7cea370797d0a7da8333f51347ead3fd8a42bfb4"
+            "sha256": "faa09f7be8f56211b9c7061b7b2bddd50a6fe3036dca54b83547d9c1624f87be"
           },
           "jess": {
             "package": "org.dreamweave.physik",
             "jess_api": "1",
-            "content_digest": "bd80a2efbd844f104411e873a93c1bd57b1b07e7f31676ef961a6bad31d62ae4",
+            "content_digest": "ebb6603914e0071d1a0974f5762ca30c7d9d004d767c04b0414f3994039030f8",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/physik/releases/download/development/org.dreamweave.physik-0.3.3-dev.6.jpk",
+              "url": "https://github.com/DreamWeave-MP/physik/releases/download/development/org.dreamweave.physik-0.3.3-dev.7.jpk",
               "kind": "publisher"
             }
           ],
