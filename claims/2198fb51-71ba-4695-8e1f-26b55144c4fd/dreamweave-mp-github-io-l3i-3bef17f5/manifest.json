@@ -5,7 +5,7 @@
   "project": {
     "id": "2198fb51-71ba-4695-8e1f-26b55144c4fd",
     "name": "l3i",
-    "summary": "The Luau runtime for DreamWeave: a Rust binder that owns its Luau 0.742 build, plans every VM before it exists, and lowers hot script calls to native code.",
+    "summary": "The Luau runtime for DreamWeave: a Rust binder that owns its Luau 0.744 build, plans every VM before it exists, and lowers hot script calls to native code.",
     "type": "library",
     "status": "active",
     "versioning": "numeric",
@@ -44,6 +44,21 @@
         "name": "Más Bandwidth LLC",
         "role": "netcode, reliable and serialize, beneath dream-net",
         "url": "https://mas-bandwidth.com"
+      },
+      {
+        "name": "Xiph.Org Foundation and contributors",
+        "role": "libopus, the Opus decoder behind @dream/audio (BSD-3-Clause; a binary that ships it reproduces opus/COPYING)",
+        "url": "https://opus-codec.org"
+      },
+      {
+        "name": "Robert B. Langer",
+        "role": "nanomp3, the MP3 decoder behind @dream/audio (MIT OR Apache-2.0)",
+        "url": "https://github.com/robbie01/nanomp3"
+      },
+      {
+        "name": "est31",
+        "role": "lewton, the Vorbis decoder behind @dream/audio (MIT OR Apache-2.0)",
+        "url": "https://github.com/RustAudio/lewton"
       }
     ]
   },

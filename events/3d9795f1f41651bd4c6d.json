@@ -1,0 +1,27 @@
+{
+  "id": "3d9795f1f41651bd4c6d",
+  "kind": "changed",
+  "project": "2198fb51-71ba-4695-8e1f-26b55144c4fd",
+  "origin": "dreamweave-mp-github-io-l3i-3bef17f5",
+  "name": "l3i",
+  "observed_at": "2026-10-26T22:43:05Z",
+  "before": "83673a96a35a89ed684b79f7781f4713c9ba603c2c55e6b68dd2eb910b42e662",
+  "after": "ceecb230f22d7ba2f9d58d555e26d382585965f77df9dfdc8e707cb59eff0552",
+  "changes": [
+    {
+      "change": "project-field",
+      "field": "summary",
+      "before": "The Luau runtime for DreamWeave: a Rust binder that owns its Luau 0.742 build, plans every VM before it exists, and lowers hot script calls to native code.",
+      "after": "The Luau runtime for DreamWeave: a Rust binder that owns its Luau 0.744 build, plans every VM before it exists, and lowers hot script calls to native code."
+    },
+    {
+      "change": "credits",
+      "added": [
+        "Robert B. Langer (nanomp3, the MP3 decoder behind @dream/audio (MIT OR Apache-2.0))",
+        "Xiph.Org Foundation and contributors (libopus, the Opus decoder behind @dream/audio (BSD-3-Clause; a binary that ships it reproduces opus/COPYING))",
+        "est31 (lewton, the Vorbis decoder behind @dream/audio (MIT OR Apache-2.0))"
+      ],
+      "removed": []
+    }
+  ]
+}

@@ -4,25 +4,25 @@
   "entry": {
     "id": "2198fb51-71ba-4695-8e1f-26b55144c4fd",
     "name": "l3i",
-    "summary": "The Luau runtime for DreamWeave: a Rust binder that owns its Luau 0.742 build, plans every VM before it exists, and lowers hot script calls to native code.",
+    "summary": "The Luau runtime for DreamWeave: a Rust binder that owns its Luau 0.744 build, plans every VM before it exists, and lowers hot script calls to native code.",
     "type": "library",
     "status": "active",
     "page": "https://dreamweave-mp.github.io/l3i/home/",
     "manifest": "https://dreamweave-mp.github.io/l3i/dreamweave/projects/2198fb51-71ba-4695-8e1f-26b55144c4fd.json",
-    "manifest_sha256": "83673a96a35a89ed684b79f7781f4713c9ba603c2c55e6b68dd2eb910b42e662",
+    "manifest_sha256": "ceecb230f22d7ba2f9d58d555e26d382585965f77df9dfdc8e707cb59eff0552",
     "updated": "2026-10-23",
     "channels": {
       "stable": "2.2.0"
     }
   },
-  "advertised_sha256": "83673a96a35a89ed684b79f7781f4713c9ba603c2c55e6b68dd2eb910b42e662",
-  "ingested_sha256": "83673a96a35a89ed684b79f7781f4713c9ba603c2c55e6b68dd2eb910b42e662",
+  "advertised_sha256": "ceecb230f22d7ba2f9d58d555e26d382585965f77df9dfdc8e707cb59eff0552",
+  "ingested_sha256": "ceecb230f22d7ba2f9d58d555e26d382585965f77df9dfdc8e707cb59eff0552",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-09-30T01:45:06Z",
-  "last_changed": "2026-10-24T03:01:45Z",
-  "last_attempt": "2026-10-26T13:08:34Z",
-  "last_success": "2026-10-26T13:08:34Z"
+  "last_changed": "2026-10-26T22:43:05Z",
+  "last_attempt": "2026-10-26T22:43:05Z",
+  "last_success": "2026-10-26T22:43:05Z"
 }
