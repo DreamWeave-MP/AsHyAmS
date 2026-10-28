@@ -1,0 +1,39 @@
+{
+  "id": "5f8ef610bf1530c6cea7",
+  "kind": "changed",
+  "project": "7dbec8fb-91c2-40d5-a71e-1f6d83d2320d",
+  "origin": "dreamweave-mp-github-io-dream-propaganda-ce8c1375",
+  "name": "dream_propaganda",
+  "observed_at": "2026-10-28T12:59:26Z",
+  "before": "eb6d07a79e4e4fb1089b24538cb8cbdf31d3a6c5d1019da5e77528a1e8a1d46e",
+  "after": "647477fb892f4ac23f7f5b3daf0665e032d3b3d09d2a68cb3cf460a3af4dcab2",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.7",
+      "after": "0.1.1-dev.8",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 76873,
+          "after": 94567
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.8",
+      "channel": "development",
+      "date": "2026-10-28",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.7",
+      "channel": "development"
+    }
+  ]
+}
