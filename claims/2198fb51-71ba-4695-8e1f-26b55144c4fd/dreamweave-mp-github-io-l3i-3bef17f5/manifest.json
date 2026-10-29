@@ -64,10 +64,170 @@
   },
   "channels": {
     "stable": {
-      "version": "2.2.0"
+      "version": "2.4.0"
     }
   },
   "releases": [
+    {
+      "version": "2.4.0",
+      "channel": "stable",
+      "date": "2026-10-28",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/l3i",
+        "tag": "2.4.0",
+        "revision": "87f2dccf6bd271188c1dfc1adb114fbb9418256d"
+      },
+      "notes": {
+        "summary": "The few cryptographic primitives a network client needs around its transport, in `@dream/bytes` behind `bytes-crypto`: bytes from the operating system's CSPRNG, HMAC with constant-time verification, and RS256 signatures, all through the ring that `tls` already builds.",
+        "migration": "Nothing to change. Take 2.4.0 in place of 2.3.0.\n\n`bytes-crypto` is opt-in and adds no new dependency to a build that already has `tls`: it is ring, which `tls` builds, and zeroize. Turned on without `tls`, it builds ring's C and assembly with clang, as `tls` does.\n\nThere are no ciphers, no key generation and no key storage, and none are planned: a key arrives as bytes the caller holds and leaves with the call.\n",
+        "added": [
+          "`bytes.random(count)`: up to 65536 bytes from the operating system's CSPRNG per call, for keys, nonces and WebSocket masks, where `math.random` is none of those.",
+          "`bytes.hmac(data, key, algorithm)` with `sha1`, `sha256`, `sha384` or `sha512`, the raw tag, and `bytes.hmacVerify(data, key, algorithm, tag)`, which compares in constant time, for checking a webhook's signature without timing what matched. Both match the RFC 2202 and RFC 4231 vectors.",
+          "`bytes.rsaSign(data, privateKey, algorithm)`: the raw PKCS#1 v1.5 RSA signature, RS256, RS384 or RS512 as JSON Web Tokens name them, from a key of at least 2048 bits in PKCS#8 or PKCS#1, PEM or DER, as services issue keys for signing tokens. The signature is byte for byte OpenSSL's. An encrypted key, an EC key or anything else is refused with a message that never quotes the key, and the decoded key bytes are zeroed when the call returns."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "requires",
+          "project": "f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda",
+          "name": "dream-net",
+          "version": "=1.1.0",
+          "url": "https://DreamWeave-MP.github.io/dream-net/",
+          "reason": "Runtime infrastructure: the @dream/udp module is in every plan, and l3i owns the bridge."
+        },
+        {
+          "kind": "recommends",
+          "project": "f7b9633b-b7cb-4db9-a19f-63556586a81d",
+          "name": "dream-soft-render",
+          "version": "=1.0.0",
+          "url": "https://DreamWeave-MP.github.io/dream-soft-render/",
+          "reason": "The @dream/soft-render module, when the soft-render feature is on."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "l3i",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "l3i-2.4.0.crate",
+          "media_type": "application/gzip",
+          "size": 3289820,
+          "digests": {
+            "sha256": "5729079e30ba69713182e3d3f2fbedcf44df158053cdeabace09125889a7a1c4"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/l3i/l3i-2.4.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "2.3.0",
+      "channel": "stable",
+      "date": "2026-10-26",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/l3i",
+        "tag": "2.3.0",
+        "revision": "67e9f53cdc261e9b11ebf93bacc6296622c7d196"
+      },
+      "notes": {
+        "summary": "MP3, Vorbis and Opus decoding with `@dream/audio`; Luau 0.744, with its native code fixes and faster `table.find` and `table.create`; register reuse, so the 200-local limit counts only the locals still live; and analysis that types comprehensions and slices the way the loops they stand for are typed.",
+        "migration": "Nothing to change for most hosts. Take 2.3.0 in place of 2.2.0.\n\nA debugger that shows every local, or a test that reads a local after its last use, compiles at `optimization_level: 0`. The defaults (level 2) now free a dead local's register.\n\n`@dream/audio` is opt-in, behind the `audio` feature. A binary built with it ships libopus and must reproduce its BSD 3-Clause notice, `opus/COPYING`.\n\nScripts that spelled out `regex`'s options for a `pcall` can annotate with `dream_bytes_RegexOptions`, and comprehensions that cast each projection to their local's element type can drop the cast. A comprehension that reads a narrowed variable from outside its enclosing function still needs that value bound to a local first; the dialect page says why.\n",
+        "added": [
+          "`@dream/audio` (feature `audio`): MP3 (and MPEG layers I and II) through nanomp3, Ogg Vorbis through lewton, and Ogg Opus through libopus built from the `opus` submodule, into interleaved `f32` buffers. Lengths are exact after gapless trimming, seeks land on the frame asked for (Opus after a 400 ms pre-roll), `audio.decode` caps its output at `maxSize`, and a damaged stream fails the read where it breaks. Decoding reads only the bytes it is given: no file, no device, no capability.",
+          "Named option records for the `@dream/bytes` calls a script reaches through `pcall`: `dream_bytes_RegexOptions` for `regex`, `dream_bytes_DecompressOptions` for `inflate` and `lzmaDecompress`, and `dream_bytes_DecompressLimit` for the LZ4 and zstd decoders. An options literal passed through `pcall` gets no expected type, so a caller annotates a local with the name instead of spelling the record out."
+        ],
+        "changed": [
+          "Luau 0.744, from 0.742. The C API is unchanged; the fourteen flags 0.743 and 0.744 graduated leave the policy with their behaviour kept.",
+          "`table.find` scans the array part directly when the value has no `__eq`, and `table.create` and `table.clear` compile to fastcalls. In one release build: `table.find` over eight elements 34 to 22 ns for a hit and 41 to 23 ns for a miss, over a thousand 2.99 to 0.52 µs; `table.create(8)` 64 to 51 ns, `table.create(64, 0)` 149 to 128 ns; clearing eight entries about 11 to 7 ns.",
+          "Luau's register reuse is on: once a local's last read has run, its register goes to the next local, so a function needs fewer stack slots and the 200-local limit counts only the locals still live. A chain of a thousand short-lived locals compiles where it was `Out of local registers`. Dialect code gets the same, with the lowering keeping each local's register until its last read in the code that runs.",
+          "From optimisation level 1, a debugger stopped after a local's last read no longer finds that local, because its register has gone to another. Compile at optimisation level 0 to keep every local in scope until its block ends.",
+          "A comprehension that is the whole initializer of an annotated local (`local items: T = [...]`), or the whole value of a `return` in a function declaring one result type, has each projection checked against `T`'s element type, as the loop it stands for would. `local pairs: { [string | number]: Value } = [for i in range(1, n) => { i, 'a' }]` is accepted where Luau's invariant table indexers refused the `{ { number | string } }` the projection inferred alone, and a misspelled record field is still an error. Compiled code is unchanged."
+        ],
+        "fixed": [
+          "Luau 0.744's native code fixes: dead store elimination kept a tag store whose load had been overwritten, `INVOKE_FASTPCALL` now invalidates the safe-environment assumption, a VM exit's register restores are planned per exit (a crash Luau's fuzzer found), a libunwind unwinder registers each FDE on its own as Intel macOS needs, and on A64 `bit32.lrotate` no longer overwrites an operand it still reads and a function with more than 256 constants no longer crashes reloading one.",
+          "A slice that is the whole source of a `for ... in` header, `for _, v in values[1:n] do`, type checks as the table it is. The new solver read it against the iterator protocol and reported it as the wrong type."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "requires",
+          "project": "f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda",
+          "name": "dream-net",
+          "version": "=1.1.0",
+          "url": "https://DreamWeave-MP.github.io/dream-net/",
+          "reason": "Runtime infrastructure: the @dream/udp module is in every plan, and l3i owns the bridge."
+        },
+        {
+          "kind": "recommends",
+          "project": "f7b9633b-b7cb-4db9-a19f-63556586a81d",
+          "name": "dream-soft-render",
+          "version": "=1.0.0",
+          "url": "https://DreamWeave-MP.github.io/dream-soft-render/",
+          "reason": "The @dream/soft-render module, when the soft-render feature is on."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "l3i",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "l3i-2.3.0.crate",
+          "media_type": "application/gzip",
+          "size": 3280121,
+          "digests": {
+            "sha256": "bf269c99ff9f44f4cccb54a1cd2fb38c3289aace87413ff12a16fd76d7c5abc0"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/l3i/l3i-2.3.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
     {
       "version": "2.2.0",
       "channel": "stable",
