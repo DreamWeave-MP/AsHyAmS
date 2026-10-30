@@ -7,13 +7,13 @@
   "trail": [
     {
       "url": "https://dreamweave-mp.github.io/physik/",
-      "outcome": "an HTML page with no DreamWeave <link>"
+      "outcome": "HTTP 503"
     },
     {
       "url": "https://dreamweave-mp.github.io/physik/dreamweave.json",
       "outcome": "site index unchanged (HTTP 304)"
     }
   ],
-  "last_attempt": "2026-10-30T05:53:32Z",
-  "last_success": "2026-10-30T05:53:32Z"
+  "last_attempt": "2026-10-30T12:59:51Z",
+  "last_success": "2026-10-30T12:59:51Z"
 }
