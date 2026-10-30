@@ -1,0 +1,41 @@
+{
+  "id": "7b77028eee424de93553",
+  "kind": "changed",
+  "project": "2198fb51-71ba-4695-8e1f-26b55144c4fd",
+  "origin": "dreamweave-mp-github-io-l3i-3bef17f5",
+  "name": "l3i",
+  "observed_at": "2026-10-30T05:53:32Z",
+  "before": "29c3db2f5f0b7c78b115a9675f064b22c498520c6ec091f9041d2e24321814a8",
+  "after": "bb4de86cdbc2cef94ac649e6a41e7abcb722c8927627b90c4e098484e62a75e7",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "2.4.0",
+      "after": "2.5.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "crate",
+          "before": 3289820,
+          "after": 3292011
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "2.5.0",
+      "channel": "stable",
+      "date": "2026-10-29",
+      "status": "available",
+      "notes": {
+        "summary": "The operating system's file lock in `@dream/fs`: a lock that ends with its holder, so a file can name a single running owner without timeouts.",
+        "added": [
+          "`fs.lock(path, { shared?, createParents? }?)`: the platform's own lock on a file (`flock` on Unix, `LockFileEx` on Windows), exclusive or shared, taken without waiting. A lock held elsewhere, in this process or another, answers `nil`, the message and the new `wouldBlock` kind. The `dream_fs_Lock` it returns holds it until `unlock()`, the handle is collected, the runtime shuts down, or the process ends, when the system releases it, so it never times out and never outlives its holder.",
+          "`wouldBlock` among `dream_fs_ErrorKind` and `dream_process_ErrorKind`, for an operation the OS would have had to wait on."
+        ],
+        "migration": "Nothing to change. Take 2.5.0 in place of 2.4.0.\n\n`fs.lock` needs `filesystem.write`, like everything else that touches the disk, because it opens the file to lock it and makes it if it isn't there. A script that matches every `dream_fs_ErrorKind` exhaustively has one more to name.\n\nOn Unix the lock is advisory, as `flock` is: it excludes other locks, not reads or writes of the file.\n"
+      }
+    }
+  ]
+}

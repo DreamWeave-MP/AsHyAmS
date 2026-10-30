@@ -64,10 +64,84 @@
   },
   "channels": {
     "stable": {
-      "version": "2.4.0"
+      "version": "2.5.0"
     }
   },
   "releases": [
+    {
+      "version": "2.5.0",
+      "channel": "stable",
+      "date": "2026-10-29",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/l3i",
+        "tag": "2.5.0",
+        "revision": "a164b4e95daf1048cbbfe9413e983fad495bee92"
+      },
+      "notes": {
+        "summary": "The operating system's file lock in `@dream/fs`: a lock that ends with its holder, so a file can name a single running owner without timeouts.",
+        "migration": "Nothing to change. Take 2.5.0 in place of 2.4.0.\n\n`fs.lock` needs `filesystem.write`, like everything else that touches the disk, because it opens the file to lock it and makes it if it isn't there. A script that matches every `dream_fs_ErrorKind` exhaustively has one more to name.\n\nOn Unix the lock is advisory, as `flock` is: it excludes other locks, not reads or writes of the file.\n",
+        "added": [
+          "`fs.lock(path, { shared?, createParents? }?)`: the platform's own lock on a file (`flock` on Unix, `LockFileEx` on Windows), exclusive or shared, taken without waiting. A lock held elsewhere, in this process or another, answers `nil`, the message and the new `wouldBlock` kind. The `dream_fs_Lock` it returns holds it until `unlock()`, the handle is collected, the runtime shuts down, or the process ends, when the system releases it, so it never times out and never outlives its holder.",
+          "`wouldBlock` among `dream_fs_ErrorKind` and `dream_process_ErrorKind`, for an operation the OS would have had to wait on."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "requires",
+          "project": "f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda",
+          "name": "dream-net",
+          "version": "=1.1.0",
+          "url": "https://DreamWeave-MP.github.io/dream-net/",
+          "reason": "Runtime infrastructure: the @dream/udp module is in every plan, and l3i owns the bridge."
+        },
+        {
+          "kind": "recommends",
+          "project": "f7b9633b-b7cb-4db9-a19f-63556586a81d",
+          "name": "dream-soft-render",
+          "version": "=1.0.0",
+          "url": "https://DreamWeave-MP.github.io/dream-soft-render/",
+          "reason": "The @dream/soft-render module, when the soft-render feature is on."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "l3i",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "l3i-2.5.0.crate",
+          "media_type": "application/gzip",
+          "size": 3292011,
+          "digests": {
+            "sha256": "5f130a7a1b968a430f3151b68e7bf6a2b0095e4e8fbde1e8407a691a45232068"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/l3i/l3i-2.5.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
     {
       "version": "2.4.0",
       "channel": "stable",
