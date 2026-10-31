@@ -1,0 +1,40 @@
+{
+  "id": "7d515b1f4498bb651e22",
+  "kind": "changed",
+  "project": "2198fb51-71ba-4695-8e1f-26b55144c4fd",
+  "origin": "dreamweave-mp-github-io-l3i-3bef17f5",
+  "name": "l3i",
+  "observed_at": "2026-10-31T05:47:19Z",
+  "before": "bb4de86cdbc2cef94ac649e6a41e7abcb722c8927627b90c4e098484e62a75e7",
+  "after": "8fc666572d11e4746151c189062c4306c171c0ee1701cfbabebe0de2c33b4b38",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "2.5.0",
+      "after": "2.6.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "crate",
+          "before": 3292011,
+          "after": 3294911
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "2.6.0",
+      "channel": "stable",
+      "date": "2026-10-30",
+      "status": "available",
+      "notes": {
+        "summary": "ECDSA signatures in `@dream/bytes`: ES256 and ES384 tokens from the P-256 and P-384 keys API consoles hand out, SEC1 or PKCS#8, PEM or DER.",
+        "added": [
+          "`bytes.ecdsaSign(data, privateKey, algorithm)`, behind `bytes-crypto`: the raw ECDSA signature of `data`, `r` then `s`, each fixed-width and big-endian, the form JSON Web Tokens carry. `sha256` signs under a P-256 key (ES256, 64 bytes), `sha384` under a P-384 key (ES384, 96 bytes). The key is PKCS#8 (`BEGIN PRIVATE KEY`) or SEC1 (`BEGIN EC PRIVATE KEY`, what OpenSSL writes and most consoles issue), PEM or DER, with its public point. ECDSA is randomized, so every call signs afresh and every signature verifies."
+        ],
+        "migration": "Nothing to change. Take 2.6.0 in place of 2.5.0.\n\nCheck an ECDSA signature by verifying it, never by comparing its bytes with another: two signatures of the same data by the same key differ. A key on the other curve, an RSA key, or anything else is refused with a message that never quotes the key, as `rsaSign` refuses one.\n"
+      }
+    }
+  ]
+}
