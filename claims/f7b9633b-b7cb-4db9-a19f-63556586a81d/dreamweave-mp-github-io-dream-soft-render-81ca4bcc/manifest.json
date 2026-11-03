@@ -51,10 +51,72 @@
   },
   "channels": {
     "stable": {
-      "version": "1.0.0"
+      "version": "2.0.0"
     }
   },
   "releases": [
+    {
+      "version": "2.0.0",
+      "channel": "stable",
+      "date": "2026-11-03",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dream-soft-render",
+        "tag": "2.0.0",
+        "revision": "cc80a368f39fec6b5c6e428bbaa755f252acf83a"
+      },
+      "notes": {
+        "summary": "Updates the egui adapter to egui 0.37 and fixes rendering error handling.",
+        "changed": [
+          "The egui feature now uses egui 0.37. Applications using egui types must update to the same version; use the adapter's egui re-export to keep versions aligned.",
+          "The minimum supported Rust version is now 1.95. Bundled egui fonts remain enabled."
+        ],
+        "fixed": [
+          "Reject surfaces larger than 65535 pixels per side and textures larger than 65536 texels per side instead of drawing or sampling incorrectly.",
+          "After failed egui texture uploads, redraw the next frame and release textures even when a frame fails.",
+          "Reject egui meshes with invalid indices or incomplete triangles.",
+          "Keep daily Clippy checks compatible with newer Rust while retaining the minimum supported compiler."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "dream-soft-render",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "dream-soft-render-2.0.0.crate",
+          "media_type": "application/gzip",
+          "size": 139251,
+          "digests": {
+            "sha256": "507ae1c3fc02ffbdbe66f865448ff40c8d6a52658d8c77582f5cde017d36b791"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/dream-soft-render/dream-soft-render-2.0.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
     {
       "version": "1.0.0",
       "channel": "stable",
