@@ -1,0 +1,18 @@
+{
+  "id": "d2da275b645bef730b11",
+  "kind": "changed",
+  "project": "2198fb51-71ba-4695-8e1f-26b55144c4fd",
+  "origin": "dreamweave-mp-github-io-l3i-3bef17f5",
+  "name": "l3i",
+  "observed_at": "2026-11-04T19:48:36Z",
+  "before": "8fc666572d11e4746151c189062c4306c171c0ee1701cfbabebe0de2c33b4b38",
+  "after": "950b10693230b2453d3efec9be61007efea79bcb6c93797cbd5b13a9f970b7b0",
+  "changes": [
+    {
+      "change": "project-field",
+      "field": "summary",
+      "before": "The Luau runtime for DreamWeave: a Rust binder that owns its Luau 0.744 build, plans every VM before it exists, and lowers hot script calls to native code.",
+      "after": "The Luau runtime for DreamWeave: a Rust binder that owns its Luau 0.745 build, plans every VM before it exists, and lowers hot script calls to native code."
+    }
+  ]
+}

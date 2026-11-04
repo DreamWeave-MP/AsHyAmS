@@ -5,7 +5,7 @@
   "project": {
     "id": "2198fb51-71ba-4695-8e1f-26b55144c4fd",
     "name": "l3i",
-    "summary": "The Luau runtime for DreamWeave: a Rust binder that owns its Luau 0.744 build, plans every VM before it exists, and lowers hot script calls to native code.",
+    "summary": "The Luau runtime for DreamWeave: a Rust binder that owns its Luau 0.745 build, plans every VM before it exists, and lowers hot script calls to native code.",
     "type": "library",
     "status": "active",
     "versioning": "numeric",
