@@ -1,0 +1,39 @@
+{
+  "id": "d8443bc83c7550c3f30d",
+  "kind": "changed",
+  "project": "f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda",
+  "origin": "dreamweave-mp-github-io-dream-net-f21eb97b",
+  "name": "dream-net",
+  "observed_at": "2026-11-05T06:51:30Z",
+  "before": "c4bbfb0850c96f56aabc6dcc1ddffe97a5550eb02e8ba797ec2d3f7c59618d40",
+  "after": "cef7e4b13473193bd68eec7aba28b66ae0f193b9fbd13c046623da3079dcd90a",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "1.1.0",
+      "after": "1.1.1",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "crate",
+          "before": 102580,
+          "after": 103559
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "1.1.1",
+      "channel": "stable",
+      "date": "2026-11-05",
+      "status": "available",
+      "notes": {
+        "summary": "Requires a ctutils with RUSTSEC-2026-0385 fixed, for the constant-time comparison behind netcode's packet authentication.",
+        "fixed": [
+          "ctutils before 0.4.4 could generate branches on secret values in its constant-time masks and comparisons (RUSTSEC-2026-0385). netcode's Poly1305 tag verification goes through it, so dream-net now requires ctutils 0.4.4 or newer, which also moves projects whose lockfiles still held an older version."
+        ]
+      }
+    }
+  ]
+}

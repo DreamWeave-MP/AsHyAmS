@@ -20,11 +20,11 @@
   "advertised_sha256": "647477fb892f4ac23f7f5b3daf0665e032d3b3d09d2a68cb3cf460a3af4dcab2",
   "ingested_sha256": "647477fb892f4ac23f7f5b3daf0665e032d3b3d09d2a68cb3cf460a3af4dcab2",
   "rejected": null,
-  "health": "origin-unavailable",
-  "problem": "no dreamweave.json between https://dreamweave-mp.github.io/dream_propaganda/ and the root of https://dreamweave-mp.github.io/, and no page advertised one",
+  "health": "current",
+  "problem": null,
   "media": null,
   "first_observed": "2026-10-21T22:52:03Z",
   "last_changed": "2026-10-28T12:59:26Z",
-  "last_attempt": "2026-11-04T19:48:36Z",
-  "last_success": "2026-11-04T06:28:34Z"
+  "last_attempt": "2026-11-05T06:51:30Z",
+  "last_success": "2026-11-05T06:51:30Z"
 }
