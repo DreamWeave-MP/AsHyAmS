@@ -10,16 +10,16 @@
     {
       "id": "6b0fec20-c982-440d-87a4-15aa83a3c680",
       "name": "JessQL",
-      "summary": "A Luau relational query engine for Jess: in-memory tables and arbitrary Jess objects exposed as relations, queried, not stored.",
+      "summary": "A Luau relational query engine for Jess with native JSL persistence, synchronized WAL transactions and immutable generations.",
       "type": "library",
       "jess_package": "org.dreamweave.jessql",
       "status": "active",
       "page": "https://dreamweave-mp.github.io/jessql/home/",
       "manifest": "https://dreamweave-mp.github.io/jessql/dreamweave/projects/6b0fec20-c982-440d-87a4-15aa83a3c680.json",
-      "manifest_sha256": "218bda0c2da3c68fd71087998103f82b1bd7482b3be9b608a13ded642c22f3d9",
-      "updated": "2026-10-24",
+      "manifest_sha256": "076a622f22ceaa0df2f488b461881efb1361f4b7465d293814d0a19211e0ec78",
+      "updated": "2026-11-05",
       "channels": {
-        "development": "0.1.7-dev.7",
+        "development": "0.2.1-dev.15",
         "stable": "0.1.6"
       }
     }

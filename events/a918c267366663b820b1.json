@@ -1,0 +1,82 @@
+{
+  "id": "a918c267366663b820b1",
+  "kind": "changed",
+  "project": "6b0fec20-c982-440d-87a4-15aa83a3c680",
+  "origin": "dreamweave-mp-github-io-jessql-368f5bd1",
+  "name": "JessQL",
+  "observed_at": "2026-11-05T20:00:03Z",
+  "before": "218bda0c2da3c68fd71087998103f82b1bd7482b3be9b608a13ded642c22f3d9",
+  "after": "076a622f22ceaa0df2f488b461881efb1361f4b7465d293814d0a19211e0ec78",
+  "changes": [
+    {
+      "change": "project-field",
+      "field": "summary",
+      "before": "A Luau relational query engine for Jess: in-memory tables and arbitrary Jess objects exposed as relations, queried, not stored.",
+      "after": "A Luau relational query engine for Jess with native JSL persistence, synchronized WAL transactions and immutable generations."
+    },
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.7-dev.7",
+      "after": "0.2.1-dev.15",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 75631,
+          "after": 443620
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.1.6",
+      "after": "0.2.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 75625,
+          "after": 443613
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.2.1-dev.15",
+      "channel": "development",
+      "date": "2026-11-05",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.2.0",
+      "channel": "stable",
+      "date": "2026-11-05",
+      "status": "available",
+      "notes": {
+        "summary": "Native JessQL persistence with synchronized WAL commits, immutable generations, recovery verification, and strict-checked JSL.",
+        "added": [
+          "Synchronized WAL transactions, independently framed group commits, immutable generations, delta flush, and selective compaction.",
+          "Managed database create/open-existing lifecycle, offline semantic verification and backup/restore, and versioned observability interfaces.",
+          "MIT OR Apache-2.0 licensing, with both license files inside the JPK."
+        ],
+        "changed": [
+          "All shipped JSL modules, tests, benchmarks, and scripts pass --!strict with zero diagnostics.",
+          "Package can be activated normally by Jess; no experimental deployment switch or external database process is required."
+        ],
+        "known_issues": [
+          "Managed persistence supports one writer; replication, distributed transactions, and online backups are not implemented.",
+          "Physical power-loss guarantees and Windows/macOS durability remain unverified; operational resource thresholds are soft watermarks."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.7-dev.7",
+      "channel": "development"
+    }
+  ]
+}
