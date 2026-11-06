@@ -1,0 +1,72 @@
+{
+  "id": "d561dd8b9cd6913bc2db",
+  "kind": "changed",
+  "project": "2198fb51-71ba-4695-8e1f-26b55144c4fd",
+  "origin": "dreamweave-mp-github-io-l3i-3bef17f5",
+  "name": "l3i",
+  "observed_at": "2026-11-06T06:52:06Z",
+  "before": "950b10693230b2453d3efec9be61007efea79bcb6c93797cbd5b13a9f970b7b0",
+  "after": "bbcefd3c343c156771947b9b8c17cef72a7b97ec76f7076b5be2f487460a6260",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "2.6.0",
+      "after": "2.7.0",
+      "changes": [
+        {
+          "change": "relationship-constraint",
+          "kind": "recommends",
+          "target": {
+            "project": "f7b9633b-b7cb-4db9-a19f-63556586a81d",
+            "name": "dream-soft-render",
+            "url": "https://DreamWeave-MP.github.io/dream-soft-render/"
+          },
+          "before": "=1.0.0",
+          "after": "=2.0.0"
+        },
+        {
+          "change": "relationship-constraint",
+          "kind": "requires",
+          "target": {
+            "project": "f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda",
+            "name": "dream-net",
+            "url": "https://DreamWeave-MP.github.io/dream-net/"
+          },
+          "before": "=1.1.0",
+          "after": "=1.1.1"
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "crate",
+          "before": 3294911,
+          "after": 3596848
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "2.7.0",
+      "channel": "stable",
+      "date": "2026-11-05",
+      "status": "available",
+      "notes": {
+        "summary": "Luau 0.745; durable filesystem operations and authenticated ranged reads; optional script garbage collection; bounded nonblocking standard input; public userdata payload access; and faster typed data operations.",
+        "added": [
+          "Durable filesystem creation, replacement, synchronization and retained-file operations, with recovery and failure handling across supported operating systems.",
+          "Authenticated ranged reads against a trusted file commitment, with bounded verification caches and native memory use.",
+          "An opt-in collectgarbage global for scripts, and a public host API for garbage collection.",
+          "Bounded nonblocking standard input consumers with host-controlled access and runtime shutdown cleanup.",
+          "Public userdata payload offset access for native lowering and shared-buffer integrations."
+        ],
+        "changed": [
+          "Update the bundled Luau runtime to 0.745, including its native-code fixes and updated syntax support.",
+          "Improve typed data loops, overlapping span operations, contiguous-array kernels and native execution performance.",
+          "Require dream-net 1.1.1 and update the optional dream-soft-render integration to 2.0.0.",
+          "Raise the minimum supported Rust version to 1.95."
+        ],
+        "migration": "Take 2.7.0 in place of 2.6.0.\n\nThe optional soft-render integration now uses dream-soft-render 2.0.0. Applications enabling that feature should check the renderer's 2.0.0 compatibility requirements.\n\nThe collectgarbage global remains opt-in. Standard input access remains controlled by host capabilities and policies.\n\nReview any existing application-specific assumptions about filesystem durability and retained file handles before adopting the new APIs.\n"
+      }
+    }
+  ]
+}
