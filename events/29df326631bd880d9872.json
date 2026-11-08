@@ -1,0 +1,39 @@
+{
+  "id": "29df326631bd880d9872",
+  "kind": "changed",
+  "project": "4aefcc8f-913f-48f5-8980-2326173a7288",
+  "origin": "dreamweave-mp-github-io-magick-e9b07a6b",
+  "name": "Magick",
+  "observed_at": "2026-11-08T06:06:29Z",
+  "before": "f2dab05b39997713f3cc07260327067c0a74556f85de88554f606a6814a82b1f",
+  "after": "9ebf53a144bc9e96ab3c26bc93057658eccc8af713387a2a36c1ba7f1c5e31ad",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.4-dev.13",
+      "after": "0.1.4-dev.20",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 92750,
+          "after": 105916
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.4-dev.20",
+      "channel": "development",
+      "date": "2026-11-08",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.4-dev.13",
+      "channel": "development"
+    }
+  ]
+}

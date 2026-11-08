@@ -31,7 +31,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.4-dev.13"
+      "version": "0.1.4-dev.20"
     },
     "stable": {
       "version": "0.1.3"
@@ -39,14 +39,14 @@
   },
   "releases": [
     {
-      "version": "0.1.4-dev.13",
+      "version": "0.1.4-dev.20",
       "channel": "development",
-      "date": "2026-10-24",
+      "date": "2026-11-08",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/magick",
         "release": "development",
-        "revision": "620692547643e20209fd570faf83ebac08f60612"
+        "revision": "3a576a0496658e4ee168a9018fcf0eaf82d31058"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.magick-0.1.4-dev.13.jpk",
+          "filename": "org.dreamweave.magick-0.1.4-dev.20.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 92750,
+          "size": 105916,
           "digests": {
-            "sha256": "2447550783c10597e305be8180e4952e350e9ba84b7f3928761eb1be963d5ae2"
+            "sha256": "05d05e828f708c56e61967c954e3c55ff5c60ef0b2f64eb009bf2f9988b6d382"
           },
           "jess": {
             "package": "org.dreamweave.magick",
             "jess_api": "1",
-            "content_digest": "f905ba5552bfb163874bb596eaf1d402648726272653e70951504aab4c81ce03",
+            "content_digest": "23d84bfda6d8ec02163fbe12ae22556d01c22c40162d8412d3db9b333e254e97",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/magick/releases/download/development/org.dreamweave.magick-0.1.4-dev.13.jpk",
+              "url": "https://github.com/DreamWeave-MP/magick/releases/download/development/org.dreamweave.magick-0.1.4-dev.20.jpk",
               "kind": "publisher"
             }
           ],
