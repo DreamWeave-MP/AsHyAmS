@@ -9,8 +9,8 @@
   ],
   "redirects": [],
   "validators": {
-    "etag": "\"6aed2045-36a\"",
-    "last_modified": "Fri, 06 Nov 2026 00:33:09 GMT"
+    "etag": "\"6aed2039-36a\"",
+    "last_modified": "Fri, 06 Nov 2026 00:32:57 GMT"
   },
   "index_sha256": "1425b91b769e5590789d53ebea6c4e49c1ce1c010c58d42e6c558ab6a292e529",
   "health": "healthy",
@@ -18,6 +18,6 @@
   "issues": [],
   "previous": [],
   "first_observed": "2026-09-30T01:45:06Z",
-  "last_attempt": "2026-11-08T22:09:16Z",
-  "last_success": "2026-11-08T22:09:16Z"
+  "last_attempt": "2026-11-09T06:37:12Z",
+  "last_success": "2026-11-09T06:37:12Z"
 }
