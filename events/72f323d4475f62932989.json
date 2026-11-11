@@ -1,0 +1,60 @@
+{
+  "id": "72f323d4475f62932989",
+  "kind": "changed",
+  "project": "2198fb51-71ba-4695-8e1f-26b55144c4fd",
+  "origin": "dreamweave-mp-github-io-l3i-3bef17f5",
+  "name": "l3i",
+  "observed_at": "2026-11-11T19:38:48Z",
+  "before": "bbcefd3c343c156771947b9b8c17cef72a7b97ec76f7076b5be2f487460a6260",
+  "after": "d31deb3c10d29a3384e2e84ac9760431692d25279b4c0261d68f1603a6b9a786",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "2.7.0",
+      "after": "2.9.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "crate",
+          "before": 3596848,
+          "after": 3638145
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "2.9.0",
+      "channel": "stable",
+      "date": "2026-11-11",
+      "status": "available",
+      "notes": {
+        "summary": "A one-shot secret for a child process: bytes it reads once from an inherited descriptor (Unix) or handle (Windows), never from its arguments, its environment or a file.",
+        "added": [
+          "process.run and process.start accept secret = { env, data }. The bytes (1 to 4096, a string or a buffer) are written into a pipe whose read end the child inherits; the variable named by env holds its number: a descriptor on Unix, a handle's value on Windows. Whoever reads it first, the child or a helper it starts, gets the secret and then end of file.",
+          "On Linux, Android and the BSDs both ends of the pipe are close-on-exec from creation and the flag is cleared in that child alone. On Windows every child is started under one lock and the handle is inheritable only inside it. On macOS a child started by another thread in the moment between making the pipe and marking it inherits it. The number is never 0, 1 or 2.",
+          "The host closes its end once the child is started and overwrites its own copy of the bytes. It does not hide the secret from other processes of the same user, overwrite the script's copy, or stop the child passing the descriptor on: see the documentation."
+        ],
+        "migration": "Take 2.9.0 in place of 2.8.0. Nothing changes for calls that do not pass secret.\n"
+      }
+    },
+    {
+      "change": "release-added",
+      "version": "2.8.0",
+      "channel": "stable",
+      "date": "2026-11-11",
+      "status": "available",
+      "notes": {
+        "summary": "Bounded process.run by time and captured output; process.start, a nonblocking process handle with bounded standard streams and a bounded stdin queue.",
+        "added": [
+          "process.run accepts timeoutMs, maxStdoutBytes and maxStderrBytes. A limit that passes kills the child and, on Linux, Android, macOS and FreeBSD, the process group it leads, and fails with timeout or outputLimit. Termination covers that group only: a descendant that left it is not stopped, but on Unix it cannot keep a thread or a descriptor of the host: every thread of a run or a handle ends with it, whoever holds its pipe.",
+          "process.start launches a child without waiting and returns a handle: nonblocking stdout and stderr reads, a 1 MiB stdin queue, wait with an optional timeout, kill and close, with the same limits as run. On Linux, Android, macOS and FreeBSD wait answers without reaping, so kill or close after it still stops what the child left in its process group; the child's slot and process table entry are held until the handle is closed.",
+          "Live child processes are bounded per runtime: ProcessExtension::with_max_children sets the limit (default 32, at most 1024; scripts cannot change it). A start past the limit raises, and a run counts while it runs. ProcessExtension::with_input_policy now returns a ProcessConfig, which carries both settings.",
+          "timeoutMs is refused above 86400000 (a day), and byte ceilings above 2^53 - 1, before the child starts.",
+          "A child that the host reaped itself (SIGCHLD ignored, or a reaper of its own) is reported as lost and never signalled, nor is the group it led. A started child's stdin writer no longer raises SIGPIPE when the child exits without reading. A run that cannot start one of its threads fails instead of aborting the host."
+        ],
+        "migration": "Take 2.8.0 in place of 2.7.0.\n\nNothing to change for existing process.run calls: without the new options it behaves as before.\n\nA runtime that keeps more than 32 children live at once needs ProcessExtension::with_max_children. A timeoutMs above a day, or a byte ceiling above 2^53 - 1, raises before the child starts.\n"
+      }
+    }
+  ]
+}

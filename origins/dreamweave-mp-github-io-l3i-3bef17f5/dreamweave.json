@@ -1,7 +1,7 @@
 {
-  "schema_version": "2",
+  "schema_version": "4",
   "document": "index",
-  "generator": "DreamWeave Mod Template 5.0.0",
+  "generator": "DreamWeave Mod Template 0.3.0",
   "site": {
     "name": "l3i",
     "url": "https://dreamweave-mp.github.io/l3i/"
@@ -15,10 +15,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/l3i/home/",
       "manifest": "https://dreamweave-mp.github.io/l3i/dreamweave/projects/2198fb51-71ba-4695-8e1f-26b55144c4fd.json",
-      "manifest_sha256": "bbcefd3c343c156771947b9b8c17cef72a7b97ec76f7076b5be2f487460a6260",
-      "updated": "2026-11-05",
+      "manifest_sha256": "d31deb3c10d29a3384e2e84ac9760431692d25279b4c0261d68f1603a6b9a786",
+      "updated": "2026-11-11",
       "channels": {
-        "stable": "2.7.0"
+        "stable": "1.0.0"
       }
     }
   ]

@@ -1,7 +1,7 @@
 {
-  "schema_version": "2",
+  "schema_version": "4",
   "document": "project",
-  "generator": "DreamWeave Mod Template 5.0.0",
+  "generator": "DreamWeave Mod Template 0.3.0",
   "project": {
     "id": "2198fb51-71ba-4695-8e1f-26b55144c4fd",
     "name": "l3i",
@@ -64,10 +64,162 @@
   },
   "channels": {
     "stable": {
-      "version": "2.7.0"
+      "version": "2.9.0"
     }
   },
   "releases": [
+    {
+      "version": "2.9.0",
+      "channel": "stable",
+      "date": "2026-11-11",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/l3i",
+        "tag": "2.9.0",
+        "revision": "66ee3f34d393dcd3d88f1c99520cee7f7101f69c"
+      },
+      "notes": {
+        "summary": "A one-shot secret for a child process: bytes it reads once from an inherited descriptor (Unix) or handle (Windows), never from its arguments, its environment or a file.",
+        "added": [
+          "process.run and process.start accept secret = { env, data }. The bytes (1 to 4096, a string or a buffer) are written into a pipe whose read end the child inherits; the variable named by env holds its number: a descriptor on Unix, a handle's value on Windows. Whoever reads it first, the child or a helper it starts, gets the secret and then end of file.",
+          "On Linux, Android and the BSDs both ends of the pipe are close-on-exec from creation and the flag is cleared in that child alone. On Windows every child is started under one lock and the handle is inheritable only inside it. On macOS a child started by another thread in the moment between making the pipe and marking it inherits it. The number is never 0, 1 or 2.",
+          "The host closes its end once the child is started and overwrites its own copy of the bytes. It does not hide the secret from other processes of the same user, overwrite the script's copy, or stop the child passing the descriptor on: see the documentation."
+        ],
+        "migration": "Take 2.9.0 in place of 2.8.0. Nothing changes for calls that do not pass secret.\n"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "requires",
+          "project": "f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda",
+          "name": "dream-net",
+          "version": "=1.1.1",
+          "url": "https://DreamWeave-MP.github.io/dream-net/",
+          "reason": "Runtime infrastructure: the @dream/udp module is in every plan, and l3i owns the bridge."
+        },
+        {
+          "kind": "recommends",
+          "project": "f7b9633b-b7cb-4db9-a19f-63556586a81d",
+          "name": "dream-soft-render",
+          "version": "=2.0.0",
+          "url": "https://DreamWeave-MP.github.io/dream-soft-render/",
+          "reason": "The @dream/soft-render module, when the soft-render feature is on."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "l3i",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "l3i-2.9.0.crate",
+          "media_type": "application/gzip",
+          "size": 3638145,
+          "digests": {
+            "sha256": "9c323790d81a2c06c539bcc2beb80aad89af97f3f6f29f0df9d7a05cd1c66816"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/l3i/l3i-2.9.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "2.8.0",
+      "channel": "stable",
+      "date": "2026-11-11",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/l3i",
+        "tag": "2.8.0",
+        "revision": "38b933bb056a5ebdf3c845a785820c11bf77c20a"
+      },
+      "notes": {
+        "summary": "Bounded process.run by time and captured output; process.start, a nonblocking process handle with bounded standard streams and a bounded stdin queue.",
+        "added": [
+          "process.run accepts timeoutMs, maxStdoutBytes and maxStderrBytes. A limit that passes kills the child and, on Linux, Android, macOS and FreeBSD, the process group it leads, and fails with timeout or outputLimit. Termination covers that group only: a descendant that left it is not stopped, but on Unix it cannot keep a thread or a descriptor of the host: every thread of a run or a handle ends with it, whoever holds its pipe.",
+          "process.start launches a child without waiting and returns a handle: nonblocking stdout and stderr reads, a 1 MiB stdin queue, wait with an optional timeout, kill and close, with the same limits as run. On Linux, Android, macOS and FreeBSD wait answers without reaping, so kill or close after it still stops what the child left in its process group; the child's slot and process table entry are held until the handle is closed.",
+          "Live child processes are bounded per runtime: ProcessExtension::with_max_children sets the limit (default 32, at most 1024; scripts cannot change it). A start past the limit raises, and a run counts while it runs. ProcessExtension::with_input_policy now returns a ProcessConfig, which carries both settings.",
+          "timeoutMs is refused above 86400000 (a day), and byte ceilings above 2^53 - 1, before the child starts.",
+          "A child that the host reaped itself (SIGCHLD ignored, or a reaper of its own) is reported as lost and never signalled, nor is the group it led. A started child's stdin writer no longer raises SIGPIPE when the child exits without reading. A run that cannot start one of its threads fails instead of aborting the host."
+        ],
+        "migration": "Take 2.8.0 in place of 2.7.0.\n\nNothing to change for existing process.run calls: without the new options it behaves as before.\n\nA runtime that keeps more than 32 children live at once needs ProcessExtension::with_max_children. A timeoutMs above a day, or a byte ceiling above 2^53 - 1, raises before the child starts.\n"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "requires",
+          "project": "f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda",
+          "name": "dream-net",
+          "version": "=1.1.1",
+          "url": "https://DreamWeave-MP.github.io/dream-net/",
+          "reason": "Runtime infrastructure: the @dream/udp module is in every plan, and l3i owns the bridge."
+        },
+        {
+          "kind": "recommends",
+          "project": "f7b9633b-b7cb-4db9-a19f-63556586a81d",
+          "name": "dream-soft-render",
+          "version": "=2.0.0",
+          "url": "https://DreamWeave-MP.github.io/dream-soft-render/",
+          "reason": "The @dream/soft-render module, when the soft-render feature is on."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "l3i",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "l3i-2.8.0.crate",
+          "media_type": "application/gzip",
+          "size": 3625546,
+          "digests": {
+            "sha256": "bda61d2912b49c56e59d9291c871badc47e9caa08c6c4fd659f340d7a94bf6cf"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/l3i/l3i-2.8.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
     {
       "version": "2.7.0",
       "channel": "stable",
@@ -80,7 +232,6 @@
       },
       "notes": {
         "summary": "Luau 0.745; durable filesystem operations and authenticated ranged reads; optional script garbage collection; bounded nonblocking standard input; public userdata payload access; and faster typed data operations.",
-        "migration": "Take 2.7.0 in place of 2.6.0.\n\nThe optional soft-render integration now uses dream-soft-render 2.0.0. Applications enabling that feature should check the renderer's 2.0.0 compatibility requirements.\n\nThe collectgarbage global remains opt-in. Standard input access remains controlled by host capabilities and policies.\n\nReview any existing application-specific assumptions about filesystem durability and retained file handles before adopting the new APIs.\n",
         "added": [
           "Durable filesystem creation, replacement, synchronization and retained-file operations, with recovery and failure handling across supported operating systems.",
           "Authenticated ranged reads against a trusted file commitment, with bounded verification caches and native memory use.",
@@ -93,7 +244,8 @@
           "Improve typed data loops, overlapping span operations, contiguous-array kernels and native execution performance.",
           "Require dream-net 1.1.1 and update the optional dream-soft-render integration to 2.0.0.",
           "Raise the minimum supported Rust version to 1.95."
-        ]
+        ],
+        "migration": "Take 2.7.0 in place of 2.6.0.\n\nThe optional soft-render integration now uses dream-soft-render 2.0.0. Applications enabling that feature should check the renderer's 2.0.0 compatibility requirements.\n\nThe collectgarbage global remains opt-in. Standard input access remains controlled by host capabilities and policies.\n\nReview any existing application-specific assumptions about filesystem durability and retained file handles before adopting the new APIs.\n"
       },
       "runtimes": {},
       "platforms": [],
@@ -163,10 +315,10 @@
       },
       "notes": {
         "summary": "ECDSA signatures in `@dream/bytes`: ES256 and ES384 tokens from the P-256 and P-384 keys API consoles hand out, SEC1 or PKCS#8, PEM or DER.",
-        "migration": "Nothing to change. Take 2.6.0 in place of 2.5.0.\n\nCheck an ECDSA signature by verifying it, never by comparing its bytes with another: two signatures of the same data by the same key differ. A key on the other curve, an RSA key, or anything else is refused with a message that never quotes the key, as `rsaSign` refuses one.\n",
         "added": [
           "`bytes.ecdsaSign(data, privateKey, algorithm)`, behind `bytes-crypto`: the raw ECDSA signature of `data`, `r` then `s`, each fixed-width and big-endian, the form JSON Web Tokens carry. `sha256` signs under a P-256 key (ES256, 64 bytes), `sha384` under a P-384 key (ES384, 96 bytes). The key is PKCS#8 (`BEGIN PRIVATE KEY`) or SEC1 (`BEGIN EC PRIVATE KEY`, what OpenSSL writes and most consoles issue), PEM or DER, with its public point. ECDSA is randomized, so every call signs afresh and every signature verifies."
-        ]
+        ],
+        "migration": "Nothing to change. Take 2.6.0 in place of 2.5.0.\n\nCheck an ECDSA signature by verifying it, never by comparing its bytes with another: two signatures of the same data by the same key differ. A key on the other curve, an RSA key, or anything else is refused with a message that never quotes the key, as `rsaSign` refuses one.\n"
       },
       "runtimes": {},
       "platforms": [],
@@ -236,11 +388,11 @@
       },
       "notes": {
         "summary": "The operating system's file lock in `@dream/fs`: a lock that ends with its holder, so a file can name a single running owner without timeouts.",
-        "migration": "Nothing to change. Take 2.5.0 in place of 2.4.0.\n\n`fs.lock` needs `filesystem.write`, like everything else that touches the disk, because it opens the file to lock it and makes it if it isn't there. A script that matches every `dream_fs_ErrorKind` exhaustively has one more to name.\n\nOn Unix the lock is advisory, as `flock` is: it excludes other locks, not reads or writes of the file.\n",
         "added": [
           "`fs.lock(path, { shared?, createParents? }?)`: the platform's own lock on a file (`flock` on Unix, `LockFileEx` on Windows), exclusive or shared, taken without waiting. A lock held elsewhere, in this process or another, answers `nil`, the message and the new `wouldBlock` kind. The `dream_fs_Lock` it returns holds it until `unlock()`, the handle is collected, the runtime shuts down, or the process ends, when the system releases it, so it never times out and never outlives its holder.",
           "`wouldBlock` among `dream_fs_ErrorKind` and `dream_process_ErrorKind`, for an operation the OS would have had to wait on."
-        ]
+        ],
+        "migration": "Nothing to change. Take 2.5.0 in place of 2.4.0.\n\n`fs.lock` needs `filesystem.write`, like everything else that touches the disk, because it opens the file to lock it and makes it if it isn't there. A script that matches every `dream_fs_ErrorKind` exhaustively has one more to name.\n\nOn Unix the lock is advisory, as `flock` is: it excludes other locks, not reads or writes of the file.\n"
       },
       "runtimes": {},
       "platforms": [],
@@ -310,12 +462,12 @@
       },
       "notes": {
         "summary": "The few cryptographic primitives a network client needs around its transport, in `@dream/bytes` behind `bytes-crypto`: bytes from the operating system's CSPRNG, HMAC with constant-time verification, and RS256 signatures, all through the ring that `tls` already builds.",
-        "migration": "Nothing to change. Take 2.4.0 in place of 2.3.0.\n\n`bytes-crypto` is opt-in and adds no new dependency to a build that already has `tls`: it is ring, which `tls` builds, and zeroize. Turned on without `tls`, it builds ring's C and assembly with clang, as `tls` does.\n\nThere are no ciphers, no key generation and no key storage, and none are planned: a key arrives as bytes the caller holds and leaves with the call.\n",
         "added": [
           "`bytes.random(count)`: up to 65536 bytes from the operating system's CSPRNG per call, for keys, nonces and WebSocket masks, where `math.random` is none of those.",
           "`bytes.hmac(data, key, algorithm)` with `sha1`, `sha256`, `sha384` or `sha512`, the raw tag, and `bytes.hmacVerify(data, key, algorithm, tag)`, which compares in constant time, for checking a webhook's signature without timing what matched. Both match the RFC 2202 and RFC 4231 vectors.",
           "`bytes.rsaSign(data, privateKey, algorithm)`: the raw PKCS#1 v1.5 RSA signature, RS256, RS384 or RS512 as JSON Web Tokens name them, from a key of at least 2048 bits in PKCS#8 or PKCS#1, PEM or DER, as services issue keys for signing tokens. The signature is byte for byte OpenSSL's. An encrypted key, an EC key or anything else is refused with a message that never quotes the key, and the decoded key bytes are zeroed when the call returns."
-        ]
+        ],
+        "migration": "Nothing to change. Take 2.4.0 in place of 2.3.0.\n\n`bytes-crypto` is opt-in and adds no new dependency to a build that already has `tls`: it is ring, which `tls` builds, and zeroize. Turned on without `tls`, it builds ring's C and assembly with clang, as `tls` does.\n\nThere are no ciphers, no key generation and no key storage, and none are planned: a key arrives as bytes the caller holds and leaves with the call.\n"
       },
       "runtimes": {},
       "platforms": [],
@@ -385,7 +537,6 @@
       },
       "notes": {
         "summary": "MP3, Vorbis and Opus decoding with `@dream/audio`; Luau 0.744, with its native code fixes and faster `table.find` and `table.create`; register reuse, so the 200-local limit counts only the locals still live; and analysis that types comprehensions and slices the way the loops they stand for are typed.",
-        "migration": "Nothing to change for most hosts. Take 2.3.0 in place of 2.2.0.\n\nA debugger that shows every local, or a test that reads a local after its last use, compiles at `optimization_level: 0`. The defaults (level 2) now free a dead local's register.\n\n`@dream/audio` is opt-in, behind the `audio` feature. A binary built with it ships libopus and must reproduce its BSD 3-Clause notice, `opus/COPYING`.\n\nScripts that spelled out `regex`'s options for a `pcall` can annotate with `dream_bytes_RegexOptions`, and comprehensions that cast each projection to their local's element type can drop the cast. A comprehension that reads a narrowed variable from outside its enclosing function still needs that value bound to a local first; the dialect page says why.\n",
         "added": [
           "`@dream/audio` (feature `audio`): MP3 (and MPEG layers I and II) through nanomp3, Ogg Vorbis through lewton, and Ogg Opus through libopus built from the `opus` submodule, into interleaved `f32` buffers. Lengths are exact after gapless trimming, seeks land on the frame asked for (Opus after a 400 ms pre-roll), `audio.decode` caps its output at `maxSize`, and a damaged stream fails the read where it breaks. Decoding reads only the bytes it is given: no file, no device, no capability.",
           "Named option records for the `@dream/bytes` calls a script reaches through `pcall`: `dream_bytes_RegexOptions` for `regex`, `dream_bytes_DecompressOptions` for `inflate` and `lzmaDecompress`, and `dream_bytes_DecompressLimit` for the LZ4 and zstd decoders. An options literal passed through `pcall` gets no expected type, so a caller annotates a local with the name instead of spelling the record out."
@@ -400,7 +551,8 @@
         "fixed": [
           "Luau 0.744's native code fixes: dead store elimination kept a tag store whose load had been overwritten, `INVOKE_FASTPCALL` now invalidates the safe-environment assumption, a VM exit's register restores are planned per exit (a crash Luau's fuzzer found), a libunwind unwinder registers each FDE on its own as Intel macOS needs, and on A64 `bit32.lrotate` no longer overwrites an operand it still reads and a function with more than 256 constants no longer crashes reloading one.",
           "A slice that is the whole source of a `for ... in` header, `for _, v in values[1:n] do`, type checks as the table it is. The new solver read it against the iterator protocol and reported it as the wrong type."
-        ]
+        ],
+        "migration": "Nothing to change for most hosts. Take 2.3.0 in place of 2.2.0.\n\nA debugger that shows every local, or a test that reads a local after its last use, compiles at `optimization_level: 0`. The defaults (level 2) now free a dead local's register.\n\n`@dream/audio` is opt-in, behind the `audio` feature. A binary built with it ships libopus and must reproduce its BSD 3-Clause notice, `opus/COPYING`.\n\nScripts that spelled out `regex`'s options for a `pcall` can annotate with `dream_bytes_RegexOptions`, and comprehensions that cast each projection to their local's element type can drop the cast. A comprehension that reads a narrowed variable from outside its enclosing function still needs that value bound to a local first; the dialect page says why.\n"
       },
       "runtimes": {},
       "platforms": [],
@@ -470,11 +622,11 @@
       },
       "notes": {
         "summary": "`@dream/process` says which OS it runs on and where the user's home and Documents folders are, so a script can find an application's files the way the application does.",
-        "migration": "Nothing to change. Take 2.2.0 in place of 2.1.3. No dependency was added: the one Windows call is declared by l3i itself.\n",
         "added": [
           "`process.platform()`: the OS the host was built for, as Rust names it (`windows`, `macos`, `linux`, ...). A call rather than a constant, so compiled code never carries another platform's answer. No capability.",
           "`process.knownFolder('home')`: `HOME`, or on Windows `USERPROFILE`, then `HOMEDRIVE` with `HOMEPATH`, then `HOME`. `process.knownFolder('documents')`: the Windows Documents known folder from `SHGetKnownFolderPath`, wherever the user or OneDrive moved it, and nil elsewhere. Both need `process.environment`, as `env` does."
-        ]
+        ],
+        "migration": "Nothing to change. Take 2.2.0 in place of 2.1.3. No dependency was added: the one Windows call is declared by l3i itself.\n"
       },
       "runtimes": {},
       "platforms": [],
@@ -544,13 +696,13 @@
       },
       "notes": {
         "summary": "Security release: every dependency updated, closing seven RustSec advisories in the TLS stack and the Zstandard decoder, one of them high severity.",
-        "migration": "Nothing to change. Take 2.1.3 in place of 2.1.2; `cargo update -p l3i` in a dependent does it, and `cargo audit` there should come back clean of these seven.\n",
         "changed": [
           "ruzstd 0.9.1: RUSTSEC-2026-0344, a decompression bomb where a tiny input could exhaust memory (high). The JPK reader's zstd entries and `bytes.zstd` decode through it.",
           "rustls 0.23.46: RUSTSEC-2026-0346 (session `Debug` impls exposed TLS secrets, medium), RUSTSEC-2026-0347, RUSTSEC-2026-0348, and RUSTSEC-2026-0349 (buffered data after ECH rejection, a 1 GiB certificate decompression before authentication, and a downgrade to classical key exchange from an unauthenticated ServerHello, all low).",
           "rustls-webpki 0.103.16 and webpki-root-certs 1.0.10: RUSTSEC-2026-0382 and RUSTSEC-2026-0383, certificate verification and the bundled roots accepting distrusted intermediates.",
           "The manifest's floors for rustls and ruzstd now start at the fixed versions, so a fresh resolution of a dependent can't pick the vulnerable ones. Every other dependency in the lock moved to its current compatible release. No API changed."
-        ]
+        ],
+        "migration": "Nothing to change. Take 2.1.3 in place of 2.1.2; `cargo update -p l3i` in a dependent does it, and `cargo audit` there should come back clean of these seven.\n"
       },
       "runtimes": {},
       "platforms": [],
@@ -620,10 +772,10 @@
       },
       "notes": {
         "summary": "2.1.1's fixes, released through the pipeline: 2.1.1 went to crates.io by hand, without its GitHub release or documentation.",
-        "migration": "Nothing to change. Take 2.1.2 in place of 2.1.1; they are the same code.\n",
         "changed": [
           "Two push closures end with a semicolon, as the pedantic lints ask. Nothing else differs from 2.1.1."
-        ]
+        ],
+        "migration": "Nothing to change. Take 2.1.2 in place of 2.1.1; they are the same code.\n"
       },
       "runtimes": {},
       "platforms": [],
@@ -693,14 +845,14 @@
       },
       "notes": {
         "summary": "Fixes to 2.1.0's limits: no push or host-level allocation aborts the process, a wait the time limit cuts short fails the call it ends, process.run stops at the limit whatever holds its pipes, and a child finds programs on the host's PATH again.",
-        "migration": "Nothing to change. A host that wanted a child to have no `PATH` passes `clearEnv = true`. `Value::clone`, `Value::type_of` and `Value::eq` answer as for an invalid value (an invalid clone, `Type::None`, `false`) when the main thread has no stack slot left, where they could abort before.\n",
         "fixed": [
           "A child started without `process.environment` gets the host's `PATH` along with what `env` names, so `process.run('git')` finds a program where the host would, and so does whatever that program starts. 2.1.0 cleared `PATH` with the rest, and a bare name fell back to libc's default path. `clearEnv = true` still clears it.",
           "`bytes.shortest(value, 'f32')` answers `nil` for a double past single precision's range, which narrows to an infinity. It formatted that infinity as `inf`, found no exponent, and aborted the process from inside the native call.",
           "Every scalar, vector, light userdata and pinned-value push makes room on the stack first, and pinning a value, making a table, a closure or a userdata, and looking up a global run under protection at host level. A host that filled the stack, or ran out of memory under the cap while doing any of those outside a Lua call, aborted with Rust cannot catch foreign exceptions; it gets `Err`.",
           "A `@dream/tcp` poller's or `@dream/dns` request's wait cut short by the execution time limit marks the call expired, as `process.sleep` and `process.run` do, so a script that ends with the wait fails with the limit instead of returning `Ok`.",
           "`process.run` ends at the execution time limit even while a process the child started holds a captured pipe open, abandoning the capture instead of waiting for its reader, and kills and reaps a child whose wait fails."
-        ]
+        ],
+        "migration": "Nothing to change. A host that wanted a child to have no `PATH` passes `clearEnv = true`. `Value::clone`, `Value::type_of` and `Value::eq` answer as for an invalid value (an invalid clone, `Type::None`, `false`) when the main thread has no stack slot left, where they could abort before.\n"
       },
       "runtimes": {},
       "platforms": [],
@@ -770,7 +922,6 @@
       },
       "notes": {
         "summary": "Limits that hold: an uncatchable watchdog on every host call, a memory cap the allocator enforces, protected host-level pushes, deeply frozen sandboxes, and process capabilities that mean what they say; plus process.sleep, @dream/fs path functions and atomic writes, the rest of a regex API, trimming, shortest float digits, and Runtime::shutdown for hosts that exit without dropping the runtime.",
-        "migration": "Handle the `Result` every push and setup call now returns (`?` in a function returning `l3i::Result`). Grant `process.stdio` to a runtime whose scripts write to the terminal through `process.write`, and `process.environment` to one whose children need the parent's environment, or pass `env`. Rename `data.count` and `data.compare` calls, rewrite `bytes.translate(text, from, to, options)` as `bytes.translate(text, bytes.rules { replace = { ... }, collapse = ..., ... })` (compile the rules once outside a loop), and `shutdownWrite()` as `shutdown('write')`. A script that caught a timeout with `pcall` to carry on now stops; that was the bug.\n\n`bytes.shortest` gives Rust's digits, which can differ from Ryū's (serde_json's) in the last digit where two shortest spellings both read back as the value.\n",
         "added": [
           "`process.sleep(seconds)`, never past the runtime's execution time limit.",
           "`@dream/fs` `join`, `parent`, `fileName`, `extension` and `isFileName`, which touch no disk and need no capability; `isFile` and `isDir`; `writeFile`'s `exclusive`, `atomic` and `createParents`.",
@@ -802,7 +953,8 @@
           "`bytes.translate(text, rules)` takes the rules table `intern.new` takes (`nocase`, `replace`, `collapse`, `trimStart`, `trimEnd`), or a `bytes.rules` compiled from one, in place of its own `from`, `to` and options.",
           "The TLS stream's `shutdownWrite()` is `shutdown('write')`, as a TCP stream half-closes.",
           "`raster`'s module `rgba8` and `rgb8` clamp and round as the receiver's always did, instead of raising on a channel out of range."
-        ]
+        ],
+        "migration": "Handle the `Result` every push and setup call now returns (`?` in a function returning `l3i::Result`). Grant `process.stdio` to a runtime whose scripts write to the terminal through `process.write`, and `process.environment` to one whose children need the parent's environment, or pass `env`. Rename `data.count` and `data.compare` calls, rewrite `bytes.translate(text, from, to, options)` as `bytes.translate(text, bytes.rules { replace = { ... }, collapse = ..., ... })` (compile the rules once outside a loop), and `shutdownWrite()` as `shutdown('write')`. A script that caught a timeout with `pcall` to carry on now stops; that was the bug.\n\n`bytes.shortest` gives Rust's digits, which can differ from Ryū's (serde_json's) in the last digit where two shortest spellings both read back as the value.\n"
       },
       "runtimes": {},
       "platforms": [],
@@ -872,10 +1024,10 @@
       },
       "notes": {
         "summary": "Analysis checks a buffer slice generator as a buffer with the default options, and in the modules a checked module requires.",
-        "migration": "Nothing to change. A strict package that reported the three errors above at its buffer slice generators reports none.\n\nKnown, and not l3i's to fix: under Luau's new solver, a function literal inside an `if` condition has its returns checked against the declared return type of the function holding the `if`. A reducer is lowered for analysis to such a literal, so `if any[for value in values => value > 2] then` inside a function declared to return, say, `buffer?` reports `Expected this to be 'buffer?', but got 'boolean'` twice. The code is correct and runs as written. To check clean, bind the reducer to a local before the `if`: `local found = any[...]`, then `if found then`.\n",
         "fixed": [
           "A slice generator over a buffer (`[for byte in data[1:4] => byte]`, `any[for byte in data[1:n] => byte ~= 0]`) is lowered for analysis as a table slice until Luau has inferred its source, then as a buffer. That second step read the types Luau inferred, which a module keeps only with its full type graph, so with `retain_full_type_graphs` off, the default, every buffer slice generator was checked as a table: `Expected type table, got 'buffer' instead` and two operator errors at each one. It also ran for the module named in the check only, so a required module's buffer slices were checked as tables whatever the options. A check now keeps each module's type graph, and specializes every module it reaches."
-        ]
+        ],
+        "migration": "Nothing to change. A strict package that reported the three errors above at its buffer slice generators reports none.\n\nKnown, and not l3i's to fix: under Luau's new solver, a function literal inside an `if` condition has its returns checked against the declared return type of the function holding the `if`. A reducer is lowered for analysis to such a literal, so `if any[for value in values => value > 2] then` inside a function declared to return, say, `buffer?` reports `Expected this to be 'buffer?', but got 'boolean'` twice. The code is correct and runs as written. To check clean, bind the reducer to a local before the `if`: `local found = any[...]`, then `if found then`.\n"
       },
       "runtimes": {},
       "platforms": [],
@@ -945,12 +1097,12 @@
       },
       "notes": {
         "summary": "A natively lowered `@dream/intern` lookup no longer reads a slot table the pool has freed, and the `@dream/data` definitions say what a span's `kind` is.",
-        "migration": "Nothing to change. A pool annotated `dream_intern_Pool` that also receives keys through unannotated code was the exposed case, and is correct after an upgrade. A strict script that cast a strided layout to pass it to `@dream/data` can drop the cast.\n",
         "fixed": [
           "Interning a key a pool already held, through the binder, while the pool sat at its load limit (12, 24, 48 ... identities) grew the slot table before looking the key up, and did not tell native code the table had moved, because the pool's length had not changed. Until the next new key, a lowered `pool:find` or `pool:intern` on an annotated `dream_intern_Pool` read the freed table: wrong tokens, `nil` for a key the pool held. A pool now looks a key up first and grows only to add one, so a key it holds moves nothing. Unannotated pools were never affected.",
           "The `@dream/data` definitions gave `gather`, `scatter` and `add` a `kind: dream_data_Kind` parameter, the union of receiver classes, where the runtime takes the layout string every other span takes; and they typed a span's `kind` as the eight bare kinds, so the documented strided form (`\"f32@16+12\"`) was a type error under `--!strict`. A span's `kind` is now a `dream_data_Layout`, `dream_data_ElementKind | string`, in every signature, and the strict-script gate that checks the definitions against the runtime covers `@dream/data`, which it had left out.",
           "`data.fill`'s description said the value converts as `buffer.write<kind>` converts. It is written as every data-plane write is: a number, truncated toward zero and wrapped to the width, saturating first beyond 2^63. The description says so now; the behaviour is unchanged."
-        ]
+        ],
+        "migration": "Nothing to change. A pool annotated `dream_intern_Pool` that also receives keys through unannotated code was the exposed case, and is correct after an upgrade. A strict script that cast a strided layout to pass it to `@dream/data` can drop the cast.\n"
       },
       "runtimes": {},
       "platforms": [],
@@ -1020,11 +1172,11 @@
       },
       "notes": {
         "summary": "A sink or slice statement may open a function body, and the `@dream/luau` definitions declare the record pattern nodes the tree has carried since 2.0.0.",
-        "migration": "A strict script that reads `name` off an element of `ExprFunction.args` or of a generator's `bindings` refines it by `kind` first, `\"Local\"` or `\"PatternRecord\"`. Nothing changes at run time.\n",
         "fixed": [
           "A statement that begins with a sink or a slice (`into(out)[for x in xs => x]`, `grid[2:3][1][1] = 5`) failed to compile as the first statement of a function body, with `Expected identifier when parsing expression, got ';'`: the lowering separated it from a statement that was not there. A body's first statement now gets no separator, whatever the header ends with, and where a return type ends is decided by Luau's parser, not estimated.",
           "The `@dream/luau` definitions did not declare `StatLocalPattern`, `PatternRecord`, `PatternField` or `PatternIdentifier`, and typed `ExprFunction.args` and `ComprehensionGenerator.bindings` as lists of `dream_luau_Local` although a record pattern can stand in either. They are declared now, `dream_luau_StatLocalPattern` is a member of `dream_luau_Stat`, and a slot that may hold a pattern is a `dream_luau_Binding`, `dream_luau_Local | dream_luau_PatternRecord`."
-        ]
+        ],
+        "migration": "A strict script that reads `name` off an element of `ExprFunction.args` or of a generator's `bindings` refines it by `kind` first, `\"Local\"` or `\"PatternRecord\"`. Nothing changes at run time.\n"
       },
       "runtimes": {},
       "platforms": [],
@@ -1094,7 +1246,6 @@
       },
       "notes": {
         "summary": "A dialect of Luau whose comprehensions, reducers, sinks, slices and record patterns lower to the handwritten loop with tooling in original coordinates; a bulk-data plane over typed buffer spans with native loops; raw TCP, DNS and verified TLS; locales, plural rules and decimal formatting; Luau 0.742; and the renames and defaults that needed a major version to change.",
-        "migration": "Downstream plans need one line per network extension: `.extension(TcpExtension::default())` and `.extension(TlsExtension::new())`. Rename `@dream/net` requires and `net` compat globals to `@dream/udp` and `udp`. A `match` over any of the types listed above needs a wildcard arm. Tools that read `@dream/luau` trees and expect generated wrappers pass `{ dialect = \"luau\" }` or, better, handle the dialect's nodes. Scripts that relied on Nagle pass `{ noDelay = false }`. Recompile cached bytecode to pick up original debug lines.\n",
         "added": [
           "The l3i dialect: `[for e in entities if e.active => e.id]` comprehensions with `range`, `enumerate`, `zipShortest` and `zipStrict` generators; `#`, `sum`, `min`, `max`, `any` and `all` consumers that allocate no result; `into(destination)` table sinks and `into(buffer, \"kind\"[, offset])` buffer sinks; inclusive slices `t[a:b]` of tables and buffers and typed slices `buf[1:n, \"f32@16\"]`; and record patterns `local {x, y} = p` in declarations, parameters and generator slots. One frontend built on Luau's lexer lowers all of it to the same-contract handwritten loop, one setup instruction apart, and compilation is strict while Analysis and `@dream/luau` recover unfinished constructs.",
           "Original coordinates everywhere: Analysis diagnostics and autocomplete, `analysis::parse`, `@dream/luau` trees, compile errors, runtime errors, tracebacks, breakpoints and coverage all report the source you wrote, through a source map the frontend records as it lowers.",
@@ -1132,7 +1283,8 @@
           "Coroutine finalizers are chosen on the builder: `RuntimeBuilder::coroutine_finalizers(bool)` replaces `Runtime::enable_coroutine_finalizers`, and `Thread::finalizer_function(scope, close)` replaces `Runtime::finalizer_function()`. The first runtime built in a process decides for the process.",
           "`DnsExtension::new` lets 8 of a runtime's lookups occupy a shared resolver by default, not 2.",
           "The growable public types new since 1.3.1 are `#[non_exhaustive]`: `tcp::StreamState`, `tls::TlsState`, `dns::LookupError`, `dns::ResolverConfig`, `data::Kind`, `data::Layout`, `data::ReductionOp`, `data::Reduction`, `intl::Grouping`, `intl::DecimalOptions`, `intl::FormatterError`, `intl::Operand`, `intl::NumberError`, `intl::LocaleError`, `intl::UnsupportedLocale`. Matches need a wildcard arm; the structs are built with `ResolverConfig::new(workers, queue)`, `Layout::new(kind, stride, offset)`, `Reduction::new(op, filter)` and `DecimalOptions::new().grouping(..).fraction_digits(min, max)`."
-        ]
+        ],
+        "migration": "Downstream plans need one line per network extension: `.extension(TcpExtension::default())` and `.extension(TlsExtension::new())`. Rename `@dream/net` requires and `net` compat globals to `@dream/udp` and `udp`. A `match` over any of the types listed above needs a wildcard arm. Tools that read `@dream/luau` trees and expect generated wrappers pass `{ dialect = \"luau\" }` or, better, handle the dialect's nodes. Scripts that relied on Nagle pass `{ noDelay = false }`. Recompile cached bytecode to pick up original debug lines.\n"
       },
       "runtimes": {},
       "platforms": [],
