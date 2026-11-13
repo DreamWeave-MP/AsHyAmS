@@ -1,0 +1,74 @@
+{
+  "id": "98715e858ccd4305d28f",
+  "kind": "changed",
+  "project": "2198fb51-71ba-4695-8e1f-26b55144c4fd",
+  "origin": "dreamweave-mp-github-io-l3i-3bef17f5",
+  "name": "l3i",
+  "observed_at": "2026-11-13T19:45:23Z",
+  "before": "d31deb3c10d29a3384e2e84ac9760431692d25279b4c0261d68f1603a6b9a786",
+  "after": "5a5b668f561c4f332b51c186036cbe5a9de844243580d3fac711b6f78686b569",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "2.9.0",
+      "after": "2.11.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "crate",
+          "before": 3638145,
+          "after": 3651824
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "2.11.0",
+      "channel": "stable",
+      "date": "2026-11-13",
+      "status": "available",
+      "notes": {
+        "summary": "Unix permission bits for what @dream/fs creates, set exactly and from the moment it exists, and fs.chmod. process.run no longer cuts a capture short, or calls a run held, because the machine was slow to read it.",
+        "added": [
+          "fs.writeFile, fs.openWrite, fs.createDurable, fs.mkdir and fs.lock take mode: the Unix permission bits of what the call creates, such as tonumber('600', 8): a file's nine permission bits (0 to 511), and for mkdir set-user-ID, set-group-ID and sticky as well (0 to 4095). The bits are exact, whatever the process umask, and nobody but the owner is given more on the way there: the file is created with them, and what the umask took away is put back through the handle just opened before anything is written. A file that is already there keeps its own bits. mkdir with recursive gives a parent it creates the mode and the owner's write and search bits.",
+          "fs.writeFile with atomic and a mode gives the new file that mode in place of the old file's permissions.",
+          "fs.chmod(path, mode) sets the bits of what path names, following symbolic links. It needs filesystem.write, as every call that changes the disk does.",
+          "fs.stat and fs.lstat report mode, the permission bits, on Unix."
+        ],
+        "changed": [
+          "On Unix the temporary of an atomic fs.writeFile is created with the permission bits the file will keep. It used to be created under the umask, written, and narrowed afterwards, so the new contents of a file private to its owner could be read by others until the write finished.",
+          "On Unix, whether something still holds a captured stream after the child of process.run has exited is asked of the pipe. The 250 ms and 2 s that end the reading time a process that holds a capture: they start when one is seen, and bytes waiting unread count as that process not being quiet. A run whose captures nothing holds reads them to their end, with only its own limits over it.",
+          "A process that held a capture and exits while process.run is still reading leaves whole captures and no held: the reading used to stop 250 ms after the child's exit whatever happened next."
+        ],
+        "fixed": [
+          "process.run answered held = true, with a capture cut short, for a child nothing was holding, when the threads reading its captures had not run for 250 ms after it exited. A stalled or heavily loaded machine was enough: a run that only echoed a line could come back held."
+        ],
+        "migration": "Take 2.11.0 in place of 2.10.0. Nothing a caller wrote changes.\n\nA file that should be its owner's alone is created that way with mode, in place of a umask set from outside the program:\n\n```luau\nlocal Private = tonumber('600', 8)\nassert(fs.writeFile(path, secret, { atomic = true, mode = Private }))\n```\n\nOn Windows there are no such bits: a mode is checked and then changes nothing, a stat has no mode, and fs.chmod answers unsupported. A file made with a mode through a name that is a dangling symbolic link is refused with alreadyExists, where the same call without a mode creates the link's target.\n\nA run that 2.10.0 called held is still held when a process its child started really does keep the pipe open and stays quiet. One that was called held only because the machine was slow is now read whole.\n\nNot changed in this release: on Windows a run still waits for a held pipe until a limit.\n"
+      }
+    },
+    {
+      "change": "release-added",
+      "version": "2.10.0",
+      "channel": "stable",
+      "date": "2026-11-12",
+      "status": "available",
+      "notes": {
+        "summary": "process.run no longer waits on a capture that a process its child started still holds, and bounds a capture given no ceiling.",
+        "added": [
+          "The result of process.run carries held = true when reading stopped while something other than the child still held a captured stream open. It is absent otherwise."
+        ],
+        "changed": [
+          "On Unix, once its child has exited, process.run reads its captures until nothing has arrived for 250 ms, or for 2 s whatever arrives, then answers the child's own result. It used to wait for every holder of the pipe to close it: forever without a limit, and until timeoutMs, answering timeout, with one. A run with a limit of its own kills the child's process group at that point. What a process the child started writes after that is not in the result.",
+          "A captured stream of process.run given no maxStdoutBytes or maxStderrBytes has a ceiling of 64 MiB, and fails with outputLimit past it. Captures are held outside the Luau heap, where the runtime's memory limit does not see them.",
+          "Under an execution time limit, a process.run that shares neither stdout nor stderr with the host runs in a process group of its own, so the limit stops what it started as well. Such a run is a background job to a controlling terminal."
+        ],
+        "fixed": [
+          "A cwd that is not a directory is reported as that by process.run and process.start, not as a program that could not be found.",
+          "A reader stopped at the end of a call takes what its pipe already holds first, and a ceiling passed in a reader's last read is reported as outputLimit."
+        ],
+        "migration": "Take 2.10.0 in place of 2.9.0.\n\nA process.run that captures more than 64 MiB from one stream must now say so with maxStdoutBytes or maxStderrBytes.\n\nA caller that relied on process.run collecting what a background process wrote after the child exited must wait for that process in the child, or use process.start and read until the stream ends. Check held when it matters whether a capture was read to its end.\n\nNot changed in this release: on Windows a run still waits for a held pipe until a limit, and a descendant still survives a timeout there.\n"
+      }
+    }
+  ]
+}
