@@ -1,0 +1,31 @@
+{
+  "id": "e348d7b40ea3897aa4a9",
+  "kind": "changed",
+  "project": "4d0348b2-0622-44d4-a4ef-114380d8912b",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Starwind Map Expansion",
+  "observed_at": "2026-11-14T22:28:17Z",
+  "before": "82a4abf0893019d441e79eec5de1d5660a6e564d6b771d50626788ad9ec3d4fd",
+  "after": "2a6e0f7301b9aad8d37ef7491cbed0edc686ada796176a6903c0f509873d803e",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "0.0.1-dev.3",
+      "before": "2026-10-12",
+      "after": "2026-11-14"
+    },
+    {
+      "change": "release-amended",
+      "version": "0.0.1-dev.3",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "8b1f6a008c5957d2a2af7c46c8786bb1507f420e",
+          "after": "54f8b444abf0c43a5015fe952ef95efab975b1c2"
+        }
+      ]
+    }
+  ]
+}

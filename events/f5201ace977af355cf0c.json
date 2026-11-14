@@ -1,0 +1,31 @@
+{
+  "id": "f5201ace977af355cf0c",
+  "kind": "changed",
+  "project": "77a5e247-6e75-4507-a97a-7d849744446d",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Cod3x",
+  "observed_at": "2026-11-14T22:28:17Z",
+  "before": "44e76189d69009a953cf36ab0f8fc4d7a3d118b5026a1ea3cbf7692448600389",
+  "after": "b5a21982285773b5b4a899088ef2cfe21aadf7a0350f79ce33882e95e616a673",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "1.1-dev.8",
+      "before": "2026-10-12",
+      "after": "2026-11-14"
+    },
+    {
+      "change": "release-amended",
+      "version": "1.1-dev.8",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "8b1f6a008c5957d2a2af7c46c8786bb1507f420e",
+          "after": "54f8b444abf0c43a5015fe952ef95efab975b1c2"
+        }
+      ]
+    }
+  ]
+}

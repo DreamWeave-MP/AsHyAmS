@@ -34,19 +34,19 @@
   },
   "channels": {
     "development": {
-      "version": "1.1-dev.10"
+      "version": "1.1-dev.15"
     }
   },
   "releases": [
     {
-      "version": "1.1-dev.10",
+      "version": "1.1-dev.15",
       "channel": "development",
-      "date": "2026-10-12",
+      "date": "2026-11-14",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh",
         "release": "development",
-        "revision": "8b1f6a008c5957d2a2af7c46c8786bb1507f420e"
+        "revision": "54f8b444abf0c43a5015fe952ef95efab975b1c2"
       },
       "runtimes": {
         "openmw": "*"
@@ -97,9 +97,9 @@
           "format": "flat",
           "filename": "static_switching_system.zip",
           "media_type": "application/zip",
-          "size": 2119782,
+          "size": 2130390,
           "digests": {
-            "sha256": "4ed210908c8cb829298bde87069e219223dbf83e3bab3a9811d8e02ce802ab14"
+            "sha256": "9dfb1cd01868e946ec1fa8c174cc64e4bf7a26ab696a7a9d68c61cf0dfe86bf0"
           },
           "layout": {
             "release_document": "dreamweave.release.json",

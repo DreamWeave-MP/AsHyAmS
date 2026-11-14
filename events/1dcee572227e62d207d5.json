@@ -1,0 +1,31 @@
+{
+  "id": "1dcee572227e62d207d5",
+  "kind": "changed",
+  "project": "ed77443e-a232-4eee-839d-427c515a358b",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "FlexTag",
+  "observed_at": "2026-11-14T22:28:17Z",
+  "before": "d77627cc9212710c907f755cd8e39781a2d1be012d0e14449c5b618036d6754c",
+  "after": "fad7bfb622afce0659589af178288a8d963f6eabf32d74c4348113f3b498397a",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "1.0.2-dev.3",
+      "before": "2026-10-12",
+      "after": "2026-11-14"
+    },
+    {
+      "change": "release-amended",
+      "version": "1.0.2-dev.3",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "8b1f6a008c5957d2a2af7c46c8786bb1507f420e",
+          "after": "54f8b444abf0c43a5015fe952ef95efab975b1c2"
+        }
+      ]
+    }
+  ]
+}
