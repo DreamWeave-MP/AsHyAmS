@@ -31,22 +31,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.2.1-dev.15"
+      "version": "0.3.1-dev.186"
     },
     "stable": {
-      "version": "0.2.0"
+      "version": "0.3.0"
     }
   },
   "releases": [
     {
-      "version": "0.2.1-dev.15",
+      "version": "0.3.1-dev.186",
       "channel": "development",
-      "date": "2026-11-05",
+      "date": "2026-11-14",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/jessql",
         "release": "development",
-        "revision": "a4257bec43ab3dc335b6cdc2874d087fa36794f4"
+        "revision": "676dd167dd009b3624be57c2e93d40daa4aa3c9a"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,108 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.jessql-0.2.1-dev.15.jpk",
+          "filename": "org.dreamweave.jessql-0.3.1-dev.186.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 443620,
+          "size": 800635,
           "digests": {
-            "sha256": "2e46348c9a093122571058c7e26fbc2fd2d440f43ef8440c24f968524fca2d25"
+            "sha256": "f0054fc765d37880df086bccf3a95e009437796719e5600e9d728a447f046e8d"
           },
           "jess": {
             "package": "org.dreamweave.jessql",
             "jess_api": "1",
-            "content_digest": "1711bf7178866cbf18501a7466f7132a1c8bf5aadd7779c9682ed0dfb4ad0226",
+            "content_digest": "5f62cd23924dfe4738f46a542558fbc392e70ab161370d699c2bd1caddb12565",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/jessql/releases/download/development/org.dreamweave.jessql-0.2.1-dev.15.jpk",
+              "url": "https://github.com/DreamWeave-MP/jessql/releases/download/development/org.dreamweave.jessql-0.3.1-dev.186.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "channel": "stable",
+      "date": "2026-11-13",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/jessql",
+        "tag": "jessql-0.3.0",
+        "revision": "3517cdfe212fcc396b4e9f7a15e3e2d11a3f4399"
+      },
+      "notes": {
+        "summary": "JessQL Hyperscale: multi-table transactional storage, supervised writer services, fair admission, bounded query execution, scalable cold storage, and extensively hardened crash recovery. A major expansion of JessQL's native, strictly typed Luau database architecture.",
+        "added": [
+          "Multi-table managed catalogs with atomic cross-table transactions, shared WAL epochs, immutable generations, selective compaction, offline verification, and backup/restore.",
+          "Bounded asynchronous writer infrastructure with worker-service protocol, restart supervision, backpressure, request acknowledgment, and configurable queue limits.",
+          "Transactional request ledger with content digests, replay reconciliation, and retained-request idempotency across worker failures.",
+          "Fair multi-tenant writer admission with per-tenant accounting, starvation prevention, expiring claims, and bounded reservation capacity.",
+          "Configurable query execution budgets for joins, aggregates, sorting, and retained result rows, plus streaming result cursors for eligible queries.",
+          "Experimental segment-and-offset cold addressing and two-level page directories with bounded leaf caching for very large datasets.",
+          "Storage abstraction layer, in-memory filesystem, deterministic fault-injection laboratory, and simulated crash, power-loss, torn-write, and disk-full testing.",
+          "Persistent format registry, golden compatibility fixtures, corruption fuzzing, and deterministic benchmark laboratory with workload fingerprints and correctness oracles.",
+          "Storage amplification instrumentation, compaction planning, reader generation pins, and expanded operational diagnostics."
+        ],
+        "changed": [
+          "Strengthened WAL recovery with committed-length witnesses, atomic witness creation, corruption detection, and conservative handling of ambiguous or damaged frames.",
+          "Hardened durable publication, manifest replacement, directory synchronization, and recovery after interrupted storage operations.",
+          "Improved writer correctness with typed commit acknowledgments, protected ledger tables, tenant-scoped request identities, and bounded supervisor bookkeeping.",
+          "Introduced byte-aware writer admission and more realistic heap accounting to reduce memory amplification under large or hostile requests.",
+          "Improved cold-storage scalability with streaming segment processing, packed page-directory metadata, and constant-time cache eviction.",
+          "Expanded query planning explanations and bounded execution behavior while preserving existing SQL semantics and storage compatibility.",
+          "Updated filesystem option types for Jess runtimes using l3i 2.11.0 or later, with expanded strict-check and regression coverage."
+        ],
+        "known_issues": [
+          "Physical power-loss durability is not certified. Recovery assumes the underlying filesystem honors successful synchronization operations; lying or damaged storage can violate acknowledged-commit guarantees.",
+          "Windows and macOS durability and performance remain unqualified. The final hardening campaign was validated primarily on Linux.",
+          "The writer service uses an application-local transport without built-in authentication. Applications must enforce authorization, directory confinement, and exclusive ownership of ledger writes.",
+          "Request idempotency is guaranteed only while the corresponding ledger entries are retained. Pruning entries permits older request identifiers to be applied again.",
+          "Cold segment addressing and two-level page directories remain experimental and are not universally integrated into managed storage paths.",
+          "Resource limits bound specific queues, caches, and query operations; they do not impose a hard process-wide resident-memory ceiling.",
+          "Replication, distributed transactions, concurrent independent writers, and online backups are not implemented."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "JessQL",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.jessql-0.3.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 800627,
+          "digests": {
+            "sha256": "2aec02fff7e42aa3900b47bf00280fec87114164b34c8aa13630a0e8250b23c1"
+          },
+          "jess": {
+            "package": "org.dreamweave.jessql",
+            "jess_api": "1",
+            "content_digest": "e84f13c32e4efd33b4a0a9868ae8d97c57ac79287943500942b71881d5c9f050",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/jessql/releases/download/jessql-0.3.0/org.dreamweave.jessql-0.3.0.jpk",
               "kind": "publisher"
             }
           ],
