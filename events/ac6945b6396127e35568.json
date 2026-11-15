@@ -1,0 +1,54 @@
+{
+  "id": "ac6945b6396127e35568",
+  "kind": "changed",
+  "project": "0e93a788-e6a0-4bb2-b0f4-d803622bf642",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Horiz0n",
+  "observed_at": "2026-11-15T06:38:15Z",
+  "before": "4be757b1e2e2549e2caad140a631aa9130bc2a3949531d37f7807988fdcf503f",
+  "after": "af5d4c8729ea2cf587efc6e1187ef94b2b9002e435f814044c65f2083c5cc181",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "1.3-dev.12",
+      "after": "1.5-dev.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "flat",
+          "before": 248575,
+          "after": 256127
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": null,
+      "after": "1.4",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "1.5-dev.0",
+      "channel": "development",
+      "date": "2026-11-15",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "1.4",
+      "channel": "stable",
+      "date": "2026-11-14",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "1.3-dev.12",
+      "channel": "development"
+    }
+  ]
+}

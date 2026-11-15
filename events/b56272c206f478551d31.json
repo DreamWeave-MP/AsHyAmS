@@ -1,0 +1,74 @@
+{
+  "id": "b56272c206f478551d31",
+  "kind": "changed",
+  "project": "81abbe84-b6ae-4104-96e7-d993fae68ae5",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Static Switching System",
+  "observed_at": "2026-11-15T06:38:15Z",
+  "before": "7394cce8f8dff838efef3281ee618f579b2a6be7e21f7d0413207daed887117b",
+  "after": "d8b2614488e0148500a7fbe75ad31c5a9a784182d68fe99fbe16ce1060ef81a6",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "1.1-dev.15",
+      "after": "1.2-dev.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "flat",
+          "before": 2130390,
+          "after": 2420494
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": null,
+      "after": "1.1",
+      "changes": []
+    },
+    {
+      "change": "release-added",
+      "version": "1.2-dev.0",
+      "channel": "development",
+      "date": "2026-11-15",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "1.1",
+      "channel": "stable",
+      "date": "2026-11-14",
+      "status": "available",
+      "notes": {
+        "summary": "Rules can now run on triggers other than an object becoming active, and can change the weather.",
+        "added": [
+          "Rule triggers: journal, hour, day, weather, cell_enter, activate, drop, place, use, death, and custom triggers fired by other mods.",
+          "The by_player and used_item conditions for interaction triggers.",
+          "The set_weather action.",
+          "The StaticSwitcher_G interface is version 6 and adds trigger(); the StaticSwitcherTrigger global event does the same from any script."
+        ],
+        "changed": [
+          "The cell condition matches case-insensitively.",
+          "A rule with an unknown condition, action or trigger name, a malformed range, or an unknown transform_type is skipped with a warning instead of being loaded without it.",
+          "once: true follows the object a rule replaces with, and is recorded by where each effect lives rather than by whether any action reported success.",
+          "A module that cannot be read or parsed is skipped instead of stopping every module from loading."
+        ],
+        "fixed": [
+          "An item picked up while still queued no longer jams the queue and spams the log.",
+          "Two rules that swap an object back and forth no longer replace it forever.",
+          "trap, key and global_value entries with lowercase names are no longer discarded when a module loads.",
+          "A queued deletion the engine refuses no longer raises on every frame."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "1.1-dev.15",
+      "channel": "development"
+    }
+  ]
+}

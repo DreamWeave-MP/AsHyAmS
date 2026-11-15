@@ -9,20 +9,20 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/s4v3r/",
     "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/85f9afe2-54ff-44ee-a40a-0098f7ea1ac0.json",
-    "manifest_sha256": "561bc11550eeb4548259799f2f7965e4e0c0899fcd2212e2e1ee9b13eca5eca2",
-    "updated": "2026-11-14",
+    "manifest_sha256": "c2f5e54af71ebad9a92005b4bc6925678f5acebfbefb1ced61011e6cfe8375e9",
+    "updated": "2026-11-15",
     "channels": {
       "development": "1.51-dev.5"
     }
   },
-  "advertised_sha256": "561bc11550eeb4548259799f2f7965e4e0c0899fcd2212e2e1ee9b13eca5eca2",
-  "ingested_sha256": "561bc11550eeb4548259799f2f7965e4e0c0899fcd2212e2e1ee9b13eca5eca2",
+  "advertised_sha256": "c2f5e54af71ebad9a92005b4bc6925678f5acebfbefb1ced61011e6cfe8375e9",
+  "ingested_sha256": "c2f5e54af71ebad9a92005b4bc6925678f5acebfbefb1ced61011e6cfe8375e9",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-09-30T01:45:06Z",
-  "last_changed": "2026-11-14T22:28:17Z",
-  "last_attempt": "2026-11-14T22:28:17Z",
-  "last_success": "2026-11-14T22:28:17Z"
+  "last_changed": "2026-11-15T06:38:15Z",
+  "last_attempt": "2026-11-15T06:38:15Z",
+  "last_success": "2026-11-15T06:38:15Z"
 }

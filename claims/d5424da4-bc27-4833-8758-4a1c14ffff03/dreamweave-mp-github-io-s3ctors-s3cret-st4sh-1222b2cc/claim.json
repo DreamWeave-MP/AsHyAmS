@@ -9,20 +9,20 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/baldurwind/",
     "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/d5424da4-bc27-4833-8758-4a1c14ffff03.json",
-    "manifest_sha256": "58c9b5db6ead144133ecaad1e379af659eb51e93115a1decee85054e50c02d50",
-    "updated": "2026-11-14",
+    "manifest_sha256": "c4ceb850e100bdee4000865935d298d74c3fef52839fc873e1bd85cc12ad4f4a",
+    "updated": "2026-11-15",
     "channels": {
       "development": "0.1.2-dev.4"
     }
   },
-  "advertised_sha256": "58c9b5db6ead144133ecaad1e379af659eb51e93115a1decee85054e50c02d50",
-  "ingested_sha256": "58c9b5db6ead144133ecaad1e379af659eb51e93115a1decee85054e50c02d50",
+  "advertised_sha256": "c4ceb850e100bdee4000865935d298d74c3fef52839fc873e1bd85cc12ad4f4a",
+  "ingested_sha256": "c4ceb850e100bdee4000865935d298d74c3fef52839fc873e1bd85cc12ad4f4a",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-09-30T01:45:06Z",
-  "last_changed": "2026-11-14T22:28:17Z",
-  "last_attempt": "2026-11-14T22:28:17Z",
-  "last_success": "2026-11-14T22:28:17Z"
+  "last_changed": "2026-11-15T06:38:15Z",
+  "last_attempt": "2026-11-15T06:38:15Z",
+  "last_success": "2026-11-15T06:38:15Z"
 }

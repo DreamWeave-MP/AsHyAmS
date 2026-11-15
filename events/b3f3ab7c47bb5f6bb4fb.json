@@ -1,0 +1,31 @@
+{
+  "id": "b3f3ab7c47bb5f6bb4fb",
+  "kind": "changed",
+  "project": "ac37d9df-e920-46fd-9cdf-db16c96338e0",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Hawk3ye",
+  "observed_at": "2026-11-15T06:38:15Z",
+  "before": "b5852e19591db6115cf2f68e32056e0ca2f889f3d44802c2597a13ec67e3631a",
+  "after": "fdf6699143f256e4f62ff4ccdeb1e909f0d84dcff586e8d8edadf3289fbb6a99",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "0.521-dev.6",
+      "before": "2026-11-14",
+      "after": "2026-11-15"
+    },
+    {
+      "change": "release-amended",
+      "version": "0.521-dev.6",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "54f8b444abf0c43a5015fe952ef95efab975b1c2",
+          "after": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86"
+        }
+      ]
+    }
+  ]
+}

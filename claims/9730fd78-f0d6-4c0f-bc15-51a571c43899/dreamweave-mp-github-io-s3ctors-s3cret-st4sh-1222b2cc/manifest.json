@@ -33,12 +33,12 @@
     {
       "version": "0.0.1-dev.3",
       "channel": "development",
-      "date": "2026-11-14",
+      "date": "2026-11-15",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/S3ctors-S3cret-St4sh",
         "release": "development",
-        "revision": "54f8b444abf0c43a5015fe952ef95efab975b1c2"
+        "revision": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86"
       },
       "runtimes": {
         "openmw": "*"

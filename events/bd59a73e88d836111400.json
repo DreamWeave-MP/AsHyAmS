@@ -1,0 +1,31 @@
+{
+  "id": "bd59a73e88d836111400",
+  "kind": "changed",
+  "project": "a9796e0f-2e06-402b-b1c5-c80a8bda1096",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Sh4des",
+  "observed_at": "2026-11-15T06:38:15Z",
+  "before": "2a2ff6e479b9a2c918a4b0afb0988248076d0dce32c724318ebe5b0d48e19aa4",
+  "after": "f3cc97c760a9104e7f4f9bb9ae4f096a3feeee7cd9c171f669f5c8e30175a578",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "0.0.1-dev.12",
+      "before": "2026-11-14",
+      "after": "2026-11-15"
+    },
+    {
+      "change": "release-amended",
+      "version": "0.0.1-dev.12",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "54f8b444abf0c43a5015fe952ef95efab975b1c2",
+          "after": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86"
+        }
+      ]
+    }
+  ]
+}

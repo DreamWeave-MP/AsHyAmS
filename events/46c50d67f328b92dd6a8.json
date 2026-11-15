@@ -1,0 +1,31 @@
+{
+  "id": "46c50d67f328b92dd6a8",
+  "kind": "changed",
+  "project": "e371b89c-7cc6-4cb3-a9f4-425b31afd855",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Talk To The H4ND",
+  "observed_at": "2026-11-15T06:38:15Z",
+  "before": "f87f7e4c8884a0eefa61cbd6bdf8cb4e6c3419a6b71708e4df0fae4491891919",
+  "after": "af8d7864772179d01acad13545ffce27241eaedc4a92ca40d2031fcc9dc41e4c",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "0.0.1-dev.8",
+      "before": "2026-11-14",
+      "after": "2026-11-15"
+    },
+    {
+      "change": "release-amended",
+      "version": "0.0.1-dev.8",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "54f8b444abf0c43a5015fe952ef95efab975b1c2",
+          "after": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86"
+        }
+      ]
+    }
+  ]
+}

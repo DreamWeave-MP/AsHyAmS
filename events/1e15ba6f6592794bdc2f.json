@@ -1,0 +1,31 @@
+{
+  "id": "1e15ba6f6592794bdc2f",
+  "kind": "changed",
+  "project": "56f73f30-68f8-4a06-aff7-9d81b7312a61",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Monochrome User Interface Supplement",
+  "observed_at": "2026-11-15T06:38:15Z",
+  "before": "95ab923394e870fa86404163d0a6c55b799c99972f03204039715e07201dce01",
+  "after": "222e7fc97271306cfeed06cf3eb24545ce95fd95a0aafeb91c70c0f3e782a93f",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "1.1-dev.7",
+      "before": "2026-11-14",
+      "after": "2026-11-15"
+    },
+    {
+      "change": "release-amended",
+      "version": "1.1-dev.7",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "54f8b444abf0c43a5015fe952ef95efab975b1c2",
+          "after": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86"
+        }
+      ]
+    }
+  ]
+}

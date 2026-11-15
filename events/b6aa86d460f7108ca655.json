@@ -1,0 +1,31 @@
+{
+  "id": "b6aa86d460f7108ca655",
+  "kind": "changed",
+  "project": "28030d08-79fc-4aeb-aa6f-69e8ebd0940b",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "S3maphore",
+  "observed_at": "2026-11-15T06:38:15Z",
+  "before": "aa69aa8ada0d5fc8b64ad4c1d110be8b97b5389ee3db15527528b5df9be4186e",
+  "after": "e83bf31d5fb690bec23221e669fbef9ffa92d5942a56008f1bf61ba81ca86cf6",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "0.9631-dev.30",
+      "before": "2026-11-14",
+      "after": "2026-11-15"
+    },
+    {
+      "change": "release-amended",
+      "version": "0.9631-dev.30",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "54f8b444abf0c43a5015fe952ef95efab975b1c2",
+          "after": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86"
+        }
+      ]
+    }
+  ]
+}

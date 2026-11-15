@@ -1,0 +1,31 @@
+{
+  "id": "52911d0350cb232e3315",
+  "kind": "changed",
+  "project": "1968bc35-2839-4a92-9161-17481e76896d",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "CHIM Climbing",
+  "observed_at": "2026-11-15T06:38:15Z",
+  "before": "8ec9cad6ad113e7a51a9dc97c10e6212bb431a49b2a1750323989e26f49309cd",
+  "after": "e41071d79ffbd4c325291aac1d627202bd058cf974d97dc07cfd420ba8369990",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "0.511-dev.6",
+      "before": "2026-11-14",
+      "after": "2026-11-15"
+    },
+    {
+      "change": "release-amended",
+      "version": "0.511-dev.6",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "54f8b444abf0c43a5015fe952ef95efab975b1c2",
+          "after": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86"
+        }
+      ]
+    }
+  ]
+}

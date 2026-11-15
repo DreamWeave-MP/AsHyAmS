@@ -9,20 +9,20 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/toolgun/",
     "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/ec13bb40-584e-45e6-aabc-b426ea6833a3.json",
-    "manifest_sha256": "a198947551081d68ad26c91d68c6163921b26a3df2834d2ec9b0a61fc52abc04",
-    "updated": "2026-11-14",
+    "manifest_sha256": "ce828e8e3c11b9d8fad6e9c69ab091fc226ffbe8644879ea56c49d28aaca8c3b",
+    "updated": "2026-11-15",
     "channels": {
       "development": "0.1.1-dev.5"
     }
   },
-  "advertised_sha256": "a198947551081d68ad26c91d68c6163921b26a3df2834d2ec9b0a61fc52abc04",
-  "ingested_sha256": "a198947551081d68ad26c91d68c6163921b26a3df2834d2ec9b0a61fc52abc04",
+  "advertised_sha256": "ce828e8e3c11b9d8fad6e9c69ab091fc226ffbe8644879ea56c49d28aaca8c3b",
+  "ingested_sha256": "ce828e8e3c11b9d8fad6e9c69ab091fc226ffbe8644879ea56c49d28aaca8c3b",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-09-30T01:45:06Z",
-  "last_changed": "2026-11-14T22:28:17Z",
-  "last_attempt": "2026-11-14T22:28:17Z",
-  "last_success": "2026-11-14T22:28:17Z"
+  "last_changed": "2026-11-15T06:38:15Z",
+  "last_attempt": "2026-11-15T06:38:15Z",
+  "last_success": "2026-11-15T06:38:15Z"
 }

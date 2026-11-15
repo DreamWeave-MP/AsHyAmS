@@ -1,0 +1,31 @@
+{
+  "id": "cee67cad3b5ccca38889",
+  "kind": "changed",
+  "project": "cfebb85d-0200-43aa-91f4-843b0c50cb44",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Beta Icons Restored and Reimagined",
+  "observed_at": "2026-11-15T06:38:15Z",
+  "before": "96020c2eabd341ae84d96425a8ba32652dcf4bab203dd20b3982258c72f40ba9",
+  "after": "b8d5da4d4a3c19651274202e821f4c464ff500d4c63b2be812c01fce584e00e7",
+  "changes": [
+    {
+      "change": "release-date",
+      "version": "0.821-dev.6",
+      "before": "2026-11-14",
+      "after": "2026-11-15"
+    },
+    {
+      "change": "release-amended",
+      "version": "0.821-dev.6",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "54f8b444abf0c43a5015fe952ef95efab975b1c2",
+          "after": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86"
+        }
+      ]
+    }
+  ]
+}
