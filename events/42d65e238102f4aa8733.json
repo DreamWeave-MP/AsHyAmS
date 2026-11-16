@@ -1,0 +1,31 @@
+{
+  "id": "42d65e238102f4aa8733",
+  "kind": "changed",
+  "project": "81abbe84-b6ae-4104-96e7-d993fae68ae5",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Static Switching System",
+  "observed_at": "2026-11-16T06:34:24Z",
+  "before": "d8b2614488e0148500a7fbe75ad31c5a9a784182d68fe99fbe16ce1060ef81a6",
+  "after": "fe37ae0b6c706fed3eb30ec89dee68c8eb77e4abbcb798b0b718566b8d00c97a",
+  "changes": [
+    {
+      "change": "release-amended",
+      "version": "1.2-dev.0",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "artifact-digest",
+          "artifact": "flat",
+          "before": "99565fa6b0c9faef4c3fbd3c48eb69fb2c2594b5a5ddc81543a713e981a0338c",
+          "after": "c066b6eb883cd3aa9a55ec763e0d7d3c2ecfc8ebf9b55e67c221e5cb2da1b853"
+        },
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86",
+          "after": "187b62ed28f38e00748145e98973ed4fc499a626"
+        }
+      ]
+    }
+  ]
+}

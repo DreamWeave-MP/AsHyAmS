@@ -1,0 +1,45 @@
+{
+  "id": "d46fb21650c09259e406",
+  "kind": "changed",
+  "project": "cd195eb1-05e3-4982-bba0-2e23abd9acec",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "H3lp Yours3lf",
+  "observed_at": "2026-11-16T06:34:24Z",
+  "before": "7ebbe3e846349e0e8f51cf3172d5ee9785a3cbe4b64a9d53259b4708fd820879",
+  "after": "d3588608ceb43f03f5f8c85586b27f16e11bd441f87e6e857f3633aae9c89632",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.821-dev.59",
+      "after": "0.821-dev.73",
+      "changes": [
+        {
+          "change": "runtime",
+          "runtime": "openmw",
+          "before": "*",
+          "after": ">=0.52"
+        },
+        {
+          "change": "artifact-size",
+          "artifact": "flat",
+          "before": 49563284,
+          "after": 49579807
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.821-dev.73",
+      "channel": "development",
+      "date": "2026-11-15",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.821-dev.59",
+      "channel": "development"
+    }
+  ]
+}

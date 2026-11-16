@@ -9,20 +9,20 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/chim_climbing/",
     "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/1968bc35-2839-4a92-9161-17481e76896d.json",
-    "manifest_sha256": "e41071d79ffbd4c325291aac1d627202bd058cf974d97dc07cfd420ba8369990",
+    "manifest_sha256": "ff0a03325eef4764b41ce04f0b53da46fb6f07087d7750c65e08b4f211396b8d",
     "updated": "2026-11-15",
     "channels": {
       "development": "0.511-dev.6"
     }
   },
-  "advertised_sha256": "e41071d79ffbd4c325291aac1d627202bd058cf974d97dc07cfd420ba8369990",
-  "ingested_sha256": "e41071d79ffbd4c325291aac1d627202bd058cf974d97dc07cfd420ba8369990",
+  "advertised_sha256": "ff0a03325eef4764b41ce04f0b53da46fb6f07087d7750c65e08b4f211396b8d",
+  "ingested_sha256": "ff0a03325eef4764b41ce04f0b53da46fb6f07087d7750c65e08b4f211396b8d",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-09-30T01:45:06Z",
-  "last_changed": "2026-11-15T06:38:15Z",
-  "last_attempt": "2026-11-15T18:53:57Z",
-  "last_success": "2026-11-15T18:53:57Z"
+  "last_changed": "2026-11-16T06:34:24Z",
+  "last_attempt": "2026-11-16T06:34:24Z",
+  "last_success": "2026-11-16T06:34:24Z"
 }

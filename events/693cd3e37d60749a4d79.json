@@ -1,0 +1,25 @@
+{
+  "id": "693cd3e37d60749a4d79",
+  "kind": "changed",
+  "project": "5c86240d-5bf6-4095-a479-59dcaa723853",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Starwind Merged Plugin Project",
+  "observed_at": "2026-11-16T06:34:24Z",
+  "before": "677934ed4f88caf48dc189cb5fa5661bf052909f812bc432b42f0233b1bc8b4d",
+  "after": "92783d2eed49e89b63082f3936b415222e7f88fa8a92cbf1082b4503dfa86bb6",
+  "changes": [
+    {
+      "change": "release-amended",
+      "version": "1.01-dev.6",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86",
+          "after": "187b62ed28f38e00748145e98973ed4fc499a626"
+        }
+      ]
+    }
+  ]
+}

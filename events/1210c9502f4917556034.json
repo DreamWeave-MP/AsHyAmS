@@ -1,0 +1,25 @@
+{
+  "id": "1210c9502f4917556034",
+  "kind": "changed",
+  "project": "a0ae5b47-703f-4013-b5ed-3e3bf234fd66",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Starwind PVP",
+  "observed_at": "2026-11-16T06:34:24Z",
+  "before": "dd50103cf3aec6885fa2fac048e7d9ed40373144a22dd7099db2199796d54786",
+  "after": "d12d446125d72f2ba5399ff4bc2ac70f11832931395d675b5b833f6737c70859",
+  "changes": [
+    {
+      "change": "release-amended",
+      "version": "0.2-dev.4",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86",
+          "after": "187b62ed28f38e00748145e98973ed4fc499a626"
+        }
+      ]
+    }
+  ]
+}

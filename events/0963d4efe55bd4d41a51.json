@@ -1,0 +1,25 @@
+{
+  "id": "0963d4efe55bd4d41a51",
+  "kind": "changed",
+  "project": "d2c0f0bd-19c0-4df2-b899-62690a8212f9",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "CHIM 2090",
+  "observed_at": "2026-11-16T06:34:24Z",
+  "before": "6b64e029c7415802dd7b8d777a2304b1939cad9cc40924153529fdd5225842a6",
+  "after": "01499d71164668e94c3e7125967fb51c8b32716c1ee4ffeaec0ca7e5befee803",
+  "changes": [
+    {
+      "change": "release-amended",
+      "version": "0.0.1-dev.23",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86",
+          "after": "187b62ed28f38e00748145e98973ed4fc499a626"
+        }
+      ]
+    }
+  ]
+}

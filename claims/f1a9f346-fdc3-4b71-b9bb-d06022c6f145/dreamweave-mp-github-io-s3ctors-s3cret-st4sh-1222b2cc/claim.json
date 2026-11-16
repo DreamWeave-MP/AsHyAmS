@@ -9,20 +9,20 @@
     "status": "active",
     "page": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/transmog/",
     "manifest": "https://dreamweave-mp.github.io/S3ctors-S3cret-St4sh/dreamweave/projects/f1a9f346-fdc3-4b71-b9bb-d06022c6f145.json",
-    "manifest_sha256": "e85aa2cad4bcd4dff60597fac2484d145264c286052ae4aed23b905da04e06d6",
+    "manifest_sha256": "41efa88a7eaafb3a3c69574c5e4b115cd79e22633dceede87f734f0d661d13b0",
     "updated": "2026-11-15",
     "channels": {
       "development": "0.7-dev.11"
     }
   },
-  "advertised_sha256": "e85aa2cad4bcd4dff60597fac2484d145264c286052ae4aed23b905da04e06d6",
-  "ingested_sha256": "e85aa2cad4bcd4dff60597fac2484d145264c286052ae4aed23b905da04e06d6",
+  "advertised_sha256": "41efa88a7eaafb3a3c69574c5e4b115cd79e22633dceede87f734f0d661d13b0",
+  "ingested_sha256": "41efa88a7eaafb3a3c69574c5e4b115cd79e22633dceede87f734f0d661d13b0",
   "rejected": null,
   "health": "current",
   "problem": null,
   "media": null,
   "first_observed": "2026-09-30T01:45:06Z",
-  "last_changed": "2026-11-15T06:38:15Z",
-  "last_attempt": "2026-11-15T18:53:57Z",
-  "last_success": "2026-11-15T18:53:57Z"
+  "last_changed": "2026-11-16T06:34:24Z",
+  "last_attempt": "2026-11-16T06:34:24Z",
+  "last_success": "2026-11-16T06:34:24Z"
 }

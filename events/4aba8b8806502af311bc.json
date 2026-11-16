@@ -1,0 +1,25 @@
+{
+  "id": "4aba8b8806502af311bc",
+  "kind": "changed",
+  "project": "e0b8dda4-42d9-4e31-bf3f-43be964038db",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "UI Modes Slim",
+  "observed_at": "2026-11-16T06:34:24Z",
+  "before": "ca7c82a873464c17c563e45cceb6337b1820c3ac51e41bf1a69c616609ae44ec",
+  "after": "b186ff180d9386d6102e843015c56291063cdeb46210ab5bdca27f5c921cd5cd",
+  "changes": [
+    {
+      "change": "release-amended",
+      "version": "0.2-dev.5",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86",
+          "after": "187b62ed28f38e00748145e98973ed4fc499a626"
+        }
+      ]
+    }
+  ]
+}

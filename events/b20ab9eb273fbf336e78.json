@@ -1,0 +1,25 @@
+{
+  "id": "b20ab9eb273fbf336e78",
+  "kind": "changed",
+  "project": "89b83222-696a-4b0b-b243-98c44b863ff0",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Pr0f1l3r",
+  "observed_at": "2026-11-16T06:34:24Z",
+  "before": "655f80720c761086e972ca097f2769d24c10256df5a853c6412f4403e1fce4c4",
+  "after": "2bf71d478f8a9e675b6b6201afd7d186b5cc89794036f40faa94e089e57c415d",
+  "changes": [
+    {
+      "change": "release-amended",
+      "version": "0.0.1-dev.16",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86",
+          "after": "187b62ed28f38e00748145e98973ed4fc499a626"
+        }
+      ]
+    }
+  ]
+}

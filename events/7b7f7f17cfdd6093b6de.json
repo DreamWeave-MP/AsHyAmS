@@ -1,0 +1,25 @@
+{
+  "id": "7b7f7f17cfdd6093b6de",
+  "kind": "changed",
+  "project": "ec13bb40-584e-45e6-aabc-b426ea6833a3",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Toolgun",
+  "observed_at": "2026-11-16T06:34:24Z",
+  "before": "ce828e8e3c11b9d8fad6e9c69ab091fc226ffbe8644879ea56c49d28aaca8c3b",
+  "after": "56c93503d71feeb4c897095b7b37da6ec1baf026f64e11f79ea669fd4e7a86f5",
+  "changes": [
+    {
+      "change": "release-amended",
+      "version": "0.1.1-dev.5",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86",
+          "after": "187b62ed28f38e00748145e98973ed4fc499a626"
+        }
+      ]
+    }
+  ]
+}

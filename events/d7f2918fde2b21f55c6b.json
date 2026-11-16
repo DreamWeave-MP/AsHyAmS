@@ -1,0 +1,25 @@
+{
+  "id": "d7f2918fde2b21f55c6b",
+  "kind": "changed",
+  "project": "9730fd78-f0d6-4c0f-bc15-51a571c43899",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "I Am Basket",
+  "observed_at": "2026-11-16T06:34:24Z",
+  "before": "17b64745fd8610a4fa5b2372fc5c77326cb521386b443ed70510777babe41041",
+  "after": "d835e36ecb3fa48c9812a68171b58573f2dfe4677eb065f5dde33f66b21731ca",
+  "changes": [
+    {
+      "change": "release-amended",
+      "version": "0.0.1-dev.3",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86",
+          "after": "187b62ed28f38e00748145e98973ed4fc499a626"
+        }
+      ]
+    }
+  ]
+}

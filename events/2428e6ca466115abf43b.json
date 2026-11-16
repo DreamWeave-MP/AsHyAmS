@@ -1,0 +1,25 @@
+{
+  "id": "2428e6ca466115abf43b",
+  "kind": "changed",
+  "project": "bfeb1441-8280-4804-9abc-398f27ce805e",
+  "origin": "dreamweave-mp-github-io-s3ctors-s3cret-st4sh-1222b2cc",
+  "name": "Luamics",
+  "observed_at": "2026-11-16T06:34:24Z",
+  "before": "b48528f5781bb53cc269c76e0d4295ebf158739fa40b3bc3bc39a9bc8358b7ac",
+  "after": "e53108a497905a0d4e7c7a701c3e144a2f8c706acdde11faa96ce101df014cb8",
+  "changes": [
+    {
+      "change": "release-amended",
+      "version": "0.2-dev.4",
+      "channel": "development",
+      "changes": [
+        {
+          "change": "source-revision",
+          "field": "revision",
+          "before": "5e16c717f9524a9ab049e3557ccf04ab4cca9a86",
+          "after": "187b62ed28f38e00748145e98973ed4fc499a626"
+        }
+      ]
+    }
+  ]
+}
