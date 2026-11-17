@@ -7,13 +7,13 @@
   "trail": [
     {
       "url": "https://dreamweave-mp.github.io/dreamwind-sql/",
-      "outcome": "HTTP 503"
+      "outcome": "an HTML page with no DreamWeave <link>"
     },
     {
       "url": "https://dreamweave-mp.github.io/dreamwind-sql/dreamweave.json",
       "outcome": "site index unchanged (HTTP 304)"
     }
   ],
-  "last_attempt": "2026-11-16T22:07:52Z",
-  "last_success": "2026-11-16T22:07:52Z"
+  "last_attempt": "2026-11-17T07:58:07Z",
+  "last_success": "2026-11-17T07:58:07Z"
 }
