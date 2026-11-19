@@ -5,7 +5,7 @@
   "project": {
     "id": "70f3f079-226d-48ac-be5a-73fb327eb7c0",
     "name": "DOOM for Jess",
-    "summary": "DOOM's game simulation in Luau, for Jess: WAD reading, the renderer, demos, saves and netgames. Ships no IWAD; bring a legally obtained WAD.",
+    "summary": "DOOM for Jess: Linux Doom 1.10 played in Luau on Jess, with a window, sound, saves, mods as Jess packages, and netgames of one to four players in cooperative, deathmatch and team deathmatch. Ships no IWAD; bring a legally obtained WAD.",
     "type": "library",
     "status": "active",
     "versioning": "numeric",
@@ -32,7 +32,7 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.8"
+      "version": "0.1.1-dev.9"
     },
     "stable": {
       "version": "0.1.0"
@@ -40,14 +40,14 @@
   },
   "releases": [
     {
-      "version": "0.1.1-dev.8",
+      "version": "0.1.1-dev.9",
       "channel": "development",
-      "date": "2026-10-24",
+      "date": "2026-11-19",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/doom",
         "release": "development",
-        "revision": "170fd8b4dfbb1c431b14e18d621a6bed09c17b58"
+        "revision": "ecb1e7ab4fa7efa35a13106fcecfcc44a8d79da0"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,21 +72,21 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.doom-0.1.1-dev.8.jpk",
+          "filename": "org.dreamweave.doom-0.1.1-dev.9.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 251410,
+          "size": 486775,
           "digests": {
-            "sha256": "bc7123b0aad3e42d8db8ba3c2110eb4003ac91d1adbaea02a82d6a691b28abf0"
+            "sha256": "7a249458a56564cbdcaa71ce515c99b83e024fefcf538c34b6e673179174aa9e"
           },
           "jess": {
             "package": "org.dreamweave.doom",
             "jess_api": "1",
-            "content_digest": "aa3f6f9d7f94ba038c1e2beb09663387ee903fb61aaf478f73406b8c7d592311",
+            "content_digest": "b152aa1c5e9ccb7536bd241b3dc8934539a793e2aaf7fc9bb969f3596679e133",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/doom/releases/download/development/org.dreamweave.doom-0.1.1-dev.8.jpk",
+              "url": "https://github.com/DreamWeave-MP/doom/releases/download/development/org.dreamweave.doom-0.1.1-dev.9.jpk",
               "kind": "publisher"
             }
           ],

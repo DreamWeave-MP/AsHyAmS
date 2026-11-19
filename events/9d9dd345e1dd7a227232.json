@@ -1,0 +1,45 @@
+{
+  "id": "9d9dd345e1dd7a227232",
+  "kind": "changed",
+  "project": "70f3f079-226d-48ac-be5a-73fb327eb7c0",
+  "origin": "dreamweave-mp-github-io-doom-c2974404",
+  "name": "DOOM for Jess",
+  "observed_at": "2026-11-19T07:29:54Z",
+  "before": "cd29fd16d71a48bb0501dbebf0034b14d8c5cd9f708a6b1b44ecd7942f500ab2",
+  "after": "b3d3c69e66290c1943c8120f8dde706afdc640e4485fe96c648f72fe3d79c163",
+  "changes": [
+    {
+      "change": "project-field",
+      "field": "summary",
+      "before": "DOOM's game simulation in Luau, for Jess: WAD reading, the renderer, demos, saves and netgames. Ships no IWAD; bring a legally obtained WAD.",
+      "after": "DOOM for Jess: Linux Doom 1.10 played in Luau on Jess, with a window, sound, saves, mods as Jess packages, and netgames of one to four players in cooperative, deathmatch and team deathmatch. Ships no IWAD; bring a legally obtained WAD."
+    },
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.8",
+      "after": "0.1.1-dev.9",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 251410,
+          "after": 486775
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.1.1-dev.9",
+      "channel": "development",
+      "date": "2026-11-19",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.8",
+      "channel": "development"
+    }
+  ]
+}
