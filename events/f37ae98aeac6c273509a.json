@@ -1,0 +1,63 @@
+{
+  "id": "f37ae98aeac6c273509a",
+  "kind": "changed",
+  "project": "3059e0aa-40e6-42d1-8db4-ef7832aec8a0",
+  "origin": "dreamweave-mp-github-io-physik-12e4b1df",
+  "name": "physik",
+  "observed_at": "2026-11-22T19:43:59Z",
+  "before": "792f9d90f5cb4af948bdd90c7e5e5dcec6062de799ae0c42c81af7920e032f2f",
+  "after": "463a6eb4daf8cb9aa16c19d2c966842e44e0b01cb02e289bf86e6bcee00ee14c",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.3.3-dev.7",
+      "after": "0.5.1-dev.12",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 91920,
+          "after": 147480
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.3.2",
+      "after": "0.5.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 91914,
+          "after": 147472
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.5.1-dev.12",
+      "channel": "development",
+      "date": "2026-11-22",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.5.0",
+      "channel": "stable",
+      "date": "2026-11-22",
+      "status": "available",
+      "notes": {
+        "summary": "The kernel as nine typed modules that pass the strict check. Levels of static bodies cost a step nothing, bodies at rest keep their contacts, and a world that has had bodies taken out steps as a new one does. New: capsule sweeps, and a character that walks, climbs steps and slopes, rides lifts and crouches. A rotation's parts are now turn and turnW, and a contact's bodies first and second."
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.3.3-dev.7",
+      "channel": "development"
+    }
+  ]
+}

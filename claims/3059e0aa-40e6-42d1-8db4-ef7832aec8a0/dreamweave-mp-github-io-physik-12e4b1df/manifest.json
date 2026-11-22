@@ -31,22 +31,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.3.3-dev.7"
+      "version": "0.5.1-dev.12"
     },
     "stable": {
-      "version": "0.3.2"
+      "version": "0.5.0"
     }
   },
   "releases": [
     {
-      "version": "0.3.3-dev.7",
+      "version": "0.5.1-dev.12",
       "channel": "development",
-      "date": "2026-10-24",
+      "date": "2026-11-22",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/physik",
         "release": "development",
-        "revision": "53ac3960148aa09cfd8301d196b3ea73dd8473de"
+        "revision": "39fd132ae9e1147189dbfa55d4402d5b7f2cd597"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,79 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.physik-0.3.3-dev.7.jpk",
+          "filename": "org.dreamweave.physik-0.5.1-dev.12.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 91920,
+          "size": 147480,
           "digests": {
-            "sha256": "faa09f7be8f56211b9c7061b7b2bddd50a6fe3036dca54b83547d9c1624f87be"
+            "sha256": "3b4344258294d2b8f996b64d81b9ff13d17ad77135f1c5e783e9f299625c9af7"
           },
           "jess": {
             "package": "org.dreamweave.physik",
             "jess_api": "1",
-            "content_digest": "ebb6603914e0071d1a0974f5762ca30c7d9d004d767c04b0414f3994039030f8",
+            "content_digest": "8821aea3b969e77e6bf05483eaf11e4bb036634d5d582a4e143b269032d83a67",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/physik/releases/download/development/org.dreamweave.physik-0.3.3-dev.7.jpk",
+              "url": "https://github.com/DreamWeave-MP/physik/releases/download/development/org.dreamweave.physik-0.5.1-dev.12.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.5.0",
+      "channel": "stable",
+      "date": "2026-11-22",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/physik",
+        "tag": "physik-0.5.0",
+        "revision": "4400e3af1b17323441b46756775dc543c12264f7"
+      },
+      "notes": {
+        "summary": "The kernel as nine typed modules that pass the strict check. Levels of static bodies cost a step nothing, bodies at rest keep their contacts, and a world that has had bodies taken out steps as a new one does. New: capsule sweeps, and a character that walks, climbs steps and slopes, rides lifts and crouches. A rotation's parts are now turn and turnW, and a contact's bodies first and second."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "physik",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.physik-0.5.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 147472,
+          "digests": {
+            "sha256": "62345ac41653c4f20888631d65d99a959c1a9d4c7852ea66e023d6c69f65f639"
+          },
+          "jess": {
+            "package": "org.dreamweave.physik",
+            "jess_api": "1",
+            "content_digest": "1ebff4eeca1796a847a297192965d7ca9e8a8962301d8068e2ebe101456d6028",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/physik/releases/download/physik-0.5.0/org.dreamweave.physik-0.5.0.jpk",
               "kind": "publisher"
             }
           ],
