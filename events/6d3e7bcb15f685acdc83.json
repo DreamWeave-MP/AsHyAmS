@@ -1,0 +1,63 @@
+{
+  "id": "6d3e7bcb15f685acdc83",
+  "kind": "changed",
+  "project": "4a074668-4523-4c12-871c-4411c245bcca",
+  "origin": "dreamweave-mp-github-io-truetype-eada9005",
+  "name": "truetype",
+  "observed_at": "2026-11-24T09:58:34Z",
+  "before": "6dd54fd2bbe758771c21bff36e767a3991b891cce3e4eb60fe1bad48929a816d",
+  "after": "a54a7b542dcc1d83d1ed4fe47db3d01825531e0060de560d11bd80800d5475b7",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.1-dev.7",
+      "after": "0.2.1-dev.10",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 25595,
+          "after": 74242
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.1.0",
+      "after": "0.2.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 25589,
+          "after": 74235
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.2.1-dev.10",
+      "channel": "development",
+      "date": "2026-11-24",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.2.0",
+      "channel": "stable",
+      "date": "2026-11-24",
+      "status": "available",
+      "notes": {
+        "summary": "Variable fonts with TrueType outlines: fvar's axes and named instances, avar, and gvar's deltas moving outlines, composites and advances, through Font:vary."
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.1-dev.7",
+      "channel": "development"
+    }
+  ]
+}

@@ -31,22 +31,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.1.1-dev.7"
+      "version": "0.2.1-dev.10"
     },
     "stable": {
-      "version": "0.1.0"
+      "version": "0.2.0"
     }
   },
   "releases": [
     {
-      "version": "0.1.1-dev.7",
+      "version": "0.2.1-dev.10",
       "channel": "development",
-      "date": "2026-10-24",
+      "date": "2026-11-24",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/truetype",
         "release": "development",
-        "revision": "045652e7bd3f79dd441e6bb390bb0bfd4d43ca14"
+        "revision": "3f051aae2e1929fa4e8bec7cecbddf270609f683"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,79 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.truetype-0.1.1-dev.7.jpk",
+          "filename": "org.dreamweave.truetype-0.2.1-dev.10.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 25595,
+          "size": 74242,
           "digests": {
-            "sha256": "68b8f5939268986fa4d9df8018782b768454f0bb7ad5ec0e7492dcaf8f28b642"
+            "sha256": "4b9c2a82d76baed93bdf5771a705ce9b05515a32eb970c252bdd61e1e029f123"
           },
           "jess": {
             "package": "org.dreamweave.truetype",
             "jess_api": "1",
-            "content_digest": "0d82519bd5550b65da9757054bbedc447c597fe197a7732669de684e85ad2ca5",
+            "content_digest": "524cfbf5940702193b776118358d0518639046ce7f38e5a62685ef48bda9f4c5",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/truetype/releases/download/development/org.dreamweave.truetype-0.1.1-dev.7.jpk",
+              "url": "https://github.com/DreamWeave-MP/truetype/releases/download/development/org.dreamweave.truetype-0.2.1-dev.10.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "channel": "stable",
+      "date": "2026-11-24",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/truetype",
+        "tag": "truetype-0.2.0",
+        "revision": "71cd71dcca8ab31205041f8077270dc09c1f8c4d"
+      },
+      "notes": {
+        "summary": "Variable fonts with TrueType outlines: fvar's axes and named instances, avar, and gvar's deltas moving outlines, composites and advances, through Font:vary."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "truetype",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.truetype-0.2.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 74235,
+          "digests": {
+            "sha256": "46eac342817391454a8d850f8f561e705d45983d8f2b5b3e604d589c0a6aa1f0"
+          },
+          "jess": {
+            "package": "org.dreamweave.truetype",
+            "jess_api": "1",
+            "content_digest": "9adfa447019173703bea972d48ff3fcb3f8c533351bc36d17d3038a4e8a01f3e",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/truetype/releases/download/truetype-0.2.0/org.dreamweave.truetype-0.2.0.jpk",
               "kind": "publisher"
             }
           ],
