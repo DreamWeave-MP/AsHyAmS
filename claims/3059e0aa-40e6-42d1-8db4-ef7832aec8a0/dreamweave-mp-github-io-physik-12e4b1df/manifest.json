@@ -31,22 +31,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.5.1-dev.12"
+      "version": "0.6.1-dev.24"
     },
     "stable": {
-      "version": "0.5.0"
+      "version": "0.6.0"
     }
   },
   "releases": [
     {
-      "version": "0.5.1-dev.12",
+      "version": "0.6.1-dev.24",
       "channel": "development",
-      "date": "2026-11-22",
+      "date": "2026-11-25",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/physik",
         "release": "development",
-        "revision": "39fd132ae9e1147189dbfa55d4402d5b7f2cd597"
+        "revision": "f89f6a7d038b1db762f1166adb00161e9928c540"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,21 +71,79 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.physik-0.5.1-dev.12.jpk",
+          "filename": "org.dreamweave.physik-0.6.1-dev.24.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 147480,
+          "size": 163768,
           "digests": {
-            "sha256": "3b4344258294d2b8f996b64d81b9ff13d17ad77135f1c5e783e9f299625c9af7"
+            "sha256": "3f170bb1fb1a2a36bf97bf530cf0a1b8a5d145c87bac7799621f105a60fdb306"
           },
           "jess": {
             "package": "org.dreamweave.physik",
             "jess_api": "1",
-            "content_digest": "8821aea3b969e77e6bf05483eaf11e4bb036634d5d582a4e143b269032d83a67",
+            "content_digest": "ec9954ce9cb62bf1eac21125190bc4226ce673e26fef161ab756ccb4f9d056da",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/physik/releases/download/development/org.dreamweave.physik-0.5.1-dev.12.jpk",
+              "url": "https://github.com/DreamWeave-MP/physik/releases/download/development/org.dreamweave.physik-0.6.1-dev.24.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.6.0",
+      "channel": "stable",
+      "date": "2026-11-24",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/physik",
+        "tag": "physik-0.6.0",
+        "revision": "1ab73a1f27c27309c2d600b4eeb25ebf92f53693"
+      },
+      "notes": {
+        "summary": "Static bodies coming and going no longer stall a step: the tree of them is kept up to date instead of built again from all of them, so streaming a tile of them in or out costs a step some 2 ms, not 30. The tree is turned where that shrinks a box, so it answers as fast after streaming as one built afresh. A ray strikes the same body, triangle and normal whatever order the tree meets them in, and twin worlds built in different orders step alike."
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "physik",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.physik-0.6.0.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 163761,
+          "digests": {
+            "sha256": "8961444b3702e7c967f31722ef7dfdb2409bc81a63e86f43c890944d8e50564e"
+          },
+          "jess": {
+            "package": "org.dreamweave.physik",
+            "jess_api": "1",
+            "content_digest": "5d8f17d76528df243bd5ba0908319226918beed8b0758598f3f4f9378055c4c2",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/physik/releases/download/physik-0.6.0/org.dreamweave.physik-0.6.0.jpk",
               "kind": "publisher"
             }
           ],

@@ -1,0 +1,63 @@
+{
+  "id": "cdc2354c6dedfba64b77",
+  "kind": "changed",
+  "project": "3059e0aa-40e6-42d1-8db4-ef7832aec8a0",
+  "origin": "dreamweave-mp-github-io-physik-12e4b1df",
+  "name": "physik",
+  "observed_at": "2026-11-25T08:39:39Z",
+  "before": "463a6eb4daf8cb9aa16c19d2c966842e44e0b01cb02e289bf86e6bcee00ee14c",
+  "after": "c8e95dad873e408898026fb642d48345fb5e63e0b27d60c5b283c1cc6baa4d3d",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.5.1-dev.12",
+      "after": "0.6.1-dev.24",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 147480,
+          "after": 163768
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.5.0",
+      "after": "0.6.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 147472,
+          "after": 163761
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.6.1-dev.24",
+      "channel": "development",
+      "date": "2026-11-25",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.6.0",
+      "channel": "stable",
+      "date": "2026-11-24",
+      "status": "available",
+      "notes": {
+        "summary": "Static bodies coming and going no longer stall a step: the tree of them is kept up to date instead of built again from all of them, so streaming a tile of them in or out costs a step some 2 ms, not 30. The tree is turned where that shrinks a box, so it answers as fast after streaming as one built afresh. A ray strikes the same body, triangle and normal whatever order the tree meets them in, and twin worlds built in different orders step alike."
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.5.1-dev.12",
+      "channel": "development"
+    }
+  ]
+}

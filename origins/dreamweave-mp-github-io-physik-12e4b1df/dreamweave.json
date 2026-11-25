@@ -16,10 +16,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/physik/home/",
       "manifest": "https://dreamweave-mp.github.io/physik/dreamweave/projects/3059e0aa-40e6-42d1-8db4-ef7832aec8a0.json",
-      "manifest_sha256": "463a6eb4daf8cb9aa16c19d2c966842e44e0b01cb02e289bf86e6bcee00ee14c",
-      "updated": "2026-11-22",
+      "manifest_sha256": "c8e95dad873e408898026fb642d48345fb5e63e0b27d60c5b283c1cc6baa4d3d",
+      "updated": "2026-11-25",
       "channels": {
-        "development": "0.5.1-dev.12",
+        "development": "0.6.1-dev.24",
         "stable": "0.3.2"
       }
     }
