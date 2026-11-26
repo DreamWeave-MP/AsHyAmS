@@ -15,8 +15,8 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/l3i/home/",
       "manifest": "https://dreamweave-mp.github.io/l3i/dreamweave/projects/2198fb51-71ba-4695-8e1f-26b55144c4fd.json",
-      "manifest_sha256": "6718a6b7c2c2370a67eecd15e00987e0a8c724a33dd46a8fc9d5518a57361093",
-      "updated": "2026-11-21",
+      "manifest_sha256": "e512448b754bc2c56d522710efbf55a1b671c9f1bf7af7aae18476dbd4e395cf",
+      "updated": "2026-11-26",
       "channels": {
         "stable": "1.0.0"
       }

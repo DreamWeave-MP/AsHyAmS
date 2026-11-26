@@ -64,10 +64,88 @@
   },
   "channels": {
     "stable": {
-      "version": "3.0.0"
+      "version": "3.1.0"
     }
   },
   "releases": [
+    {
+      "version": "3.1.0",
+      "channel": "stable",
+      "date": "2026-11-26",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/l3i",
+        "tag": "3.1.0",
+        "revision": "e1244d2a759f109757ead603b398f2eaf26615df"
+      },
+      "notes": {
+        "summary": "bytes.deflater: one zlib, raw or gzip stream written in pieces, so a large output never needs its whole input and whole compressed form in memory at once, with a per-runtime limit on live deflaters. A host policy that can refuse process.sleep, and os.clock documented as the clock to measure it with (#56).",
+        "added": [
+          "`bytes.deflater(options)` (`bytes-codecs`) takes `deflate`'s options and returns a `dream_bytes_Deflater`. `write(source, flush?)` returns the compressed bytes that are ready, `finish(source?)` ends the stream and returns the rest; together they are one stream. Without a flush it is byte for byte what `bytes.deflate` makes of the whole input at the same format and level, however the input was split. `flush` is `'sync'` or `'full'` for a decodable point mid-stream. `close()` abandons the stream without output and is idempotent. Any `write` or `finish` after `finish`, `close`, a compressor failure or an output Luau's heap could not take is an error. `l3i::bytes::codecs::Deflater` is its userdata.",
+          "A deflater holds about 300 KiB outside the Luau heap, so a runtime holds at most 32 live at once, or what the host sets with `BytesExtension.with_max_deflaters(max)` (1 to 1024), which returns a `bytes::BytesConfig`. A deflater stops counting when it is finished, closed, fails or is collected.",
+          "`process::input::Policy::check_sleep`, asked before every `process.sleep`, so a frame-driven host can refuse a sleep that would freeze its frames. Its default admits every sleep, so a policy written for 3.0 behaves as it did."
+        ],
+        "changed": [
+          "`bytes.deflater` and `process.sleep` are installed per runtime rather than described as plain functions, so a host extension that reuses `BytesExtension`'s or `ProcessExtension`'s `describe` with an `install` of its own must install them too. `BytesExtension`, `BytesConfig`, `ProcessExtension` and `ProcessConfig` themselves need nothing."
+        ],
+        "migration": "Take 3.1.0 in place of 3.0.0. Nothing a caller wrote changes.\n\nA script that waits measures the wait with `os.clock()`, which Luau reads from a monotonic wall clock, not CPU time, on Windows, Apple platforms, Linux, Android, FreeBSD and wasm32. A host whose frames must not block overrides `check_sleep` in the policy it already passes to `with_input_policy`.\n"
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [
+        {
+          "kind": "requires",
+          "project": "f82752ac-e7f6-43c0-8c2f-d91b7f6b3dda",
+          "name": "dream-net",
+          "version": "=2.1.0",
+          "url": "https://DreamWeave-MP.github.io/dream-net/",
+          "reason": "Runtime infrastructure: the @dream/udp module is in every plan, and l3i owns the bridge."
+        },
+        {
+          "kind": "recommends",
+          "project": "f7b9633b-b7cb-4db9-a19f-63556586a81d",
+          "name": "dream-soft-render",
+          "version": "=2.0.0",
+          "url": "https://DreamWeave-MP.github.io/dream-soft-render/",
+          "reason": "The @dream/soft-render module, when the soft-render feature is on."
+        }
+      ],
+      "components": [
+        {
+          "id": "main",
+          "name": "l3i",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "crate",
+          "format": "crate",
+          "filename": "l3i-3.1.0.crate",
+          "media_type": "application/gzip",
+          "size": 3750810,
+          "digests": {
+            "sha256": "ee9d395ce0e4db8dfd1dcf8fcd94e655050b2b35b5a8df50dd61257d9ceb9a71"
+          },
+          "sources": [
+            {
+              "url": "https://static.crates.io/crates/l3i/l3i-3.1.0.crate",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
     {
       "version": "3.0.0",
       "channel": "stable",
