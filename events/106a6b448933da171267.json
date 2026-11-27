@@ -1,0 +1,67 @@
+{
+  "id": "106a6b448933da171267",
+  "kind": "changed",
+  "project": "817cd62f-bacb-4786-815c-fb47ab2fe80a",
+  "origin": "dreamweave-mp-github-io-dreamweave-theme-7891c6c0",
+  "name": "DreamWeave Theme",
+  "observed_at": "2026-11-27T08:39:28Z",
+  "before": "6b2d5bfebf1667f349fade275a8a9e90ddd36db90fefcbeff3382f56a7156911",
+  "after": "d0b4afa417cbcfb507b484e2cd54702207916bb8d86bd0d1a0ef08607f8b3374",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.2.1-dev.10",
+      "after": "0.2.2-dev.17",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 332811,
+          "after": 333345
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.2.0",
+      "after": "0.2.1",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 332521,
+          "after": 333055
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.2.2-dev.17",
+      "channel": "development",
+      "date": "2026-11-27",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.2.1",
+      "channel": "stable",
+      "date": "2026-11-26",
+      "status": "available",
+      "notes": {
+        "summary": "Releases of one date come in the order they are declared, and the stable link finds its release when the landing page doesn't show it.",
+        "fixed": [
+          "Releases that share a date are listed newest declared first, instead of in whatever order the generator's sort left them, which dropped one of four from the landing page's three newest.",
+          "The landing page's Stable link goes to the changelog page's entry when its release isn't among those the landing shows, instead of to an anchor the page doesn't have."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.2.1-dev.10",
+      "channel": "development"
+    }
+  ]
+}

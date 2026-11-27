@@ -1,0 +1,83 @@
+{
+  "id": "471ba1ae4b8d6e3ab0aa",
+  "kind": "changed",
+  "project": "4aefcc8f-913f-48f5-8980-2326173a7288",
+  "origin": "dreamweave-mp-github-io-magick-e9b07a6b",
+  "name": "Magick",
+  "observed_at": "2026-11-27T08:39:28Z",
+  "before": "9ebf53a144bc9e96ab3c26bc93057658eccc8af713387a2a36c1ba7f1c5e31ad",
+  "after": "bd4801e066964849c78412525f70a9c1ca37969156ffd7fec67a26c1731dc7c9",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.1.4-dev.20",
+      "after": "0.5.1-dev.282",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 105916,
+          "after": 555292
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.1.3",
+      "after": "0.5.0",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 92743,
+          "after": 555284
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.5.1-dev.282",
+      "channel": "development",
+      "date": "2026-11-27",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.5.0",
+      "channel": "stable",
+      "date": "2026-11-27",
+      "status": "available",
+      "notes": {
+        "summary": "Atelier and Masterpiece: seeded noise and fields, procedural paints, a stamped brush engine with five media presets, material recipes and monoline text; reference-guided painting against real renders, with the Mona Lisa from a pinned public-domain photograph; an SVG subset in and out, held to librsvg; and adversarial, 8K and 100,000-node hardening. 0.4.0 was planned but never tagged: its changes ship here."
+      }
+    },
+    {
+      "change": "release-added",
+      "version": "0.3.0",
+      "channel": "stable",
+      "date": "2026-11-27",
+      "status": "available",
+      "notes": {
+        "summary": "Retained canvas: typed scenes compiled to immutable plans, tiled rendering with the same bytes at every tile size and on Jess workers, group clips, masks, blur and shadow filters, and saved scenes."
+      }
+    },
+    {
+      "change": "release-added",
+      "version": "0.2.0",
+      "channel": "stable",
+      "date": "2026-11-27",
+      "status": "available",
+      "notes": {
+        "summary": "Vector and paint foundation: retained paths and affine transforms, exact nonzero and evenodd coverage over tiles, strokes with joins, caps and dashes, premultiplied working tiles, gradients, patterns, the sixteen W3C blend modes and isolated groups."
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.1.4-dev.20",
+      "channel": "development"
+    }
+  ]
+}

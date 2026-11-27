@@ -32,22 +32,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.2.1-dev.10"
+      "version": "0.2.2-dev.17"
     },
     "stable": {
-      "version": "0.2.0"
+      "version": "0.2.1"
     }
   },
   "releases": [
     {
-      "version": "0.2.1-dev.10",
+      "version": "0.2.2-dev.17",
       "channel": "development",
-      "date": "2026-10-24",
+      "date": "2026-11-27",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/dreamweave-theme",
         "release": "development",
-        "revision": "52b433b5252a17e4174982225f35a89a68ace604"
+        "revision": "e14a8e7fd584201958964ac25a162a6f6d057aa4"
       },
       "runtimes": {},
       "platforms": [],
@@ -72,21 +72,83 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.theme-0.2.1-dev.10.jpk",
+          "filename": "org.dreamweave.theme-0.2.2-dev.17.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 332811,
+          "size": 333345,
           "digests": {
-            "sha256": "4a387a4322af5f2683b8bbf64e9842c98e2ef2365e192244dc0f6c194df66fb1"
+            "sha256": "ea7b50ed20089637dfa8f707665de5f2423c026b7a44c1d84e796aa146e47496"
           },
           "jess": {
             "package": "org.dreamweave.theme",
             "jess_api": "1",
-            "content_digest": "4807c9a5d108a14de8f1d556a477f8353f4515ffd88e8dfafe123249b7b87988",
+            "content_digest": "1192473e0e904522ac7a4c2fb8d6837f2d2649799cc6d1131c3fb82ee1db8e0b",
             "dependencies": {}
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/dreamweave-theme/releases/download/development/org.dreamweave.theme-0.2.1-dev.10.jpk",
+              "url": "https://github.com/DreamWeave-MP/dreamweave-theme/releases/download/development/org.dreamweave.theme-0.2.2-dev.17.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.2.1",
+      "channel": "stable",
+      "date": "2026-11-26",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/dreamweave-theme",
+        "tag": "theme-0.2.1",
+        "revision": "1ad5c92022f64d7b8636482c6bfe8544b39f46cb"
+      },
+      "notes": {
+        "summary": "Releases of one date come in the order they are declared, and the stable link finds its release when the landing page doesn't show it.",
+        "fixed": [
+          "Releases that share a date are listed newest declared first, instead of in whatever order the generator's sort left them, which dropped one of four from the landing page's three newest.",
+          "The landing page's Stable link goes to the changelog page's entry when its release isn't among those the landing shows, instead of to an anchor the page doesn't have."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DreamWeave Theme",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.theme-0.2.1.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 333055,
+          "digests": {
+            "sha256": "393837a33e726e2183e4a704f1ccf99a0bc77f1fa5cea85b58e707686d0645da"
+          },
+          "jess": {
+            "package": "org.dreamweave.theme",
+            "jess_api": "1",
+            "content_digest": "6e49b9b075b262f7e33dadc4d2310f9e271ebb7015b5fc5db4b835c930f5a5d2",
+            "dependencies": {}
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/dreamweave-theme/releases/download/theme-0.2.1/org.dreamweave.theme-0.2.1.jpk",
               "kind": "publisher"
             }
           ],

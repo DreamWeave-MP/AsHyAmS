@@ -9,15 +9,15 @@
   ],
   "redirects": [],
   "validators": {
-    "etag": "\"6aefdff8-3a5\"",
-    "last_modified": "Sun, 08 Nov 2026 02:35:36 GMT"
+    "etag": "\"6b08f2e4-3a6\"",
+    "last_modified": "Fri, 27 Nov 2026 03:03:00 GMT"
   },
-  "index_sha256": "0041a485ed1f2213595eb74afa8d61828c0cfaa393c6649c84aefbd4c189b92a",
+  "index_sha256": "88b135653b2e6a6349c96c43448298f32ad964a86b951e922cff786559bc27d5",
   "health": "healthy",
   "problem": null,
   "issues": [],
   "previous": [],
   "first_observed": "2026-10-21T20:38:07Z",
-  "last_attempt": "2026-11-26T21:37:00Z",
-  "last_success": "2026-11-26T21:37:00Z"
+  "last_attempt": "2026-11-27T08:39:28Z",
+  "last_success": "2026-11-27T08:39:28Z"
 }

@@ -1,0 +1,67 @@
+{
+  "id": "9b512eb6369c489fe397",
+  "kind": "changed",
+  "project": "74143198-50bf-434b-938e-816699a5d0a4",
+  "origin": "dreamweave-mp-github-io-dreamweave-mod-template-439f8bc8",
+  "name": "DreamWeave Mod Template",
+  "observed_at": "2026-11-27T08:39:28Z",
+  "before": "e3f09d83b23e0cd5da77f25d402b710d468c6920337abef2ba3c4e8bc2a84eb6",
+  "after": "0c1de96aa0b5c1b0947bcf01ba1209643c2e528a56baccec05763c428b0e6570",
+  "changes": [
+    {
+      "change": "channel-head",
+      "channel": "development",
+      "before": "0.4.2-dev.91",
+      "after": "0.4.3-dev.96",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 186311,
+          "after": 188388
+        }
+      ]
+    },
+    {
+      "change": "channel-head",
+      "channel": "stable",
+      "before": "0.4.1",
+      "after": "0.4.2",
+      "changes": [
+        {
+          "change": "artifact-size",
+          "artifact": "jpk",
+          "before": 186304,
+          "after": 188380
+        }
+      ]
+    },
+    {
+      "change": "release-added",
+      "version": "0.4.3-dev.96",
+      "channel": "development",
+      "date": "2026-11-27",
+      "status": "available",
+      "notes": null
+    },
+    {
+      "change": "release-added",
+      "version": "0.4.2",
+      "channel": "stable",
+      "date": "2026-11-27",
+      "status": "available",
+      "notes": {
+        "summary": "Sites list releases of one date in the order mod.toml declares them, and link their stable release where its entry is shown; the site index names each channel's highest available release.",
+        "fixed": [
+          "A project declaring several releases on one date had them listed in any order, and its landing page linked Stable to an entry it did not show, which failed the link check. The DreamWeave Theme 0.2.1 orders them as declared and links Stable to the changelog when the landing leaves it out.",
+          "The site index named the last release listed for a channel rather than its highest available one, as the project manifest does."
+        ]
+      }
+    },
+    {
+      "change": "release-removed",
+      "version": "0.4.2-dev.91",
+      "channel": "development"
+    }
+  ]
+}

@@ -31,22 +31,22 @@
   },
   "channels": {
     "development": {
-      "version": "0.4.2-dev.91"
+      "version": "0.4.3-dev.96"
     },
     "stable": {
-      "version": "0.4.1"
+      "version": "0.4.2"
     }
   },
   "releases": [
     {
-      "version": "0.4.2-dev.91",
+      "version": "0.4.3-dev.96",
       "channel": "development",
-      "date": "2026-10-24",
+      "date": "2026-11-27",
       "status": "available",
       "source": {
         "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
         "release": "dev-build",
-        "revision": "1d66843860baceed0408d4b0874d64ffc9316bac"
+        "revision": "bb16e72f5db676c251aa25c2993fe866a62aeca1"
       },
       "runtimes": {},
       "platforms": [],
@@ -71,26 +71,93 @@
         {
           "id": "jpk",
           "format": "jpk",
-          "filename": "org.dreamweave.mod-template-0.4.2-dev.91.jpk",
+          "filename": "org.dreamweave.mod-template-0.4.3-dev.96.jpk",
           "media_type": "application/vnd.jess.jpk",
-          "size": 186311,
+          "size": 188388,
           "digests": {
-            "sha256": "a7103d69d9170bee50607e1b720d59da47914e923aa61e29fb8e3e9debe5dbb1"
+            "sha256": "ca21ef4258a1005c040ff36f466ed270ec062fa52e111420f4ee50c9fbdce4bc"
           },
           "jess": {
             "package": "org.dreamweave.mod-template",
             "jess_api": "1",
-            "content_digest": "7adead54f2294b7703b8b0900681f0b6e8794a5db669525de313cdb337369b2c",
+            "content_digest": "c8ab56b4900bdd12257b02446f908508b6e8176d1483ea72184daa916c447906",
             "dependencies": {
               "org.dreamweave.magick": "0.1.2",
               "org.dreamweave.site": "=0.1.1",
-              "org.dreamweave.theme": "=0.2.0",
+              "org.dreamweave.theme": "=0.2.1",
               "org.dreamweave.vfs": "2"
             }
           },
           "sources": [
             {
-              "url": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template/releases/download/dev-build/org.dreamweave.mod-template-0.4.2-dev.91.jpk",
+              "url": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template/releases/download/dev-build/org.dreamweave.mod-template-0.4.3-dev.96.jpk",
+              "kind": "publisher"
+            }
+          ],
+          "signatures": []
+        }
+      ]
+    },
+    {
+      "version": "0.4.2",
+      "channel": "stable",
+      "date": "2026-11-27",
+      "status": "available",
+      "source": {
+        "repository": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template",
+        "tag": "template-0.4.2",
+        "revision": "a2f2dffa1dcdee879028e3d05e18f21d32d638ed"
+      },
+      "notes": {
+        "summary": "Sites list releases of one date in the order mod.toml declares them, and link their stable release where its entry is shown; the site index names each channel's highest available release.",
+        "fixed": [
+          "A project declaring several releases on one date had them listed in any order, and its landing page linked Stable to an entry it did not show, which failed the link check. The DreamWeave Theme 0.2.1 orders them as declared and links Stable to the changelog when the landing leaves it out.",
+          "The site index named the last release listed for a channel rather than its highest available one, as the project manifest does."
+        ]
+      },
+      "runtimes": {},
+      "platforms": [],
+      "provides": [],
+      "relationships": [],
+      "components": [
+        {
+          "id": "main",
+          "name": "DreamWeave Mod Template",
+          "path": ".",
+          "required": true,
+          "default": true,
+          "requires": [],
+          "conflicts": [],
+          "suggested_with": []
+        }
+      ],
+      "groups": [],
+      "extensions": {},
+      "critical_extensions": [],
+      "artifacts": [
+        {
+          "id": "jpk",
+          "format": "jpk",
+          "filename": "org.dreamweave.mod-template-0.4.2.jpk",
+          "media_type": "application/vnd.jess.jpk",
+          "size": 188380,
+          "digests": {
+            "sha256": "21946b7fbe6fea3a07ed5e3073bb72ab7f15ae3fcc69ca3002ad2cde1aa5b6b5"
+          },
+          "jess": {
+            "package": "org.dreamweave.mod-template",
+            "jess_api": "1",
+            "content_digest": "757a732f1da7c6b28705c0215d2e30ab354bf3d973c88253124404709618df15",
+            "dependencies": {
+              "org.dreamweave.magick": "0.1.2",
+              "org.dreamweave.site": "=0.1.1",
+              "org.dreamweave.theme": "=0.2.1",
+              "org.dreamweave.vfs": "2"
+            }
+          },
+          "sources": [
+            {
+              "url": "https://github.com/DreamWeave-MP/DreamWeave-Mod-Template/releases/download/template-0.4.2/org.dreamweave.mod-template-0.4.2.jpk",
               "kind": "publisher"
             }
           ],

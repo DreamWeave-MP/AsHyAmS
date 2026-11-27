@@ -15,11 +15,11 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/home/",
       "manifest": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave/projects/4d0c9f6e-2b1a-4c8e-9f3a-7e5d1b2c6a90.json",
-      "manifest_sha256": "00af6b78e0a0475ae8b2556818be023e0338ac86f5a6af9e4501783cf67bbffb",
-      "updated": "2026-10-24",
+      "manifest_sha256": "792309494ef8ee74980bc6a464c1cd60d56142d26fec7fd447a81f275130bff6",
+      "updated": "2026-11-27",
       "channels": {
-        "development": "1.1.1-dev.91",
-        "stable": "1.0.0"
+        "development": "1.1.1-dev.96",
+        "stable": "1.1.0"
       }
     },
     {
@@ -31,11 +31,11 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/template/",
       "manifest": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave/projects/74143198-50bf-434b-938e-816699a5d0a4.json",
-      "manifest_sha256": "e3f09d83b23e0cd5da77f25d402b710d468c6920337abef2ba3c4e8bc2a84eb6",
-      "updated": "2026-10-24",
+      "manifest_sha256": "0c1de96aa0b5c1b0947bcf01ba1209643c2e528a56baccec05763c428b0e6570",
+      "updated": "2026-11-27",
       "channels": {
-        "development": "0.4.2-dev.91",
-        "stable": "0.3.0"
+        "development": "0.4.3-dev.96",
+        "stable": "0.4.2"
       }
     },
     {
@@ -46,10 +46,10 @@
       "status": "active",
       "page": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/simplified/",
       "manifest": "https://dreamweave-mp.github.io/DreamWeave-Mod-Template/dreamweave/projects/9b7e3f21-6c4d-4a8b-b1e2-3f5a7c9d0e14.json",
-      "manifest_sha256": "2fe5e0f94370b87ab131bc37b1230b517d2efc59bc39070104b934c2c00f055f",
-      "updated": "2026-10-24",
+      "manifest_sha256": "f953852d54e5d603f882da88df5c714c422c92b8725bf47cf9bf436b60ebb19e",
+      "updated": "2026-11-27",
       "channels": {
-        "development": "1.0.1-dev.91",
+        "development": "1.0.1-dev.96",
         "stable": "1.0.0"
       }
     }
